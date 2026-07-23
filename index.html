@@ -48,6 +48,10 @@
 @font-face { font-family:'Satoshi'; src:url('assets/fonts/Satoshi-Italic.ttf') format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
 @font-face { font-family:'Bitcount'; src:url('assets/fonts/Bitcount-Regular.ttf') format('truetype'); font-weight:400; font-display:swap; }
 @font-face { font-family:'Bitcount'; src:url('assets/fonts/Bitcount-Medium.ttf') format('truetype'); font-weight:500; font-display:swap; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important;
+    transition-duration:.01ms !important; scroll-behavior:auto !important; }
+}
 @keyframes scrollline { 0%,100%{transform:scaleX(.4);opacity:.4} 50%{transform:scaleX(1);opacity:1} }
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 html, body { scroll-behavior:smooth; background:#151515; overscroll-behavior:none; }
@@ -56,6 +60,8 @@ img { display:block; max-width:100%; }
 a { color:inherit; text-decoration:none; }
 a:hover { color:inherit; }
 ::selection { background:#593AC6; color:#FEFAEF; }
+:focus-visible { outline:2px solid var(--cream); outline-offset:3px; border-radius:2px; }
+button { background:none; border:none; font:inherit; color:inherit; -webkit-appearance:none; appearance:none; }
 </style>
 
 
@@ -70,7 +76,7 @@ a:hover { color:inherit; }
         Liminals
       </a>
       <sc-if value="{{ isManifesto }}" hint-placeholder-val="{{ false }}">
-        <span onClick="{{ goHome }}" style="{{ backHomeStyle }}" style-hover="{{ backHomeHover }}">← back home</span>
+        <button onClick="{{ goHome }}" style="{{ backHomeStyle }}" style-hover="{{ backHomeHover }}">← back home</button>
       </sc-if>
     </div>
     <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
@@ -79,7 +85,7 @@ a:hover { color:inherit; }
         <a href="#ascolto" style="{{ navLinkAscoltoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Ascolto">Ascolto</a>
         <a href="#live" style="{{ navLinkLiveStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Live">Live</a>
         <a href="#contatti" style="{{ navLinkContattiStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Contatti">Contatti</a>
-        <a onClick="{{ openManifesto }}" style="{{ navLinkManifestoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Manifesto">Manifesto</a>
+        <button onClick="{{ openManifesto }}" style="{{ navLinkManifestoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Manifesto">Manifesto</button>
         <button onClick="{{ toggleTheme }}" style="{{ themeToggleStyle }}" style-hover="{{ themeToggleHover }}">
           <span style="{{ themeKnobStyle }}"></span>
           <span>{{ themeLabel }}</span>
@@ -88,7 +94,7 @@ a:hover { color:inherit; }
     </sc-if>
     <sc-if value="{{ isManifesto }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex; align-items:center; gap:10px;">
-        <button onClick="{{ cycleLanguage }}" style="{{ langToggleStyle }}" style-hover="{{ themeToggleHover }}"><span>{{ languageFlag }}</span><span>{{ languageLabel }}</span></button>
+        <button onClick="{{ cycleLanguage }}" style="{{ langToggleStyle }}" style-hover="{{ themeToggleHover }}"><span>{{ languageLabel }}</span></button>
         <button onClick="{{ toggleTheme }}" style="{{ themeToggleStyle }}" style-hover="{{ themeToggleHover }}">
           <span style="{{ themeKnobStyle }}"></span>
           <span>{{ themeLabel }}</span>
@@ -109,9 +115,9 @@ a:hover { color:inherit; }
       <a href="#ascolto" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(30px,9vw,54px); letter-spacing:-0.03em; line-height:1.05; padding:8px 0; color:var(--cream); display:flex; align-items:center; gap:22px;"><span style="width:26px; height:26px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>Ascolto</a>
       <a href="#live" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(30px,9vw,54px); letter-spacing:-0.03em; line-height:1.05; padding:8px 0; color:var(--cream); display:flex; align-items:center; gap:22px;"><span style="width:26px; height:26px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>Live</a>
       <a href="#contatti" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(30px,9vw,54px); letter-spacing:-0.03em; line-height:1.05; padding:8px 0; color:var(--cream); display:flex; align-items:center; gap:22px;"><span style="width:26px; height:26px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>Contatti</a>
-      <a onClick="{{ openManifestoFromMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(30px,9vw,54px); letter-spacing:-0.03em; line-height:1.05; padding:8px 0; color:var(--cream); display:flex; align-items:center; gap:22px; cursor:pointer;"><span style="width:26px; height:26px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>Manifesto</a>
+      <button onClick="{{ openManifestoFromMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(30px,9vw,54px); letter-spacing:-0.03em; line-height:1.05; padding:8px 0; color:var(--cream); display:flex; align-items:center; gap:22px; cursor:pointer; text-align:left; width:100%;"><span style="width:26px; height:26px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>Manifesto</button>
     </nav>
-    <div style="font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--dim); display:flex; justify-content:space-between;">
+    <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--dim); display:flex; justify-content:space-between;">
       <span>Trieste · IT</span>
       <button onClick="{{ toggleTheme }}" style="{{ themeToggleStyle }}" style-hover="{{ themeToggleHover }}"><span>Tema</span></button>
       <span>Est. 2026</span>
@@ -136,7 +142,7 @@ a:hover { color:inherit; }
           <span>Trieste · IT</span>
         </div>
       </div>
-      <div style="font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); display:flex; align-items:center; gap:10px; white-space:nowrap; justify-content:flex-end; margin-top:clamp(20px,4vh,40px);">
+      <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); display:flex; align-items:center; gap:10px; white-space:nowrap; justify-content:flex-end; margin-top:clamp(20px,4vh,40px);">
         <span style="width:48px; height:1px; background:var(--accent); display:inline-block; animation:scrollline 2.4s ease-in-out infinite;"></span>Scorri
       </div>
     </div>
@@ -151,27 +157,27 @@ a:hover { color:inherit; }
       <div style="max-width:var(--maxw); margin:0 auto;">
         <div data-reveal-key="bioHead" style="{{ revealBioHead }}display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
           <span style="width:10.94px; height:10.94px; background:var(--accent); flex-shrink:0; display:inline-block; transform:translateY(0.5px);"></span>
-          <span style="font-family:'Bitcount',monospace; font-size:12px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Suono</span>
-          <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">Bio · profilo</span>
+          <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Suono</span>
+          <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">Bio · profilo</span>
         </div>
         <h2 data-reveal-key="manifestoQuote" style="{{ manifestoH2Style }}">Lavoriamo nello spazio <em style="font-style:normal; color:var(--accent);">liminale</em>: tra l'ascolto attento e il corpo che si muove, tra ricerca e pista.</h2>
         
-        <div data-reveal-key="foot" style="{{ revealFoot }}margin-top: clamp(28px,4vh,48px); margin-bottom: clamp(48px,7vh,80px); display: flex; flex-wrap: wrap; gap: 12px 40px; font-family: 'Bitcount',monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dim)">
+        <div data-reveal-key="foot" style="{{ revealFoot }}margin-top: clamp(28px,4vh,48px); margin-bottom: clamp(48px,7vh,80px); display: flex; flex-wrap: wrap; gap: 12px 40px; font-family: 'Bitcount',monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dim)">
           <span>— Sobrio in apertura</span>
           <span>— Coerente a fine serata</span>
           <span>— Mai mainstream</span>
         </div><div style="{{ bioGridStyle }}">
-          <div data-reveal-key="bioLabels" style="{{ revealBioLabels }}display:flex; flex-direction:column; gap:8px; font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--faint);">
+          <div data-reveal-key="bioLabels" style="{{ revealBioLabels }}display:flex; flex-direction:column; gap:8px; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--faint);">
             <span>ZACKU</span>
             <span>B2B Teo</span></div>
           <div style="display:flex; flex-direction:column; gap:22px; max-width:62ch; margin-top:-6px;">
             <p data-reveal-key="bioLead" style="{{ revealBioLead }}font-family: 'Outfit',sans-serif; font-weight: 300; line-height: 1.45; letter-spacing: -0.01em; font-size: 25.67px">Due selezioni, un solo arco. zacku e Teo suonano a quattro mani: minimal deep tech e house costruiti insieme, non due set giustapposti.</p>
             <div data-reveal-key="tags" style="{{ revealTags }}display:flex; flex-wrap:wrap; gap:10px; margin-top:4px;">
-              <span style="font-family:'Bitcount',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">Minimal</span>
-              <span style="font-family:'Bitcount',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">Deep tech</span>
-              <span style="font-family:'Bitcount',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">House</span>
-              <span style="font-family:'Bitcount',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">3h+ a due</span>
-              <span style="font-family:'Bitcount',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">DJ set</span>
+              <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">Minimal</span>
+              <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">Deep tech</span>
+              <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">House</span>
+              <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">3h+ a due</span>
+              <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">DJ set</span>
             </div>
           </div>
         </div>
@@ -183,14 +189,14 @@ a:hover { color:inherit; }
       <div style="max-width:var(--maxw); margin:0 auto;">
         <div data-reveal-key="musicHead" style="{{ revealMusicHead }}display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
           <span style="width:10.94px; height:10.94px; background:var(--accent); flex-shrink:0; display:inline-block; transform:translateY(0.5px);"></span>
-          <span style="font-family:'Bitcount',monospace; font-size:12px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Ascolto</span>
-          <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">Mix · release</span>
+          <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Ascolto</span>
+          <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">Mix · release</span>
         </div>
         <div style="{{ musicGridStyle }}">
           <a href="https://www.mixcloud.com/zackuu/zacku-and-teo-aurisina-session/" target="_blank" rel="noopener" style="{{ track1Style }}" style-hover="{{ trackHover }}">
             <img src="assets/img/track-aurisina.jpg" alt="Aurisina session" style="width:clamp(72px,8vw,104px); aspect-ratio:1; object-fit:cover; flex-shrink:0;">
             <div style="display:flex; flex-direction:column; gap:6px; min-width:0;">
-              <span style="font-family:'Bitcount',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent);">Mixcloud</span>
+              <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cream);">Mixcloud</span>
               <span style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(16px,1.5vw,21px); letter-spacing:-0.01em; line-height:1.15;">zacku &amp; Teo — Aurisina session</span>
               <span style="font-size:13px; color:var(--dim);">B2B</span>
             </div>
@@ -199,7 +205,7 @@ a:hover { color:inherit; }
           <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener" style="{{ track2Style }}" style-hover="{{ trackHover }}">
             <img src="assets/img/track-spotify.jpg" alt="zacku su Spotify" style="width:clamp(72px,8vw,104px); aspect-ratio:1; object-fit:cover; flex-shrink:0;">
             <div style="display:flex; flex-direction:column; gap:6px; min-width:0;">
-              <span style="font-family:'Bitcount',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent);">Spotify</span>
+              <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cream);">Spotify</span>
               <span style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(16px,1.5vw,21px); letter-spacing:-0.01em; line-height:1.15;">zacku</span>
               <span style="font-size:13px; color:var(--dim);">"Lies" / Glasgow Underground Records</span>
             </div>
@@ -214,15 +220,15 @@ a:hover { color:inherit; }
       <div style="max-width:var(--maxw); margin:0 auto;">
         <div data-reveal-key="liveHead" style="{{ revealLiveHead }}display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
           <span style="width:10.94px; height:10.94px; background:var(--accent); flex-shrink:0; display:inline-block; transform:translateY(0.5px);"></span>
-          <span style="font-family:'Bitcount',monospace; font-size:12px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Live</span>
-          <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">EVENTI</span>
+          <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Live</span>
+          <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">EVENTI</span>
         </div>
         <div data-reveal-key="eventsGroup" style="{{ revealEventsGroup }}">
-          <div style="font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); margin-bottom:16px;">Passati</div>
+          <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); margin-bottom:16px;">Passati</div>
           <div style="{{ eventGridStyle }}" style-hover="{{ eventHover }}">
-            <span style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.14em; color:var(--accent);">06/2026</span>
+            <span style="font-family:'Bitcount',monospace; font-size:13px; letter-spacing:0.14em; color:var(--cream);">06/2026</span>
             <span style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(18px,2vw,28px); letter-spacing:-0.02em; color:var(--cream);">Aurisina session<small style="display: block; font-family: Satoshi, sans-serif; font-weight: 400; font-size: 13px; letter-spacing: 0px; line-height: 1.5; color: var(--faint); margin-top: 4px;">Carso, Trieste</small></span>
-            <span style="font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--dim); text-align:right;">B2B · registrato</span>
+            <span style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--dim); text-align:right;">B2B · registrato</span>
           </div>
         </div>
       </div>
@@ -234,29 +240,29 @@ a:hover { color:inherit; }
     <div style="max-width:var(--maxw); margin:0 auto;">
       <div data-reveal-key="contattiHead" style="{{ revealContattiHead }}display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
         <span style="width: 10.94px; height: 10.94px; background: var(--accent); flex-shrink: 0; display: inline-block; transform: translateY(0.5px);"></span>
-        <span style="font-family: Bitcount, monospace; font-size: 12px; line-height: 1; letter-spacing: 0.24em; text-transform: uppercase; color: var(--dim);">Contatti</span>
-        <span style="margin-left: auto; font-family: Bitcount, monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--faint);">Pitch · manifesto</span></div>
+        <span style="font-family: Bitcount, monospace; font-size: 13px; line-height: 1; letter-spacing: 0.24em; text-transform: uppercase; color: var(--dim);">Contatti</span>
+        <span style="margin-left: auto; font-family: Bitcount, monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--faint);">Pitch · manifesto</span></div>
       <div style="{{ connectGridStyle }}">
         <div style="display:flex; flex-direction:column; gap:clamp(18px,2.2vh,24px); align-items:stretch;">
           
           <div data-reveal-key="cblock1" style="{{ cblock1Style }}" style-hover="{{ cblockHover }}">
-            <div style="font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent); margin-bottom:14px;">Hai un posto per noi</div>
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">Hai un posto per noi</div>
             <p style="font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);">Club, spazi, chi organizza.</p>
             <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px;">Il pitch completo è qui accanto, scaricabile.</div>
           </div>
           
           <div data-reveal-key="cblock0" style="{{ cblock0Style }}" style-hover="{{ cblockHover }}">
-            <div style="font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent); margin-bottom:14px;">Scrivici</div>
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">Scrivici</div>
             <a href="mailto:hello@liminalsmusic.com" onClick="{{ copyEmail }}" style="{{ emailBtnStyle }}" style-hover="{{ emailBtnHover }}">hello@liminalsmusic.com <span style="font-size: 0.85em; opacity: 0.8;">⧉</span></a>
             <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:12px;">Tocca per copiare.</div>
           </div><div data-reveal-key="cblock3" style="{{ cblock3Style }}" style-hover="{{ cblockHover }}">
-            <div style="font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent); margin-bottom:14px;">ASCOLTACI</div>
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">ASCOLTACI</div>
             <div style="display:flex; flex-direction:column; gap:6px;">
               <a href="https://www.mixcloud.com/zackuu/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);" style-hover="{{ clinkHover }}">Mixcloud <span style="font-size:0.7em; opacity:0.7;">↗</span></a>
               <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);" style-hover="{{ clinkHover }}">Spotify <span style="font-size:0.7em; opacity:0.7;">↗</span></a>
             </div>
           </div><div data-reveal-key="cblock2" style="{{ cblock2Style }}" style-hover="{{ cblockHover }}">
-            <div style="font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent); margin-bottom:14px;">LAVORA CON NOI</div>
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">LAVORA CON NOI</div>
             <p style="font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);">Artisti, grafici, chi costruisce serate.</p>
             <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px;">Cerchiamo collaboratori creativi. Contattaci: hello@liminalsmusic.com</div>
           </div>
@@ -264,7 +270,7 @@ a:hover { color:inherit; }
 
         <div style="{{ qrColStyle }}">
           <div style="{{ qrCardStyle }}">
-            <div style="font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Il pitch · <b style="color:var(--accent); font-weight:500;">completo</b></div>
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Il pitch · <b style="color:var(--cream); font-weight:500;">completo</b></div>
             <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); max-width:28ch;">Scarica il nostro pitch e condividilo con chi pensi possa essere interessato.</div>
             <div style="display:flex; flex-direction:column; gap:10px; align-items:center; width:100%; margin-top:6px;">
               <a href="{{ pitchHtmlDataUrl }}" target="_blank" rel="noopener" style="{{ pitchBtnStyle }}" style-hover="{{ emailBtnHover }}">Apri il pitch <span style="font-size: 0.8em; opacity: 0.8;">↗</span></a>
@@ -273,10 +279,10 @@ a:hover { color:inherit; }
           </div>
 
           <div style="{{ qrCardStyle }}">
-            <div style="font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Riguardo al <b style="color:var(--accent); font-weight:500;">manifesto</b></div>
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Riguardo al <b style="color:var(--cream); font-weight:500;">manifesto</b></div>
             <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); max-width:28ch;">La carta etica che regola come stiamo sul dancefloor e fuori da esso.</div>
             <div style="display:flex; flex-direction:column; gap:10px; align-items:center; width:100%; margin-top:6px;">
-              <span onClick="{{ openManifesto }}" style="{{ pitchBtnStyle }}cursor:pointer;" style-hover="{{ emailBtnHover }}">Leggi il manifesto <span style="font-size: 0.8em; opacity: 0.8;">→</span></span>
+              <button onClick="{{ openManifesto }}" style="{{ pitchBtnStyle }}cursor:pointer;" style-hover="{{ emailBtnHover }}">Leggi il manifesto <span style="font-size: 0.8em; opacity: 0.8;">→</span></button>
             </div>
           </div>
         </div>
@@ -288,7 +294,7 @@ a:hover { color:inherit; }
   <footer style="padding:clamp(48px,7vh,88px) var(--pad-x) 36px; border-top:1px solid var(--ghost);">
     <div style="max-width:var(--maxw); margin:0 auto; display:flex; flex-direction:column; gap:clamp(28px,5vh,56px);">
       <div data-reveal-key="footerBig" style="{{ footerBigRevealStyle }}">Liminals</div>
-      <div data-reveal-key="footerRow" style="{{ revealFooterRow }}display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px; font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--dim);">
+      <div data-reveal-key="footerRow" style="{{ revealFooterRow }}display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--dim);">
         <span>zacku × Teo</span>
         <span>Minimal deep tech &amp; house</span>
         <span>Trieste · IT — Est. 2026</span>
@@ -303,7 +309,7 @@ a:hover { color:inherit; }
   <section style="position:relative; min-height:100vh; padding:calc(96px + clamp(48px,8vh,96px)) var(--pad-x) clamp(64px,10vh,120px); display:flex; justify-content:center;">
     <div style="width:100%; max-width:820px;">
 
-      <div data-reveal-key="manHead" style="{{ revealManHead }}display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:16px; font-family:'Bitcount',monospace; font-weight:400; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--dim); margin-bottom:clamp(48px,7vh,80px);">
+      <div data-reveal-key="manHead" style="{{ revealManHead }}display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:16px; font-family:'Bitcount',monospace; font-weight:400; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--dim); margin-bottom:clamp(48px,7vh,80px);">
         <span>{{ t.head1 }}</span>
         <span>Trieste, IT · 2026</span>
       </div>
@@ -318,7 +324,7 @@ a:hover { color:inherit; }
         <div>
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span style="width:10px; height:10px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>
-            <h2 style="font-family:'Outfit',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin:0;">{{ t.s1Title }}</h2>
+            <h2 style="font-family:'Outfit',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--cream); margin:0;">{{ t.s1Title }}</h2>
           </div>
           <p style="font-family:'Satoshi',sans-serif; font-size:15.5px; line-height:1.65; max-width:62ch; color:var(--dim); margin-bottom:14px;">{{ t.s1P1 }}</p>
           <p style="font-family:'Satoshi',sans-serif; font-size:15.5px; line-height:1.65; max-width:62ch; color:var(--dim); margin-bottom:14px;">{{ t.s1P2 }}</p>
@@ -336,7 +342,7 @@ a:hover { color:inherit; }
         <div>
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span style="width:10px; height:10px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>
-            <h2 style="font-family:'Outfit',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin:0;">{{ t.s2Title }}</h2>
+            <h2 style="font-family:'Outfit',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--cream); margin:0;">{{ t.s2Title }}</h2>
           </div>
           <p style="font-family:'Satoshi',sans-serif; font-size:15.5px; line-height:1.65; max-width:62ch; color:var(--dim); margin-bottom:14px;">{{ t.s2P1 }}</p>
         </div>
@@ -344,7 +350,7 @@ a:hover { color:inherit; }
         <div>
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span style="width:10px; height:10px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>
-            <h2 style="font-family:'Outfit',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin:0;">{{ t.s3Title }}</h2>
+            <h2 style="font-family:'Outfit',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--cream); margin:0;">{{ t.s3Title }}</h2>
           </div>
           <p style="font-family:'Satoshi',sans-serif; font-size:15.5px; line-height:1.65; max-width:62ch; color:var(--dim); margin-bottom:14px;">{{ t.s3P1 }}</p>
           <p style="font-family:'Satoshi',sans-serif; font-size:15.5px; line-height:1.65; max-width:62ch; color:var(--dim);">{{ t.s3P2 }}</p>
@@ -353,7 +359,7 @@ a:hover { color:inherit; }
         <div>
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span style="width:10px; height:10px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>
-            <h2 style="font-family:'Outfit',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin:0;">{{ t.s4Title }}</h2>
+            <h2 style="font-family:'Outfit',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--cream); margin:0;">{{ t.s4Title }}</h2>
           </div>
           <p style="font-family:'Satoshi',sans-serif; font-size:15.5px; line-height:1.65; max-width:62ch; color:var(--dim); margin-bottom:14px;">{{ t.s4P1 }}</p>
           <p style="font-family:'Satoshi',sans-serif; font-size:15.5px; line-height:1.65; max-width:62ch; color:var(--dim); margin-bottom:14px;">{{ t.s4P2 }}</p>
@@ -362,7 +368,7 @@ a:hover { color:inherit; }
 
       </div>
 
-      <div style="margin-top:clamp(56px,8vh,88px); padding-top:20px; border-top:1px solid var(--ghost); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:12px; font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--dim);">
+      <div style="margin-top:clamp(56px,8vh,88px); padding-top:20px; border-top:1px solid var(--ghost); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:12px; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--dim);">
         <span>Liminals — Trieste, 2026</span>
         <div style="text-align:right; display:flex; flex-direction:column; gap:2px;">
           <span>mail: hello@liminalsmusic.com</span>
@@ -371,7 +377,7 @@ a:hover { color:inherit; }
       </div>
 
       <div style="margin-top:clamp(40px,6vh,64px); display:flex; justify-content:center;">
-        <span onClick="{{ goHome }}" style="{{ pitchBtnStyle }}display:inline-flex; width:auto; cursor:pointer;" style-hover="{{ emailBtnHover }}">{{ t.backHome }}</span>
+        <button onClick="{{ goHome }}" style="{{ pitchBtnStyle }}display:inline-flex; width:auto; cursor:pointer;" style-hover="{{ emailBtnHover }}">{{ t.backHome }}</button>
       </div>
 
     </div>
@@ -678,7 +684,7 @@ class Component extends DCLogic {
       '--bg-2': isLight ? 'color-mix(in srgb, #151515 7%, #FEFAEF)' : 'color-mix(in srgb, #FEFAEF 6%, #151515)',
       '--cream': isLight ? '#151515' : '#FEFAEF',
       '--dim': isLight ? 'rgba(21,21,21,0.64)' : 'rgba(254,250,239,0.62)',
-      '--faint': isLight ? 'rgba(21,21,21,0.40)' : 'rgba(254,250,239,0.36)',
+      '--faint': isLight ? 'rgba(21,21,21,0.55)' : 'rgba(254,250,239,0.48)',
       '--ghost': isLight ? 'rgba(21,21,21,0.12)' : 'rgba(254,250,239,0.12)',
       '--accent': isLight ? '#FC4446' : '#593AC6',
       '--pad-x': 'clamp(20px, 6vw, 96px)',
@@ -704,22 +710,22 @@ class Component extends DCLogic {
     const navLinksStyle = { display: isNarrow ? 'none' : 'flex', gap: '30px', alignItems: 'center' };
 
     const navLinkBase = (id) => ({
-      fontFamily: "'Bitcount',monospace", fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase',
-      color: active === id ? 'var(--accent)' : 'var(--dim)',
+      fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.2em', textTransform: 'uppercase',
+      color: active === id ? 'var(--cream)' : 'var(--dim)',
       padding: '4px 0',
       transition: 'color .25s ease',
       cursor: 'pointer',
     });
     const navLinkHover = { color: 'var(--cream)' };
     const navLinkManifestoStyle = {
-      fontFamily: "'Bitcount',monospace", fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase',
+      fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.2em', textTransform: 'uppercase',
       color: 'var(--dim)', padding: '4px 0', transition: 'color .25s ease', cursor: 'pointer',
     };
     const backHomeStyle = {
-      fontFamily: "'Bitcount',monospace", fontSize: '10.5px', letterSpacing: '0.16em', textTransform: 'uppercase',
+      fontFamily: "'Bitcount',monospace", fontSize: '11.5px', letterSpacing: '0.16em', textTransform: 'uppercase',
       color: 'var(--dim)', cursor: 'pointer', transition: 'color .25s ease', whiteSpace: 'nowrap',
     };
-    const backHomeHover = { color: 'var(--accent)' };
+    const backHomeHover = { color: 'var(--cream)' };
     const glitchEnter = this.glitchEnter;
     const glitchLeave = this.glitchLeave;
 
@@ -727,7 +733,7 @@ class Component extends DCLogic {
       display: 'flex', alignItems: 'center', gap: '9px', cursor: 'pointer',
       background: 'none', border: '1px solid var(--ghost)', borderRadius: '100px',
       padding: '9px 16px', color: 'var(--dim)',
-      fontFamily: "'Bitcount',monospace", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase',
+      fontFamily: "'Bitcount',monospace", fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase',
       transition: 'color .25s ease, border-color .25s ease, background .25s ease',
     };
     const themeToggleHover = { color: 'var(--bg)', borderColor: 'var(--cream)', background: 'var(--cream)', transform: 'scale(' + hoverScale + ')' };
@@ -735,12 +741,10 @@ class Component extends DCLogic {
       display: 'flex', alignItems: 'center', gap: '7px', cursor: 'pointer',
       background: 'none', border: '1px solid var(--ghost)', borderRadius: '100px',
       padding: '9px 16px', color: 'var(--dim)',
-      fontFamily: "'Bitcount',monospace", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase',
+      fontFamily: "'Bitcount',monospace", fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase',
       transition: 'color .25s ease, border-color .25s ease, background .25s ease',
     };
     const languageLabel = this.state.language || 'IT';
-    const languageFlags = { IT: '🇮🇹', EN: '🇬🇧', FR: '🇫🇷', ES: '🇪🇸' };
-    const languageFlag = languageFlags[languageLabel] || '🇮🇹';
     const t = this.manifestoTranslations[languageLabel] || this.manifestoTranslations.IT;
     const themeKnobStyle = isLight
       ? { width: '9px', height: '9px', borderRadius: '50%', border: '1.5px solid var(--accent)', display: 'inline-block' }
@@ -778,8 +782,8 @@ class Component extends DCLogic {
     };
 
     const heroMetaStyle = isTiny
-      ? { display: 'flex', flexDirection: 'column', gap: '6px', fontFamily: "'Bitcount',monospace", fontSize: '11px', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--dim)', marginTop: '18px', paddingTop: '14px', borderTop: '1px solid var(--ghost)' }
-      : { display: 'flex', flexDirection: 'column', gap: '6px', fontFamily: "'Bitcount',monospace", fontSize: '11px', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--dim)', position: 'absolute', top: '130px', right: 0, maxWidth: '316px', textAlign: 'right' };
+      ? { display: 'flex', flexDirection: 'column', gap: '6px', fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--dim)', marginTop: '18px', paddingTop: '14px', borderTop: '1px solid var(--ghost)' }
+      : { display: 'flex', flexDirection: 'column', gap: '6px', fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--dim)', position: 'absolute', top: '130px', right: 0, maxWidth: '316px', textAlign: 'right' };
 
     const manifestoHalftoneStyle = {
       position: 'absolute', right: 0, top: 0, width: 'min(58vw,780px)', height: '100%',
@@ -866,7 +870,7 @@ class Component extends DCLogic {
     const toastStyle = {
       position: 'fixed', bottom: '28px', left: '50%', zIndex: 6000,
       background: 'var(--cream)', color: 'var(--bg)', padding: '13px 22px',
-      fontFamily: "'Bitcount',monospace", fontSize: '11px', letterSpacing: '0.16em', textTransform: 'uppercase',
+      fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.16em', textTransform: 'uppercase',
       transform: this.state.toastShow ? 'translate(-50%,0)' : 'translate(-50%,140%)',
       transition: 'transform .45s cubic-bezier(.7,0,.2,1)',
     };
@@ -894,7 +898,7 @@ class Component extends DCLogic {
       navLinkContattiStyle: navLinkBase('contatti'),
       navLinkHover, glitchEnter, glitchLeave,
       themeToggleStyle, themeToggleHover, themeKnobStyle, themeLabel,
-      langToggleStyle, languageLabel, languageFlag, cycleLanguage: this.cycleLanguage, t,
+      langToggleStyle, languageLabel, cycleLanguage: this.cycleLanguage, t,
       toggleTheme: this.toggleTheme, toggleMenu: this.toggleMenu, closeMenu: this.closeMenu,
       burgerWrapStyle, burgerHover, burgerLine1Style, burgerLine2Style, burgerLine3Style,
       menuStyle,
