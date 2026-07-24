@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Pitch — Liminals</title>
-<meta name="description" content="Il pitch completo di Liminals: duo DJ di Trieste, minimal deep tech e house. Formato set, riferimenti e contatti per club e spazi.">
+<meta name="description" content="Il pitch di Liminals: duo DJ di Trieste, minimal deep tech e house. Set a due di 3h+, formato, riferimenti e contatti per club e spazi.">
 <link rel="canonical" href="https://liminalsmusic.com/pitch.html">
 
 <meta property="og:type" content="article">
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Liminals">
 <meta property="og:locale" content="it_IT">
 <meta property="og:title" content="Pitch — Liminals">
-<meta property="og:description" content="Il pitch completo di Liminals: duo DJ di Trieste, minimal deep tech e house. Formato set, riferimenti e contatti per club e spazi.">
+<meta property="og:description" content="Il pitch di Liminals: duo DJ di Trieste, minimal deep tech e house. Set a due di 3h+, formato, riferimenti e contatti per club e spazi.">
 <meta property="og:image" content="https://liminalsmusic.com/assets/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -21,7 +21,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pitch — Liminals">
-<meta name="twitter:description" content="Il pitch completo di Liminals: duo DJ di Trieste, minimal deep tech e house.">
+<meta name="twitter:description" content="Il pitch di Liminals: duo DJ di Trieste, minimal deep tech e house.">
 <meta name="twitter:image" content="https://liminalsmusic.com/assets/img/og.jpg">
 
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -40,79 +40,190 @@
 
 :root {
   --bg:#151515; --bg-2:color-mix(in srgb, #FEFAEF 6%, #151515);
-  --cream:#FEFAEF; --dim:rgba(254,250,239,0.62); --ghost:rgba(254,250,239,0.12);
-  --accent:#593AC6; --pad-x:clamp(16px, 5vw, 48px);
+  --cream:#FEFAEF; --dim:rgba(254,250,239,0.62); --faint:rgba(254,250,239,0.38);
+  --ghost:rgba(254,250,239,0.12); --accent:#593AC6;
+  --pad-x:clamp(20px, 5vw, 48px); --maxw:880px;
 }
 html[data-theme="light"] {
   --bg:#FEFAEF; --bg-2:color-mix(in srgb, #151515 7%, #FEFAEF);
-  --cream:#151515; --dim:rgba(21,21,21,0.64); --ghost:rgba(21,21,21,0.12);
-  --accent:#FC4446;
+  --cream:#151515; --dim:rgba(21,21,21,0.64); --faint:rgba(21,21,21,0.4);
+  --ghost:rgba(21,21,21,0.12); --accent:#FC4446;
 }
 
-html, body { background:var(--bg); height:100%; overflow:hidden; }
+html { scroll-behavior:smooth; }
 body {
-  color:var(--cream); font-family:'Satoshi', system-ui, sans-serif;
+  background:var(--bg); color:var(--cream);
+  font-family:'Satoshi', system-ui, sans-serif; font-size:16px; line-height:1.65;
   -webkit-font-smoothing:antialiased;
-  display:flex; flex-direction:column; height:100svh;
 }
 a { color:inherit; text-decoration:none; }
-button { background:none; border:none; font:inherit; color:inherit; -webkit-appearance:none; appearance:none; }
+button { background:none; border:none; font:inherit; color:inherit; cursor:pointer; -webkit-appearance:none; appearance:none; }
 ::selection { background:var(--accent); color:#FEFAEF; }
 :focus-visible { outline:2px solid var(--cream); outline-offset:3px; border-radius:2px; }
 
+/* ---------- nav ---------- */
 header {
-  flex:0 0 auto; display:flex; align-items:center; justify-content:space-between;
-  gap:12px; padding:12px var(--pad-x); border-bottom:1px solid var(--ghost);
-  background:var(--bg); position:relative; z-index:2; flex-wrap:wrap;
+  position:fixed; top:0; left:0; right:0; z-index:10;
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  padding:14px var(--pad-x);
+  background:color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--ghost);
 }
-.brand { display:flex; align-items:center; gap:14px; min-width:0; }
-.logo { font-family:'Outfit',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.03em; line-height:1; }
+.brand { display:flex; align-items:center; gap:clamp(14px,3vw,28px); min-width:0; }
+.logo {
+  font-family:'Outfit',sans-serif; font-weight:600; font-size:20px;
+  letter-spacing:-0.03em; line-height:1; padding:12px 2px; margin:-12px -2px;
+}
 .back {
   display:inline-flex; align-items:center; gap:8px;
-  font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase;
-  color:var(--dim); border:1px solid var(--ghost); border-radius:100px; padding:10px 16px;
-  min-height:44px; transition:color .25s ease, border-color .25s ease, background .25s ease;
+  font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--dim); padding:12px 4px; margin:-12px -4px;
+  transition:color .25s ease; white-space:nowrap;
 }
-.back:hover { color:var(--cream); border-color:var(--cream); background:var(--bg-2); }
-.actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.back:hover { color:var(--cream); }
+.actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
 .pill {
-  display:inline-flex; align-items:center; justify-content:center; gap:8px; cursor:pointer;
-  border:1px solid var(--ghost); border-radius:100px; padding:10px 16px; min-height:44px;
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  border:1px solid var(--ghost); border-radius:100px; padding:12px 16px; min-height:44px;
   font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
   color:var(--dim); transition:color .25s ease, border-color .25s ease, background .25s ease;
 }
-.pill:hover { color:var(--bg); border-color:var(--cream); background:var(--cream); }
+.pill:hover { color:var(--cream); border-color:var(--cream); }
 .pdf {
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
   font-family:'Outfit',sans-serif; font-weight:500; font-size:15px; letter-spacing:-0.01em;
   color:var(--bg); background:var(--cream); border-radius:100px; padding:11px 20px; min-height:44px;
-  transition:background .3s ease, color .3s ease, transform .3s ease;
+  transition:background .3s ease, color .3s ease, transform .3s ease; white-space:nowrap;
 }
 .pdf:hover { background:var(--accent); color:#FEFAEF; transform:translateY(-2px); }
-.knob { width:9px; height:9px; border-radius:50%; background:var(--accent); display:inline-block; }
+.knob { width:9px; height:9px; border-radius:50%; background:var(--accent); display:inline-block; flex-shrink:0; }
 html[data-theme="light"] .knob { background:none; border:1.5px solid var(--accent); }
 
-main { flex:1 1 auto; position:relative; min-height:0; background:var(--bg); }
-iframe {
-  display:block; width:100%; height:100%; border:0; background:var(--bg);
-}
-footer {
-  flex:0 0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
-  padding:10px var(--pad-x); border-top:1px solid var(--ghost);
-  font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--dim);
-}
-footer a { color:var(--dim); border-bottom:1px solid var(--ghost); padding-bottom:2px; }
-footer a:hover { color:var(--cream); }
+/* ---------- contenuto ---------- */
+main { max-width:var(--maxw); margin:0 auto; padding:clamp(120px,18vh,180px) var(--pad-x) clamp(64px,10vh,120px); }
 
-@media (max-width: 620px) {
-  header { padding:10px var(--pad-x); }
-  .logo { font-size:18px; }
-  .brand { flex:1 1 100%; justify-content:space-between; }
+.kicker {
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);
+}
+.kicker .sq { width:10px; height:10px; background:var(--accent); display:inline-block; flex-shrink:0; }
+
+h1 {
+  font-family:'Outfit',sans-serif; font-weight:600;
+  font-size:clamp(48px,10vw,96px); letter-spacing:-0.04em; line-height:0.98;
+  margin:clamp(20px,3vh,32px) 0 clamp(12px,2vh,20px);
+}
+.sub {
+  font-family:'Outfit',sans-serif; font-weight:300;
+  font-size:clamp(19px,2.6vw,26px); letter-spacing:-0.01em; color:var(--dim);
+}
+
+.specs {
+  display:grid; grid-template-columns:repeat(2,1fr);
+  gap:clamp(18px,3vw,28px) clamp(20px,4vw,48px);
+  margin-top:clamp(36px,6vh,64px); padding-top:clamp(24px,3vh,32px);
+  border-top:1px solid var(--ghost);
+}
+@media (min-width:640px) { .specs { grid-template-columns:repeat(4,1fr); } }
+.spec b {
+  display:block; font-family:'Bitcount',monospace; font-weight:400;
+  font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint); margin-bottom:8px;
+}
+.spec span {
+  font-family:'Outfit',sans-serif; font-weight:500; font-size:15px; letter-spacing:0.01em; text-transform:uppercase;
+}
+
+section { margin-top:clamp(72px,12vh,128px); }
+.shead { display:flex; align-items:baseline; gap:clamp(16px,3vw,28px); flex-wrap:wrap; margin-bottom:clamp(24px,4vh,40px); }
+.snum {
+  font-family:'Outfit',sans-serif; font-weight:300;
+  font-size:clamp(56px,9vw,88px); line-height:0.9; letter-spacing:-0.04em; color:var(--accent);
+}
+.stitle-wrap { display:flex; flex-direction:column; gap:10px; min-width:0; }
+h2 {
+  font-family:'Outfit',sans-serif; font-weight:500;
+  font-size:clamp(26px,4.6vw,42px); letter-spacing:-0.02em; line-height:1.05; text-transform:uppercase;
+}
+.slabels {
+  display:flex; flex-wrap:wrap; gap:6px 18px;
+  font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--faint);
+}
+section p {
+  font-family:'Outfit',sans-serif; font-weight:300;
+  font-size:clamp(17px,2.2vw,21px); line-height:1.6; letter-spacing:-0.005em;
+  max-width:62ch; margin-bottom:1.1em;
+}
+section p:last-child { margin-bottom:0; }
+
+.blocks { display:flex; flex-direction:column; gap:clamp(20px,3vh,28px); margin-top:clamp(24px,4vh,36px); }
+.block {
+  border:1px solid var(--ghost); border-radius:16px; background:var(--bg-2);
+  padding:clamp(20px,3vw,28px); display:flex; gap:clamp(16px,3vw,26px); align-items:flex-start;
+}
+.bnum {
+  font-family:'Outfit',sans-serif; font-weight:300; font-size:clamp(24px,3.4vw,32px);
+  line-height:1; letter-spacing:-0.02em; color:var(--accent); flex-shrink:0; transform:translateY(3px);
+}
+.block b {
+  display:block; font-family:'Bitcount',monospace; font-weight:400;
+  font-size:11.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cream); margin-bottom:8px;
+}
+.block p { font-size:clamp(15.5px,2vw,18px); margin-bottom:0; }
+
+.reflink {
+  display:flex; gap:18px; align-items:center;
+  border:1px solid var(--ghost); border-radius:16px; background:var(--bg-2);
+  padding:clamp(18px,2.6vw,26px); margin-top:clamp(20px,3vh,28px);
+  transition:border-color .3s ease, transform .3s ease;
+}
+.reflink:hover { border-color:var(--accent); transform:translateY(-3px); }
+.reflink img { width:clamp(60px,8vw,84px); aspect-ratio:1; object-fit:cover; flex-shrink:0; }
+.reflink .rt { display:flex; flex-direction:column; gap:5px; min-width:0; }
+.reflink .rl { font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cream); display:flex; align-items:center; gap:7px; }
+.reflink .rn { font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(15.5px,2vw,19px); letter-spacing:-0.01em; line-height:1.2; }
+.reflink .rs { font-size:13px; color:var(--dim); overflow-wrap:anywhere; }
+
+.contacts {
+  display:grid; grid-template-columns:1fr; gap:clamp(14px,2vh,20px) clamp(20px,4vw,48px);
+  margin-top:clamp(24px,4vh,36px); padding-top:clamp(20px,3vh,28px); border-top:1px solid var(--ghost);
+}
+@media (min-width:560px) { .contacts { grid-template-columns:repeat(2,1fr); } }
+.contact b {
+  display:block; font-family:'Bitcount',monospace; font-weight:400;
+  font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint); margin-bottom:6px;
+}
+.contact span, .contact a { font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(16px,2.2vw,19px); letter-spacing:-0.01em; overflow-wrap:anywhere; }
+.contact a { border-bottom:1px solid var(--ghost); padding-bottom:2px; transition:color .25s ease, border-color .25s ease; }
+.contact a:hover { color:var(--accent); border-color:var(--accent); }
+
+.cta {
+  margin-top:clamp(56px,9vh,96px); border:1px solid var(--ghost); border-radius:16px; background:var(--bg-2);
+  padding:clamp(28px,4.5vw,44px); display:flex; flex-direction:column; gap:18px; align-items:flex-start;
+}
+.cta p { font-size:clamp(17px,2.4vw,22px); margin:0; }
+
+footer {
+  border-top:1px solid var(--ghost); margin-top:clamp(72px,12vh,128px);
+  padding:28px var(--pad-x) 44px;
+}
+.finner {
+  max-width:var(--maxw); margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:12px 24px; flex-wrap:wrap;
+  font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--dim);
+}
+.finner a { border-bottom:1px solid var(--ghost); padding-bottom:2px; transition:color .25s ease; }
+.finner a:hover { color:var(--cream); }
+
+.icon { display:inline-flex; flex-shrink:0; }
+
+@media (max-width:640px) {
+  header { flex-wrap:wrap; padding:10px var(--pad-x); }
   .actions { flex:1 1 100%; }
   .pdf { flex:1 1 auto; }
-  footer .hide-s { display:none; }
 }
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
   *, *::before, *::after { transition-duration:.01ms !important; }
 }
 </style>
@@ -122,32 +233,121 @@ footer a:hover { color:var(--cream); }
 <header>
   <div class="brand">
     <a class="logo" href="index.html">Liminals</a>
-    <a class="back" href="index.html"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M10.2 6H1.8M5 2.8 1.8 6 5 9.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><span data-i18n="back">Torna alla home</span></a>
+    <a class="back" href="index.html"><span aria-hidden="true">&#8592;</span> <span data-i18n="back">Torna alla home</span></a>
   </div>
   <div class="actions">
-    <a class="pdf" href="assets/pitch/Liminals-Pitch.pdf" download="Liminals - Pitch.pdf"><span data-i18n="pdf">Scarica il PDF</span> <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1.6v6.2M3.4 5.4 6 8l2.6-2.6M2 10.4h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    <a class="pdf" href="assets/pitch/Liminals-Pitch.pdf" download="Liminals - Pitch.pdf"><span data-i18n="pdf">Scarica il PDF</span> <svg class="icon" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1.6v6.2M3.4 5.4 6 8l2.6-2.6M2 10.4h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
     <button class="pill" id="lang" aria-label="Lingua / Language"><span id="lang-label">IT</span></button>
     <button class="pill" id="theme"><span class="knob"></span><span id="theme-label">Scuro</span></button>
   </div>
 </header>
 
 <main>
-  <iframe id="pitch-frame" src="assets/pitch/Liminals-Pitch.html" title="Liminals — Pitch" loading="eager"></iframe>
+
+  <div class="kicker"><span class="sq"></span><span>Liminals · Pitch — DJ set · 2026</span></div>
+  <h1>Liminals</h1>
+  <p class="sub">Pitch — zacku b2b Teo. Minimal deep tech &amp; house, DJ set.</p>
+
+  <div class="specs">
+    <div class="spec"><b>Format</b><span>DJ set, 3h+, a due</span></div>
+    <div class="spec"><b>Venue</b><span>Generic</span></div>
+    <div class="spec"><b>Slot</b><span>Sera — notte</span></div>
+    <div class="spec"><b>Anno</b><span>2026</span></div>
+  </div>
+
+  <section id="chi-siamo">
+    <div class="shead">
+      <span class="snum">01</span>
+      <div class="stitle-wrap">
+        <h2>Chi siamo</h2>
+        <div class="slabels"><span>Bio · profilo</span><span>Produzione</span><span>Trieste</span><span>Label</span></div>
+      </div>
+    </div>
+    <p>zacku è un produttore di minimal deep tech e house basato a Trieste.</p>
+    <p>Release su Glasgow Underground, Miniline, 96 Musique ed a ottobre 2026 su Psicodelica.</p>
+    <p>In console insieme a zacku c'è Teo, collaboratore con cui è già stato costruito un linguaggio comune in selezione e transizioni. Un flusso condiviso a due mani, non due set separati.</p>
+  </section>
+
+  <section id="perche-suoniamo">
+    <div class="shead">
+      <span class="snum">02</span>
+      <div class="stitle-wrap">
+        <h2>Perché suoniamo</h2>
+        <div class="slabels"><span>Intenzione</span><span>Contesto</span><span>Suono</span><span>Comunità</span></div>
+      </div>
+    </div>
+    <p>Questa musica per noi è unica. Vogliamo diffonderla con chi ha voglia di ascoltarla. Non per moda, ma perché crediamo che valga la pena condividerla.</p>
+    <p>Il nostro set si adatta all'orario e allo spazio. Sobrio in apertura, costruisce tensione e calore man mano che la notte avanza.</p>
+    <p>Ci teniamo che tutti si sentano parte di quello che succede sul dancefloor. Chi conosce questa musica da anni e chi la scopre per la prima volta stanno nello stesso posto, e per noi hanno lo stesso valore.</p>
+    <p>Siamo di Trieste. Conosciamo questo contesto e non vogliamo sovrapporci a quello che già c'è, vogliamo aggiungere qualcosa in più.</p>
+  </section>
+
+  <section id="la-proposta">
+    <div class="shead">
+      <span class="snum">03</span>
+      <div class="stitle-wrap">
+        <h2>La proposta</h2>
+        <div class="slabels"><span>Format · 3h+</span></div>
+      </div>
+    </div>
+    <p>Un set a due, tre ore o più. Minimal deep tech e house.</p>
+
+    <div class="blocks">
+      <div class="block"><span class="bnum">01</span><div><b>Selezione</b><p>Tre ore costruite insieme. Curva di intensità pensata per l'orario e il contesto dello Streaming.</p></div></div>
+      <div class="block"><span class="bnum">02</span><div><b>Contesto</b><p>Suoniamo minimal deep tech e house, lo stesso territorio sonoro dello Streaming. Non è un adattamento, è il nostro punto di partenza.</p></div></div>
+      <div class="block"><span class="bnum">03</span><div><b>Sviluppo</b><p>Se la prima data funziona, siamo aperti a costruire qualcosa di ricorrente. Format flessibile, anche con guest selezionati, in linea con l'identità del club.</p></div></div>
+    </div>
+
+    <a class="reflink" href="https://www.mixcloud.com/zackuu/zacku-and-teo-aurisina-session/" target="_blank" rel="noopener">
+      <img src="assets/img/track-aurisina.jpg" alt="Aurisina session">
+      <div class="rt">
+        <span class="rl">Ascolto di riferimento · Mixcloud <svg class="icon" width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        <span class="rn">zacku &amp; Teo — Aurisina session</span>
+        <span class="rs">mixcloud.com/zackuu/zacku-and-teo-aurisina-session</span>
+      </div>
+    </a>
+  </section>
+
+  <section id="contatti">
+    <div class="shead">
+      <span class="snum">04</span>
+      <div class="stitle-wrap">
+        <h2>Contatti</h2>
+        <div class="slabels"><span>Riferimenti</span></div>
+      </div>
+    </div>
+    <p>Se l'idea interessa, possiamo vederci di persona per definire data e dettagli tecnici.</p>
+
+    <div class="contacts">
+      <div class="contact"><b>Nome artistico</b><span>zacku</span></div>
+      <div class="contact"><b>Nome</b><span>Enrico Giachin</span></div>
+      <div class="contact"><b>Email</b><a href="mailto:hello@liminalsmusic.com">hello@liminalsmusic.com</a></div>
+      <div class="contact"><b>Ascolto</b><a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener">Spotify — "Lies" / Glasgow Underground</a></div>
+    </div>
+
+    <div class="cta">
+      <p data-i18n="cta">Vediamoci di persona.</p>
+      <a class="pdf" href="assets/pitch/Liminals-Pitch.pdf" download="Liminals - Pitch.pdf"><span data-i18n="pdf">Scarica il PDF</span> <svg class="icon" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1.6v6.2M3.4 5.4 6 8l2.6-2.6M2 10.4h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    </div>
+  </section>
+
 </main>
 
 <footer>
-  <span data-i18n="kicker">Liminals · Pitch</span>
-  <span class="hide-s"><a href="assets/pitch/Liminals-Pitch.html" target="_blank" rel="noopener" data-i18n="newtab">Apri in una nuova scheda</a></span>
-  <span class="hide-s">Trieste · IT — Est. 2026</span>
+  <div class="finner">
+    <span>Liminals · Pitch DJ set</span>
+    <a href="assets/pitch/Liminals-Pitch.html" target="_blank" rel="noopener" data-i18n="designed">Versione impaginata</a>
+    <span>2026 · Trieste</span>
+  </div>
 </footer>
 
 <script>
 (function () {
   var STR = {
-    IT: { back: 'Torna alla home', pdf: 'Scarica il PDF', kicker: 'Liminals \u00b7 Pitch', newtab: 'Apri in una nuova scheda', dark: 'Scuro', light: 'Chiaro' },
-    EN: { back: 'Back to home', pdf: 'Download the PDF', kicker: 'Liminals \u00b7 Pitch', newtab: 'Open in a new tab', dark: 'Dark', light: 'Light' },
-    FR: { back: "Retour \u00e0 l'accueil", pdf: 'T\u00e9l\u00e9charger le PDF', kicker: 'Liminals \u00b7 Pitch', newtab: 'Ouvrir dans un nouvel onglet', dark: 'Sombre', light: 'Clair' },
-    ES: { back: 'Volver al inicio', pdf: 'Descarga el PDF', kicker: 'Liminals \u00b7 Pitch', newtab: 'Abrir en una pesta\u00f1a nueva', dark: 'Oscuro', light: 'Claro' }
+    IT: { back: 'Torna alla home', pdf: 'Scarica il PDF', designed: 'Versione impaginata', cta: 'Vediamoci di persona.', dark: 'Scuro', light: 'Chiaro' },
+    EN: { back: 'Back to home', pdf: 'Download the PDF', designed: 'Designed version', cta: "Let's meet in person.", dark: 'Dark', light: 'Light' },
+    FR: { back: "Retour \u00e0 l'accueil", pdf: 'T\u00e9l\u00e9charger le PDF', designed: 'Version mise en page', cta: 'Rencontrons-nous.', dark: 'Sombre', light: 'Clair' },
+    ES: { back: 'Volver al inicio', pdf: 'Descarga el PDF', designed: 'Versi\u00f3n maquetada', cta: 'V\u00e1monos a conocer en persona.', dark: 'Oscuro', light: 'Claro' }
   };
   var ORDER = ['IT', 'EN', 'FR', 'ES'];
   var lang = 'IT', theme = 'dark';
@@ -164,8 +364,6 @@ footer a:hover { color:var(--cream); }
     var c = theme === 'light' ? '#FEFAEF' : '#151515';
     var m = document.querySelector('meta[name="theme-color"]');
     if (m) m.setAttribute('content', c);
-    document.documentElement.style.background = c;
-    document.body.style.background = c;
     var tl = document.getElementById('theme-label');
     if (tl) tl.textContent = theme === 'light' ? STR[lang].light : STR[lang].dark;
   }

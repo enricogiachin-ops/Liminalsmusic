@@ -133,11 +133,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
           <span>Trieste · IT</span>
         </div>
       </div>
-      <div style="{{ heroCtaRowStyle }}">
-        <a href="#ascolto" style="{{ heroCta1Style }}" style-hover="{{ emailBtnHover }}">{{ t.heroCtaListen }}</a>
-        <a href="#live" style="{{ heroCta2Style }}" style-hover="{{ heroCta2Hover }}">{{ t.heroCtaNotify }}</a>
-      </div>
-      <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); display:flex; align-items:center; gap:10px; white-space:nowrap; justify-content:flex-end; margin-top:clamp(18px,3vh,32px);">
+      <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); display:flex; align-items:center; gap:10px; white-space:nowrap; justify-content:flex-end; margin-top:clamp(20px,4vh,40px);">
         <span style="width:48px; height:1px; background:var(--accent); display:inline-block; animation:scrollline 2.4s ease-in-out infinite;"></span>{{ t.scroll }}
       </div>
     </div>
@@ -167,7 +163,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
             <span>B2B Teo</span></div>
           <div style="display:flex; flex-direction:column; gap:22px; max-width:62ch; margin-top:-6px;">
             <p data-reveal-key="bioLead" style="{{ revealBioLead }}font-family: 'Outfit',sans-serif; font-weight: 300; line-height: 1.45; letter-spacing: -0.01em; font-size: 25.67px">{{ t.bioLead }}</p>
-            <div data-reveal-key="tags" style="{{ revealTags }}font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--dim); line-height:2; margin-top:6px; padding-top:14px; border-top:1px solid var(--ghost); max-width:62ch; width:100%;">{{ t.tagsLine }}</div>
+            <div data-reveal-key="tags" style="{{ tagsLineStyle }}">{{ t.tagsLine }}</div>
           </div>
         </div>
       </div>
@@ -181,19 +177,21 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
           <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">{{ t.navAscolto }}</span>
           <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">Mix · release</span>
         </div>
-        <div data-reveal-key="player" style="{{ revealPlayer }}margin-bottom:clamp(14px,1.6vw,22px); border:1px solid var(--ghost); border-radius:16px; overflow:hidden; background:var(--bg-2);">
-          <iframe title="zacku &amp; Teo — Aurisina session" src="{{ mixcloudSrc }}" width="100%" height="120" style="display:block; border:0; width:100%;" loading="lazy" scrolling="no" allow="encrypted-media *; autoplay *; fullscreen *"></iframe>
-        </div>
         <div style="{{ musicGridStyle }}">
-          <a href="https://www.mixcloud.com/zackuu/zacku-and-teo-aurisina-session/" target="_blank" rel="noopener" style="{{ track1Style }}" style-hover="{{ trackHover }}">
-            <img src="assets/img/track-aurisina.jpg" alt="Aurisina session" style="width:clamp(72px,8vw,104px); aspect-ratio:1; object-fit:cover; flex-shrink:0;">
-            <div style="display:flex; flex-direction:column; gap:6px; min-width:0;">
-              <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cream);">Mixcloud</span>
-              <span style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(16px,1.5vw,21px); letter-spacing:-0.01em; line-height:1.15;">zacku &amp; Teo — Aurisina session</span>
-              <span style="font-size:13px; color:var(--dim);">B2B</span>
+          <div style="{{ track1Style }}" style-hover="{{ trackHover }}">
+            <a href="https://www.mixcloud.com/zackuu/zacku-and-teo-aurisina-session/" target="_blank" rel="noopener" style="display:flex; gap:22px; align-items:center; color:inherit; min-width:0;">
+              <img src="assets/img/track-aurisina.jpg" alt="Aurisina session" style="width:clamp(72px,8vw,104px); aspect-ratio:1; object-fit:cover; flex-shrink:0;">
+              <div style="display:flex; flex-direction:column; gap:6px; min-width:0;">
+                <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cream);">Mixcloud</span>
+                <span style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(16px,1.5vw,21px); letter-spacing:-0.01em; line-height:1.15;">zacku &amp; Teo — Aurisina session</span>
+                <span style="font-size:13px; color:var(--dim);">B2B</span>
+              </div>
+            </a>
+            <div style="border-top:1px solid var(--ghost); padding-top:14px;">
+              <iframe title="zacku &amp; Teo — Aurisina session (player)" src="{{ mixcloudSrc }}" width="100%" height="60" style="display:block; border:0; width:100%; border-radius:10px;" loading="lazy" scrolling="no" allow="encrypted-media *; autoplay *; fullscreen *"></iframe>
             </div>
             <span style="position:absolute; top:16px; right:18px; color:var(--dim); display:inline-flex;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
-          </a>
+          </div>
           <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener" style="{{ track2Style }}" style-hover="{{ trackHover }}">
             <img src="assets/img/track-spotify.jpg" alt="zacku su Spotify" style="width:clamp(72px,8vw,104px); aspect-ratio:1; object-fit:cover; flex-shrink:0;">
             <div style="display:flex; flex-direction:column; gap:6px; min-width:0;">
@@ -859,14 +857,14 @@ class Component extends DCLogic {
 
     const bioGridStyle = { display: 'flex', flexDirection: 'column', gap: isNarrow ? '20px' : '24px', alignItems: 'start' };
 
-    const musicGridStyle = { display: 'grid', gridTemplateColumns: isSmall ? '1fr' : 'repeat(2,1fr)', gap: 'clamp(14px,1.6vw,22px)' };
+    const musicGridStyle = { display: 'grid', gridTemplateColumns: isSmall ? '1fr' : 'repeat(2,1fr)', gap: 'clamp(14px,1.6vw,22px)', alignItems: 'stretch' };
 
     const trackBase = {
       position: 'relative', display: 'flex', gap: '22px', alignItems: 'center',
       padding: 'clamp(20px,2vw,28px)', border: '1px solid var(--ghost)', borderRadius: '16px',
       background: 'var(--bg-2)', transition: 'border-color .3s ease, transform .3s ease, box-shadow .3s ease',
     };
-    const track1Style = trackBase;
+    const track1Style = Object.assign({}, trackBase, { flexDirection: 'column', alignItems: 'stretch', gap: '16px', justifyContent: 'space-between' });
     const track2Style = trackBase;
     const trackHover = { borderColor: 'var(--accent)', transform: 'translateY(-4px)', boxShadow: '0 16px 40px rgba(0,0,0,0.16)' };
 
@@ -944,11 +942,7 @@ class Component extends DCLogic {
 
     const notifyRowStyle = { display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '20px', alignItems: isSmall ? 'stretch' : 'center', maxWidth: '520px', flexDirection: isSmall ? 'column' : 'row' };
     const eventMetaStyle = { fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--dim)', textAlign: isSmall ? 'left' : 'right' };
-    const mixcloudSrc = 'https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=' + (isLight ? '1' : '0') + '&feed=%2Fzackuu%2Fzacku-and-teo-aurisina-session%2F';
-    const heroCtaRowStyle = { display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: 'clamp(22px,3.5vh,34px)' };
-    const heroCta1Style = { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', fontFamily: "'Outfit',sans-serif", fontWeight: 500, fontSize: 'clamp(15px,1.2vw,18px)', letterSpacing: '-0.01em', color: 'var(--bg)', background: 'var(--cream)', border: '1px solid transparent', padding: '13px 26px', borderRadius: '100px', transition: 'background .3s ease, color .3s ease, transform .3s ease', flex: isTiny ? '1 1 40%' : '0 0 auto' };
-    const heroCta2Style = Object.assign({}, heroCta1Style, { color: 'var(--cream)', background: 'transparent', border: '1px solid var(--ghost)', transition: 'border-color .3s ease, color .3s ease, background .3s ease, transform .3s ease' });
-    const heroCta2Hover = { borderColor: 'var(--cream)', background: 'var(--bg-2)', transform: 'translateY(-2px) scale(' + hoverScale + ')' };
+    const mixcloudSrc = 'https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=' + (isLight ? '1' : '0') + '&feed=%2Fzackuu%2Fzacku-and-teo-aurisina-session%2F';
     const manLinkStyle = { display: 'inline-flex', alignItems: 'center', gap: '8px', fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--dim)', border: '1px solid var(--ghost)', borderRadius: '100px', padding: '12px 22px', transition: 'color .3s ease, border-color .3s ease, transform .3s ease' };
     const manLinkHover = { color: 'var(--accent)', borderColor: 'var(--accent)', transform: 'translateY(-2px)' };
 
@@ -956,9 +950,7 @@ class Component extends DCLogic {
       isHome, isManifesto,
       t: t,
       eventMetaStyle, mixcloudSrc, notifyRowStyle,
-      heroCtaRowStyle, heroCta1Style, heroCta2Style, heroCta2Hover,
       manLinkStyle, manLinkHover,
-      revealPlayer: this.reveal('player', 0.08),
       revealManTeaser: this.reveal('manTeaser', 0),
       openManifesto: this.openManifesto, openManifestoFromMenu: this.openManifestoFromMenu, goHome: this.goHome,
       navLinkManifestoStyle, backHomeStyle, backHomeHover,
@@ -993,6 +985,7 @@ class Component extends DCLogic {
       revealBioLabels: this.reveal('bioLabels', 0),
       revealBioLead: this.reveal('bioLead', 0.08),
       revealTags: this.reveal('tags', 0.24),
+      tagsLineStyle: Object.assign({}, this.reveal('tags', 0.24), { fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--dim)', lineHeight: 2, marginTop: '6px', paddingTop: '14px', borderTop: '1px solid var(--ghost)', maxWidth: '62ch', width: '100%' }),
       revealMusicHead: this.reveal('musicHead', 0),
       revealLiveHead: this.reveal('liveHead', 0),
       revealEventsGroup: this.reveal('eventsGroup', 0.16),
