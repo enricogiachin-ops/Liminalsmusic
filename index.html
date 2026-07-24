@@ -212,8 +212,12 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
           <div style="border:1px solid var(--ghost); border-radius:20px; background:var(--bg-2); padding:clamp(22px,2.6vw,30px); margin-bottom:clamp(32px,4vh,48px);">
             <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">Prossime date</div>
             <p style="font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);">La prossima si sta costruendo.</p>
-            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px; max-width:46ch;">Scrivici e ti avvisiamo quando c'è una data. Nient'altro, nessuna newsletter.</div>
-            <a href="mailto:hello@liminalsmusic.com?subject=Avvisami%20quando%20c%27%C3%A8%20una%20data&amp;body=Ciao%2C%20avvisatemi%20quando%20annunciate%20la%20prossima%20data.%0A%0ANome%3A%20" style="{{ emailBtnStyle }}margin-top:20px;" style-hover="{{ emailBtnHover }}">Avvisami</a>
+            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px; max-width:46ch;">Lascia la tua email e ti avvisiamo quando c'è una data. Nient'altro, nessuna newsletter.</div>
+            <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; align-items:center; max-width:520px;">
+              <input id="notify-email" type="email" inputmode="email" autocomplete="email" placeholder="La tua email" aria-label="La tua email" style="flex:1 1 220px; min-width:0; font-family:'Satoshi',sans-serif; font-size:16px; color:var(--cream); background:transparent; border:1px solid var(--ghost); border-radius:100px; padding:13px 20px; transition:border-color .3s ease;">
+              <button type="button" onClick="{{ notifySubmit }}" style="{{ emailBtnStyle }}" style-hover="{{ emailBtnHover }}">Avvisami</button>
+            </div>
+            <div id="notify-status" role="status" aria-live="polite" style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:10px; min-height:1.5em;"></div>
           </div>
           <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); margin-bottom:16px;">Passati</div>
           <div style="{{ eventGridStyle }}" style-hover="{{ eventHover }}">
@@ -467,6 +471,32 @@ class Component extends DCLogic {
     const original = el.getAttribute('data-original') || el.textContent;
     if (el._glitchTimer) { clearInterval(el._glitchTimer); el._glitchTimer = null; }
     el.textContent = original;
+  };
+
+  notifySubmit = () => {
+    const input = document.getElementById('notify-email');
+    const status = document.getElementById('notify-status');
+    if (!input || !status) return;
+    const email = (input.value || '').trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      status.textContent = "Controlla l'email e riprova.";
+      return;
+    }
+    status.textContent = 'Un attimo\u2026';
+    fetch('https://formspree.io/f/mwvgrrew', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email: email, _subject: 'Avvisami: nuova iscrizione dal sito' })
+    }).then((r) => {
+      if (r.ok) {
+        status.textContent = "Fatto. Ti scriviamo noi quando c'\u00e8 una data.";
+        input.value = '';
+      } else {
+        status.textContent = 'Qualcosa non ha funzionato. Scrivici a hello@liminalsmusic.com';
+      }
+    }).catch(() => {
+      status.textContent = 'Qualcosa non ha funzionato. Scrivici a hello@liminalsmusic.com';
+    });
   };
 
   copyEmail = (e) => {
@@ -741,6 +771,7 @@ class Component extends DCLogic {
       pitchHtmlDataUrl: this.getPitchHtmlDataUrl(),
       pitchPdfDataUrl: this.getPitchPdfDataUrl(),
       copyEmail: this.copyEmail,
+      notifySubmit: this.notifySubmit,
       revealHead0: this.reveal('head0', 0),
       revealFoot: this.reveal('foot', 0.16),
       revealBioHead: this.reveal('bioHead', 0),
