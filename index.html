@@ -27,8 +27,11 @@
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/favicon.png">
 
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicGroup","name":"Liminals","genre":["minimal deep tech","house"],"foundingLocation":{"@type":"Place","name":"Trieste, IT"},"member":[{"@type":"Person","name":"zacku"},{"@type":"Person","name":"Teo"}],"url":"https://liminalsmusic.com/","email":"hello@liminalsmusic.com","sameAs":["https://www.mixcloud.com/zackuu/","https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl","https://instagram.com/enricogiachin"]}</script>
+
 <script src="./support.js"></script>
 <meta name="theme-color" content="#151515">
+<noscript><style>x-dc{display:none!important}body{background:#151515;color:#FEFAEF}</style></noscript>
 </head>
 <body>
 <x-dc>
@@ -72,16 +75,17 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   <!-- NAV -->
   <header style="{{ navStyle }}">
     <div style="display:flex; align-items:center; gap:14px;">
-      <a href="#top" onClick="{{ goHome }}" style="font-family:'Outfit',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.03em; line-height:1; display:flex; align-items:center; gap:9px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Liminals">
+      <a href="#top" onClick="{{ goHome }}" style="font-family:'Outfit',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.03em; line-height:1; display:flex; align-items:center; gap:9px; padding:12px 2px; margin:-12px -2px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Liminals">
         Liminals
       </a>
     </div>
       <nav style="{{ navLinksStyle }}">
-        <a href="#suono" style="{{ navLinkSuonoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Suono">Suono</a>
-        <a href="#ascolto" style="{{ navLinkAscoltoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Ascolto">Ascolto</a>
-        <a href="#live" style="{{ navLinkLiveStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Live">Live</a>
-        <a href="#contatti" style="{{ navLinkContattiStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Contatti">Contatti</a>
-        <a href="manifesto.html" style="{{ navLinkManifestoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Manifesto">Manifesto</a>
+        <a href="#suono" style="{{ navLinkSuonoStyle }}" style-hover="{{ navLinkHover }}">{{ t.navSuono }}</a>
+        <a href="#ascolto" style="{{ navLinkAscoltoStyle }}" style-hover="{{ navLinkHover }}">{{ t.navAscolto }}</a>
+        <a href="#live" style="{{ navLinkLiveStyle }}" style-hover="{{ navLinkHover }}">{{ t.navLive }}</a>
+        <a href="#contatti" style="{{ navLinkContattiStyle }}" style-hover="{{ navLinkHover }}">{{ t.navContatti }}</a>
+        <a href="manifesto.html" style="{{ navLinkManifestoStyle }}" style-hover="{{ navLinkHover }}">{{ t.navManifesto }}</a>
+        <button onClick="{{ cycleLanguage }}" style="{{ langToggleStyle }}" style-hover="{{ themeToggleHover }}" aria-label="Lingua / Language"><span>{{ languageLabel }}</span></button>
         <button onClick="{{ toggleTheme }}" style="{{ themeToggleStyle }}" style-hover="{{ themeToggleHover }}">
           <span style="{{ themeKnobStyle }}"></span>
           <span>{{ themeLabel }}</span>
@@ -97,16 +101,18 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   <!-- MOBILE MENU -->
   <div style="{{ menuStyle }}">
     <nav style="display:flex; flex-direction:column; gap:4px;">
-      <a href="#suono" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(30px,9vw,54px); letter-spacing:-0.03em; line-height:1.05; padding:8px 0; color:var(--cream); display:flex; align-items:center; gap:22px;"><span style="width:26px; height:26px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>Suono</a>
-      <a href="#ascolto" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(30px,9vw,54px); letter-spacing:-0.03em; line-height:1.05; padding:8px 0; color:var(--cream); display:flex; align-items:center; gap:22px;"><span style="width:26px; height:26px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>Ascolto</a>
-      <a href="#live" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(30px,9vw,54px); letter-spacing:-0.03em; line-height:1.05; padding:8px 0; color:var(--cream); display:flex; align-items:center; gap:22px;"><span style="width:26px; height:26px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>Live</a>
-      <a href="#contatti" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(30px,9vw,54px); letter-spacing:-0.03em; line-height:1.05; padding:8px 0; color:var(--cream); display:flex; align-items:center; gap:22px;"><span style="width:26px; height:26px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>Contatti</a>
-      <a href="manifesto.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(30px,9vw,54px); letter-spacing:-0.03em; line-height:1.05; padding:8px 0; color:var(--cream); display:flex; align-items:center; gap:22px; cursor:pointer; text-align:left; width:100%;"><span style="width:26px; height:26px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>Manifesto</a>
+      <a href="#suono" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>{{ t.navSuono }}</a>
+      <a href="#ascolto" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>{{ t.navAscolto }}</a>
+      <a href="#live" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>{{ t.navLive }}</a>
+      <a href="#contatti" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>{{ t.navContatti }}</a>
+      <a href="manifesto.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px; cursor:pointer; text-align:left; width:100%;"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>{{ t.navManifesto }}</a>
     </nav>
-    <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--dim); display:flex; justify-content:space-between;">
-      <span>Trieste · IT</span>
-      <button onClick="{{ toggleTheme }}" style="{{ themeToggleStyle }}" style-hover="{{ themeToggleHover }}"><span>Tema</span></button>
-      <span>Est. 2026</span>
+    <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--dim); display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+      <span>Trieste · IT — Est. 2026</span>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button onClick="{{ cycleLanguage }}" style="{{ langToggleStyle }}" style-hover="{{ themeToggleHover }}" aria-label="Lingua / Language"><span>{{ languageLabel }}</span></button>
+        <button onClick="{{ toggleTheme }}" style="{{ themeToggleStyle }}" style-hover="{{ themeToggleHover }}"><span>{{ themeLabel }}</span></button>
+      </div>
     </div>
   </div>
 
@@ -120,15 +126,19 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
     <div style="position:relative; z-index:1; width:100%; max-width:var(--maxw); margin:0 auto;">
       <h1 style="{{ heroH1Style }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Liminals">Liminals</h1>
       <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:24px;">
-        <p style="{{ heroTagStyle }}">Certi suoni chiedono di essere condivisi. Non come prodotto, come un luogo da abitare.</p>
+        <p style="{{ heroTagStyle }}">{{ t.heroTag }}</p>
         <div style="{{ heroMetaStyle }}">
           <span>Minimal deep tech &amp; house</span>
           <span>B2B · zacku × Teo</span>
           <span>Trieste · IT</span>
         </div>
       </div>
-      <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); display:flex; align-items:center; gap:10px; white-space:nowrap; justify-content:flex-end; margin-top:clamp(20px,4vh,40px);">
-        <span style="width:48px; height:1px; background:var(--accent); display:inline-block; animation:scrollline 2.4s ease-in-out infinite;"></span>Scorri
+      <div style="{{ heroCtaRowStyle }}">
+        <a href="#ascolto" style="{{ heroCta1Style }}" style-hover="{{ emailBtnHover }}">{{ t.heroCtaListen }}</a>
+        <a href="#live" style="{{ heroCta2Style }}" style-hover="{{ heroCta2Hover }}">{{ t.heroCtaNotify }}</a>
+      </div>
+      <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); display:flex; align-items:center; gap:10px; white-space:nowrap; justify-content:flex-end; margin-top:clamp(18px,3vh,32px);">
+        <span style="width:48px; height:1px; background:var(--accent); display:inline-block; animation:scrollline 2.4s ease-in-out infinite;"></span>{{ t.scroll }}
       </div>
     </div>
   </section>
@@ -138,44 +148,41 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
     <img src="assets/img/trio-bg.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.06; mix-blend-mode:screen; pointer-events:none; z-index:0; mask-image:linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); -webkit-mask-image:linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);">
 
     <!-- SUONO -->
-    <section id="suono" style="position:relative; z-index:1; padding:clamp(88px,14vh,176px) var(--pad-x);">
+    <section id="suono" style="position:relative; z-index:1; padding:clamp(64px,12vh,160px) var(--pad-x);">
       <div style="max-width:var(--maxw); margin:0 auto;">
         <div data-reveal-key="bioHead" style="{{ revealBioHead }}display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
           <span style="width:10.94px; height:10.94px; background:var(--accent); flex-shrink:0; display:inline-block; transform:translateY(0.5px);"></span>
-          <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Suono</span>
-          <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">Bio · profilo</span>
+          <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">{{ t.navSuono }}</span>
+          <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">{{ t.sideSound }}</span>
         </div>
-        <h2 data-reveal-key="manifestoQuote" style="{{ manifestoH2Style }}">Lavoriamo nello spazio <em style="font-style:normal; color:var(--accent);">liminale</em>: tra l'ascolto attento e il corpo che si muove, tra ricerca e pista.</h2>
+        <h2 data-reveal-key="manifestoQuote" style="{{ manifestoH2Style }}">{{ t.quote1 }}<em style="font-style:normal; color:var(--accent);">{{ t.quoteEm }}</em>{{ t.quote2 }}</h2>
         
         <div data-reveal-key="foot" style="{{ revealFoot }}margin-top: clamp(28px,4vh,48px); margin-bottom: clamp(48px,7vh,80px); display: flex; flex-wrap: wrap; gap: 12px 40px; font-family: 'Bitcount',monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dim)">
-          <span>— Sobrio in apertura</span>
-          <span>— Coerente a fine serata</span>
-          <span>— Mai mainstream</span>
+          <span>{{ t.line1 }}</span>
+          <span>{{ t.line2 }}</span>
+          <span>{{ t.line3 }}</span>
         </div><div style="{{ bioGridStyle }}">
           <div data-reveal-key="bioLabels" style="{{ revealBioLabels }}display:flex; flex-direction:column; gap:8px; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--faint);">
             <span>ZACKU</span>
             <span>B2B Teo</span></div>
           <div style="display:flex; flex-direction:column; gap:22px; max-width:62ch; margin-top:-6px;">
-            <p data-reveal-key="bioLead" style="{{ revealBioLead }}font-family: 'Outfit',sans-serif; font-weight: 300; line-height: 1.45; letter-spacing: -0.01em; font-size: 25.67px">Due selezioni, un solo arco. zacku e Teo suonano a quattro mani: minimal deep tech e house costruiti insieme, non due set giustapposti.</p>
-            <div data-reveal-key="tags" style="{{ revealTags }}display:flex; flex-wrap:wrap; gap:10px; margin-top:4px;">
-              <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">Minimal</span>
-              <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">Deep tech</span>
-              <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">House</span>
-              <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">3h+ a due</span>
-              <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase; border-radius:100px; padding:9px 18px; color:var(--dim); border:1px solid var(--ghost); transition:border-color .25s ease, color .25s ease;">DJ set</span>
-            </div>
+            <p data-reveal-key="bioLead" style="{{ revealBioLead }}font-family: 'Outfit',sans-serif; font-weight: 300; line-height: 1.45; letter-spacing: -0.01em; font-size: 25.67px">{{ t.bioLead }}</p>
+            <div data-reveal-key="tags" style="{{ revealTags }}font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--dim); line-height:2; margin-top:6px; padding-top:14px; border-top:1px solid var(--ghost); max-width:62ch; width:100%;">{{ t.tagsLine }}</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ASCOLTO -->
-    <section id="ascolto" style="position:relative; z-index:1; padding:clamp(88px,14vh,176px) var(--pad-x);">
+    <section id="ascolto" style="position:relative; z-index:1; padding:clamp(64px,12vh,160px) var(--pad-x);">
       <div style="max-width:var(--maxw); margin:0 auto;">
         <div data-reveal-key="musicHead" style="{{ revealMusicHead }}display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
           <span style="width:10.94px; height:10.94px; background:var(--accent); flex-shrink:0; display:inline-block; transform:translateY(0.5px);"></span>
-          <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Ascolto</span>
+          <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">{{ t.navAscolto }}</span>
           <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">Mix · release</span>
+        </div>
+        <div data-reveal-key="player" style="{{ revealPlayer }}margin-bottom:clamp(14px,1.6vw,22px); border:1px solid var(--ghost); border-radius:16px; overflow:hidden; background:var(--bg-2);">
+          <iframe title="zacku &amp; Teo — Aurisina session" src="{{ mixcloudSrc }}" width="100%" height="120" style="display:block; border:0; width:100%;" loading="lazy" scrolling="no" allow="encrypted-media *; autoplay *; fullscreen *"></iframe>
         </div>
         <div style="{{ musicGridStyle }}">
           <a href="https://www.mixcloud.com/zackuu/zacku-and-teo-aurisina-session/" target="_blank" rel="noopener" style="{{ track1Style }}" style-hover="{{ trackHover }}">
@@ -185,7 +192,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
               <span style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(16px,1.5vw,21px); letter-spacing:-0.01em; line-height:1.15;">zacku &amp; Teo — Aurisina session</span>
               <span style="font-size:13px; color:var(--dim);">B2B</span>
             </div>
-            <span style="position:absolute; top:16px; right:18px; font-size:15px; color:var(--dim);">↗</span>
+            <span style="position:absolute; top:16px; right:18px; color:var(--dim); display:inline-flex;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
           </a>
           <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener" style="{{ track2Style }}" style-hover="{{ trackHover }}">
             <img src="assets/img/track-spotify.jpg" alt="zacku su Spotify" style="width:clamp(72px,8vw,104px); aspect-ratio:1; object-fit:cover; flex-shrink:0;">
@@ -194,91 +201,100 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
               <span style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(16px,1.5vw,21px); letter-spacing:-0.01em; line-height:1.15;">zacku</span>
               <span style="font-size:13px; color:var(--dim);">"Lies" / Glasgow Underground Records</span>
             </div>
-            <span style="position:absolute; top:16px; right:18px; font-size:15px; color:var(--dim);">↗</span>
+            <span style="position:absolute; top:16px; right:18px; color:var(--dim); display:inline-flex;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
           </a>
         </div>
       </div>
     </section>
 
     <!-- LIVE -->
-    <section id="live" style="position:relative; z-index:1; padding:clamp(88px,14vh,176px) var(--pad-x);">
+    <section id="live" style="position:relative; z-index:1; padding:clamp(64px,12vh,160px) var(--pad-x);">
       <div style="max-width:var(--maxw); margin:0 auto;">
         <div data-reveal-key="liveHead" style="{{ revealLiveHead }}display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
           <span style="width:10.94px; height:10.94px; background:var(--accent); flex-shrink:0; display:inline-block; transform:translateY(0.5px);"></span>
-          <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Live</span>
-          <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">EVENTI</span>
+          <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">{{ t.navLive }}</span>
+          <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">{{ t.sideLive }}</span>
         </div>
         <div data-reveal-key="eventsGroup" style="{{ revealEventsGroup }}">
-          <div style="border:1px solid var(--ghost); border-radius:20px; background:var(--bg-2); padding:clamp(22px,2.6vw,30px); margin-bottom:clamp(32px,4vh,48px);">
-            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">Prossime date</div>
-            <p style="font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);">La prossima si sta costruendo.</p>
-            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px; max-width:46ch;">Lascia la tua email e ti avvisiamo quando c'è una data. Nient'altro, nessuna newsletter.</div>
-            <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; align-items:center; max-width:520px;">
-              <input id="notify-email" type="email" inputmode="email" autocomplete="email" placeholder="La tua email" aria-label="La tua email" style="flex:1 1 220px; min-width:0; font-family:'Satoshi',sans-serif; font-size:16px; color:var(--cream); background:transparent; border:1px solid var(--ghost); border-radius:100px; padding:13px 20px; transition:border-color .3s ease;">
-              <button type="button" onClick="{{ notifySubmit }}" style="{{ emailBtnStyle }}" style-hover="{{ emailBtnHover }}">Avvisami</button>
+          <div style="border:1px solid var(--ghost); border-radius:16px; background:var(--bg-2); padding:clamp(22px,2.6vw,30px); margin-bottom:clamp(32px,4vh,48px);">
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">{{ t.nextDates }}</div>
+            <p style="font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);">{{ t.nextLine }}</p>
+            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px; max-width:46ch;">{{ t.notifyNote }}</div>
+            <div style="{{ notifyRowStyle }}">
+              <input id="notify-email" type="email" inputmode="email" autocomplete="email" placeholder="{{ t.emailPlaceholder }}" aria-label="{{ t.emailPlaceholder }}" style="flex:1 1 220px; min-width:0; font-family:'Satoshi',sans-serif; font-size:16px; color:var(--cream); background:transparent; border:1px solid var(--ghost); border-radius:100px; padding:13px 20px; transition:border-color .3s ease;">
+              <button type="button" onClick="{{ notifySubmit }}" style="{{ emailBtnStyle }}" style-hover="{{ emailBtnHover }}">{{ t.notifyBtn }}</button>
             </div>
             <div id="notify-status" role="status" aria-live="polite" style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:10px; min-height:1.5em;"></div>
           </div>
-          <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); margin-bottom:16px;">Passati</div>
+          <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); margin-bottom:16px;">{{ t.past }}</div>
           <div style="{{ eventGridStyle }}" style-hover="{{ eventHover }}">
             <span style="font-family:'Bitcount',monospace; font-size:13px; letter-spacing:0.14em; color:var(--cream);">06/2026</span>
             <span style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(18px,2vw,28px); letter-spacing:-0.02em; color:var(--cream);">Aurisina session<small style="display: block; font-family: Satoshi, sans-serif; font-weight: 400; font-size: 13px; letter-spacing: 0px; line-height: 1.5; color: var(--faint); margin-top: 4px;">Carso, Trieste</small></span>
-            <span style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--dim); text-align:right;">B2B · registrato</span>
+            <span style="{{ eventMetaStyle }}">{{ t.eventMeta }}</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- MANIFESTO TEASER -->
+    <section style="position:relative; z-index:1; padding:clamp(56px,9vh,120px) var(--pad-x);">
+      <div data-reveal-key="manTeaser" style="{{ revealManTeaser }}max-width:var(--maxw); margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:clamp(18px,3vh,26px);">
+        <span style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); display:flex; align-items:center; gap:12px;"><span style="width:10px; height:10px; background:var(--accent); display:inline-block;"></span>{{ t.manTeaserLabel }}</span>
+        <p style="font-family:'Outfit',sans-serif; font-weight:300; font-size:clamp(22px,3.2vw,40px); letter-spacing:-0.02em; line-height:1.3; max-width:26ch; color:var(--cream);">{{ t.manQuote }}</p>
+        <a href="manifesto.html" style="{{ manLinkStyle }}" style-hover="{{ manLinkHover }}">{{ t.readManifesto }} <span style="display:inline-flex;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1.8 6h8.4M7 2.8 10.2 6 7 9.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
       </div>
     </section>
   </div>
 
   <!-- CONTATTI -->
-  <section id="contatti" style="position:relative; padding:clamp(88px,14vh,176px) var(--pad-x);">
+  <section id="contatti" style="position:relative; padding:clamp(64px,12vh,160px) var(--pad-x);">
     <div style="max-width:var(--maxw); margin:0 auto;">
       <div data-reveal-key="contattiHead" style="{{ revealContattiHead }}display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
         <span style="width: 10.94px; height: 10.94px; background: var(--accent); flex-shrink: 0; display: inline-block; transform: translateY(0.5px);"></span>
-        <span style="font-family: Bitcount, monospace; font-size: 13px; line-height: 1; letter-spacing: 0.24em; text-transform: uppercase; color: var(--dim);">Contatti</span>
-        <span style="margin-left: auto; font-family: Bitcount, monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--faint);">Pitch · manifesto</span></div>
+        <span style="font-family: Bitcount, monospace; font-size: 13px; line-height: 1; letter-spacing: 0.24em; text-transform: uppercase; color: var(--dim);">{{ t.navContatti }}</span>
+        <span style="margin-left: auto; font-family: Bitcount, monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--faint);">{{ t.sideContact }}</span></div>
       <div style="{{ connectGridStyle }}">
         <div style="display:flex; flex-direction:column; gap:clamp(18px,2.2vh,24px); align-items:stretch;">
           
           <div data-reveal-key="cblock1" style="{{ cblock1Style }}" style-hover="{{ cblockHover }}">
-            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">Hai un posto per noi</div>
-            <p style="font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);">Club, spazi, chi organizza.</p>
-            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px;">Il pitch completo è qui accanto, scaricabile.</div>
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">{{ t.c1Title }}</div>
+            <p style="font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);">{{ t.c1Body }}</p>
+            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px;">{{ t.c1Sub }}</div>
           </div>
           
           <div data-reveal-key="cblock0" style="{{ cblock0Style }}" style-hover="{{ cblockHover }}">
-            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">Scrivici</div>
-            <a href="mailto:hello@liminalsmusic.com" onClick="{{ copyEmail }}" style="{{ emailBtnStyle }}" style-hover="{{ emailBtnHover }}">hello@liminalsmusic.com <span style="font-size: 0.85em; opacity: 0.8;">⧉</span></a>
-            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:12px;">Tocca per copiare.</div>
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">{{ t.c2Title }}</div>
+            <a href="mailto:hello@liminalsmusic.com" onClick="{{ copyEmail }}" style="{{ emailBtnStyle }}" style-hover="{{ emailBtnHover }}">hello@liminalsmusic.com <span style="display:inline-flex; opacity:0.85;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="4.1" y="4.1" width="6.4" height="6.4" rx="1.6" stroke="currentColor" stroke-width="1.5"></rect><path d="M7.9 4.1V3a1.5 1.5 0 0 0-1.5-1.5H3A1.5 1.5 0 0 0 1.5 3v3.4A1.5 1.5 0 0 0 3 7.9h1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></span></a>
+            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:12px;">{{ t.c2Sub }}</div>
           </div><div data-reveal-key="cblock3" style="{{ cblock3Style }}" style-hover="{{ cblockHover }}">
-            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">ASCOLTACI</div>
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">{{ t.c3Title }}</div>
             <div style="display:flex; flex-direction:column; gap:6px;">
-              <a href="https://www.mixcloud.com/zackuu/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);" style-hover="{{ clinkHover }}">Mixcloud <span style="font-size:0.7em; opacity:0.7;">↗</span></a>
-              <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);" style-hover="{{ clinkHover }}">Spotify <span style="font-size:0.7em; opacity:0.7;">↗</span></a>
-              <a href="https://instagram.com/enricogiachin" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);" style-hover="{{ clinkHover }}">Instagram <span style="font-size:0.7em; opacity:0.7;">↗</span></a>
+              <a href="https://www.mixcloud.com/zackuu/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream); min-height:44px; padding:2px 0; transition:color .25s ease;" style-hover="{{ clinkHover }}">Mixcloud <span style="display:inline-flex; opacity:0.75;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+              <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream); min-height:44px; padding:2px 0; transition:color .25s ease;" style-hover="{{ clinkHover }}">Spotify <span style="display:inline-flex; opacity:0.75;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+              <a href="https://instagram.com/enricogiachin" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream); min-height:44px; padding:2px 0; transition:color .25s ease;" style-hover="{{ clinkHover }}">Instagram <span style="display:inline-flex; opacity:0.75;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
             </div>
           </div><div data-reveal-key="cblock2" style="{{ cblock2Style }}" style-hover="{{ cblockHover }}">
-            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">LAVORA CON NOI</div>
-            <p style="font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);">Artisti, grafici, chi costruisce serate.</p>
-            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px;">Cerchiamo collaboratori creativi. Contattaci: hello@liminalsmusic.com</div>
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">{{ t.c4Title }}</div>
+            <p style="font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);">{{ t.c4Body }}</p>
+            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px;">{{ t.c4Sub }}</div>
           </div>
         </div>
 
         <div style="{{ qrColStyle }}">
           <div style="{{ qrCardStyle }}">
-            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Il pitch · <b style="color:var(--cream); font-weight:500;">completo</b></div>
-            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); max-width:28ch;">Scarica il nostro pitch e condividilo con chi pensi possa essere interessato.</div>
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">{{ t.pitchCardKicker }} <b style="color:var(--cream); font-weight:500;">{{ t.pitchCardTitle }}</b></div>
+            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); max-width:28ch;">{{ t.pitchCardDesc }}</div>
             <div style="display:flex; flex-direction:column; gap:10px; align-items:center; width:100%; margin-top:6px;">
-              <a href="{{ pitchHtmlDataUrl }}" target="_blank" rel="noopener" style="{{ pitchBtnStyle }}" style-hover="{{ emailBtnHover }}">Apri il pitch <span style="font-size: 0.8em; opacity: 0.8;">↗</span></a>
-              <a href="{{ pitchPdfDataUrl }}" download="Liminals - Pitch.pdf" style="font-family:'Satoshi',sans-serif; font-size:13px; color:var(--dim); letter-spacing:0;" style-hover="{{ clinkHover }}">Scarica il PDF <span style="font-size:0.85em; opacity:0.7;">↓</span></a>
+              <a href="pitch.html" style="{{ pitchBtnStyle }}" style-hover="{{ emailBtnHover }}">{{ t.openPitch }} <span style="display:inline-flex; opacity:0.85;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1.8 6h8.4M7 2.8 10.2 6 7 9.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+              <a href="assets/pitch/Liminals-Pitch.pdf" download="Liminals - Pitch.pdf" style="font-family:'Satoshi',sans-serif; font-size:13px; color:var(--dim); letter-spacing:0; display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:44px; padding:0 8px; transition:color .25s ease;" style-hover="{{ clinkHover }}">{{ t.downloadPdf }} <span style="display:inline-flex; opacity:0.8;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1.6v6.2M3.4 5.4 6 8l2.6-2.6M2 10.4h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
             </div>
           </div>
 
           <div style="{{ qrCardStyle }}">
-            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">Riguardo al <b style="color:var(--cream); font-weight:500;">manifesto</b></div>
-            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); max-width:28ch;">La carta etica che regola come stiamo sul dancefloor e fuori da esso.</div>
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">{{ t.manCardKicker }} <b style="color:var(--cream); font-weight:500;">{{ t.manCardTitle }}</b></div>
+            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); max-width:28ch;">{{ t.manCardDesc }}</div>
             <div style="display:flex; flex-direction:column; gap:10px; align-items:center; width:100%; margin-top:6px;">
-              <a href="manifesto.html" style="{{ pitchBtnStyle }}" style-hover="{{ emailBtnHover }}">Leggi il manifesto <span style="font-size: 0.8em; opacity: 0.8;">→</span></a>
+              <a href="manifesto.html" style="{{ pitchBtnStyle }}" style-hover="{{ emailBtnHover }}">{{ t.readManifesto }} <span style="display:inline-flex; opacity:0.85;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1.8 6h8.4M7 2.8 10.2 6 7 9.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
             </div>
           </div>
         </div>
@@ -299,11 +315,18 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   </footer>
 
   <!-- TOAST -->
-  <div style="{{ toastStyle }}">Email copiata</div>
+  <div style="{{ toastStyle }}">{{ t.toast }}</div>
 
 </div>
 
 </x-dc>
+<noscript>
+<div style="font-family:sans-serif; max-width:640px; margin:40px auto; padding:0 20px; color:#FEFAEF; background:#151515; line-height:1.6;">
+<h1>Liminals</h1>
+<p>Duo DJ di Trieste. zacku e Teo, minimal deep tech e house: set a due mani di tre ore o pi&ugrave;, costruiti insieme.</p>
+<p>Questo sito richiede JavaScript. Contatti: <a href="mailto:hello@liminalsmusic.com" style="color:#FEFAEF;">hello@liminalsmusic.com</a> &middot; <a href="https://www.mixcloud.com/zackuu/" style="color:#FEFAEF;">Mixcloud</a> &middot; <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" style="color:#FEFAEF;">Spotify</a> &middot; <a href="https://instagram.com/enricogiachin" style="color:#FEFAEF;">Instagram</a> &middot; <a href="assets/pitch/Liminals-Pitch.pdf" style="color:#FEFAEF;">Pitch (PDF)</a></p>
+</div>
+</noscript>
 <script type="text/x-dc" data-dc-script data-props="{
   &quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900},
   &quot;accentColor&quot;: {
@@ -327,6 +350,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
 class Component extends DCLogic {
   state = {
     theme: 'dark',
+    language: 'IT',
     page: 'home',
     menuOpen: false,
     navScrolled: false,
@@ -368,6 +392,14 @@ class Component extends DCLogic {
       const saved = localStorage.getItem('liminals-theme');
       if (saved) this.setState({ theme: saved });
       this.applyThemeColor(saved || this.state.theme);
+    } catch (e) {}
+
+    try {
+      const lang = localStorage.getItem('liminals-lang');
+      if (lang && ['IT','EN','FR','ES'].indexOf(lang) !== -1) {
+        this.setState({ language: lang });
+        document.documentElement.lang = lang.toLowerCase();
+      }
     } catch (e) {}
 
     if ('IntersectionObserver' in window && this.rootEl) {
@@ -427,7 +459,10 @@ class Component extends DCLogic {
   cycleLanguage = () => {
     const order = ['IT', 'EN', 'FR', 'ES'];
     const i = order.indexOf(this.state.language || 'IT');
-    this.setState({ language: order[(i + 1) % order.length] });
+    const next = order[(i + 1) % order.length];
+    this.setState({ language: next });
+    try { localStorage.setItem('liminals-lang', next); } catch (e) {}
+    try { document.documentElement.lang = next.toLowerCase(); } catch (e) {}
   };
 
   toggleTheme = () => {
@@ -473,29 +508,191 @@ class Component extends DCLogic {
     el.textContent = original;
   };
 
+  homeT = {
+    IT: {
+      navSuono: 'Suono', navAscolto: 'Ascolto', navLive: 'Live', navContatti: 'Contatti', navManifesto: 'Manifesto',
+      themeDark: 'Scuro', themeLight: 'Chiaro',
+      heroTag: 'Certi suoni chiedono di essere condivisi. Non come prodotto, come un luogo da abitare.',
+      heroCtaListen: 'Ascolta', heroCtaNotify: 'Avvisami', scroll: 'Scorri',
+      sideSound: 'Bio · profilo',
+      quote1: 'Lavoriamo nello spazio ', quoteEm: 'liminale', quote2: ": tra l'ascolto attento e il corpo che si muove, tra ricerca e pista.",
+      line1: '— Sobrio in apertura', line2: '— Coerente a fine serata', line3: '— Mai mainstream',
+      bioLead: 'Due selezioni, un solo arco. zacku e Teo suonano a quattro mani: minimal deep tech e house costruiti insieme, non due set giustapposti.',
+      tagsLine: 'Minimal · Deep tech · House · 3h+ a due · DJ set',
+      sideLive: 'Eventi',
+      nextDates: 'Prossime date', nextLine: 'La prossima si sta costruendo.',
+      notifyNote: "Lascia la tua email e ti avvisiamo quando c'è una data. Nient'altro, nessuna newsletter.",
+      emailPlaceholder: 'La tua email', notifyBtn: 'Avvisami', past: 'Passati', eventMeta: 'B2B · registrato',
+      notifyInvalid: "Controlla l'email e riprova.", notifyWait: 'Un attimo…',
+      notifyOk: "Fatto. Ti scriviamo noi quando c'è una data.",
+      notifyErr: 'Qualcosa non ha funzionato. Scrivici a hello@liminalsmusic.com',
+      manTeaserLabel: 'Dal manifesto',
+      manQuote: 'Chi apre il set ha lo stesso valore di chi lo chiude.',
+      readManifesto: 'Leggi il manifesto',
+      sideContact: 'Pitch · manifesto',
+      c1Title: 'Hai un posto per noi', c1Body: 'Club, spazi, chi organizza.', c1Sub: 'Il pitch completo è qui accanto, scaricabile.',
+      c2Title: 'Scrivici', c2Sub: 'Tocca per copiare.',
+      c3Title: 'Ascoltaci',
+      c4Title: 'Lavora con noi', c4Body: 'Artisti, grafici, chi costruisce serate.', c4Sub: 'Cerchiamo collaboratori creativi. Contattaci: hello@liminalsmusic.com',
+      pitchCardKicker: 'Il pitch ·', pitchCardTitle: 'completo',
+      pitchCardDesc: 'Scarica il nostro pitch e condividilo con chi pensi possa essere interessato.',
+      openPitch: 'Apri il pitch', downloadPdf: 'Scarica il PDF',
+      manCardKicker: 'Riguardo al', manCardTitle: 'manifesto',
+      manCardDesc: 'La carta etica che regola come stiamo sul dancefloor e fuori da esso.',
+      toast: 'Email copiata',
+    },
+    EN: {
+      navSuono: 'Sound', navAscolto: 'Listen', navLive: 'Live', navContatti: 'Contact', navManifesto: 'Manifesto',
+      themeDark: 'Dark', themeLight: 'Light',
+      heroTag: 'Certain sounds ask to be shared. Not as a product — as a place to inhabit.',
+      heroCtaListen: 'Listen', heroCtaNotify: 'Notify me', scroll: 'Scroll',
+      sideSound: 'Bio · profile',
+      quote1: 'We work in the ', quoteEm: 'liminal', quote2: ' space: between attentive listening and the moving body, between research and the dancefloor.',
+      line1: '— Restrained at the start', line2: '— Coherent at the end of the night', line3: '— Never mainstream',
+      bioLead: 'Two selections, one arc. zacku and Teo play four-handed: minimal deep tech and house built together, not two sets side by side.',
+      tagsLine: 'Minimal · Deep tech · House · 3h+ B2B · DJ set',
+      sideLive: 'Events',
+      nextDates: 'Upcoming dates', nextLine: 'The next one is taking shape.',
+      notifyNote: "Leave your email and we'll let you know when there's a date. Nothing else, no newsletter.",
+      emailPlaceholder: 'Your email', notifyBtn: 'Notify me', past: 'Past', eventMeta: 'B2B · recorded',
+      notifyInvalid: 'Check the email and try again.', notifyWait: 'One moment…',
+      notifyOk: "Done. We'll write to you when there's a date.",
+      notifyErr: 'Something went wrong. Write to us at hello@liminalsmusic.com',
+      manTeaserLabel: 'From the manifesto',
+      manQuote: 'Whoever opens the set is worth as much as whoever closes it.',
+      readManifesto: 'Read the manifesto',
+      sideContact: 'Pitch · manifesto',
+      c1Title: 'Got a space for us', c1Body: 'Clubs, spaces, promoters.', c1Sub: 'The full pitch is right here, downloadable.',
+      c2Title: 'Write to us', c2Sub: 'Tap to copy.',
+      c3Title: 'Listen to us',
+      c4Title: 'Work with us', c4Body: 'Artists, designers, people who build nights.', c4Sub: "We're looking for creative collaborators. Contact us: hello@liminalsmusic.com",
+      pitchCardKicker: 'The pitch ·', pitchCardTitle: 'in full',
+      pitchCardDesc: 'Download our pitch and share it with anyone you think might be interested.',
+      openPitch: 'Open the pitch', downloadPdf: 'Download the PDF',
+      manCardKicker: 'About the', manCardTitle: 'manifesto',
+      manCardDesc: 'The ethical charter for how we behave on the dancefloor and beyond it.',
+      toast: 'Email copied',
+    },
+    FR: {
+      navSuono: 'Son', navAscolto: 'Écoute', navLive: 'Live', navContatti: 'Contact', navManifesto: 'Manifeste',
+      themeDark: 'Sombre', themeLight: 'Clair',
+      heroTag: 'Certains sons demandent à être partagés. Pas comme un produit, comme un lieu à habiter.',
+      heroCtaListen: 'Écouter', heroCtaNotify: 'Préviens-moi', scroll: 'Défiler',
+      sideSound: 'Bio · profil',
+      quote1: "Nous travaillons dans l'espace ", quoteEm: 'liminal', quote2: ' : entre l’écoute attentive et le corps qui bouge, entre recherche et dancefloor.',
+      line1: '— Sobre à l’ouverture', line2: '— Cohérent en fin de soirée', line3: '— Jamais mainstream',
+      bioLead: 'Deux sélections, un seul arc. zacku et Teo jouent à quatre mains : minimal deep tech et house construits ensemble, pas deux sets juxtaposés.',
+      tagsLine: 'Minimal · Deep tech · House · 3h+ B2B · DJ set',
+      sideLive: 'Événements',
+      nextDates: 'Prochaines dates', nextLine: 'La prochaine est en construction.',
+      notifyNote: 'Laisse ton email et on te prévient quand il y a une date. Rien d’autre, pas de newsletter.',
+      emailPlaceholder: 'Ton email', notifyBtn: 'Préviens-moi', past: 'Passés', eventMeta: 'B2B · enregistré',
+      notifyInvalid: 'Vérifie l’email et réessaie.', notifyWait: 'Un instant…',
+      notifyOk: 'C’est fait. On t’écrit dès qu’il y a une date.',
+      notifyErr: 'Quelque chose n’a pas fonctionné. Écris-nous à hello@liminalsmusic.com',
+      manTeaserLabel: 'Extrait du manifeste',
+      manQuote: 'Celui qui ouvre le set a la même valeur que celui qui le clôture.',
+      readManifesto: 'Lire le manifeste',
+      sideContact: 'Pitch · manifeste',
+      c1Title: 'Tu as un lieu pour nous', c1Body: 'Clubs, lieux, organisateurs.', c1Sub: 'Le pitch complet est juste à côté, téléchargeable.',
+      c2Title: 'Écris-nous', c2Sub: 'Touche pour copier.',
+      c3Title: 'Écoute-nous',
+      c4Title: 'Travaille avec nous', c4Body: 'Artistes, graphistes, ceux qui construisent des soirées.', c4Sub: 'Nous cherchons des collaborateurs créatifs. Contacte-nous : hello@liminalsmusic.com',
+      pitchCardKicker: 'Le pitch ·', pitchCardTitle: 'complet',
+      pitchCardDesc: 'Télécharge notre pitch et partage-le avec qui pourrait être intéressé.',
+      openPitch: 'Ouvrir le pitch', downloadPdf: 'Télécharger le PDF',
+      manCardKicker: 'À propos du', manCardTitle: 'manifeste',
+      manCardDesc: 'La charte éthique qui règle notre présence sur le dancefloor et en dehors.',
+      toast: 'Email copié',
+    },
+    ES: {
+      navSuono: 'Sonido', navAscolto: 'Escucha', navLive: 'Live', navContatti: 'Contacto', navManifesto: 'Manifiesto',
+      themeDark: 'Oscuro', themeLight: 'Claro',
+      heroTag: 'Ciertos sonidos piden ser compartidos. No como producto, sino como un lugar para habitar.',
+      heroCtaListen: 'Escucha', heroCtaNotify: 'Avísame', scroll: 'Desliza',
+      sideSound: 'Bio · perfil',
+      quote1: 'Trabajamos en el espacio ', quoteEm: 'liminal', quote2: ': entre la escucha atenta y el cuerpo que se mueve, entre investigación y pista.',
+      line1: '— Sobrio en la apertura', line2: '— Coherente al final de la noche', line3: '— Nunca mainstream',
+      bioLead: 'Dos selecciones, un solo arco. zacku y Teo tocan a cuatro manos: minimal deep tech y house construidos juntos, no dos sets yuxtapuestos.',
+      tagsLine: 'Minimal · Deep tech · House · 3h+ B2B · DJ set',
+      sideLive: 'Eventos',
+      nextDates: 'Próximas fechas', nextLine: 'La próxima se está construyendo.',
+      notifyNote: 'Deja tu email y te avisamos cuando haya una fecha. Nada más, sin newsletter.',
+      emailPlaceholder: 'Tu email', notifyBtn: 'Avísame', past: 'Pasados', eventMeta: 'B2B · grabado',
+      notifyInvalid: 'Revisa el email y vuelve a intentarlo.', notifyWait: 'Un momento…',
+      notifyOk: 'Hecho. Te escribimos cuando haya una fecha.',
+      notifyErr: 'Algo no ha funcionado. Escríbenos a hello@liminalsmusic.com',
+      manTeaserLabel: 'Del manifiesto',
+      manQuote: 'Quien abre el set tiene el mismo valor que quien lo cierra.',
+      readManifesto: 'Lee el manifiesto',
+      sideContact: 'Pitch · manifiesto',
+      c1Title: 'Tienes un sitio para nosotros', c1Body: 'Clubs, espacios, promotores.', c1Sub: 'El pitch completo está aquí al lado, descargable.',
+      c2Title: 'Escríbenos', c2Sub: 'Toca para copiar.',
+      c3Title: 'Escúchanos',
+      c4Title: 'Trabaja con nosotros', c4Body: 'Artistas, diseñadores, quienes construyen noches.', c4Sub: 'Buscamos colaboradores creativos. Contáctanos: hello@liminalsmusic.com',
+      pitchCardKicker: 'El pitch ·', pitchCardTitle: 'completo',
+      pitchCardDesc: 'Descarga nuestro pitch y compártelo con quien creas que pueda estar interesado.',
+      openPitch: 'Abre el pitch', downloadPdf: 'Descarga el PDF',
+      manCardKicker: 'Sobre el', manCardTitle: 'manifiesto',
+      manCardDesc: 'La carta ética que regula cómo estamos en la pista y fuera de ella.',
+      toast: 'Email copiado',
+    },
+  };
+
+  notifyStatusReset = (status) => {
+    status.style.color = 'var(--dim)';
+    status.style.fontFamily = "'Satoshi',sans-serif";
+    status.style.fontWeight = '400';
+    status.style.fontSize = '14px';
+    status.style.border = 'none';
+    status.style.background = 'none';
+    status.style.padding = '0';
+    status.style.borderRadius = '0';
+    status.style.display = 'block';
+    status.style.marginTop = '10px';
+  };
+
   notifySubmit = () => {
+    const t = this.homeT[this.state.language] || this.homeT.IT;
     const input = document.getElementById('notify-email');
     const status = document.getElementById('notify-status');
     if (!input || !status) return;
+    this.notifyStatusReset(status);
     const email = (input.value || '').trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      status.textContent = "Controlla l'email e riprova.";
+      status.style.color = 'var(--accent)';
+      status.style.fontWeight = '500';
+      status.textContent = t.notifyInvalid;
       return;
     }
-    status.textContent = 'Un attimo\u2026';
+    status.textContent = t.notifyWait;
     fetch('https://formspree.io/f/mwvgrrew', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({ email: email, _subject: 'Avvisami: nuova iscrizione dal sito' })
     }).then((r) => {
       if (r.ok) {
-        status.textContent = "Fatto. Ti scriviamo noi quando c'\u00e8 una data.";
+        status.style.color = 'var(--cream)';
+        status.style.fontFamily = "'Outfit',sans-serif";
+        status.style.fontWeight = '500';
+        status.style.fontSize = '16px';
+        status.style.border = '1px solid var(--accent)';
+        status.style.background = 'color-mix(in srgb, var(--accent) 10%, transparent)';
+        status.style.padding = '12px 18px';
+        status.style.borderRadius = '14px';
+        status.style.display = 'inline-block';
+        status.style.marginTop = '14px';
+        status.textContent = t.notifyOk;
         input.value = '';
       } else {
-        status.textContent = 'Qualcosa non ha funzionato. Scrivici a hello@liminalsmusic.com';
+        status.style.color = 'var(--accent)';
+        status.style.fontWeight = '500';
+        status.textContent = t.notifyErr;
       }
     }).catch(() => {
-      status.textContent = 'Qualcosa non ha funzionato. Scrivici a hello@liminalsmusic.com';
+      status.style.color = 'var(--accent)';
+      status.style.fontWeight = '500';
+      status.textContent = t.notifyErr;
     });
   };
 
@@ -593,7 +790,7 @@ class Component extends DCLogic {
     const themeToggleStyle = {
       display: 'flex', alignItems: 'center', gap: '9px', cursor: 'pointer',
       background: 'none', border: '1px solid var(--ghost)', borderRadius: '100px',
-      padding: '9px 16px', color: 'var(--dim)',
+      padding: isNarrow ? '13px 18px' : '9px 16px', minHeight: isNarrow ? '44px' : '38px', color: 'var(--dim)',
       fontFamily: "'Bitcount',monospace", fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase',
       transition: 'color .25s ease, border-color .25s ease, background .25s ease',
     };
@@ -601,17 +798,18 @@ class Component extends DCLogic {
     const langToggleStyle = {
       display: 'flex', alignItems: 'center', gap: '7px', cursor: 'pointer',
       background: 'none', border: '1px solid var(--ghost)', borderRadius: '100px',
-      padding: '9px 16px', color: 'var(--dim)',
+      padding: isNarrow ? '13px 18px' : '9px 16px', minHeight: isNarrow ? '44px' : '38px', color: 'var(--dim)',
       fontFamily: "'Bitcount',monospace", fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase',
       transition: 'color .25s ease, border-color .25s ease, background .25s ease',
     };
     const languageLabel = this.state.language || 'IT';
+    const t = this.homeT[languageLabel] || this.homeT.IT;
     const themeKnobStyle = isLight
       ? { width: '9px', height: '9px', borderRadius: '50%', border: '1.5px solid var(--accent)', display: 'inline-block' }
       : { width: '9px', height: '9px', borderRadius: '50%', background: 'var(--accent)', display: 'inline-block' };
-    const themeLabel = isLight ? 'Chiaro' : 'Scuro';
+    const themeLabel = isLight ? t.themeLight : t.themeDark;
 
-    const burgerWrapStyle = { display: (isNarrow && isHome) ? 'flex' : 'none', flexDirection: 'column', gap: '5px', cursor: 'pointer', background: 'none', border: '1px solid var(--ghost)', borderRadius: '12px', padding: '10px 12px', transition: 'border-color .25s ease, background .25s ease' };
+    const burgerWrapStyle = { display: (isNarrow && isHome) ? 'flex' : 'none', flexDirection: 'column', gap: '5px', cursor: 'pointer', background: 'none', border: '1px solid var(--ghost)', borderRadius: '12px', padding: '13px 14px', transition: 'border-color .25s ease, background .25s ease' };
     const burgerHover = { borderColor: 'var(--cream)', background: 'var(--bg-2)', transform: 'scale(' + hoverScale + ')' };
     const burgerBase = { width: '24px', height: '2px', background: 'var(--cream)', transition: 'transform .3s ease, opacity .3s ease' };
     const burgerLine1Style = Object.assign({}, burgerBase, this.state.menuOpen ? { transform: 'translateY(7px) rotate(45deg)' } : {});
@@ -665,7 +863,7 @@ class Component extends DCLogic {
 
     const trackBase = {
       position: 'relative', display: 'flex', gap: '22px', alignItems: 'center',
-      padding: 'clamp(20px,2vw,28px)', border: '1px solid var(--ghost)', borderRadius: '20px',
+      padding: 'clamp(20px,2vw,28px)', border: '1px solid var(--ghost)', borderRadius: '16px',
       background: 'var(--bg-2)', transition: 'border-color .3s ease, transform .3s ease, box-shadow .3s ease',
     };
     const track1Style = trackBase;
@@ -674,10 +872,10 @@ class Component extends DCLogic {
 
     const eventGridStyle = {
       display: 'grid',
-      gridTemplateColumns: isSmall ? '1fr auto' : '130px 1fr auto',
-      gap: '20px', alignItems: 'center',
+      gridTemplateColumns: isSmall ? '1fr' : '130px 1fr auto',
+      gap: isSmall ? '10px' : '20px', alignItems: 'center',
       padding: 'clamp(20px,2.4vh,28px) clamp(22px,2.6vw,30px)',
-      border: '1px solid var(--ghost)', borderRadius: '18px',
+      border: '1px solid var(--ghost)', borderRadius: '16px',
       background: 'var(--bg-2)', transition: 'border-color .3s ease, transform .3s ease, background .3s ease',
     };
     const eventHover = { borderColor: 'var(--accent)', transform: 'translateX(6px)' };
@@ -685,7 +883,7 @@ class Component extends DCLogic {
     const connectGridStyle = { display: 'grid', gridTemplateColumns: isNarrow ? '1fr' : '1.3fr 1fr', gap: 'clamp(32px,5vw,80px)', alignItems: 'start' };
 
     const qrCardStyle = {
-      border: '1px solid var(--ghost)', borderRadius: '20px', background: 'var(--bg-2)',
+      border: '1px solid var(--ghost)', borderRadius: '16px', background: 'var(--bg-2)',
       padding: 'clamp(26px,3.2vw,36px)', display: 'flex', flexDirection: 'column', gap: '20px',
       alignItems: 'center', textAlign: 'center',
     };
@@ -698,7 +896,7 @@ class Component extends DCLogic {
     const clinkHover = { color: 'var(--accent)' };
 
     const cblockStyle = {
-      border: '1px solid var(--ghost)', borderRadius: '20px',
+      border: '1px solid var(--ghost)', borderRadius: '16px',
       background: 'var(--bg-2)', padding: 'clamp(22px,2.6vw,30px)',
       transition: 'border-color .3s ease, transform .3s ease, box-shadow .3s ease',
     };
@@ -709,6 +907,7 @@ class Component extends DCLogic {
       fontFamily: "'Outfit',sans-serif", fontWeight: 500, fontSize: 'clamp(16px,1.3vw,19px)',
       letterSpacing: '-0.01em', color: 'var(--bg)', background: 'var(--cream)',
       padding: '14px 22px', borderRadius: '100px',
+      width: isSmall ? '100%' : 'auto', justifyContent: 'center',
       transition: 'background .3s ease, color .3s ease, transform .3s ease',
     };
     const emailBtnHover = { background: 'var(--accent)', color: '#FEFAEF', transform: 'translateY(-2px) scale(' + hoverScale + ')' };
@@ -743,8 +942,24 @@ class Component extends DCLogic {
     const heroDarkImgStyle = Object.assign({}, heroImgBase, { opacity: isLight ? 0 : 1, transform: 'scale(1.06)' });
     const heroLightImgStyle = Object.assign({}, heroImgBase, { opacity: isLight ? 1 : 0, transform: 'scale(1.06)' });
 
+    const notifyRowStyle = { display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '20px', alignItems: isSmall ? 'stretch' : 'center', maxWidth: '520px', flexDirection: isSmall ? 'column' : 'row' };
+    const eventMetaStyle = { fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--dim)', textAlign: isSmall ? 'left' : 'right' };
+    const mixcloudSrc = 'https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=' + (isLight ? '1' : '0') + '&feed=%2Fzackuu%2Fzacku-and-teo-aurisina-session%2F';
+    const heroCtaRowStyle = { display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: 'clamp(22px,3.5vh,34px)' };
+    const heroCta1Style = { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', fontFamily: "'Outfit',sans-serif", fontWeight: 500, fontSize: 'clamp(15px,1.2vw,18px)', letterSpacing: '-0.01em', color: 'var(--bg)', background: 'var(--cream)', border: '1px solid transparent', padding: '13px 26px', borderRadius: '100px', transition: 'background .3s ease, color .3s ease, transform .3s ease', flex: isTiny ? '1 1 40%' : '0 0 auto' };
+    const heroCta2Style = Object.assign({}, heroCta1Style, { color: 'var(--cream)', background: 'transparent', border: '1px solid var(--ghost)', transition: 'border-color .3s ease, color .3s ease, background .3s ease, transform .3s ease' });
+    const heroCta2Hover = { borderColor: 'var(--cream)', background: 'var(--bg-2)', transform: 'translateY(-2px) scale(' + hoverScale + ')' };
+    const manLinkStyle = { display: 'inline-flex', alignItems: 'center', gap: '8px', fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--dim)', border: '1px solid var(--ghost)', borderRadius: '100px', padding: '12px 22px', transition: 'color .3s ease, border-color .3s ease, transform .3s ease' };
+    const manLinkHover = { color: 'var(--accent)', borderColor: 'var(--accent)', transform: 'translateY(-2px)' };
+
     return {
       isHome, isManifesto,
+      t: t,
+      eventMetaStyle, mixcloudSrc, notifyRowStyle,
+      heroCtaRowStyle, heroCta1Style, heroCta2Style, heroCta2Hover,
+      manLinkStyle, manLinkHover,
+      revealPlayer: this.reveal('player', 0.08),
+      revealManTeaser: this.reveal('manTeaser', 0),
       openManifesto: this.openManifesto, openManifestoFromMenu: this.openManifestoFromMenu, goHome: this.goHome,
       navLinkManifestoStyle, backHomeStyle, backHomeHover,
       revealManHead: this.reveal('manHead', 0),

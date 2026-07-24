@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Pitch — Liminals</title>
+<meta name="description" content="Il pitch completo di Liminals: duo DJ di Trieste, minimal deep tech e house. Formato set, riferimenti e contatti per club e spazi.">
+<link rel="canonical" href="https://liminalsmusic.com/pitch.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://liminalsmusic.com/pitch.html">
+<meta property="og:site_name" content="Liminals">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Pitch — Liminals">
+<meta property="og:description" content="Il pitch completo di Liminals: duo DJ di Trieste, minimal deep tech e house. Formato set, riferimenti e contatti per club e spazi.">
+<meta property="og:image" content="https://liminalsmusic.com/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Liminals — minimal deep tech e house, Trieste">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pitch — Liminals">
+<meta name="twitter:description" content="Il pitch completo di Liminals: duo DJ di Trieste, minimal deep tech e house.">
+<meta name="twitter:image" content="https://liminalsmusic.com/assets/img/og.jpg">
+
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
+<meta name="theme-color" content="#151515">
+
+<style>
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.otf') format('opentype'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-SemiBold.otf') format('opentype'); font-weight:600; font-display:swap; }
+@font-face { font-family:'Satoshi'; src:url('assets/fonts/Satoshi-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Bitcount'; src:url('assets/fonts/Bitcount-Regular.ttf') format('truetype'); font-weight:400; font-display:swap; }
+
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+
+:root {
+  --bg:#151515; --bg-2:color-mix(in srgb, #FEFAEF 6%, #151515);
+  --cream:#FEFAEF; --dim:rgba(254,250,239,0.62); --ghost:rgba(254,250,239,0.12);
+  --accent:#593AC6; --pad-x:clamp(16px, 5vw, 48px);
+}
+html[data-theme="light"] {
+  --bg:#FEFAEF; --bg-2:color-mix(in srgb, #151515 7%, #FEFAEF);
+  --cream:#151515; --dim:rgba(21,21,21,0.64); --ghost:rgba(21,21,21,0.12);
+  --accent:#FC4446;
+}
+
+html, body { background:var(--bg); height:100%; overflow:hidden; }
+body {
+  color:var(--cream); font-family:'Satoshi', system-ui, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column; height:100svh;
+}
+a { color:inherit; text-decoration:none; }
+button { background:none; border:none; font:inherit; color:inherit; -webkit-appearance:none; appearance:none; }
+::selection { background:var(--accent); color:#FEFAEF; }
+:focus-visible { outline:2px solid var(--cream); outline-offset:3px; border-radius:2px; }
+
+header {
+  flex:0 0 auto; display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:12px var(--pad-x); border-bottom:1px solid var(--ghost);
+  background:var(--bg); position:relative; z-index:2; flex-wrap:wrap;
+}
+.brand { display:flex; align-items:center; gap:14px; min-width:0; }
+.logo { font-family:'Outfit',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.03em; line-height:1; }
+.back {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--dim); border:1px solid var(--ghost); border-radius:100px; padding:10px 16px;
+  min-height:44px; transition:color .25s ease, border-color .25s ease, background .25s ease;
+}
+.back:hover { color:var(--cream); border-color:var(--cream); background:var(--bg-2); }
+.actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.pill {
+  display:inline-flex; align-items:center; justify-content:center; gap:8px; cursor:pointer;
+  border:1px solid var(--ghost); border-radius:100px; padding:10px 16px; min-height:44px;
+  font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--dim); transition:color .25s ease, border-color .25s ease, background .25s ease;
+}
+.pill:hover { color:var(--bg); border-color:var(--cream); background:var(--cream); }
+.pdf {
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  font-family:'Outfit',sans-serif; font-weight:500; font-size:15px; letter-spacing:-0.01em;
+  color:var(--bg); background:var(--cream); border-radius:100px; padding:11px 20px; min-height:44px;
+  transition:background .3s ease, color .3s ease, transform .3s ease;
+}
+.pdf:hover { background:var(--accent); color:#FEFAEF; transform:translateY(-2px); }
+.knob { width:9px; height:9px; border-radius:50%; background:var(--accent); display:inline-block; }
+html[data-theme="light"] .knob { background:none; border:1.5px solid var(--accent); }
+
+main { flex:1 1 auto; position:relative; min-height:0; background:var(--bg); }
+iframe {
+  display:block; width:100%; height:100%; border:0; background:var(--bg);
+}
+footer {
+  flex:0 0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  padding:10px var(--pad-x); border-top:1px solid var(--ghost);
+  font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--dim);
+}
+footer a { color:var(--dim); border-bottom:1px solid var(--ghost); padding-bottom:2px; }
+footer a:hover { color:var(--cream); }
+
+@media (max-width: 620px) {
+  header { padding:10px var(--pad-x); }
+  .logo { font-size:18px; }
+  .brand { flex:1 1 100%; justify-content:space-between; }
+  .actions { flex:1 1 100%; }
+  .pdf { flex:1 1 auto; }
+  footer .hide-s { display:none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration:.01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <a class="logo" href="index.html">Liminals</a>
+    <a class="back" href="index.html"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M10.2 6H1.8M5 2.8 1.8 6 5 9.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><span data-i18n="back">Torna alla home</span></a>
+  </div>
+  <div class="actions">
+    <a class="pdf" href="assets/pitch/Liminals-Pitch.pdf" download="Liminals - Pitch.pdf"><span data-i18n="pdf">Scarica il PDF</span> <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1.6v6.2M3.4 5.4 6 8l2.6-2.6M2 10.4h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    <button class="pill" id="lang" aria-label="Lingua / Language"><span id="lang-label">IT</span></button>
+    <button class="pill" id="theme"><span class="knob"></span><span id="theme-label">Scuro</span></button>
+  </div>
+</header>
+
+<main>
+  <iframe id="pitch-frame" src="assets/pitch/Liminals-Pitch.html" title="Liminals — Pitch" loading="eager"></iframe>
+</main>
+
+<footer>
+  <span data-i18n="kicker">Liminals · Pitch</span>
+  <span class="hide-s"><a href="assets/pitch/Liminals-Pitch.html" target="_blank" rel="noopener" data-i18n="newtab">Apri in una nuova scheda</a></span>
+  <span class="hide-s">Trieste · IT — Est. 2026</span>
+</footer>
+
+<script>
+(function () {
+  var STR = {
+    IT: { back: 'Torna alla home', pdf: 'Scarica il PDF', kicker: 'Liminals \u00b7 Pitch', newtab: 'Apri in una nuova scheda', dark: 'Scuro', light: 'Chiaro' },
+    EN: { back: 'Back to home', pdf: 'Download the PDF', kicker: 'Liminals \u00b7 Pitch', newtab: 'Open in a new tab', dark: 'Dark', light: 'Light' },
+    FR: { back: "Retour \u00e0 l'accueil", pdf: 'T\u00e9l\u00e9charger le PDF', kicker: 'Liminals \u00b7 Pitch', newtab: 'Ouvrir dans un nouvel onglet', dark: 'Sombre', light: 'Clair' },
+    ES: { back: 'Volver al inicio', pdf: 'Descarga el PDF', kicker: 'Liminals \u00b7 Pitch', newtab: 'Abrir en una pesta\u00f1a nueva', dark: 'Oscuro', light: 'Claro' }
+  };
+  var ORDER = ['IT', 'EN', 'FR', 'ES'];
+  var lang = 'IT', theme = 'dark';
+
+  try {
+    var sl = localStorage.getItem('liminals-lang');
+    if (sl && ORDER.indexOf(sl) !== -1) lang = sl;
+    var st = localStorage.getItem('liminals-theme');
+    if (st === 'light' || st === 'dark') theme = st;
+  } catch (e) {}
+
+  function applyTheme() {
+    document.documentElement.setAttribute('data-theme', theme);
+    var c = theme === 'light' ? '#FEFAEF' : '#151515';
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', c);
+    document.documentElement.style.background = c;
+    document.body.style.background = c;
+    var tl = document.getElementById('theme-label');
+    if (tl) tl.textContent = theme === 'light' ? STR[lang].light : STR[lang].dark;
+  }
+
+  function applyLang() {
+    var s = STR[lang] || STR.IT;
+    var nodes = document.querySelectorAll('[data-i18n]');
+    for (var i = 0; i < nodes.length; i++) {
+      var k = nodes[i].getAttribute('data-i18n');
+      if (s[k]) nodes[i].textContent = s[k];
+    }
+    document.getElementById('lang-label').textContent = lang;
+    document.documentElement.lang = lang.toLowerCase();
+    var tl = document.getElementById('theme-label');
+    if (tl) tl.textContent = theme === 'light' ? s.light : s.dark;
+  }
+
+  document.getElementById('theme').addEventListener('click', function () {
+    theme = theme === 'light' ? 'dark' : 'light';
+    try { localStorage.setItem('liminals-theme', theme); } catch (e) {}
+    applyTheme();
+  });
+
+  document.getElementById('lang').addEventListener('click', function () {
+    lang = ORDER[(ORDER.indexOf(lang) + 1) % ORDER.length];
+    try { localStorage.setItem('liminals-lang', lang); } catch (e) {}
+    applyLang();
+  });
+
+  applyTheme();
+  applyLang();
+})();
+</script>
+
+</body>
+</html>

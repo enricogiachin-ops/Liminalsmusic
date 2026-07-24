@@ -29,6 +29,7 @@
 
 <script src="./support.js"></script>
 <meta name="theme-color" content="#151515">
+<noscript><style>x-dc{display:none!important}body{background:#151515;color:#FEFAEF}</style></noscript>
 </head>
 <body>
 <x-dc>
@@ -107,12 +108,12 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
           <p style="font-family:'Satoshi',sans-serif; font-size:15.5px; line-height:1.65; max-width:62ch; color:var(--dim); margin-bottom:14px;">{{ t.s1P2 }}</p>
           <p style="font-family:'Satoshi',sans-serif; font-size:15.5px; line-height:1.65; max-width:62ch; color:var(--dim); margin-bottom:14px;">{{ t.s1P3 }}</p>
           <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:8px 24px; font-family:'Outfit',sans-serif; font-weight:600; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--cream); margin:8px 0 0; padding:16px 0; border-top:1px solid var(--ghost); border-bottom:1px solid var(--ghost);">
-            <span>No al sessismo</span>
-            <span>No alla transfobia</span>
-            <span>No all'omofobia</span>
-            <span>No alle violenze</span>
-            <span>No al razzismo</span>
-            <span>No a qualsiasi discriminazione</span>
+            <span>{{ t.n1 }}</span>
+            <span>{{ t.n2 }}</span>
+            <span>{{ t.n3 }}</span>
+            <span>{{ t.n4 }}</span>
+            <span>{{ t.n5 }}</span>
+            <span>{{ t.n6 }}</span>
           </div>
         </div>
 
@@ -163,6 +164,13 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
 </div>
 
 </x-dc>
+<noscript>
+<div style="font-family:sans-serif; max-width:640px; margin:40px auto; padding:0 20px; color:#FEFAEF; background:#151515; line-height:1.6;">
+<h1>Liminals — Manifesto</h1>
+<p>La carta etica di Liminals: rispetto non negoziabile, stesso prezzo d'ingresso per tutti, mobilità sostenibile, nessuna gerarchia tra chi apre e chi chiude il set.</p>
+<p>Questo sito richiede JavaScript. Contatti: <a href="mailto:hello@liminalsmusic.com" style="color:#FEFAEF;">hello@liminalsmusic.com</a> &middot; <a href="index.html" style="color:#FEFAEF;">Home</a></p>
+</div>
+</noscript>
 <script type="text/x-dc" data-dc-script data-props="{
   &quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900},
   &quot;accentColor&quot;: {
@@ -241,6 +249,9 @@ class Component extends DCLogic {
       s4P1: "Chi apre il set ha lo stesso valore di chi lo chiude. Chi è ai primi dischi ha lo stesso diritto al rispetto di chi suona da anni, senza alcuna gerarchia.",
       s4P2: "Ci si supporta. Ci si ascolta. Ci si condivide.",
       s4P3: "La competizione non produce niente di buono, ma la condivisione sì: un disco trovato per caso, un suono che non si sapeva nominare, una rete che sostiene chi inizia.",
+      n1: 'No al sessismo', n2: 'No alla transfobia', n3: "No all'omofobia",
+      n4: 'No alle violenze', n5: 'No al razzismo', n6: 'No a qualsiasi discriminazione',
+      dark: 'Scuro', light: 'Chiaro',
       backHome: '← Torna alla home',
     },
     EN: {
@@ -260,6 +271,9 @@ class Component extends DCLogic {
       s4P1: "Whoever opens the set is worth as much as whoever closes it. Whoever is on their first records has the same right to respect as whoever has played for years, with no hierarchy at all.",
       s4P2: "We support each other. We listen to each other. We share with each other.",
       s4P3: "Competition produces nothing good, but sharing does: a record found by chance, a sound you didn't know how to name, a network that supports those just starting out.",
+      n1: 'No to sexism', n2: 'No to transphobia', n3: 'No to homophobia',
+      n4: 'No to violence', n5: 'No to racism', n6: 'No to any discrimination',
+      dark: 'Dark', light: 'Light',
       backHome: '← Back to home',
     },
     FR: {
@@ -279,6 +293,9 @@ class Component extends DCLogic {
       s4P1: "Celui qui ouvre le set a la même valeur que celui qui le clôture. Celui qui débute a le même droit au respect que celui qui joue depuis des années, sans aucune hiérarchie.",
       s4P2: "On se soutient. On s'écoute. On partage.",
       s4P3: "La compétition ne produit rien de bon, mais le partage si : un disque trouvé par hasard, un son qu'on ne savait pas nommer, un réseau qui soutient ceux qui débutent.",
+      n1: 'Non au sexisme', n2: 'Non \u00e0 la transphobie', n3: "Non \u00e0 l'homophobie",
+      n4: 'Non aux violences', n5: 'Non au racisme', n6: 'Non \u00e0 toute discrimination',
+      dark: 'Sombre', light: 'Clair',
       backHome: '← Retour à l\'accueil',
     },
     ES: {
@@ -298,6 +315,9 @@ class Component extends DCLogic {
       s4P1: "Quien abre el set tiene el mismo valor que quien lo cierra. Quien está en sus primeros discos tiene el mismo derecho al respeto que quien toca desde hace años, sin ninguna jerarquía.",
       s4P2: "Nos apoyamos. Nos escuchamos. Compartimos.",
       s4P3: "La competencia no produce nada bueno, pero la compartición sí: un disco encontrado por casualidad, un sonido que no se sabía nombrar, una red que sostiene a quien empieza.",
+      n1: 'No al sexismo', n2: 'No a la transfobia', n3: 'No a la homofobia',
+      n4: 'No a las violencias', n5: 'No al racismo', n6: 'No a cualquier discriminaci\u00f3n',
+      dark: 'Oscuro', light: 'Claro',
       backHome: '← Volver al inicio',
     },
   };
@@ -405,7 +425,7 @@ class Component extends DCLogic {
     const themeKnobStyle = isLight
       ? { width: '9px', height: '9px', borderRadius: '50%', border: '1.5px solid var(--accent)', display: 'inline-block' }
       : { width: '9px', height: '9px', borderRadius: '50%', background: 'var(--accent)', display: 'inline-block' };
-    const themeLabel = isLight ? 'Chiaro' : 'Scuro';
+    const themeLabel = isLight ? (t.light || 'Chiaro') : (t.dark || 'Scuro');
 
     const pitchBtnStyle = {
       display: 'inline-flex', alignItems: 'center', gap: '8px', justifyContent: 'center',
