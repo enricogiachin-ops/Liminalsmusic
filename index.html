@@ -146,23 +146,23 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
     <!-- SUONO -->
     <section id="suono" style="position:relative; z-index:1; padding:clamp(64px,12vh,160px) var(--pad-x);">
       <div style="max-width:var(--maxw); margin:0 auto;">
-        <div data-reveal-key="bioHead" style="{{ revealBioHead }}display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
+        <div data-reveal-key="bioHead" style="{{ revealBioHead }}; display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
           <span style="width:10.94px; height:10.94px; background:var(--accent); flex-shrink:0; display:inline-block; transform:translateY(0.5px);"></span>
           <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">{{ t.navSuono }}</span>
           <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">{{ t.sideSound }}</span>
         </div>
         <h2 data-reveal-key="manifestoQuote" style="{{ manifestoH2Style }}">{{ t.quote1 }}<em style="font-style:normal; color:var(--accent);">{{ t.quoteEm }}</em>{{ t.quote2 }}</h2>
         
-        <div data-reveal-key="foot" style="{{ revealFoot }}margin-top: clamp(28px,4vh,48px); margin-bottom: clamp(48px,7vh,80px); display: flex; flex-wrap: wrap; gap: 12px 40px; font-family: 'Bitcount',monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dim)">
+        <div data-reveal-key="foot" style="{{ revealFoot }}; margin-top: 32px; margin-bottom: clamp(48px,7vh,80px); display: flex; flex-wrap: wrap; gap: 12px 40px; font-family: 'Bitcount',monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dim)">
           <span>{{ t.line1 }}</span>
           <span>{{ t.line2 }}</span>
           <span>{{ t.line3 }}</span>
         </div><div style="{{ bioGridStyle }}">
-          <div data-reveal-key="bioLabels" style="{{ revealBioLabels }}display:flex; flex-direction:column; gap:8px; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--faint);">
+          <div data-reveal-key="bioLabels" style="{{ revealBioLabels }}; display:flex; flex-direction:column; gap:8px; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--faint);">
             <span>ZACKU</span>
             <span>B2B Teo</span></div>
           <div style="display:flex; flex-direction:column; gap:22px; max-width:62ch; margin-top:-6px;">
-            <p data-reveal-key="bioLead" style="{{ revealBioLead }}font-family: 'Outfit',sans-serif; font-weight: 300; line-height: 1.45; letter-spacing: -0.01em; font-size: 25.67px">{{ t.bioLead }}</p>
+            <p data-reveal-key="bioLead" style="{{ revealBioLead }}; font-family: 'Outfit',sans-serif; font-weight: 300; line-height: 1.45; letter-spacing: -0.01em; font-size: 25.67px">{{ t.bioLead }}</p>
             <div data-reveal-key="tags" style="{{ tagsLineStyle }}">{{ t.tagsLine }}</div>
           </div>
         </div>
@@ -172,7 +172,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
     <!-- ASCOLTO -->
     <section id="ascolto" style="position:relative; z-index:1; padding:clamp(64px,12vh,160px) var(--pad-x);">
       <div style="max-width:var(--maxw); margin:0 auto;">
-        <div data-reveal-key="musicHead" style="{{ revealMusicHead }}display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
+        <div data-reveal-key="musicHead" style="{{ revealMusicHead }}; display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
           <span style="width:10.94px; height:10.94px; background:var(--accent); flex-shrink:0; display:inline-block; transform:translateY(0.5px);"></span>
           <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">{{ t.navAscolto }}</span>
           <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">Mix · release</span>
@@ -208,7 +208,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
     <!-- LIVE -->
     <section id="live" style="position:relative; z-index:1; padding:clamp(64px,12vh,160px) var(--pad-x);">
       <div style="max-width:var(--maxw); margin:0 auto;">
-        <div data-reveal-key="liveHead" style="{{ revealLiveHead }}display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
+        <div data-reveal-key="liveHead" style="{{ revealLiveHead }}; display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
           <span style="width:10.94px; height:10.94px; background:var(--accent); flex-shrink:0; display:inline-block; transform:translateY(0.5px);"></span>
           <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">{{ t.navLive }}</span>
           <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">{{ t.sideLive }}</span>
@@ -219,7 +219,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
             <p style="font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);">{{ t.nextLine }}</p>
             <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px; max-width:46ch;">{{ t.notifyNote }}</div>
             <div style="{{ notifyRowStyle }}">
-              <input id="notify-email" type="email" inputmode="email" autocomplete="email" placeholder="{{ t.emailPlaceholder }}" aria-label="{{ t.emailPlaceholder }}" style="flex:1 1 220px; min-width:0; font-family:'Satoshi',sans-serif; font-size:16px; color:var(--cream); background:transparent; border:1px solid var(--ghost); border-radius:100px; padding:13px 20px; transition:border-color .3s ease;">
+              <input id="notify-email" type="email" inputmode="email" autocomplete="email" placeholder="{{ t.emailPlaceholder }}" aria-label="{{ t.emailPlaceholder }}" style="{{ notifyInputStyle }}">
               <button type="button" onClick="{{ notifySubmit }}" style="{{ emailBtnStyle }}" style-hover="{{ emailBtnHover }}">{{ t.notifyBtn }}</button>
             </div>
             <div id="notify-status" role="status" aria-live="polite" style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:10px; min-height:1.5em;"></div>
@@ -236,7 +236,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
 
     <!-- MANIFESTO TEASER -->
     <section style="position:relative; z-index:1; padding:clamp(56px,9vh,120px) var(--pad-x);">
-      <div data-reveal-key="manTeaser" style="{{ revealManTeaser }}max-width:var(--maxw); margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:clamp(18px,3vh,26px);">
+      <div data-reveal-key="manTeaser" style="{{ revealManTeaser }}; max-width:var(--maxw); margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center; gap:clamp(18px,3vh,26px);">
         <span style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); display:flex; align-items:center; gap:12px;"><span style="width:10px; height:10px; background:var(--accent); display:inline-block;"></span>{{ t.manTeaserLabel }}</span>
         <p style="font-family:'Outfit',sans-serif; font-weight:300; font-size:clamp(22px,3.2vw,40px); letter-spacing:-0.02em; line-height:1.3; max-width:26ch; color:var(--cream);">{{ t.manQuote }}</p>
         <a href="manifesto.html" style="{{ manLinkStyle }}" style-hover="{{ manLinkHover }}">{{ t.readManifesto }} <span style="display:inline-flex;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1.8 6h8.4M7 2.8 10.2 6 7 9.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
@@ -247,7 +247,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   <!-- CONTATTI -->
   <section id="contatti" style="position:relative; padding:clamp(64px,12vh,160px) var(--pad-x);">
     <div style="max-width:var(--maxw); margin:0 auto;">
-      <div data-reveal-key="contattiHead" style="{{ revealContattiHead }}display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
+      <div data-reveal-key="contattiHead" style="{{ revealContattiHead }}; display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
         <span style="width: 10.94px; height: 10.94px; background: var(--accent); flex-shrink: 0; display: inline-block; transform: translateY(0.5px);"></span>
         <span style="font-family: Bitcount, monospace; font-size: 13px; line-height: 1; letter-spacing: 0.24em; text-transform: uppercase; color: var(--dim);">{{ t.navContatti }}</span>
         <span style="margin-left: auto; font-family: Bitcount, monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--faint);">{{ t.sideContact }}</span></div>
@@ -304,7 +304,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   <footer style="padding:clamp(48px,7vh,88px) var(--pad-x) 36px; border-top:1px solid var(--ghost);">
     <div style="max-width:var(--maxw); margin:0 auto; display:flex; flex-direction:column; gap:clamp(28px,5vh,56px);">
       <div data-reveal-key="footerBig" style="{{ footerBigRevealStyle }}">Liminals</div>
-      <div data-reveal-key="footerRow" style="{{ revealFooterRow }}display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--dim);">
+      <div data-reveal-key="footerRow" style="{{ revealFooterRow }}; display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--dim);">
         <span>zacku × Teo</span>
         <span>Minimal deep tech &amp; house</span>
         <span>Trieste · IT — Est. 2026</span>
@@ -940,6 +940,7 @@ class Component extends DCLogic {
     const heroDarkImgStyle = Object.assign({}, heroImgBase, { opacity: isLight ? 0 : 1, transform: 'scale(1.06)' });
     const heroLightImgStyle = Object.assign({}, heroImgBase, { opacity: isLight ? 1 : 0, transform: 'scale(1.06)' });
 
+    const notifyInputStyle = { flex: isSmall ? '0 0 auto' : '1 1 220px', width: isSmall ? '100%' : 'auto', minWidth: 0, fontFamily: "'Satoshi',sans-serif", fontSize: '16px', color: 'var(--cream)', background: 'transparent', border: '1px solid var(--ghost)', borderRadius: '100px', padding: '13px 20px', transition: 'border-color .3s ease' };
     const notifyRowStyle = { display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '20px', alignItems: isSmall ? 'stretch' : 'center', maxWidth: '520px', flexDirection: isSmall ? 'column' : 'row' };
     const eventMetaStyle = { fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--dim)', textAlign: isSmall ? 'left' : 'right' };
     const mixcloudSrc = 'https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=' + (isLight ? '1' : '0') + '&feed=%2Fzackuu%2Fzacku-and-teo-aurisina-session%2F';
@@ -949,7 +950,7 @@ class Component extends DCLogic {
     return {
       isHome, isManifesto,
       t: t,
-      eventMetaStyle, mixcloudSrc, notifyRowStyle,
+      eventMetaStyle, mixcloudSrc, notifyRowStyle, notifyInputStyle,
       manLinkStyle, manLinkHover,
       revealManTeaser: this.reveal('manTeaser', 0),
       openManifesto: this.openManifesto, openManifestoFromMenu: this.openManifestoFromMenu, goHome: this.goHome,
@@ -985,7 +986,7 @@ class Component extends DCLogic {
       revealBioLabels: this.reveal('bioLabels', 0),
       revealBioLead: this.reveal('bioLead', 0.08),
       revealTags: this.reveal('tags', 0.24),
-      tagsLineStyle: Object.assign({}, this.reveal('tags', 0.24), { fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--dim)', lineHeight: 2, marginTop: '6px', paddingTop: '14px', borderTop: '1px solid var(--ghost)', maxWidth: '62ch', width: '100%' }),
+      tagsLineStyle: Object.assign({}, this.reveal('tags', 0.24), { fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--dim)', lineHeight: 2, marginTop: '10px', paddingTop: '14px', borderTop: '1px solid var(--ghost)', maxWidth: '62ch', width: '100%' }),
       revealMusicHead: this.reveal('musicHead', 0),
       revealLiveHead: this.reveal('liveHead', 0),
       revealEventsGroup: this.reveal('eventsGroup', 0.16),

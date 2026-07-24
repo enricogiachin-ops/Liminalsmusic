@@ -73,7 +73,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
       <a href="index.html" style="font-family:'Outfit',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.03em; line-height:1; display:flex; align-items:center; gap:9px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Liminals">
         Liminals
       </a>
-      <a href="index.html" style="{{ backHomeStyle }}" style-hover="{{ backHomeHover }}">← back home</a>
+      <a href="index.html" style="{{ backHomeStyle }}" style-hover="{{ backHomeHover }}">{{ t.backHome }}</a>
     </div>
     <div style="display:flex; align-items:center; gap:10px;">
       <button onClick="{{ cycleLanguage }}" style="{{ langToggleStyle }}" style-hover="{{ themeToggleHover }}"><span>{{ languageLabel }}</span></button>
@@ -87,7 +87,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   <section style="position:relative; min-height:100vh; padding:calc(96px + clamp(48px,8vh,96px)) var(--pad-x) clamp(64px,10vh,120px); display:flex; justify-content:center;">
     <div style="width:100%; max-width:820px;">
 
-      <div data-reveal-key="manHead" style="{{ revealManHead }}display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:16px; font-family:'Bitcount',monospace; font-weight:400; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--dim); margin-bottom:clamp(48px,7vh,80px);">
+      <div data-reveal-key="manHead" style="{{ revealManHead }}; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:16px; font-family:'Bitcount',monospace; font-weight:400; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--dim); margin-bottom:clamp(48px,7vh,80px);">
         <span>{{ t.head1 }}</span>
         <span>Trieste, IT · 2026</span>
       </div>
@@ -155,7 +155,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
       </div>
 
       <div style="margin-top:clamp(40px,6vh,64px); display:flex; justify-content:center;">
-        <a href="index.html" style="{{ pitchBtnStyle }}display:inline-flex; width:auto;" style-hover="{{ emailBtnHover }}">{{ t.backHome }}</a>
+        <a href="index.html" style="{{ pitchBtnStyle }}; display:inline-flex; width:auto;" style-hover="{{ emailBtnHover }}">{{ t.backHome }}</a>
       </div>
 
     </div>
