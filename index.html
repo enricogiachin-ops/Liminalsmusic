@@ -80,11 +80,11 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
       </a>
     </div>
       <nav style="{{ navLinksStyle }}">
-        <a href="#suono" style="{{ navLinkSuonoStyle }}" style-hover="{{ navLinkHover }}">{{ t.navSuono }}</a>
-        <a href="#ascolto" style="{{ navLinkAscoltoStyle }}" style-hover="{{ navLinkHover }}">{{ t.navAscolto }}</a>
-        <a href="#live" style="{{ navLinkLiveStyle }}" style-hover="{{ navLinkHover }}">{{ t.navLive }}</a>
-        <a href="#contatti" style="{{ navLinkContattiStyle }}" style-hover="{{ navLinkHover }}">{{ t.navContatti }}</a>
-        <a href="manifesto.html" style="{{ navLinkManifestoStyle }}" style-hover="{{ navLinkHover }}">{{ t.navManifesto }}</a>
+        <a href="#suono" style="{{ navLinkSuonoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" onClick="{{ glitchEnter }}">{{ t.navSuono }}</a>
+        <a href="#ascolto" style="{{ navLinkAscoltoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" onClick="{{ glitchEnter }}">{{ t.navAscolto }}</a>
+        <a href="#live" style="{{ navLinkLiveStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" onClick="{{ glitchEnter }}">{{ t.navLive }}</a>
+        <a href="#contatti" style="{{ navLinkContattiStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" onClick="{{ glitchEnter }}">{{ t.navContatti }}</a>
+        <a href="manifesto.html" style="{{ navLinkManifestoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" onClick="{{ glitchEnter }}">{{ t.navManifesto }}</a>
         <button onClick="{{ cycleLanguage }}" style="{{ langToggleStyle }}" style-hover="{{ themeToggleHover }}" aria-label="Lingua / Language"><span>{{ languageLabel }}</span></button>
         <button onClick="{{ toggleTheme }}" style="{{ themeToggleStyle }}" style-hover="{{ themeToggleHover }}">
           <span style="{{ themeKnobStyle }}"></span>
@@ -101,11 +101,11 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   <!-- MOBILE MENU -->
   <div style="{{ menuStyle }}">
     <nav style="display:flex; flex-direction:column; gap:4px;">
-      <a href="#suono" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>{{ t.navSuono }}</a>
-      <a href="#ascolto" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>{{ t.navAscolto }}</a>
-      <a href="#live" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>{{ t.navLive }}</a>
-      <a href="#contatti" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>{{ t.navContatti }}</a>
-      <a href="manifesto.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px; cursor:pointer; text-align:left; width:100%;"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span>{{ t.navManifesto }}</a>
+      <a href="#suono" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navSuono }}</span></a>
+      <a href="#ascolto" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navAscolto }}</span></a>
+      <a href="#live" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navLive }}</span></a>
+      <a href="#contatti" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navContatti }}</span></a>
+      <a href="manifesto.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px; cursor:pointer; text-align:left; width:100%;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navManifesto }}</span></a>
     </nav>
     <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--dim); display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
       <span>Trieste · IT — Est. 2026</span>
@@ -479,13 +479,16 @@ class Component extends DCLogic {
 
   glitchEnter = (e) => {
     const el = e.currentTarget;
-    const original = el.getAttribute('data-original') || el.textContent;
-    el.setAttribute('data-original', original);
+    const target = el.querySelector('[data-glitch-text]') || el;
+    const original = target._glitchTimer
+      ? target._glitchOriginal
+      : (el.getAttribute('data-original') || target.textContent);
+    target._glitchOriginal = original;
     const chars = '!<>-_\\/[]{}—=+*^?#01010$%&@';
-    if (el._glitchTimer) clearInterval(el._glitchTimer);
+    if (target._glitchTimer) clearInterval(target._glitchTimer);
     let iter = 0;
     const total = original.length;
-    el._glitchTimer = setInterval(() => {
+    target._glitchTimer = setInterval(() => {
       const revealed = Math.floor(iter / 2);
       let out = '';
       for (let i = 0; i < total; i++) {
@@ -493,17 +496,17 @@ class Component extends DCLogic {
         else if (original[i] === ' ') out += ' ';
         else out += chars[Math.floor(Math.random() * chars.length)];
       }
-      el.textContent = out;
+      target.textContent = out;
       iter++;
-      if (revealed >= total) { clearInterval(el._glitchTimer); el._glitchTimer = null; el.textContent = original; }
+      if (revealed >= total) { clearInterval(target._glitchTimer); target._glitchTimer = null; target.textContent = original; }
     }, 60);
   };
 
   glitchLeave = (e) => {
     const el = e.currentTarget;
-    const original = el.getAttribute('data-original') || el.textContent;
-    if (el._glitchTimer) { clearInterval(el._glitchTimer); el._glitchTimer = null; }
-    el.textContent = original;
+    const target = el.querySelector('[data-glitch-text]') || el;
+    if (target._glitchTimer) { clearInterval(target._glitchTimer); target._glitchTimer = null; }
+    if (target._glitchOriginal) target.textContent = target._glitchOriginal;
   };
 
   homeT = {
