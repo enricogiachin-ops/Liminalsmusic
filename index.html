@@ -204,12 +204,6 @@ class Component extends DCLogic {
       const y = window.scrollY;
       if ((y > 40) !== this.state.navScrolled) this.setState({ navScrolled: y > 40 });
 
-      if (y < window.innerHeight) {
-        const t = 'scale(1.06) translateY(' + (y * 0.18) + 'px)';
-        if (this._heroDarkImgEl) this._heroDarkImgEl.style.transform = t;
-        if (this._heroLightImgEl) this._heroLightImgEl.style.transform = t;
-      }
-
       const ids = ['suono', 'ascolto', 'live', 'contatti'];
       let current = this.state.activeSection;
       for (const id of ids) {
@@ -864,7 +858,7 @@ class Component extends DCLogic {
       objectFit: 'cover', objectPosition: isNarrow ? 'center 50%' : 'center 58%',
       transition: 'opacity .5s ease',
     };
-    const heroDarkImgStyle = Object.assign({}, heroImgBase, { opacity: 1, transform: 'scale(1.06)' });
+    const heroDarkImgStyle = Object.assign({}, heroImgBase, { opacity: 1 });
     const heroLightImgStyle = heroDarkImgStyle;
 
     const notifyInputStyle = { flex: isSmall ? '0 0 auto' : '1 1 220px', width: isSmall ? '100%' : 'auto', minWidth: 0, fontFamily: "'Satoshi',sans-serif", fontSize: '16px', color: 'var(--cream)', background: 'transparent', border: '1px solid var(--ghost)', borderRadius: '100px', padding: '13px 20px', transition: 'border-color .3s ease' };
