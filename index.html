@@ -94,15 +94,14 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
 
 <div style="{{ rootStyle }}" ref="{{ setRootEl }}">
 
+  <!-- SFONDO PAGINA -->
+  <div style="{{ pageBgStyle }}" aria-hidden="true"></div>
+
   <div class="site-grain" aria-hidden="true"></div>
 
   <!-- NAV  -->
   <header style="{{ navStyle }}">
-    <div style="display:flex; align-items:center; gap:14px;">
-      <a href="#top" onClick="{{ goHome }}" style="font-family:'Outfit',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.03em; line-height:1; display:flex; align-items:center; gap:9px; padding:12px 2px; margin:-12px -2px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Liminals">
-        Liminals
-      </a>
-    </div>
+    <div aria-hidden="true"></div>
       <nav style="{{ navLinksStyle }}">
         <a href="#suono" style="{{ navLinkSuonoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" onClick="{{ glitchEnter }}">{{ t.navSuono }}</a>
         <a href="#ascolto" style="{{ navLinkAscoltoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" onClick="{{ glitchEnter }}">{{ t.navAscolto }}</a>
@@ -110,10 +109,6 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
         <a href="#contatti" style="{{ navLinkContattiStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" onClick="{{ glitchEnter }}">{{ t.navContatti }}</a>
         <a href="manifesto.html" style="{{ navLinkManifestoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" onClick="{{ glitchEnter }}">{{ t.navManifesto }}</a>
         <button onClick="{{ cycleLanguage }}" style="{{ langToggleStyle }}" style-hover="{{ themeToggleHover }}" aria-label="Lingua / Language"><span>{{ languageLabel }}</span></button>
-        <button onClick="{{ toggleTheme }}" style="{{ themeToggleStyle }}" style-hover="{{ themeToggleHover }}">
-          <span style="{{ themeKnobStyle }}"></span>
-          <span>{{ themeLabel }}</span>
-        </button>
       </nav>
     <button onClick="{{ toggleMenu }}" style="{{ burgerWrapStyle }}" style-hover="{{ burgerHover }}" aria-label="Menu">
       <span style="{{ burgerLine1Style }}"></span>
@@ -135,7 +130,6 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
       <span>Trieste · IT — Est. 2026</span>
       <div style="display:flex; gap:8px; align-items:center;">
         <button onClick="{{ cycleLanguage }}" style="{{ langToggleStyle }}" style-hover="{{ themeToggleHover }}" aria-label="Lingua / Language"><span>{{ languageLabel }}</span></button>
-        <button onClick="{{ toggleTheme }}" style="{{ themeToggleStyle }}" style-hover="{{ themeToggleHover }}"><span>{{ themeLabel }}</span></button>
       </div>
     </div>
   </div>
@@ -144,7 +138,6 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   <section id="top" style="position:relative; min-height:100svh; display:flex; flex-direction:column; justify-content:space-between; padding:clamp(88px,13vh,140px) var(--pad-x) clamp(32px,5vh,64px); overflow:hidden;">
     <div style="position:absolute; inset:0; z-index:0; top:-120px; left:-8px;">
       <img ref="{{ setHeroDarkImgEl }}" src="assets/img/hero-light.jpg" alt="" style="{{ heroDarkImgStyle }}">
-      <img ref="{{ setHeroLightImgEl }}" src="assets/img/hero.jpg" alt="" style="{{ heroLightImgStyle }}">
       <div class="hero-grain" aria-hidden="true"></div>
       <div style="{{ heroOverlayStyle }}"></div>
     </div>
@@ -168,7 +161,6 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
 
   <!-- SUONO / ASCOLTO / LIVE -->
   <div style="position:relative;">
-    <img src="assets/img/trio-bg.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.06; mix-blend-mode:screen; pointer-events:none; z-index:0; mask-image:linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); -webkit-mask-image:linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);">
 
     <!-- SUONO -->
     <section id="suono" style="position:relative; z-index:1; padding:clamp(64px,12vh,160px) var(--pad-x);">
@@ -328,7 +320,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   </section>
 
   <!-- FOOTER -->
-  <footer style="padding:clamp(48px,7vh,88px) var(--pad-x) 36px; border-top:1px solid var(--ghost);">
+  <footer style="position:relative; z-index:1; padding:clamp(48px,7vh,88px) var(--pad-x) 36px; border-top:1px solid var(--ghost);">
     <div style="max-width:var(--maxw); margin:0 auto; display:flex; flex-direction:column; gap:clamp(28px,5vh,56px);">
       <div data-reveal-key="footerBig" style="{{ footerBigRevealStyle }}">Liminals</div>
       <div data-reveal-key="footerRow" style="{{ revealFooterRow }}; display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--dim);">
@@ -413,11 +405,7 @@ class Component extends DCLogic {
     this._onResize = () => this.setState({ vw: window.innerWidth });
     window.addEventListener('resize', this._onResize);
 
-    try {
-      const saved = localStorage.getItem('liminals-theme');
-      if (saved) this.setState({ theme: saved });
-      this.applyThemeColor(saved || this.state.theme);
-    } catch (e) {}
+    this.applyThemeColor('dark');
 
     try {
       const lang = localStorage.getItem('liminals-lang');
@@ -488,13 +476,6 @@ class Component extends DCLogic {
     this.setState({ language: next });
     try { localStorage.setItem('liminals-lang', next); } catch (e) {}
     try { document.documentElement.lang = next.toLowerCase(); } catch (e) {}
-  };
-
-  toggleTheme = () => {
-    const next = this.state.theme === 'light' ? 'dark' : 'light';
-    this.setState({ theme: next });
-    this.applyThemeColor(next);
-    try { localStorage.setItem('liminals-theme', next); } catch (e) {}
   };
 
   toggleMenu = () => { this.setState((s) => ({ menuOpen: !s.menuOpen })); };
@@ -752,8 +733,7 @@ class Component extends DCLogic {
   }
 
   renderVals() {
-    const theme = this.state.theme;
-    const isLight = theme === 'light';
+    const isLight = false;
     const vw = this.state.vw;
     const isNarrow = vw <= 900;
     const isSmall = vw <= 620;
@@ -781,6 +761,12 @@ class Component extends DCLogic {
       minHeight: '100vh',
       position: 'relative',
       overflowX: 'clip',
+    };
+
+    const pageBgStyle = {
+      position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none',
+      backgroundImage: 'linear-gradient(rgba(17,17,17,0.26), rgba(17,17,17,0.26)), url(assets/img/bg-noise.jpg)',
+      backgroundSize: 'cover', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat',
     };
 
     const navStyle = {
@@ -967,8 +953,8 @@ class Component extends DCLogic {
       objectFit: 'cover', objectPosition: 'center 35%', paddingTop: '122px',
       transition: 'opacity .5s ease',
     };
-    const heroDarkImgStyle = Object.assign({}, heroImgBase, { opacity: isLight ? 0 : 1, transform: 'scale(1.06)' });
-    const heroLightImgStyle = Object.assign({}, heroImgBase, { opacity: isLight ? 1 : 0, transform: 'scale(1.06)' });
+    const heroDarkImgStyle = Object.assign({}, heroImgBase, { opacity: 1, transform: 'scale(1.06)' });
+    const heroLightImgStyle = heroDarkImgStyle;
 
     const notifyInputStyle = { flex: isSmall ? '0 0 auto' : '1 1 220px', width: isSmall ? '100%' : 'auto', minWidth: 0, fontFamily: "'Satoshi',sans-serif", fontSize: '16px', color: 'var(--cream)', background: 'transparent', border: '1px solid var(--ghost)', borderRadius: '100px', padding: '13px 20px', transition: 'border-color .3s ease' };
     const notifyRowStyle = { display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '20px', alignItems: isSmall ? 'stretch' : 'center', maxWidth: '520px', flexDirection: isSmall ? 'column' : 'row' };
@@ -986,7 +972,7 @@ class Component extends DCLogic {
       openManifesto: this.openManifesto, openManifestoFromMenu: this.openManifestoFromMenu, goHome: this.goHome,
       navLinkManifestoStyle, backHomeStyle, backHomeHover,
       revealManHead: this.reveal('manHead', 0),
-      rootStyle, setRootEl: this.setRootEl,
+      rootStyle, pageBgStyle, setRootEl: this.setRootEl,
       setHeroDarkImgEl: this.setHeroDarkImgEl, setHeroLightImgEl: this.setHeroLightImgEl,
       heroDarkImgStyle, heroLightImgStyle,
       navStyle, navLinksStyle,
@@ -997,7 +983,7 @@ class Component extends DCLogic {
       navLinkHover, glitchEnter, glitchLeave,
       themeToggleStyle, themeToggleHover, themeKnobStyle, themeLabel,
       langToggleStyle, languageLabel, cycleLanguage: this.cycleLanguage,
-      toggleTheme: this.toggleTheme, toggleMenu: this.toggleMenu, closeMenu: this.closeMenu,
+      toggleMenu: this.toggleMenu, closeMenu: this.closeMenu,
       burgerWrapStyle, burgerHover, burgerLine1Style, burgerLine2Style, burgerLine3Style,
       menuStyle,
       heroOverlayStyle, heroH1Style, heroTagStyle, heroMetaStyle,
