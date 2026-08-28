@@ -4,24 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Liminals — minimal deep tech &amp; house · Trieste</title>
-<meta name="description" content="Duo DJ di Trieste. zacku e Teo, minimal deep tech e house: set a due mani di tre ore o più, costruiti insieme.">
-<link rel="canonical" href="https://liminalsmusic.com/">
+<title>Live — Liminals</title>
+<meta name="description" content="Date e serate di Liminals a Trieste e dintorni. Lascia la mail per essere avvisato.">
+<link rel="canonical" href="https://liminalsmusic.com/live.html">
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://liminalsmusic.com/">
+<meta property="og:url" content="https://liminalsmusic.com/live.html">
 <meta property="og:site_name" content="Liminals">
 <meta property="og:locale" content="it_IT">
-<meta property="og:title" content="Liminals — minimal deep tech &amp; house · Trieste">
-<meta property="og:description" content="Duo DJ di Trieste. zacku e Teo, minimal deep tech e house: set a due mani di tre ore o più, costruiti insieme.">
+<meta property="og:title" content="Live — Liminals">
+<meta property="og:description" content="Date e serate di Liminals a Trieste e dintorni. Lascia la mail per essere avvisato.">
 <meta property="og:image" content="https://liminalsmusic.com/assets/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Liminals — minimal deep tech e house, Trieste">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Liminals — minimal deep tech &amp; house · Trieste">
-<meta name="twitter:description" content="Duo DJ di Trieste. zacku e Teo, minimal deep tech e house: set a due mani di tre ore o più, costruiti insieme.">
+<meta name="twitter:title" content="Live — Liminals">
+<meta name="twitter:description" content="Date e serate di Liminals a Trieste e dintorni. Lascia la mail per essere avvisato.">
 <meta name="twitter:image" content="https://liminalsmusic.com/assets/img/og.jpg">
 
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -99,7 +99,10 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   <div class="site-grain" aria-hidden="true"></div>
 
   <header style="{{ navStyle }}">
-    <div aria-hidden="true"></div>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a href="index.html" style="font-family:'Outfit',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.03em; line-height:1; display:flex; align-items:center; gap:9px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Liminals">Liminals</a>
+      <a href="index.html" style="{{ backHomeStyle }}" style-hover="{{ backHomeHover }}">{{ t.backHome }}</a>
+    </div>
       <nav style="{{ navLinksStyle }}">
         <a href="suono.html" style="{{ navLinkSuonoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}">{{ t.navSuono }}</a>
         <a href="ascolto.html" style="{{ navLinkAscoltoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}">{{ t.navAscolto }}</a>
@@ -117,6 +120,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
 
   <div style="{{ menuStyle }}">
     <nav style="display:flex; flex-direction:column; gap:4px;">
+      <a href="index.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.backHome }}</span></a>
       <a href="suono.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navSuono }}</span></a>
       <a href="ascolto.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navAscolto }}</span></a>
       <a href="live.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navLive }}</span></a>
@@ -131,27 +135,47 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
     </div>
   </div>
 
-  <!-- HERO -->
-  <section id="top" style="position:relative; height:100svh; min-height:540px; display:flex; flex-direction:column; justify-content:flex-end; padding:clamp(88px,13vh,140px) var(--pad-x) clamp(30px,5vh,54px); overflow:hidden;">
-    <div style="position:absolute; inset:0; z-index:0;">
-      <img ref="{{ setHeroDarkImgEl }}" src="assets/img/hero.jpg" alt="" style="{{ heroDarkImgStyle }}">
-      <div class="hero-grain" aria-hidden="true"></div>
-      <div style="{{ heroOverlayStyle }}"></div>
-    </div>
-    <div style="position:relative; z-index:1; width:100%; max-width:var(--maxw); margin:0 auto;">
-      <div style="{{ heroBottomStyle }}">
-        <div style="display:flex; flex-direction:column; gap:clamp(12px,1.8vh,18px); min-width:0;">
-          <h1 style="{{ heroH1Style }}">Liminals</h1>
-          <p style="{{ heroTagStyle }}">{{ t.heroTag }}</p>
+    <section id="live" style="position:relative; z-index:1; padding:calc(96px + clamp(40px,7vh,80px)) var(--pad-x) clamp(64px,12vh,160px);">
+      <div style="max-width:var(--maxw); margin:0 auto;">
+        <div data-reveal-key="liveHead" style="{{ revealLiveHead }}; display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
+          <span style="width:10.94px; height:10.94px; background:var(--accent); flex-shrink:0; display:inline-block; transform:translateY(0.5px);"></span>
+          <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">{{ t.navLive }}</span>
+          <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">{{ t.sideLive }}</span>
         </div>
-        <div style="{{ heroMetaStyle }}">
-          <span>Minimal deep tech &amp; house</span>
-          <span>B2B · zacku × Teo</span>
-          <span>Trieste · IT</span>
+        <div data-reveal-key="eventsGroup" style="{{ revealEventsGroup }}">
+          <div style="border:1px solid var(--ghost); border-radius:16px; background:var(--bg-2); padding:clamp(22px,2.6vw,30px); margin-bottom:clamp(32px,4vh,48px);">
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">{{ t.nextDates }}</div>
+            <p style="font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);">{{ t.nextLine }}</p>
+            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px; max-width:46ch;">{{ t.notifyNote }}</div>
+            <div style="{{ notifyRowStyle }}">
+              <input id="notify-email" type="email" inputmode="email" autocomplete="email" placeholder="{{ t.emailPlaceholder }}" aria-label="{{ t.emailPlaceholder }}" style="{{ notifyInputStyle }}">
+              <button type="button" onClick="{{ notifySubmit }}" style="{{ emailBtnStyle }}" style-hover="{{ emailBtnHover }}">{{ t.notifyBtn }}</button>
+            </div>
+            <div id="notify-status" role="status" aria-live="polite" style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:10px; min-height:1.5em;"></div>
+          </div>
+          <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); margin-bottom:16px;">{{ t.past }}</div>
+          <div style="{{ eventGridStyle }}" style-hover="{{ eventHover }}">
+            <span style="font-family:'Bitcount',monospace; font-size:13px; letter-spacing:0.14em; color:var(--cream);">06/2026</span>
+            <span style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(18px,2vw,28px); letter-spacing:-0.02em; color:var(--cream);">Aurisina session<small style="display: block; font-family: Satoshi, sans-serif; font-weight: 400; font-size: 13px; letter-spacing: 0px; line-height: 1.5; color: var(--faint); margin-top: 4px;">Carso, Trieste</small></span>
+            <span style="{{ eventMetaStyle }}">{{ t.eventMeta }}</span>
+          </div>
         </div>
       </div>
+    </section>
+
+  <!-- FOOTER -->
+  <footer style="position:relative; z-index:1; padding:clamp(48px,7vh,88px) var(--pad-x) 36px; border-top:1px solid var(--ghost);">
+    <div style="max-width:var(--maxw); margin:0 auto; display:flex; flex-direction:column; gap:clamp(28px,5vh,56px);">
+      <div data-reveal-key="footerBig" style="{{ footerBigRevealStyle }}">Liminals</div>
+      <div data-reveal-key="footerRow" style="{{ revealFooterRow }}; display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--dim);">
+        <span>zacku × Teo</span>
+        <span>Minimal deep tech &amp; house</span>
+        <span>Trieste · IT — Est. 2026</span>
+      </div>
     </div>
-  </section>
+  </footer>
+
+  <div style="{{ toastStyle }}">{{ t.toast }}</div>
 
 </div>
 
@@ -190,16 +214,13 @@ class Component extends DCLogic {
     page: 'home',
     menuOpen: false,
     navScrolled: false,
-    activeSection: 'top',
+    activeSection: 'live',
     toastShow: false,
     revealed: {},
     vw: (typeof window !== 'undefined') ? window.innerWidth : 1400,
   };
 
   componentDidMount() {
-    var h = (window.location.hash || '').replace('#', '');
-    var map = { suono: 'suono.html', ascolto: 'ascolto.html', live: 'live.html', contatti: 'contatti.html', manifesto: 'manifesto.html' };
-    if (map[h]) { window.location.replace(map[h]); return; }
     this._onScroll = () => {
       const y = window.scrollY;
       if ((y > 40) !== this.state.navScrolled) this.setState({ navScrolled: y > 40 });

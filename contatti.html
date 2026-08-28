@@ -4,24 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Liminals — minimal deep tech &amp; house · Trieste</title>
-<meta name="description" content="Duo DJ di Trieste. zacku e Teo, minimal deep tech e house: set a due mani di tre ore o più, costruiti insieme.">
-<link rel="canonical" href="https://liminalsmusic.com/">
+<title>Contatti — Liminals</title>
+<meta name="description" content="Contatti Liminals: hello@liminalsmusic.com. Pitch, manifesto, booking e collaborazioni.">
+<link rel="canonical" href="https://liminalsmusic.com/contatti.html">
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://liminalsmusic.com/">
+<meta property="og:url" content="https://liminalsmusic.com/contatti.html">
 <meta property="og:site_name" content="Liminals">
 <meta property="og:locale" content="it_IT">
-<meta property="og:title" content="Liminals — minimal deep tech &amp; house · Trieste">
-<meta property="og:description" content="Duo DJ di Trieste. zacku e Teo, minimal deep tech e house: set a due mani di tre ore o più, costruiti insieme.">
+<meta property="og:title" content="Contatti — Liminals">
+<meta property="og:description" content="Contatti Liminals: hello@liminalsmusic.com. Pitch, manifesto, booking e collaborazioni.">
 <meta property="og:image" content="https://liminalsmusic.com/assets/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Liminals — minimal deep tech e house, Trieste">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Liminals — minimal deep tech &amp; house · Trieste">
-<meta name="twitter:description" content="Duo DJ di Trieste. zacku e Teo, minimal deep tech e house: set a due mani di tre ore o più, costruiti insieme.">
+<meta name="twitter:title" content="Contatti — Liminals">
+<meta name="twitter:description" content="Contatti Liminals: hello@liminalsmusic.com. Pitch, manifesto, booking e collaborazioni.">
 <meta name="twitter:image" content="https://liminalsmusic.com/assets/img/og.jpg">
 
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -99,7 +99,10 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   <div class="site-grain" aria-hidden="true"></div>
 
   <header style="{{ navStyle }}">
-    <div aria-hidden="true"></div>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a href="index.html" style="font-family:'Outfit',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.03em; line-height:1; display:flex; align-items:center; gap:9px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Liminals">Liminals</a>
+      <a href="index.html" style="{{ backHomeStyle }}" style-hover="{{ backHomeHover }}">{{ t.backHome }}</a>
+    </div>
       <nav style="{{ navLinksStyle }}">
         <a href="suono.html" style="{{ navLinkSuonoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}">{{ t.navSuono }}</a>
         <a href="ascolto.html" style="{{ navLinkAscoltoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}">{{ t.navAscolto }}</a>
@@ -117,6 +120,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
 
   <div style="{{ menuStyle }}">
     <nav style="display:flex; flex-direction:column; gap:4px;">
+      <a href="index.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.backHome }}</span></a>
       <a href="suono.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navSuono }}</span></a>
       <a href="ascolto.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navAscolto }}</span></a>
       <a href="live.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navLive }}</span></a>
@@ -131,27 +135,75 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
     </div>
   </div>
 
-  <!-- HERO -->
-  <section id="top" style="position:relative; height:100svh; min-height:540px; display:flex; flex-direction:column; justify-content:flex-end; padding:clamp(88px,13vh,140px) var(--pad-x) clamp(30px,5vh,54px); overflow:hidden;">
-    <div style="position:absolute; inset:0; z-index:0;">
-      <img ref="{{ setHeroDarkImgEl }}" src="assets/img/hero.jpg" alt="" style="{{ heroDarkImgStyle }}">
-      <div class="hero-grain" aria-hidden="true"></div>
-      <div style="{{ heroOverlayStyle }}"></div>
-    </div>
-    <div style="position:relative; z-index:1; width:100%; max-width:var(--maxw); margin:0 auto;">
-      <div style="{{ heroBottomStyle }}">
-        <div style="display:flex; flex-direction:column; gap:clamp(12px,1.8vh,18px); min-width:0;">
-          <h1 style="{{ heroH1Style }}">Liminals</h1>
-          <p style="{{ heroTagStyle }}">{{ t.heroTag }}</p>
+  <!-- CONTATTI -->
+  <section id="contatti" style="position:relative; padding:calc(96px + clamp(40px,7vh,80px)) var(--pad-x) clamp(64px,12vh,160px);">
+    <div style="max-width:var(--maxw); margin:0 auto;">
+      <div data-reveal-key="contattiHead" style="{{ revealContattiHead }}; display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
+        <span style="width: 10.94px; height: 10.94px; background: var(--accent); flex-shrink: 0; display: inline-block; transform: translateY(0.5px);"></span>
+        <span style="font-family: Bitcount, monospace; font-size: 13px; line-height: 1; letter-spacing: 0.24em; text-transform: uppercase; color: var(--dim);">{{ t.navContatti }}</span>
+        <span style="margin-left: auto; font-family: Bitcount, monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--faint);">{{ t.sideContact }}</span></div>
+      <div style="{{ connectGridStyle }}">
+        <div style="display:flex; flex-direction:column; gap:clamp(18px,2.2vh,24px); align-items:stretch;">
+          
+          <div data-reveal-key="cblock1" style="{{ cblock1Style }}" style-hover="{{ cblockHover }}">
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">{{ t.c1Title }}</div>
+            <p style="font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);">{{ t.c1Body }}</p>
+            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px;">{{ t.c1Sub }}</div>
+          </div>
+          
+          <div data-reveal-key="cblock0" style="{{ cblock0Style }}" style-hover="{{ cblockHover }}">
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">{{ t.c2Title }}</div>
+            <a href="mailto:hello@liminalsmusic.com" onClick="{{ copyEmail }}" style="{{ emailBtnStyle }}" style-hover="{{ emailBtnHover }}">hello@liminalsmusic.com <span style="display:inline-flex; opacity:0.85;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="4.1" y="4.1" width="6.4" height="6.4" rx="1.6" stroke="currentColor" stroke-width="1.5"></rect><path d="M7.9 4.1V3a1.5 1.5 0 0 0-1.5-1.5H3A1.5 1.5 0 0 0 1.5 3v3.4A1.5 1.5 0 0 0 3 7.9h1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></span></a>
+            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:12px;">{{ t.c2Sub }}</div>
+          </div><div data-reveal-key="cblock3" style="{{ cblock3Style }}" style-hover="{{ cblockHover }}">
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">{{ t.c3Title }}</div>
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <a href="https://www.mixcloud.com/zackuu/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream); min-height:44px; padding:2px 0; transition:color .25s ease;" style-hover="{{ clinkHover }}">Mixcloud <span style="display:inline-flex; opacity:0.75;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+              <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream); min-height:44px; padding:2px 0; transition:color .25s ease;" style-hover="{{ clinkHover }}">Spotify <span style="display:inline-flex; opacity:0.75;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+              <a href="https://instagram.com/enricogiachin" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream); min-height:44px; padding:2px 0; transition:color .25s ease;" style-hover="{{ clinkHover }}">Instagram <span style="display:inline-flex; opacity:0.75;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+            </div>
+          </div><div data-reveal-key="cblock2" style="{{ cblock2Style }}" style-hover="{{ cblockHover }}">
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px;">{{ t.c4Title }}</div>
+            <p style="font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream);">{{ t.c4Body }}</p>
+            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px;">{{ t.c4Sub }}</div>
+          </div>
         </div>
-        <div style="{{ heroMetaStyle }}">
-          <span>Minimal deep tech &amp; house</span>
-          <span>B2B · zacku × Teo</span>
-          <span>Trieste · IT</span>
+
+        <div style="{{ qrColStyle }}">
+          <div style="{{ qrCardStyle }}">
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">{{ t.pitchCardKicker }} <b style="color:var(--cream); font-weight:500;">{{ t.pitchCardTitle }}</b></div>
+            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); max-width:28ch;">{{ t.pitchCardDesc }}</div>
+            <div style="display:flex; flex-direction:column; gap:10px; align-items:center; width:100%; margin-top:6px;">
+              <a href="pitch.html" style="{{ pitchBtnStyle }}" style-hover="{{ emailBtnHover }}">{{ t.openPitch }} <span style="display:inline-flex; opacity:0.85;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1.8 6h8.4M7 2.8 10.2 6 7 9.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+              <a href="assets/pitch/Liminals-Pitch.pdf" download="Liminals - Pitch.pdf" style="font-family:'Satoshi',sans-serif; font-size:13px; color:var(--dim); letter-spacing:0; display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:44px; padding:0 8px; transition:color .25s ease;" style-hover="{{ clinkHover }}">{{ t.downloadPdf }} <span style="display:inline-flex; opacity:0.8;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1.6v6.2M3.4 5.4 6 8l2.6-2.6M2 10.4h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+            </div>
+          </div>
+
+          <div style="{{ qrCardStyle }}">
+            <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">{{ t.manCardKicker }} <b style="color:var(--cream); font-weight:500;">{{ t.manCardTitle }}</b></div>
+            <div style="font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); max-width:28ch;">{{ t.manCardDesc }}</div>
+            <div style="display:flex; flex-direction:column; gap:10px; align-items:center; width:100%; margin-top:6px;">
+              <a href="manifesto.html" style="{{ pitchBtnStyle }}" style-hover="{{ emailBtnHover }}">{{ t.readManifesto }} <span style="display:inline-flex; opacity:0.85;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1.8 6h8.4M7 2.8 10.2 6 7 9.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- FOOTER -->
+  <footer style="position:relative; z-index:1; padding:clamp(48px,7vh,88px) var(--pad-x) 36px; border-top:1px solid var(--ghost);">
+    <div style="max-width:var(--maxw); margin:0 auto; display:flex; flex-direction:column; gap:clamp(28px,5vh,56px);">
+      <div data-reveal-key="footerBig" style="{{ footerBigRevealStyle }}">Liminals</div>
+      <div data-reveal-key="footerRow" style="{{ revealFooterRow }}; display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--dim);">
+        <span>zacku × Teo</span>
+        <span>Minimal deep tech &amp; house</span>
+        <span>Trieste · IT — Est. 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <div style="{{ toastStyle }}">{{ t.toast }}</div>
 
 </div>
 
@@ -190,16 +242,13 @@ class Component extends DCLogic {
     page: 'home',
     menuOpen: false,
     navScrolled: false,
-    activeSection: 'top',
+    activeSection: 'contatti',
     toastShow: false,
     revealed: {},
     vw: (typeof window !== 'undefined') ? window.innerWidth : 1400,
   };
 
   componentDidMount() {
-    var h = (window.location.hash || '').replace('#', '');
-    var map = { suono: 'suono.html', ascolto: 'ascolto.html', live: 'live.html', contatti: 'contatti.html', manifesto: 'manifesto.html' };
-    if (map[h]) { window.location.replace(map[h]); return; }
     this._onScroll = () => {
       const y = window.scrollY;
       if ((y > 40) !== this.state.navScrolled) this.setState({ navScrolled: y > 40 });
