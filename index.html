@@ -65,12 +65,36 @@ a:hover { color:inherit; }
 ::selection { background:#FC4446; color:#FEFAEF; }
 :focus-visible { outline:2px solid var(--cream); outline-offset:3px; border-radius:2px; }
 button { background:none; border:none; font:inherit; color:inherit; -webkit-appearance:none; appearance:none; }
+
+/* --- texture "carta fotocopiata": grana leggera ovunque + versione forte con pieghe in hero --- */
+.site-grain {
+  position:fixed; inset:0; z-index:500; pointer-events:none;
+  mix-blend-mode:overlay; opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px 180px;
+}
+.hero-grain {
+  position:absolute; inset:0; pointer-events:none; mix-blend-mode:overlay; opacity:.22;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");
+  background-size:260px 260px;
+}
+.hero-grain::after {
+  content:""; position:absolute; inset:0;
+  background:
+    linear-gradient(90deg, transparent calc(48% - 1px), rgba(255,255,255,.08) calc(48% - 1px) 48%, rgba(0,0,0,.16) 48% calc(48% + 1px), transparent calc(48% + 1px)),
+    linear-gradient(0deg, transparent calc(53% - 1px), rgba(255,255,255,.07) calc(53% - 1px) 53%, rgba(0,0,0,.14) 53% calc(53% + 1px), transparent calc(53% + 1px));
+}
+@media (max-width:640px) {
+  .hero-grain::after { background:linear-gradient(0deg, transparent calc(53% - 1px), rgba(255,255,255,.07) calc(53% - 1px) 53%, rgba(0,0,0,.14) 53% calc(53% + 1px), transparent calc(53% + 1px)); }
+}
 </style>
 
 
 </helmet>
 
 <div style="{{ rootStyle }}" ref="{{ setRootEl }}">
+
+  <div class="site-grain" aria-hidden="true"></div>
 
   <!-- NAV  -->
   <header style="{{ navStyle }}">
@@ -121,6 +145,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
     <div style="position:absolute; inset:0; z-index:0; top:-120px; left:-8px;">
       <img ref="{{ setHeroDarkImgEl }}" src="assets/img/hero-light.jpg" alt="" style="{{ heroDarkImgStyle }}">
       <img ref="{{ setHeroLightImgEl }}" src="assets/img/hero.jpg" alt="" style="{{ heroLightImgStyle }}">
+      <div class="hero-grain" aria-hidden="true"></div>
       <div style="{{ heroOverlayStyle }}"></div>
     </div>
     <div style="position:relative; z-index:1; width:100%; max-width:var(--maxw); margin:0 auto;">
