@@ -37,7 +37,7 @@
 <x-dc>
 
 <helmet>
-<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#151515"></rect><rect x="30" y="30" width="40" height="40" rx="8" fill="none" stroke="#593AC6" stroke-width="3"></rect><text x="50" y="57" font-family="sans-serif" font-size="20" fill="#FEFAEF" text-anchor="middle">L</text></svg></template>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#151515"></rect><rect x="30" y="30" width="40" height="40" rx="8" fill="none" stroke="#FC4446" stroke-width="3"></rect><text x="50" y="57" font-family="sans-serif" font-size="20" fill="#FEFAEF" text-anchor="middle">L</text></svg></template>
 <style>
 @font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
 @font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
@@ -62,7 +62,7 @@ body { -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
 img { display:block; max-width:100%; }
 a { color:inherit; text-decoration:none; }
 a:hover { color:inherit; }
-::selection { background:#593AC6; color:#FEFAEF; }
+::selection { background:#FC4446; color:#FEFAEF; }
 :focus-visible { outline:2px solid var(--cream); outline-offset:3px; border-radius:2px; }
 button { background:none; border:none; font:inherit; color:inherit; -webkit-appearance:none; appearance:none; }
 </style>
@@ -72,7 +72,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
 
 <div style="{{ rootStyle }}" ref="{{ setRootEl }}">
 
-  <!-- NAV -->
+  <!-- NAV  -->
   <header style="{{ navStyle }}">
     <div style="display:flex; align-items:center; gap:14px;">
       <a href="#top" onClick="{{ goHome }}" style="font-family:'Outfit',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.03em; line-height:1; display:flex; align-items:center; gap:9px; padding:12px 2px; margin:-12px -2px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Liminals">
@@ -117,14 +117,16 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   </div>
 
   <!-- HERO -->
-  <section id="top" style="position:relative; min-height:100svh; display:flex; flex-direction:column; justify-content:flex-end; padding:0 var(--pad-x) clamp(32px,5vh,64px); overflow:hidden;">
+  <section id="top" style="position:relative; min-height:100svh; display:flex; flex-direction:column; justify-content:space-between; padding:clamp(88px,13vh,140px) var(--pad-x) clamp(32px,5vh,64px); overflow:hidden;">
     <div style="position:absolute; inset:0; z-index:0; top:-120px; left:-8px;">
       <img ref="{{ setHeroDarkImgEl }}" src="assets/img/hero-light.jpg" alt="" style="{{ heroDarkImgStyle }}">
       <img ref="{{ setHeroLightImgEl }}" src="assets/img/hero.jpg" alt="" style="{{ heroLightImgStyle }}">
       <div style="{{ heroOverlayStyle }}"></div>
     </div>
     <div style="position:relative; z-index:1; width:100%; max-width:var(--maxw); margin:0 auto;">
-      <h1 style="{{ heroH1Style }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Liminals">Liminals</h1>
+      <h1 style="{{ heroH1Style }}">Liminals</h1>
+    </div>
+    <div style="position:relative; z-index:1; width:100%; max-width:var(--maxw); margin:0 auto;">
       <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:24px;">
         <p style="{{ heroTagStyle }}">{{ t.heroTag }}</p>
         <div style="{{ heroMetaStyle }}">
@@ -329,9 +331,9 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   &quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900},
   &quot;accentColor&quot;: {
     &quot;editor&quot;: &quot;color&quot;,
-    &quot;default&quot;: &quot;#593AC6&quot;,
+    &quot;default&quot;: &quot;#FC4446&quot;,
     &quot;tsType&quot;: &quot;string&quot;,
-    &quot;options&quot;: [&quot;#593AC6&quot;, &quot;#FC4446&quot;, &quot;#0EC0C0&quot;],
+    &quot;options&quot;: [&quot;#FC4446&quot;, &quot;#593AC6&quot;, &quot;#0EC0C0&quot;],
     &quot;section&quot;: &quot;Aspetto&quot;
   },
   &quot;buttonHoverScale&quot;: {
@@ -745,7 +747,7 @@ class Component extends DCLogic {
       '--dim': isLight ? 'rgba(21,21,21,0.64)' : 'rgba(254,250,239,0.62)',
       '--faint': isLight ? 'rgba(21,21,21,0.55)' : 'rgba(254,250,239,0.48)',
       '--ghost': isLight ? 'rgba(21,21,21,0.12)' : 'rgba(254,250,239,0.12)',
-      '--accent': isLight ? '#FC4446' : '#593AC6',
+      '--accent': '#FC4446',
       '--pad-x': 'clamp(20px, 6vw, 96px)',
       '--maxw': '1320px',
       background: 'var(--bg)',
@@ -832,8 +834,8 @@ class Component extends DCLogic {
     };
 
     const heroH1Style = isTiny
-      ? { fontFamily: "'Outfit',sans-serif", fontWeight: 500, fontSize: 'clamp(56px,18vw,112px)', lineHeight: 0.88, letterSpacing: '-0.04em', marginLeft: '0px', marginBottom: '28px' }
-      : { fontFamily: "'Outfit',sans-serif", fontWeight: 500, fontSize: isNarrow ? 'clamp(96px,16vw,175px)' : 'clamp(128px,12.5vw,224px)', lineHeight: 0.88, letterSpacing: '-0.04em', marginLeft: '-6px', marginBottom: 'clamp(14px,2vh,24px)' };
+      ? { fontFamily: "'Outfit',sans-serif", fontWeight: 500, fontSize: 'clamp(44px,13vw,80px)', lineHeight: 0.9, letterSpacing: '-0.04em', marginLeft: '0px', marginBottom: 0 }
+      : { fontFamily: "'Outfit',sans-serif", fontWeight: 500, fontSize: isNarrow ? 'clamp(64px,11vw,120px)' : 'clamp(80px,8vw,150px)', lineHeight: 0.9, letterSpacing: '-0.04em', marginLeft: '-4px', marginBottom: 0 };
 
     const heroTagStyle = {
       fontFamily: "'Outfit',sans-serif", fontWeight: 300, fontSize: isTiny ? '17px' : 'clamp(18px,1.7vw,27px)',
@@ -842,7 +844,7 @@ class Component extends DCLogic {
 
     const heroMetaStyle = isTiny
       ? { display: 'flex', flexDirection: 'column', gap: '6px', fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--dim)', marginTop: '18px', paddingTop: '14px', borderTop: '1px solid var(--ghost)' }
-      : { display: 'flex', flexDirection: 'column', gap: '6px', fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--dim)', position: 'absolute', top: '130px', right: 0, maxWidth: '316px', textAlign: 'right' };
+      : { display: 'flex', flexDirection: 'column', gap: '6px', fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--dim)', maxWidth: '316px', textAlign: 'right' };
 
     const manifestoHalftoneStyle = {
       position: 'absolute', right: 0, top: 0, width: 'min(58vw,780px)', height: '100%',
