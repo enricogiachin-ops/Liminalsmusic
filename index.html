@@ -61,7 +61,7 @@ html, body { background:#151515; overscroll-behavior:none; }
 /* pagina a schermata singola: nessuno scroll, su nessun dispositivo */
 html, body { height:100%; width:100%; overflow:hidden; }
 body { position:fixed; top:0; left:0; right:0; bottom:0; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
-x-dc { display:block; height:100%; }
+x-dc { display:block; }
 img { display:block; max-width:100%; }
 a { color:inherit; text-decoration:none; }
 a:hover { color:inherit; }
@@ -653,9 +653,8 @@ class Component extends DCLogic {
       background: 'var(--bg)',
       color: 'var(--cream)',
       fontFamily: "'Satoshi', system-ui, sans-serif",
-      height: '100%',
-      minHeight: '0',
-      position: 'relative',
+      position: 'absolute',
+      top: 0, left: 0, right: 0, bottom: 0,
       overflow: 'hidden',
     };
 
