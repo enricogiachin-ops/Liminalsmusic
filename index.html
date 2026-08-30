@@ -57,8 +57,11 @@
 }
 @keyframes scrollline { 0%,100%{transform:scaleX(.4);opacity:.4} 50%{transform:scaleX(1);opacity:1} }
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-html, body { scroll-behavior:smooth; background:#151515; overscroll-behavior:none; }
-body { -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+html, body { background:#151515; overscroll-behavior:none; }
+/* pagina a schermata singola: nessuno scroll, su nessun dispositivo */
+html, body { height:100%; width:100%; overflow:hidden; }
+body { position:fixed; top:0; left:0; right:0; bottom:0; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+x-dc { display:block; height:100%; }
 img { display:block; max-width:100%; }
 a { color:inherit; text-decoration:none; }
 a:hover { color:inherit; }
@@ -132,7 +135,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   </div>
 
   <!-- HERO -->
-  <section id="top" style="position:relative; height:100svh; min-height:540px; display:flex; flex-direction:column; justify-content:flex-end; padding:clamp(88px,13vh,140px) var(--pad-x) clamp(30px,5vh,54px); overflow:hidden;">
+  <section id="top" style="position:relative; height:100%; min-height:0; display:flex; flex-direction:column; justify-content:flex-end; padding:clamp(88px,13vh,140px) var(--pad-x) clamp(30px,5vh,54px); overflow:hidden;">
     <div style="position:absolute; inset:0; z-index:0;">
       <img ref="{{ setHeroDarkImgEl }}" src="assets/img/hero.jpg" alt="" style="{{ heroDarkImgStyle }}">
       <div class="hero-grain" aria-hidden="true"></div>
@@ -338,7 +341,7 @@ class Component extends DCLogic {
       backHome: '← Torna alla home',
       navSuono: 'Suono', navAscolto: 'Ascolto', navLive: 'Live', navContatti: 'Contatti', navManifesto: 'Manifesto',
       themeDark: 'Scuro', themeLight: 'Chiaro',
-      heroTag: 'Certi suoni chiedono di essere condivisi. Non come prodotto, come un luogo da abitare.',
+      heroTag: 'Grooves senza una fine',
       heroCtaListen: 'Ascolta', heroCtaNotify: 'Avvisami', scroll: 'Scorri',
       sideSound: 'Bio · profilo',
       quote1: 'I nostri set ricreano spazi ', quoteEm: 'liminari', quote2: ', vogliamo abitarci, ballarci e ricordarli.',
@@ -389,7 +392,7 @@ class Component extends DCLogic {
       backHome: '← Back home',
       navSuono: 'Sound', navAscolto: 'Listen', navLive: 'Live', navContatti: 'Contact', navManifesto: 'Manifesto',
       themeDark: 'Dark', themeLight: 'Light',
-      heroTag: 'Certain sounds ask to be shared. Not as a product — as a place to inhabit.',
+      heroTag: 'Limitless grooves',
       heroCtaListen: 'Listen', heroCtaNotify: 'Notify me', scroll: 'Scroll',
       sideSound: 'Bio · profile',
       quote1: 'Our sets recreate ', quoteEm: 'liminal', quote2: ' spaces — we want to inhabit them, dance in them, and remember them.',
@@ -440,7 +443,7 @@ class Component extends DCLogic {
       backHome: '← Retour',
       navSuono: 'Son', navAscolto: 'Écoute', navLive: 'Live', navContatti: 'Contact', navManifesto: 'Manifeste',
       themeDark: 'Sombre', themeLight: 'Clair',
-      heroTag: 'Certains sons demandent à être partagés. Pas comme un produit, comme un lieu à habiter.',
+      heroTag: 'Des grooves sans fin',
       heroCtaListen: 'Écouter', heroCtaNotify: 'Préviens-moi', scroll: 'Défiler',
       sideSound: 'Bio · profil',
       quote1: 'Nos sets recréent des espaces ', quoteEm: 'liminaires', quote2: ', on veut les habiter, y danser et les garder en mémoire.',
@@ -491,7 +494,7 @@ class Component extends DCLogic {
       backHome: '← Volver',
       navSuono: 'Sonido', navAscolto: 'Escucha', navLive: 'Live', navContatti: 'Contacto', navManifesto: 'Manifiesto',
       themeDark: 'Oscuro', themeLight: 'Claro',
-      heroTag: 'Ciertos sonidos piden ser compartidos. No como producto, sino como un lugar para habitar.',
+      heroTag: 'Grooves sin final',
       heroCtaListen: 'Escucha', heroCtaNotify: 'Avísame', scroll: 'Desliza',
       sideSound: 'Bio · perfil',
       quote1: 'Nuestros sets recrean espacios ', quoteEm: 'liminares', quote2: ', queremos habitarlos, bailar en ellos y recordarlos.',
@@ -650,9 +653,10 @@ class Component extends DCLogic {
       background: 'var(--bg)',
       color: 'var(--cream)',
       fontFamily: "'Satoshi', system-ui, sans-serif",
-      minHeight: '100vh',
+      height: '100%',
+      minHeight: '0',
       position: 'relative',
-      overflowX: 'clip',
+      overflow: 'hidden',
     };
 
     const pageBgStyle = {
