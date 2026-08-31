@@ -144,11 +144,7 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
         </div>
         <h2 data-reveal-key="manifestoQuote" style="{{ manifestoH2Style }}">{{ t.quote1 }}<em style="font-style:normal; color:var(--accent);">{{ t.quoteEm }}</em>{{ t.quote2 }}</h2>
         
-        <div data-reveal-key="foot" style="{{ revealFoot }}; margin-top: 32px; margin-bottom: clamp(48px,7vh,80px); display: flex; flex-wrap: wrap; gap: 12px 40px; font-family: 'Bitcount',monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dim)">
-          <span>{{ t.line1 }}</span>
-          <span>{{ t.line2 }}</span>
-          <span>{{ t.line3 }}</span>
-        </div><div style="{{ bioGridStyle }}">
+        <div style="height:clamp(72px,10vh,104px);"></div><div style="{{ bioGridStyle }}">
           <div data-reveal-key="bioLabels" style="{{ revealBioLabels }}; display:flex; flex-direction:column; gap:8px; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--faint);">
             <span>ZACKU</span>
             <span>B2B Teo</span></div>
@@ -365,9 +361,8 @@ class Component extends DCLogic {
       heroTag: 'Certi suoni chiedono di essere condivisi. Non come prodotto, come un luogo da abitare.',
       heroCtaListen: 'Ascolta', heroCtaNotify: 'Avvisami', scroll: 'Scorri',
       sideSound: 'Bio · profilo',
-      quote1: 'I nostri set ricreano spazi ', quoteEm: 'liminari', quote2: ', vogliamo abitarci, ballarci e ricordarli.',
-      line1: '— Sobrio in apertura', line2: '— Coerente a fine serata', line3: '— Mai mainstream',
-      bioLead: 'Due selezioni accurate, un solo set. Per zacku e Teo la qualità è tutto: minimal deep tech e house costruiti attorno al contesto.',
+      quote1: 'Due selezioni, un solo set. Minimal deep tech e house costruiti attorno al ', quoteEm: 'contesto', quote2: '.',
+      bioLead: 'La ricerca è parte del lavoro. Dietro al set che portiamo ci sono ore di ascolto, scelte fatte una a una, due archivi che si contaminano a vicenda.',
       tagsLine: 'Minimal · Deep tech · House · 3h+ a due · DJ set',
       sideLive: 'Eventi',
       nextDates: 'Prossime date', nextLine: 'La prossima si sta costruendo.',
@@ -416,9 +411,8 @@ class Component extends DCLogic {
       heroTag: 'Certain sounds ask to be shared. Not as a product — as a place to inhabit.',
       heroCtaListen: 'Listen', heroCtaNotify: 'Notify me', scroll: 'Scroll',
       sideSound: 'Bio · profile',
-      quote1: 'Our sets recreate ', quoteEm: 'liminal', quote2: ' spaces — we want to inhabit them, dance in them, and remember them.',
-      line1: '— Restrained at the start', line2: '— Coherent at the end of the night', line3: '— Never mainstream',
-      bioLead: 'Two careful selections, one set. For zacku and Teo quality is everything: minimal deep tech and house built around the room.',
+      quote1: 'Two selections, one set. Minimal deep tech and house built around the ', quoteEm: 'room', quote2: '.',
+      bioLead: 'Digging is part of the work. Behind the set we bring there are hours of listening, choices made one by one, two record bags that keep bleeding into each other.',
       tagsLine: 'Minimal · Deep tech · House · 3h+ B2B · DJ set',
       sideLive: 'Events',
       nextDates: 'Upcoming dates', nextLine: 'The next one is taking shape.',
@@ -467,9 +461,8 @@ class Component extends DCLogic {
       heroTag: 'Certains sons demandent à être partagés. Pas comme un produit, comme un lieu à habiter.',
       heroCtaListen: 'Écouter', heroCtaNotify: 'Préviens-moi', scroll: 'Défiler',
       sideSound: 'Bio · profil',
-      quote1: 'Nos sets recréent des espaces ', quoteEm: 'liminaires', quote2: ', on veut les habiter, y danser et les garder en mémoire.',
-      line1: '— Sobre à l’ouverture', line2: '— Cohérent en fin de soirée', line3: '— Jamais mainstream',
-      bioLead: 'Deux sélections soignées, un seul set. Pour zacku et Teo, la qualité est primordiale : minimal deep tech et house construits autour du lieu.',
+      quote1: 'Deux sélections, un seul set. Minimal deep tech et house construits autour du ', quoteEm: 'contexte', quote2: '.',
+      bioLead: "La recherche fait partie du travail. Derrière le set qu'on apporte il y a des heures d'écoute, des choix faits un par un, deux collections qui déteignent l'une sur l'autre.",
       tagsLine: 'Minimal · Deep tech · House · 3h+ B2B · DJ set',
       sideLive: 'Événements',
       nextDates: 'Prochaines dates', nextLine: 'La prochaine est en construction.',
@@ -508,8 +501,8 @@ class Component extends DCLogic {
       s4P1: "Celui qui ouvre le set a la même valeur que celui qui le clôture. Celui qui débute a le même droit au respect que celui qui joue depuis des années, sans aucune hiérarchie.",
       s4P2: "On se soutient. On s'écoute. On partage.",
       s4P3: "La compétition ne produit rien de bon, mais le partage si : un disque trouvé par hasard, un son qu'on ne savait pas nommer, un réseau qui soutient ceux qui débutent.",
-      n1: 'Non au sexisme', n2: 'Non \u00e0 la transphobie', n3: "Non \u00e0 l'homophobie",
-      n4: 'Non aux violences', n5: 'Non au racisme', n6: 'Non \u00e0 toute discrimination',
+      n1: 'Non au sexisme', n2: 'Non à la transphobie', n3: "Non à l'homophobie",
+      n4: 'Non aux violences', n5: 'Non au racisme', n6: 'Non à toute discrimination',
     },
     ES: {
       backHome: '← Volver',
@@ -518,9 +511,8 @@ class Component extends DCLogic {
       heroTag: 'Ciertos sonidos piden ser compartidos. No como producto, sino como un lugar para habitar.',
       heroCtaListen: 'Escucha', heroCtaNotify: 'Avísame', scroll: 'Desliza',
       sideSound: 'Bio · perfil',
-      quote1: 'Nuestros sets recrean espacios ', quoteEm: 'liminares', quote2: ', queremos habitarlos, bailar en ellos y recordarlos.',
-      line1: '— Sobrio en la apertura', line2: '— Coherente al final de la noche', line3: '— Nunca mainstream',
-      bioLead: 'Dos selecciones cuidadas, un solo set. Para zacku y Teo la calidad lo es todo: minimal deep tech y house construidos alrededor del contexto.',
+      quote1: 'Dos selecciones, un solo set. Minimal deep tech y house construidos alrededor del ', quoteEm: 'contexto', quote2: '.',
+      bioLead: 'La búsqueda es parte del trabajo. Detrás del set que traemos hay horas de escucha, decisiones tomadas una a una, dos colecciones que se contagian entre sí.',
       tagsLine: 'Minimal · Deep tech · House · 3h+ B2B · DJ set',
       sideLive: 'Eventos',
       nextDates: 'Próximas fechas', nextLine: 'La próxima se está construyendo.',
@@ -560,7 +552,7 @@ class Component extends DCLogic {
       s4P2: "Nos apoyamos. Nos escuchamos. Compartimos.",
       s4P3: "La competencia no produce nada bueno, pero la compartición sí: un disco encontrado por casualidad, un sonido que no se sabía nombrar, una red que sostiene a quien empieza.",
       n1: 'No al sexismo', n2: 'No a la transfobia', n3: 'No a la homofobia',
-      n4: 'No a las violencias', n5: 'No al racismo', n6: 'No a cualquier discriminaci\u00f3n',
+      n4: 'No a las violencias', n5: 'No al racismo', n6: 'No a cualquier discriminación',
     },
   };
 
@@ -927,7 +919,6 @@ class Component extends DCLogic {
       copyEmail: this.copyEmail,
       notifySubmit: this.notifySubmit,
       revealHead0: this.reveal('head0', 0),
-      revealFoot: this.reveal('foot', 0.16),
       revealBioHead: this.reveal('bioHead', 0),
       revealBioLabels: this.reveal('bioLabels', 0),
       revealBioLead: this.reveal('bioLead', 0.08),
