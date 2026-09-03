@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Ascolto — Liminals</title>
+<title>Ascolto - Liminals</title>
 <meta name="description" content="Mix e release di Liminals: la Aurisina session su Mixcloud e zacku su Spotify.">
 <link rel="canonical" href="https://liminalsmusic.com/ascolto.html">
 
@@ -12,32 +12,26 @@
 <meta property="og:url" content="https://liminalsmusic.com/ascolto.html">
 <meta property="og:site_name" content="Liminals">
 <meta property="og:locale" content="it_IT">
-<meta property="og:title" content="Ascolto — Liminals">
+<meta property="og:title" content="Ascolto - Liminals">
 <meta property="og:description" content="Mix e release di Liminals: la Aurisina session su Mixcloud e zacku su Spotify.">
 <meta property="og:image" content="https://liminalsmusic.com/assets/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Liminals — minimal deep tech e house, Trieste">
+<meta property="og:image:alt" content="Liminals - minimal deep tech e house, Trieste">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ascolto — Liminals">
+<meta name="twitter:title" content="Ascolto - Liminals">
 <meta name="twitter:description" content="Mix e release di Liminals: la Aurisina session su Mixcloud e zacku su Spotify.">
 <meta name="twitter:image" content="https://liminalsmusic.com/assets/img/og.jpg">
 
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/favicon.png">
+<meta name="theme-color" content="#151515">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicGroup","name":"Liminals","genre":["minimal deep tech","house"],"foundingLocation":{"@type":"Place","name":"Trieste, IT"},"member":[{"@type":"Person","name":"zacku"},{"@type":"Person","name":"Teo"}],"url":"https://liminalsmusic.com/","email":"hello@liminalsmusic.com","sameAs":["https://www.mixcloud.com/zackuu/","https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl","https://instagram.com/enricogiachin"]}</script>
 
-<script src="./support.js"></script>
-<meta name="theme-color" content="#151515">
-<noscript><style>x-dc{display:none!important}body{background:#151515;color:#FEFAEF}</style></noscript>
-</head>
-<body>
-<x-dc>
+<script>document.documentElement.classList.add('js');</script>
 
-<helmet>
-<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#151515"></rect><rect x="30" y="30" width="40" height="40" rx="8" fill="none" stroke="#FC4446" stroke-width="3"></rect><text x="50" y="57" font-family="sans-serif" font-size="20" fill="#FEFAEF" text-anchor="middle">L</text></svg></template>
 <style>
 @font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
 @font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
@@ -51,11 +45,12 @@
 @font-face { font-family:'Satoshi'; src:url('assets/fonts/Satoshi-Italic.ttf') format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
 @font-face { font-family:'Bitcount'; src:url('assets/fonts/Bitcount-Regular.ttf') format('truetype'); font-weight:400; font-display:swap; }
 @font-face { font-family:'Bitcount'; src:url('assets/fonts/Bitcount-Medium.ttf') format('truetype'); font-weight:500; font-display:swap; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important;
     transition-duration:.01ms !important; scroll-behavior:auto !important; }
 }
-@keyframes scrollline { 0%,100%{transform:scaleX(.4);opacity:.4} 50%{transform:scaleX(1);opacity:1} }
+
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 html, body { scroll-behavior:smooth; background:#151515; overscroll-behavior:none; }
 body { -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
@@ -66,290 +61,319 @@ a:hover { color:inherit; }
 :focus-visible { outline:2px solid var(--cream); outline-offset:3px; border-radius:2px; }
 button { background:none; border:none; font:inherit; color:inherit; -webkit-appearance:none; appearance:none; }
 
-/* --- texture "carta fotocopiata": grana leggera ovunque + versione forte con pieghe in hero --- */
+/* --- root --- */
+.root {
+  --bg:#151515;
+  --bg-2:color-mix(in srgb, #FEFAEF 6%, #151515);
+  --cream:#FEFAEF;
+  --dim:rgba(254,250,239,0.62);
+  --faint:rgba(254,250,239,0.48);
+  --ghost:rgba(254,250,239,0.12);
+  --accent:#FC4446;
+  --pad-x:clamp(20px, 6vw, 96px);
+  --maxw:1320px;
+  background:var(--bg); color:var(--cream);
+  font-family:'Satoshi', system-ui, sans-serif;
+  min-height:100vh; position:relative; overflow-x:clip;
+}
+.page-bg {
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:linear-gradient(rgba(17,17,17,0.26), rgba(17,17,17,0.26)), url(assets/img/bg-noise.jpg);
+  background-size:cover; background-position:center center; background-repeat:no-repeat;
+}
+
+/* --- texture "carta fotocopiata": grana leggera ovunque --- */
 .site-grain {
   position:fixed; inset:0; z-index:500; pointer-events:none;
   mix-blend-mode:overlay; opacity:.045;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size:180px 180px;
 }
-.hero-grain {
-  position:absolute; inset:0; pointer-events:none; mix-blend-mode:overlay; opacity:.22;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");
-  background-size:260px 260px;
+
+/* --- header --- */
+.nav {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px var(--pad-x);
+  transition:background .4s ease, padding .4s ease, border-color .4s ease;
+  border-bottom:1px solid transparent; background:transparent; backdrop-filter:none;
 }
-.hero-grain::after {
-  content:""; position:absolute; inset:0;
-  background:
-    linear-gradient(90deg, transparent calc(48% - 1px), rgba(255,255,255,.08) calc(48% - 1px) 48%, rgba(0,0,0,.16) 48% calc(48% + 1px), transparent calc(48% + 1px)),
-    linear-gradient(0deg, transparent calc(53% - 1px), rgba(255,255,255,.07) calc(53% - 1px) 53%, rgba(0,0,0,.14) 53% calc(53% + 1px), transparent calc(53% + 1px));
+.nav.scrolled {
+  padding:14px var(--pad-x);
+  border-bottom:1px solid var(--ghost);
+  background:color-mix(in srgb, var(--bg) 80%, transparent);
+  backdrop-filter:blur(14px);
 }
-@media (max-width:640px) {
-  .hero-grain::after { background:linear-gradient(0deg, transparent calc(53% - 1px), rgba(255,255,255,.07) calc(53% - 1px) 53%, rgba(0,0,0,.14) 53% calc(53% + 1px), transparent calc(53% + 1px)); }
+.nav-left { display:flex; align-items:center; gap:14px; }
+.logo { font-family:'Outfit',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.03em; line-height:1; display:flex; align-items:center; gap:9px; }
+.back-home {
+  font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--dim); cursor:pointer; transition:color .25s ease; white-space:nowrap;
+}
+.back-home:hover { color:var(--cream); }
+.nav-links { display:flex; gap:30px; align-items:center; }
+.nav-link {
+  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--dim); padding:4px 0; transition:color .25s ease; cursor:pointer;
+}
+.nav-link.active { color:var(--cream); }
+.nav-link:hover { color:var(--cream); }
+.lang-toggle {
+  display:flex; align-items:center; gap:7px; cursor:pointer;
+  background:none; border:1px solid var(--ghost); border-radius:100px;
+  padding:9px 16px; min-height:38px; color:var(--dim);
+  font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+  transition:color .25s ease, border-color .25s ease, background .25s ease;
+}
+.lang-toggle:hover { color:var(--bg); border-color:var(--cream); background:var(--cream); transform:scale(1.05); }
+.burger {
+  display:none; flex-direction:column; gap:5px; cursor:pointer; background:none;
+  border:1px solid var(--ghost); border-radius:12px; padding:13px 14px;
+  transition:border-color .25s ease, background .25s ease;
+}
+.burger:hover { border-color:var(--cream); background:var(--bg-2); transform:scale(1.05); }
+.burger span { width:24px; height:2px; background:var(--cream); transition:transform .3s ease, opacity .3s ease; }
+.burger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity:0; }
+.burger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+/* --- menu mobile --- */
+.menu {
+  position:fixed; inset:0; z-index:999;
+  background:var(--bg); padding:96px var(--pad-x) 40px;
+  display:flex; flex-direction:column; justify-content:space-between;
+  transform:translateY(-100%); transition:transform .5s cubic-bezier(.7,0,.2,1); visibility:hidden;
+}
+.menu.open { transform:translateY(0); visibility:visible; }
+.menu nav { display:flex; flex-direction:column; gap:4px; }
+.menu-link {
+  font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05;
+  padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;
+}
+.menu-link .sq { width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block; }
+.menu-foot {
+  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--dim);
+  display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+}
+.menu-foot > div { display:flex; gap:8px; align-items:center; }
+
+/* --- sezione ascolto --- */
+.sec { position:relative; z-index:1; padding:calc(96px + clamp(40px,7vh,80px)) var(--pad-x) clamp(64px,12vh,160px); }
+.inner { max-width:var(--maxw); margin:0 auto; }
+.sec-head { display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px); }
+.sec-head .dot { width:10.94px; height:10.94px; background:var(--accent); flex-shrink:0; display:inline-block; transform:translateY(0.5px); }
+.sec-head .label { font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); }
+.sec-head .side { margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint); }
+
+.music-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(14px,1.6vw,22px); align-items:stretch; }
+.track {
+  position:relative; display:flex; gap:22px; align-items:center;
+  padding:clamp(20px,2vw,28px); border:1px solid var(--ghost); border-radius:16px;
+  background:var(--bg-2); transition:border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+}
+.track:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,0.16); }
+.track.col { flex-direction:column; align-items:stretch; gap:16px; justify-content:space-between; }
+.track-link { display:flex; gap:22px; align-items:center; color:inherit; min-width:0; }
+.track-cover { width:clamp(72px,8vw,104px); aspect-ratio:1; object-fit:cover; flex-shrink:0; }
+.track-text { display:flex; flex-direction:column; gap:6px; min-width:0; }
+.track-src { font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cream); }
+.track-title { font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(16px,1.5vw,21px); letter-spacing:-0.01em; line-height:1.15; }
+.track-meta { font-size:13px; color:var(--dim); }
+.track-player { border-top:1px solid var(--ghost); padding-top:14px; }
+.track-player iframe { display:block; border:0; width:100%; border-radius:10px; }
+.track-arrow { position:absolute; top:16px; right:18px; color:var(--dim); display:inline-flex; }
+
+/* --- footer --- */
+.footer { position:relative; z-index:1; padding:clamp(48px,7vh,88px) var(--pad-x) 36px; border-top:1px solid var(--ghost); }
+.footer .inner { display:flex; flex-direction:column; gap:clamp(28px,5vh,56px); }
+.footer-big { font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(64px,13vw,180px); line-height:0.9; letter-spacing:-0.04em; margin-left:-4px; }
+.footer-row {
+  display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px;
+  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--dim);
+}
+
+/* --- reveal on scroll (attivo solo con JS) --- */
+.reveal {
+  transition-property:opacity, transform; transition-duration:0.9s;
+  transition-timing-function:cubic-bezier(.2,.6,.2,1);
+}
+html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
+.reveal.d08 { transition-delay:0.08s; }
+
+/* --- breakpoint --- */
+@media (max-width:900px) {
+  .nav-links { display:none; }
+  .burger { display:flex; }
+  .lang-toggle { padding:13px 18px; min-height:44px; }
+}
+@media (max-width:620px) {
+  .music-grid { grid-template-columns:1fr; }
+}
+@media (max-width:480px) {
+  .footer-big { font-size:clamp(40px,15vw,64px); }
 }
 </style>
+</head>
+<body>
 
+<div class="root">
 
-</helmet>
-
-<div style="{{ rootStyle }}" ref="{{ setRootEl }}">
-
-  <div style="{{ pageBgStyle }}" aria-hidden="true"></div>
-
+  <div class="page-bg" aria-hidden="true"></div>
   <div class="site-grain" aria-hidden="true"></div>
 
-  <header style="{{ navStyle }}">
-    <div style="display:flex; align-items:center; gap:14px;">
-      <a href="index.html" style="font-family:'Outfit',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.03em; line-height:1; display:flex; align-items:center; gap:9px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}" data-original="Liminals">Liminals</a>
-      <a href="index.html" style="{{ backHomeStyle }}" style-hover="{{ backHomeHover }}">{{ t.backHome }}</a>
+  <header class="nav" id="nav">
+    <div class="nav-left">
+      <a href="index.html" class="logo" data-glitch data-original="Liminals">Liminals</a>
+      <a href="index.html" class="back-home" data-t="backHome">← Torna alla home</a>
     </div>
-      <nav style="{{ navLinksStyle }}">
-        <a href="suono.html" style="{{ navLinkSuonoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}">{{ t.navSuono }}</a>
-        <a href="ascolto.html" style="{{ navLinkAscoltoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}">{{ t.navAscolto }}</a>
-        <a href="live.html" style="{{ navLinkLiveStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}">{{ t.navLive }}</a>
-        <a href="contatti.html" style="{{ navLinkContattiStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}">{{ t.navContatti }}</a>
-        <a href="manifesto.html" style="{{ navLinkManifestoStyle }}" style-hover="{{ navLinkHover }}" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}">{{ t.navManifesto }}</a>
-        <button onClick="{{ cycleLanguage }}" style="{{ langToggleStyle }}" style-hover="{{ themeToggleHover }}" aria-label="Lingua / Language"><span>{{ languageLabel }}</span></button>
-      </nav>
-    <button onClick="{{ toggleMenu }}" style="{{ burgerWrapStyle }}" style-hover="{{ burgerHover }}" aria-label="Menu">
-      <span style="{{ burgerLine1Style }}"></span>
-      <span style="{{ burgerLine2Style }}"></span>
-      <span style="{{ burgerLine3Style }}"></span>
+    <nav class="nav-links">
+      <a href="suono.html" class="nav-link" data-glitch data-t="navSuono">Suono</a>
+      <a href="ascolto.html" class="nav-link active" data-glitch data-t="navAscolto">Ascolto</a>
+      <a href="live.html" class="nav-link" data-glitch data-t="navLive">Live</a>
+      <a href="contatti.html" class="nav-link" data-glitch data-t="navContatti">Contatti</a>
+      <a href="manifesto.html" class="nav-link" data-glitch data-t="navManifesto">Manifesto</a>
+      <button class="lang-toggle" data-lang-toggle aria-label="Lingua / Language"><span data-lang-label>IT</span></button>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
     </button>
   </header>
 
-  <div style="{{ menuStyle }}">
-    <nav style="display:flex; flex-direction:column; gap:4px;">
-      <a href="index.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.backHome }}</span></a>
-      <a href="suono.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navSuono }}</span></a>
-      <a href="ascolto.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navAscolto }}</span></a>
-      <a href="live.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navLive }}</span></a>
-      <a href="contatti.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navContatti }}</span></a>
-      <a href="manifesto.html" onClick="{{ closeMenu }}" style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05; padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;" onMouseEnter="{{ glitchEnter }}" onMouseLeave="{{ glitchLeave }}"><span style="width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block;"></span><span data-glitch-text>{{ t.navManifesto }}</span></a>
+  <div class="menu" id="menu">
+    <nav>
+      <a href="index.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="backHome">← Torna alla home</span></a>
+      <a href="suono.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navSuono">Suono</span></a>
+      <a href="ascolto.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navAscolto">Ascolto</span></a>
+      <a href="live.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navLive">Live</span></a>
+      <a href="contatti.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navContatti">Contatti</span></a>
+      <a href="manifesto.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navManifesto">Manifesto</span></a>
     </nav>
-    <div style="font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--dim); display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-      <span>Trieste · IT — Est. 2026</span>
-      <div style="display:flex; gap:8px; align-items:center;">
-        <button onClick="{{ cycleLanguage }}" style="{{ langToggleStyle }}" style-hover="{{ themeToggleHover }}" aria-label="Lingua / Language"><span>{{ languageLabel }}</span></button>
+    <div class="menu-foot">
+      <span>Trieste · IT - Est. 2026</span>
+      <div>
+        <button class="lang-toggle" data-lang-toggle aria-label="Lingua / Language"><span data-lang-label>IT</span></button>
       </div>
     </div>
   </div>
 
-    <section id="ascolto" style="position:relative; z-index:1; padding:calc(96px + clamp(40px,7vh,80px)) var(--pad-x) clamp(64px,12vh,160px);">
-      <div style="max-width:var(--maxw); margin:0 auto;">
-        <div data-reveal-key="musicHead" style="{{ revealMusicHead }}; display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px);">
-          <span style="width:10.94px; height:10.94px; background:var(--accent); flex-shrink:0; display:inline-block; transform:translateY(0.5px);"></span>
-          <span style="font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);">{{ t.navAscolto }}</span>
-          <span style="margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint);">Mix · release</span>
-        </div>
-        <div style="{{ musicGridStyle }}">
-          <div style="{{ track1Style }}" style-hover="{{ trackHover }}">
-            <a href="https://www.mixcloud.com/zackuu/zacku-and-teo-aurisina-session/" target="_blank" rel="noopener" style="display:flex; gap:22px; align-items:center; color:inherit; min-width:0;">
-              <img src="assets/img/track-aurisina.jpg" alt="Aurisina session" style="width:clamp(72px,8vw,104px); aspect-ratio:1; object-fit:cover; flex-shrink:0;">
-              <div style="display:flex; flex-direction:column; gap:6px; min-width:0;">
-                <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cream);">Mixcloud</span>
-                <span style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(16px,1.5vw,21px); letter-spacing:-0.01em; line-height:1.15;">zacku &amp; Teo — Aurisina session</span>
-                <span style="font-size:13px; color:var(--dim);">B2B</span>
-              </div>
-            </a>
-            <div style="border-top:1px solid var(--ghost); padding-top:14px;">
-              <iframe title="zacku &amp; Teo — Aurisina session (player)" src="{{ mixcloudSrc }}" width="100%" height="60" style="display:block; border:0; width:100%; border-radius:10px;" loading="lazy" scrolling="no" allow="encrypted-media *; autoplay *; fullscreen *"></iframe>
-            </div>
-            <span style="position:absolute; top:16px; right:18px; color:var(--dim); display:inline-flex;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
-          </div>
-          <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener" style="{{ track2Style }}" style-hover="{{ trackHover }}">
-            <img src="assets/img/track-spotify.jpg" alt="zacku su Spotify" style="width:clamp(72px,8vw,104px); aspect-ratio:1; object-fit:cover; flex-shrink:0;">
-            <div style="display:flex; flex-direction:column; gap:6px; min-width:0;">
-              <span style="font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cream);">Spotify</span>
-              <span style="font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(16px,1.5vw,21px); letter-spacing:-0.01em; line-height:1.15;">zacku</span>
-              <span style="font-size:13px; color:var(--dim);">"Lies" / Glasgow Underground Records</span>
-            </div>
-            <span style="position:absolute; top:16px; right:18px; color:var(--dim); display:inline-flex;"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
-          </a>
-        </div>
+  <section id="ascolto" class="sec">
+    <div class="inner">
+      <div class="sec-head reveal">
+        <span class="dot"></span>
+        <span class="label" data-t="navAscolto">Ascolto</span>
+        <span class="side">Mix · release</span>
       </div>
-    </section>
+      <div class="music-grid">
 
-  <!-- FOOTER -->
-  <footer style="position:relative; z-index:1; padding:clamp(48px,7vh,88px) var(--pad-x) 36px; border-top:1px solid var(--ghost);">
-    <div style="max-width:var(--maxw); margin:0 auto; display:flex; flex-direction:column; gap:clamp(28px,5vh,56px);">
-      <div data-reveal-key="footerBig" style="{{ footerBigRevealStyle }}">Liminals</div>
-      <div data-reveal-key="footerRow" style="{{ revealFooterRow }}; display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--dim);">
+        <div class="track col">
+          <a href="https://www.mixcloud.com/zackuu/zacku-and-teo-aurisina-session/" target="_blank" rel="noopener" class="track-link">
+            <img src="assets/img/track-aurisina.jpg" alt="Aurisina session" class="track-cover">
+            <div class="track-text">
+              <span class="track-src">Mixcloud</span>
+              <span class="track-title">zacku &amp; Teo - Aurisina session</span>
+              <span class="track-meta">B2B</span>
+            </div>
+          </a>
+          <div class="track-player">
+            <iframe title="zacku &amp; Teo - Aurisina session (player)" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;mini=1&amp;light=0&amp;feed=%2Fzackuu%2Fzacku-and-teo-aurisina-session%2F" width="100%" height="60" loading="lazy" scrolling="no" allow="encrypted-media *; autoplay *; fullscreen *"></iframe>
+          </div>
+          <span class="track-arrow"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </div>
+
+        <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener" class="track">
+          <img src="assets/img/track-spotify.jpg" alt="zacku su Spotify" class="track-cover">
+          <div class="track-text">
+            <span class="track-src">Spotify</span>
+            <span class="track-title">zacku</span>
+            <span class="track-meta">"Lies" / Glasgow Underground Records</span>
+          </div>
+          <span class="track-arrow"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="inner">
+      <div class="footer-big reveal">Liminals</div>
+      <div class="footer-row reveal d08">
         <span>zacku × Teo</span>
         <span>Minimal deep tech &amp; house</span>
-        <span>Trieste · IT — Est. 2026</span>
+        <span>Trieste · IT - Est. 2026</span>
       </div>
     </div>
   </footer>
 
-  <div style="{{ toastStyle }}">{{ t.toast }}</div>
-
 </div>
 
-</x-dc>
-<noscript>
-<div style="font-family:sans-serif; max-width:640px; margin:40px auto; padding:0 20px; color:#FEFAEF; background:#151515; line-height:1.6;">
-<h1>Liminals</h1>
-<p>Duo DJ di Trieste. zacku e Teo, minimal deep tech e house: set a due mani di tre ore o pi&ugrave;, costruiti insieme.</p>
-<p>Questo sito richiede JavaScript. Contatti: <a href="mailto:hello@liminalsmusic.com" style="color:#FEFAEF;">hello@liminalsmusic.com</a> &middot; <a href="https://www.mixcloud.com/zackuu/" style="color:#FEFAEF;">Mixcloud</a> &middot; <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" style="color:#FEFAEF;">Spotify</a> &middot; <a href="assets/pitch/Liminals-Pitch.pdf" style="color:#FEFAEF;">Pitch (PDF)</a></p>
-</div>
-</noscript>
-<script type="text/x-dc" data-dc-script data-props="{
-  &quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900},
-  &quot;accentColor&quot;: {
-    &quot;editor&quot;: &quot;color&quot;,
-    &quot;default&quot;: &quot;#FC4446&quot;,
-    &quot;tsType&quot;: &quot;string&quot;,
-    &quot;options&quot;: [&quot;#FC4446&quot;, &quot;#593AC6&quot;, &quot;#0EC0C0&quot;],
-    &quot;section&quot;: &quot;Aspetto&quot;
-  },
-  &quot;buttonHoverScale&quot;: {
-    &quot;editor&quot;: &quot;range&quot;,
-    &quot;default&quot;: 1.05,
-    &quot;min&quot;: 1,
-    &quot;max&quot;: 1.2,
-    &quot;step&quot;: 0.01,
-    &quot;tsType&quot;: &quot;number&quot;,
-    &quot;section&quot;: &quot;Aspetto&quot;
-  }
-}">
-
-class Component extends DCLogic {
-  state = {
-    theme: 'dark',
-    language: 'IT',
-    page: 'home',
-    menuOpen: false,
-    navScrolled: false,
-    activeSection: 'ascolto',
-    toastShow: false,
-    revealed: {},
-    vw: (typeof window !== 'undefined') ? window.innerWidth : 1400,
-  };
-
-  componentDidMount() {
-    this._onScroll = () => {
-      const y = window.scrollY;
-      if ((y > 40) !== this.state.navScrolled) this.setState({ navScrolled: y > 40 });
-
-      if (y < window.innerHeight) {
-        const t = 'scale(1.06) translateY(' + (y * 0.18) + 'px)';
-        if (this._heroDarkImgEl) this._heroDarkImgEl.style.transform = t;
-        if (this._heroLightImgEl) this._heroLightImgEl.style.transform = t;
-      }
-
-      const ids = ['suono', 'ascolto', 'live', 'contatti'];
-      let current = this.state.activeSection;
-      for (const id of ids) {
-        const el = this.rootEl && this.rootEl.querySelector('#' + id);
-        if (el) {
-          const r = el.getBoundingClientRect();
-          if (r.top <= window.innerHeight * 0.5 && r.bottom >= window.innerHeight * 0.3) current = id;
-        }
-      }
-      if (current !== this.state.activeSection) this.setState({ activeSection: current });
-    };
-    window.addEventListener('scroll', this._onScroll, { passive: true });
-    this._onScroll();
-
-    this._onResize = () => this.setState({ vw: window.innerWidth });
-    window.addEventListener('resize', this._onResize);
-
-    this.applyThemeColor('dark');
-
-    try {
-      const lang = localStorage.getItem('liminals-lang');
-      if (lang && ['IT','EN','FR','ES'].indexOf(lang) !== -1) {
-        this.setState({ language: lang });
-        document.documentElement.lang = lang.toLowerCase();
-      }
-    } catch (e) {}
-
-    if ('IntersectionObserver' in window && this.rootEl) {
-      this._ro = new IntersectionObserver((entries) => {
-        entries.forEach((en) => {
-          if (en.isIntersecting) {
-            const key = en.target.getAttribute('data-reveal-key');
-            if (key) {
-              this.setState((s) => ({ revealed: Object.assign({}, s.revealed, { [key]: true }) }));
-              this._ro.unobserve(en.target);
-            }
-          }
-        });
-      }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
-      this.rootEl.querySelectorAll('[data-reveal-key]').forEach((el) => this._ro.observe(el));
-    } else {
-      this.setState({ revealed: { all: true } });
-    }
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this._onScroll);
-    window.removeEventListener('resize', this._onResize);
-    if (this._ro) this._ro.disconnect();
-  }
-
-  setRootEl = (el) => {
-    this.rootEl = el;
-    if (el && !this._observed && 'IntersectionObserver' in window) {
-      // mark elements once mounted; observer attached in componentDidMount
-      this._observed = true;
+<script>
+(function () {
+  var T = {
+    IT: {
+      backHome: '← Torna alla home',
+      navSuono: 'Suono', navAscolto: 'Ascolto', navLive: 'Live', navContatti: 'Contatti', navManifesto: 'Manifesto'
+    },
+    EN: {
+      backHome: '← Back home',
+      navSuono: 'Sound', navAscolto: 'Listen', navLive: 'Live', navContatti: 'Contact', navManifesto: 'Manifesto'
     }
   };
+  var ORDER = ['IT', 'EN'];
+  var lang = 'IT';
 
-  setHeroDarkImgEl = (el) => { this._heroDarkImgEl = el; };
-  setHeroLightImgEl = (el) => { this._heroLightImgEl = el; };
+  function applyLang(l) {
+    lang = ORDER.indexOf(l) !== -1 ? l : 'IT';
+    var d = T[lang];
+    var els = document.querySelectorAll('[data-t]');
+    for (var i = 0; i < els.length; i++) {
+      var k = els[i].getAttribute('data-t');
+      if (d[k] !== undefined) els[i].textContent = d[k];
+    }
+    var labels = document.querySelectorAll('[data-lang-label]');
+    for (var j = 0; j < labels.length; j++) labels[j].textContent = lang;
+    document.documentElement.lang = lang.toLowerCase();
+  }
+  try {
+    var saved = localStorage.getItem('liminals-lang');
+    if (saved && ORDER.indexOf(saved) !== -1 && saved !== 'IT') applyLang(saved);
+  } catch (e) {}
 
-  getPitchHtmlDataUrl() {
-    return 'assets/pitch/Liminals-Pitch.html';
+  var toggles = document.querySelectorAll('[data-lang-toggle]');
+  for (var t = 0; t < toggles.length; t++) {
+    toggles[t].addEventListener('click', function () {
+      var next = ORDER[(ORDER.indexOf(lang) + 1) % ORDER.length];
+      applyLang(next);
+      try { localStorage.setItem('liminals-lang', next); } catch (e) {}
+    });
   }
 
-  getPitchPdfDataUrl() {
-    return 'assets/pitch/Liminals-Pitch.pdf';
-  }
+  /* header compatto oltre 40px di scroll */
+  var nav = document.getElementById('nav');
+  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-  applyThemeColor(theme) {
-    try {
-      const c = theme === 'light' ? '#FEFAEF' : '#151515';
-      let m = document.querySelector('meta[name="theme-color"]');
-      if (!m) { m = document.createElement('meta'); m.setAttribute('name','theme-color'); document.head.appendChild(m); }
-      m.setAttribute('content', c);
-      document.documentElement.style.background = c;
-      document.body.style.background = c;
-    } catch(e) {}
-  }
+  /* menu mobile */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('menu');
+  function setMenu(open) { menu.classList.toggle('open', open); burger.classList.toggle('open', open); }
+  burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+  var closers = document.querySelectorAll('[data-menu-close]');
+  for (var c = 0; c < closers.length; c++) closers[c].addEventListener('click', function () { setMenu(false); });
 
-  cycleLanguage = () => {
-    const order = ['IT', 'EN', 'FR', 'ES'];
-    const i = order.indexOf(this.state.language || 'IT');
-    const next = order[(i + 1) % order.length];
-    this.setState({ language: next });
-    try { localStorage.setItem('liminals-lang', next); } catch (e) {}
-    try { document.documentElement.lang = next.toLowerCase(); } catch (e) {}
-  };
-
-  toggleMenu = () => { this.setState((s) => ({ menuOpen: !s.menuOpen })); };
-  closeMenu = () => { this.setState({ menuOpen: false }); };
-
-  openManifesto = () => { this.setState({ page: 'manifesto' }); window.scrollTo(0, 0); };
-  openManifestoFromMenu = () => { this.setState({ page: 'manifesto', menuOpen: false }); window.scrollTo(0, 0); };
-  goHome = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ page: 'home', menuOpen: false }); window.scrollTo(0, 0); };
-
-  glitchEnter = (e) => {
-    const el = e.currentTarget;
-    const target = el.querySelector('[data-glitch-text]') || el;
-    const original = target._glitchTimer
-      ? target._glitchOriginal
-      : (el.getAttribute('data-original') || target.textContent);
+  /* effetto glitch sui link */
+  var chars = '!<>-_\\/[]{}—=+*^?#01010$%&@';
+  function glitchEnter(e) {
+    var el = e.currentTarget;
+    var target = el.querySelector('[data-glitch-text]') || el;
+    var original = target._glitchTimer ? target._glitchOriginal : (el.getAttribute('data-original') || target.textContent);
     target._glitchOriginal = original;
-    const chars = '!<>-_\\/[]{}—=+*^?#01010$%&@';
     if (target._glitchTimer) clearInterval(target._glitchTimer);
-    let iter = 0;
-    const total = original.length;
-    target._glitchTimer = setInterval(() => {
-      const revealed = Math.floor(iter / 2);
-      let out = '';
-      for (let i = 0; i < total; i++) {
+    var iter = 0, total = original.length;
+    target._glitchTimer = setInterval(function () {
+      var revealed = Math.floor(iter / 2), out = '';
+      for (var i = 0; i < total; i++) {
         if (i < revealed) out += original[i];
         else if (original[i] === ' ') out += ' ';
         else out += chars[Math.floor(Math.random() * chars.length)];
@@ -358,605 +382,32 @@ class Component extends DCLogic {
       iter++;
       if (revealed >= total) { clearInterval(target._glitchTimer); target._glitchTimer = null; target.textContent = original; }
     }, 60);
-  };
-
-  glitchLeave = (e) => {
-    const el = e.currentTarget;
-    const target = el.querySelector('[data-glitch-text]') || el;
+  }
+  function glitchLeave(e) {
+    var el = e.currentTarget;
+    var target = el.querySelector('[data-glitch-text]') || el;
     if (target._glitchTimer) { clearInterval(target._glitchTimer); target._glitchTimer = null; }
     if (target._glitchOriginal) target.textContent = target._glitchOriginal;
-  };
-
-  homeT = {
-    IT: {
-      backHome: '← Torna alla home',
-      navSuono: 'Suono', navAscolto: 'Ascolto', navLive: 'Live', navContatti: 'Contatti', navManifesto: 'Manifesto',
-      themeDark: 'Scuro', themeLight: 'Chiaro',
-      heroTag: 'Certi suoni chiedono di essere condivisi. Non come prodotto, come un luogo da abitare.',
-      heroCtaListen: 'Ascolta', heroCtaNotify: 'Avvisami', scroll: 'Scorri',
-      sideSound: 'Bio · profilo',
-      quote1: 'I nostri set ricreano spazi ', quoteEm: 'liminari', quote2: ', vogliamo abitarci, ballarci e ricordarli.',
-      line1: '— Sobrio in apertura', line2: '— Coerente a fine serata', line3: '— Mai mainstream',
-      bioLead: 'Due selezioni accurate, un solo set. Per zacku e Teo la qualità è tutto: minimal deep tech e house costruiti attorno al contesto.',
-      tagsLine: 'Minimal · Deep tech · House · 3h+ a due · DJ set',
-      sideLive: 'Eventi',
-      nextDates: 'Prossime date', nextLine: 'La prossima si sta costruendo.',
-      notifyNote: "Lascia la tua email e ti avvisiamo quando c'è una data. Nient'altro, nessuna newsletter.",
-      emailPlaceholder: 'La tua email', notifyBtn: 'Avvisami', past: 'Passati', eventMeta: 'B2B · registrato',
-      notifyInvalid: "Controlla l'email e riprova.", notifyWait: 'Un attimo…',
-      notifyOk: "Fatto. Ti scriviamo noi quando c'è una data.",
-      notifyErr: 'Qualcosa non ha funzionato. Scrivici a hello@liminalsmusic.com',
-      manTeaserLabel: 'Dal manifesto',
-      manQuote: 'Chi apre il set ha lo stesso valore di chi lo chiude.',
-      readManifesto: 'Leggi il manifesto',
-      sideContact: 'Pitch · manifesto',
-      c1Title: 'Hai un posto per noi', c1Body: 'Club, spazi, chi organizza.', c1Sub: 'Il pitch completo è qui accanto, scaricabile.',
-      c2Title: 'Scrivici', c2Sub: 'Tocca per copiare.',
-      c3Title: 'Ascoltaci',
-      c4Title: 'Lavora con noi', c4Body: 'Artisti, grafici, chi costruisce serate.', c4Sub: 'Cerchiamo collaboratori creativi. Contattaci: hello@liminalsmusic.com',
-      pitchCardKicker: 'Il pitch ·', pitchCardTitle: 'completo',
-      pitchCardDesc: 'Scarica il nostro pitch e condividilo con chi pensi possa essere interessato.',
-      openPitch: 'Apri il pitch', downloadPdf: 'Scarica il PDF',
-      manCardKicker: 'Riguardo al', manCardTitle: 'manifesto',
-      manCardDesc: 'La carta etica che regola come stiamo sul dancefloor e fuori da esso.',
-      toast: 'Email copiata',
-      head1: 'Liminals · Manifesto etico',
-      intro1: "Certi suoni chiedono di essere condivisi. Il dancefloor è il luogo che ce lo permette: chi ci segue trova qualcosa di familiare, condiviso, in cui suono e individui diventano tutt'uno in un nuovo luogo da abitare assieme.",
-      intro2: "Questa è la nostra promessa, verso chi ascolta, verso la musica e verso gli artisti / chi suona.",
-      s1Title: 'Etica condivisa',
-      s1P1: "Il rispetto del prossimo non è negoziabile. Comportamenti molesti, offensivi o che mettano a disagio chiunque non hanno posto qui, né sul dancefloor, né fuori da esso.",
-      s1P2: "Ognuno può esprimere sé stesso liberamente, muoversi come vuole, essere come è, senza essere giudicato né messo a disagio. Questo vale sempre e per tutti.",
-      s1P3: "Questo movimento si oppone attivamente a ogni forma di violenza, fisica, verbale, psicologica e culturale.",
-      s2Title: 'Esperienza condivisa',
-      s2P1: "L'ingresso ha lo stesso prezzo per tutti. Non vogliamo squilibri di trattamento, non vogliamo che il pubblico diventi merce, né che la musica lo sia.",
-      s3Title: 'Mobilità sostenibile',
-      s3P1: "Apprezziamo chi arriva con mezzi pubblici, a piedi o in bicicletta. Non si tratta solo di ambientalismo: questo vuole essere lo spirito dei luoghi che abitiamo.",
-      s3P2: "L'uso di alcol per chi si mette al volante è fortemente sconsigliato.",
-      s4Title: 'Uguaglianza tra artisti',
-      s4P1: "Chi apre il set ha lo stesso valore di chi lo chiude. Chi è ai primi dischi ha lo stesso diritto al rispetto di chi suona da anni, senza alcuna gerarchia.",
-      s4P2: "Ci si supporta. Ci si ascolta. Ci si condivide.",
-      s4P3: "La competizione non produce niente di buono, ma la condivisione sì: un disco trovato per caso, un suono che non si sapeva nominare, una rete che sostiene chi inizia.",
-      n1: 'No al sessismo', n2: 'No alla transfobia', n3: "No all'omofobia",
-      n4: 'No alle violenze', n5: 'No al razzismo', n6: 'No a qualsiasi discriminazione',
-    },
-    EN: {
-      backHome: '← Back home',
-      navSuono: 'Sound', navAscolto: 'Listen', navLive: 'Live', navContatti: 'Contact', navManifesto: 'Manifesto',
-      themeDark: 'Dark', themeLight: 'Light',
-      heroTag: 'Certain sounds ask to be shared. Not as a product — as a place to inhabit.',
-      heroCtaListen: 'Listen', heroCtaNotify: 'Notify me', scroll: 'Scroll',
-      sideSound: 'Bio · profile',
-      quote1: 'Our sets recreate ', quoteEm: 'liminal', quote2: ' spaces — we want to inhabit them, dance in them, and remember them.',
-      line1: '— Restrained at the start', line2: '— Coherent at the end of the night', line3: '— Never mainstream',
-      bioLead: 'Two careful selections, one set. For zacku and Teo quality is everything: minimal deep tech and house built around the room.',
-      tagsLine: 'Minimal · Deep tech · House · 3h+ B2B · DJ set',
-      sideLive: 'Events',
-      nextDates: 'Upcoming dates', nextLine: 'The next one is taking shape.',
-      notifyNote: "Leave your email and we'll let you know when there's a date. Nothing else, no newsletter.",
-      emailPlaceholder: 'Your email', notifyBtn: 'Notify me', past: 'Past', eventMeta: 'B2B · recorded',
-      notifyInvalid: 'Check the email and try again.', notifyWait: 'One moment…',
-      notifyOk: "Done. We'll write to you when there's a date.",
-      notifyErr: 'Something went wrong. Write to us at hello@liminalsmusic.com',
-      manTeaserLabel: 'From the manifesto',
-      manQuote: 'Whoever opens the set is worth as much as whoever closes it.',
-      readManifesto: 'Read the manifesto',
-      sideContact: 'Pitch · manifesto',
-      c1Title: 'Got a space for us', c1Body: 'Clubs, spaces, promoters.', c1Sub: 'The full pitch is right here, downloadable.',
-      c2Title: 'Write to us', c2Sub: 'Tap to copy.',
-      c3Title: 'Listen to us',
-      c4Title: 'Work with us', c4Body: 'Artists, designers, people who build nights.', c4Sub: "We're looking for creative collaborators. Contact us: hello@liminalsmusic.com",
-      pitchCardKicker: 'The pitch ·', pitchCardTitle: 'in full',
-      pitchCardDesc: 'Download our pitch and share it with anyone you think might be interested.',
-      openPitch: 'Open the pitch', downloadPdf: 'Download the PDF',
-      manCardKicker: 'About the', manCardTitle: 'manifesto',
-      manCardDesc: 'The ethical charter for how we behave on the dancefloor and beyond it.',
-      toast: 'Email copied',
-      head1: 'Liminals · Ethical Manifesto',
-      intro1: "Certain sounds ask to be shared. The dancefloor is the place that lets that happen: those who follow us find something familiar, shared, where sound and people become one in a new place to inhabit together.",
-      intro2: "This is our promise, to those who listen, to the music, and to the artists who play.",
-      s1Title: 'Shared ethics',
-      s1P1: "Respect for others is not negotiable. Harassing or offensive behaviour, or anything that makes someone uncomfortable, has no place here — not on the dancefloor, not outside it.",
-      s1P2: "Everyone can express themselves freely, move as they wish, be who they are, without being judged or made to feel uncomfortable. This applies to everyone, always.",
-      s1P3: "This movement actively opposes every form of violence — physical, verbal, psychological and cultural.",
-      s2Title: 'Shared experience',
-      s2P1: "Entry costs the same for everyone. We don't want unequal treatment, and we don't want the audience — or the music — to become a commodity.",
-      s3Title: 'Sustainable mobility',
-      s3P1: "We appreciate those who arrive by public transport, on foot or by bike. It's not only about environmentalism — this is meant to be the spirit of the places we inhabit.",
-      s3P2: "Drinking alcohol before driving is strongly discouraged.",
-      s4Title: 'Equality among artists',
-      s4P1: "Whoever opens the set is worth as much as whoever closes it. Whoever is on their first records has the same right to respect as whoever has played for years, with no hierarchy at all.",
-      s4P2: "We support each other. We listen to each other. We share with each other.",
-      s4P3: "Competition produces nothing good, but sharing does: a record found by chance, a sound you didn't know how to name, a network that supports those just starting out.",
-      n1: 'No to sexism', n2: 'No to transphobia', n3: 'No to homophobia',
-      n4: 'No to violence', n5: 'No to racism', n6: 'No to any discrimination',
-    },
-    FR: {
-      backHome: '← Retour',
-      navSuono: 'Son', navAscolto: 'Écoute', navLive: 'Live', navContatti: 'Contact', navManifesto: 'Manifeste',
-      themeDark: 'Sombre', themeLight: 'Clair',
-      heroTag: 'Certains sons demandent à être partagés. Pas comme un produit, comme un lieu à habiter.',
-      heroCtaListen: 'Écouter', heroCtaNotify: 'Préviens-moi', scroll: 'Défiler',
-      sideSound: 'Bio · profil',
-      quote1: 'Nos sets recréent des espaces ', quoteEm: 'liminaires', quote2: ', on veut les habiter, y danser et les garder en mémoire.',
-      line1: '— Sobre à l’ouverture', line2: '— Cohérent en fin de soirée', line3: '— Jamais mainstream',
-      bioLead: 'Deux sélections soignées, un seul set. Pour zacku et Teo, la qualité est primordiale : minimal deep tech et house construits autour du lieu.',
-      tagsLine: 'Minimal · Deep tech · House · 3h+ B2B · DJ set',
-      sideLive: 'Événements',
-      nextDates: 'Prochaines dates', nextLine: 'La prochaine est en construction.',
-      notifyNote: 'Laisse ton email et on te prévient quand il y a une date. Rien d’autre, pas de newsletter.',
-      emailPlaceholder: 'Ton email', notifyBtn: 'Préviens-moi', past: 'Passés', eventMeta: 'B2B · enregistré',
-      notifyInvalid: 'Vérifie l’email et réessaie.', notifyWait: 'Un instant…',
-      notifyOk: 'C’est fait. On t’écrit dès qu’il y a une date.',
-      notifyErr: 'Quelque chose n’a pas fonctionné. Écris-nous à hello@liminalsmusic.com',
-      manTeaserLabel: 'Extrait du manifeste',
-      manQuote: 'Celui qui ouvre le set a la même valeur que celui qui le clôture.',
-      readManifesto: 'Lire le manifeste',
-      sideContact: 'Pitch · manifeste',
-      c1Title: 'Tu as un lieu pour nous', c1Body: 'Clubs, lieux, organisateurs.', c1Sub: 'Le pitch complet est juste à côté, téléchargeable.',
-      c2Title: 'Écris-nous', c2Sub: 'Touche pour copier.',
-      c3Title: 'Écoute-nous',
-      c4Title: 'Travaille avec nous', c4Body: 'Artistes, graphistes, ceux qui construisent des soirées.', c4Sub: 'Nous cherchons des collaborateurs créatifs. Contacte-nous : hello@liminalsmusic.com',
-      pitchCardKicker: 'Le pitch ·', pitchCardTitle: 'complet',
-      pitchCardDesc: 'Télécharge notre pitch et partage-le avec qui pourrait être intéressé.',
-      openPitch: 'Ouvrir le pitch', downloadPdf: 'Télécharger le PDF',
-      manCardKicker: 'À propos du', manCardTitle: 'manifeste',
-      manCardDesc: 'La charte éthique qui règle notre présence sur le dancefloor et en dehors.',
-      toast: 'Email copié',
-      head1: 'Liminals · Manifeste éthique',
-      intro1: "Certains sons demandent à être partagés. Le dancefloor est le lieu qui le permet : ceux qui nous suivent y trouvent quelque chose de familier, de partagé, où le son et les personnes ne font plus qu'un, dans un nouveau lieu à habiter ensemble.",
-      intro2: "C'est notre promesse, envers ceux qui écoutent, envers la musique et envers les artistes qui jouent.",
-      s1Title: 'Éthique partagée',
-      s1P1: "Le respect d'autrui n'est pas négociable. Les comportements harcelants, offensants, ou qui mettent quiconque mal à l'aise n'ont pas leur place ici — ni sur le dancefloor, ni en dehors.",
-      s1P2: "Chacun peut s'exprimer librement, bouger comme il le souhaite, être qui il est, sans être jugé ni mis mal à l'aise. Cela vaut pour tout le monde, toujours.",
-      s1P3: "Ce mouvement s'oppose activement à toute forme de violence, physique, verbale, psychologique et culturelle.",
-      s2Title: 'Expérience partagée',
-      s2P1: "L'entrée coûte le même prix pour tout le monde. Nous ne voulons pas de traitement inégal, nous ne voulons pas que le public devienne une marchandise, ni que la musique le devienne.",
-      s3Title: 'Mobilité durable',
-      s3P1: "Nous apprécions ceux qui arrivent en transports en commun, à pied ou à vélo. Ce n'est pas qu'une question environnementale : c'est l'esprit même des lieux que nous habitons.",
-      s3P2: "La consommation d'alcool est fortement déconseillée à quiconque prend le volant.",
-      s4Title: 'Égalité entre artistes',
-      s4P1: "Celui qui ouvre le set a la même valeur que celui qui le clôture. Celui qui débute a le même droit au respect que celui qui joue depuis des années, sans aucune hiérarchie.",
-      s4P2: "On se soutient. On s'écoute. On partage.",
-      s4P3: "La compétition ne produit rien de bon, mais le partage si : un disque trouvé par hasard, un son qu'on ne savait pas nommer, un réseau qui soutient ceux qui débutent.",
-      n1: 'Non au sexisme', n2: 'Non \u00e0 la transphobie', n3: "Non \u00e0 l'homophobie",
-      n4: 'Non aux violences', n5: 'Non au racisme', n6: 'Non \u00e0 toute discrimination',
-    },
-    ES: {
-      backHome: '← Volver',
-      navSuono: 'Sonido', navAscolto: 'Escucha', navLive: 'Live', navContatti: 'Contacto', navManifesto: 'Manifiesto',
-      themeDark: 'Oscuro', themeLight: 'Claro',
-      heroTag: 'Ciertos sonidos piden ser compartidos. No como producto, sino como un lugar para habitar.',
-      heroCtaListen: 'Escucha', heroCtaNotify: 'Avísame', scroll: 'Desliza',
-      sideSound: 'Bio · perfil',
-      quote1: 'Nuestros sets recrean espacios ', quoteEm: 'liminares', quote2: ', queremos habitarlos, bailar en ellos y recordarlos.',
-      line1: '— Sobrio en la apertura', line2: '— Coherente al final de la noche', line3: '— Nunca mainstream',
-      bioLead: 'Dos selecciones cuidadas, un solo set. Para zacku y Teo la calidad lo es todo: minimal deep tech y house construidos alrededor del contexto.',
-      tagsLine: 'Minimal · Deep tech · House · 3h+ B2B · DJ set',
-      sideLive: 'Eventos',
-      nextDates: 'Próximas fechas', nextLine: 'La próxima se está construyendo.',
-      notifyNote: 'Deja tu email y te avisamos cuando haya una fecha. Nada más, sin newsletter.',
-      emailPlaceholder: 'Tu email', notifyBtn: 'Avísame', past: 'Pasados', eventMeta: 'B2B · grabado',
-      notifyInvalid: 'Revisa el email y vuelve a intentarlo.', notifyWait: 'Un momento…',
-      notifyOk: 'Hecho. Te escribimos cuando haya una fecha.',
-      notifyErr: 'Algo no ha funcionado. Escríbenos a hello@liminalsmusic.com',
-      manTeaserLabel: 'Del manifiesto',
-      manQuote: 'Quien abre el set tiene el mismo valor que quien lo cierra.',
-      readManifesto: 'Lee el manifiesto',
-      sideContact: 'Pitch · manifiesto',
-      c1Title: 'Tienes un sitio para nosotros', c1Body: 'Clubs, espacios, promotores.', c1Sub: 'El pitch completo está aquí al lado, descargable.',
-      c2Title: 'Escríbenos', c2Sub: 'Toca para copiar.',
-      c3Title: 'Escúchanos',
-      c4Title: 'Trabaja con nosotros', c4Body: 'Artistas, diseñadores, quienes construyen noches.', c4Sub: 'Buscamos colaboradores creativos. Contáctanos: hello@liminalsmusic.com',
-      pitchCardKicker: 'El pitch ·', pitchCardTitle: 'completo',
-      pitchCardDesc: 'Descarga nuestro pitch y compártelo con quien creas que pueda estar interesado.',
-      openPitch: 'Abre el pitch', downloadPdf: 'Descarga el PDF',
-      manCardKicker: 'Sobre el', manCardTitle: 'manifiesto',
-      manCardDesc: 'La carta ética que regula cómo estamos en la pista y fuera de ella.',
-      toast: 'Email copiado',
-      head1: 'Liminals · Manifiesto ético',
-      intro1: "Ciertos sonidos piden ser compartidos. La pista de baile es el lugar que lo permite: quien nos sigue encuentra algo familiar, compartido, donde el sonido y las personas se vuelven uno solo, en un nuevo lugar para habitar juntos.",
-      intro2: "Esta es nuestra promesa, hacia quien escucha, hacia la música y hacia los artistas que tocan.",
-      s1Title: 'Ética compartida',
-      s1P1: "El respeto por los demás no es negociable. Los comportamientos molestos, ofensivos o que incomoden a cualquiera no tienen lugar aquí — ni en la pista, ni fuera de ella.",
-      s1P2: "Cada uno puede expresarse libremente, moverse como quiera, ser como es, sin ser juzgado ni sentirse incómodo. Esto vale para todos, siempre.",
-      s1P3: "Este movimiento se opone activamente a toda forma de violencia, física, verbal, psicológica y cultural.",
-      s2Title: 'Experiencia compartida',
-      s2P1: "La entrada tiene el mismo precio para todos. No queremos desequilibrios de trato, no queremos que el público se convierta en mercancía, ni que la música lo sea.",
-      s3Title: 'Movilidad sostenible',
-      s3P1: "Apreciamos a quien llega en transporte público, a pie o en bicicleta. No se trata solo de ambientalismo: este quiere ser el espíritu de los lugares que habitamos.",
-      s3P2: "Se desaconseja firmemente el consumo de alcohol a quien vaya a conducir.",
-      s4Title: 'Igualdad entre artistas',
-      s4P1: "Quien abre el set tiene el mismo valor que quien lo cierra. Quien está en sus primeros discos tiene el mismo derecho al respeto que quien toca desde hace años, sin ninguna jerarquía.",
-      s4P2: "Nos apoyamos. Nos escuchamos. Compartimos.",
-      s4P3: "La competencia no produce nada bueno, pero la compartición sí: un disco encontrado por casualidad, un sonido que no se sabía nombrar, una red que sostiene a quien empieza.",
-      n1: 'No al sexismo', n2: 'No a la transfobia', n3: 'No a la homofobia',
-      n4: 'No a las violencias', n5: 'No al racismo', n6: 'No a cualquier discriminaci\u00f3n',
-    },
-  };
-
-  notifyStatusReset = (status) => {
-    status.style.color = 'var(--dim)';
-    status.style.fontFamily = "'Satoshi',sans-serif";
-    status.style.fontWeight = '400';
-    status.style.fontSize = '14px';
-    status.style.border = 'none';
-    status.style.background = 'none';
-    status.style.padding = '0';
-    status.style.borderRadius = '0';
-    status.style.display = 'block';
-    status.style.marginTop = '10px';
-  };
-
-  notifySubmit = () => {
-    const t = this.homeT[this.state.language] || this.homeT.IT;
-    const input = document.getElementById('notify-email');
-    const status = document.getElementById('notify-status');
-    if (!input || !status) return;
-    this.notifyStatusReset(status);
-    const email = (input.value || '').trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      status.style.color = 'var(--accent)';
-      status.style.fontWeight = '500';
-      status.textContent = t.notifyInvalid;
-      return;
-    }
-    status.textContent = t.notifyWait;
-    fetch('https://formspree.io/f/mwvgrrew', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: email, _subject: 'Avvisami: nuova iscrizione dal sito' })
-    }).then((r) => {
-      if (r.ok) {
-        status.style.color = 'var(--cream)';
-        status.style.fontFamily = "'Outfit',sans-serif";
-        status.style.fontWeight = '500';
-        status.style.fontSize = '16px';
-        status.style.border = '1px solid var(--accent)';
-        status.style.background = 'color-mix(in srgb, var(--accent) 10%, transparent)';
-        status.style.padding = '12px 18px';
-        status.style.borderRadius = '14px';
-        status.style.display = 'inline-block';
-        status.style.marginTop = '14px';
-        status.textContent = t.notifyOk;
-        input.value = '';
-      } else {
-        status.style.color = 'var(--accent)';
-        status.style.fontWeight = '500';
-        status.textContent = t.notifyErr;
-      }
-    }).catch(() => {
-      status.style.color = 'var(--accent)';
-      status.style.fontWeight = '500';
-      status.textContent = t.notifyErr;
-    });
-  };
-
-  copyEmail = (e) => {
-    const email = 'hello@liminalsmusic.com';
-    if (navigator.clipboard) {
-      e.preventDefault();
-      navigator.clipboard.writeText(email).then(() => {
-        this.setState({ toastShow: true });
-        setTimeout(() => this.setState({ toastShow: false }), 1800);
-      }).catch(() => { window.location.href = 'mailto:' + email; });
-    }
-  };
-
-  reveal(key, delay) {
-    const on = !!(this.state.revealed[key] || this.state.revealed.all);
-    return {
-      opacity: on ? 1 : 0,
-      transform: on ? 'none' : 'translateY(28px)',
-      transitionProperty: 'opacity, transform',
-      transitionDuration: '0.9s',
-      transitionTimingFunction: 'cubic-bezier(.2,.6,.2,1)',
-      transitionDelay: (delay || 0) + 's',
-    };
+  }
+  var gl = document.querySelectorAll('[data-glitch]');
+  for (var g = 0; g < gl.length; g++) {
+    gl[g].addEventListener('mouseenter', glitchEnter);
+    gl[g].addEventListener('mouseleave', glitchLeave);
   }
 
-  revealAttrs(key) {
-    return { 'data-reveal-key': key };
+  /* reveal on scroll */
+  var rev = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    for (var r = 0; r < rev.length; r++) io.observe(rev[r]);
+  } else {
+    for (var r2 = 0; r2 < rev.length; r2++) rev[r2].classList.add('on');
   }
-
-  renderVals() {
-    const isLight = false;
-    const vw = this.state.vw;
-    const isNarrow = vw <= 900;
-    const isSmall = vw <= 620;
-    const isTiny = vw <= 480;
-    const active = this.state.activeSection;
-    const accentColor = this.props.accentColor ?? '#593AC6';
-    const hoverScale = this.props.buttonHoverScale ?? 1.05;
-    const page = this.state.page;
-    const isHome = page === 'home';
-    const isManifesto = page === 'manifesto';
-
-    const rootStyle = {
-      '--bg': isLight ? '#FEFAEF' : '#151515',
-      '--bg-2': isLight ? 'color-mix(in srgb, #151515 7%, #FEFAEF)' : 'color-mix(in srgb, #FEFAEF 6%, #151515)',
-      '--cream': isLight ? '#151515' : '#FEFAEF',
-      '--dim': isLight ? 'rgba(21,21,21,0.64)' : 'rgba(254,250,239,0.62)',
-      '--faint': isLight ? 'rgba(21,21,21,0.55)' : 'rgba(254,250,239,0.48)',
-      '--ghost': isLight ? 'rgba(21,21,21,0.12)' : 'rgba(254,250,239,0.12)',
-      '--accent': '#FC4446',
-      '--pad-x': 'clamp(20px, 6vw, 96px)',
-      '--maxw': '1320px',
-      background: 'var(--bg)',
-      color: 'var(--cream)',
-      fontFamily: "'Satoshi', system-ui, sans-serif",
-      minHeight: '100vh',
-      position: 'relative',
-      overflowX: 'clip',
-    };
-
-    const pageBgStyle = {
-      position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none',
-      backgroundImage: 'linear-gradient(rgba(17,17,17,0.26), rgba(17,17,17,0.26)), url(assets/img/bg-noise.jpg)',
-      backgroundSize: 'cover', backgroundPosition: 'center center', backgroundRepeat: 'no-repeat',
-    };
-
-    const navStyle = {
-      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      padding: this.state.navScrolled ? '14px var(--pad-x)' : '20px var(--pad-x)',
-      transition: 'background .4s ease, padding .4s ease, border-color .4s ease',
-      borderBottom: this.state.navScrolled ? '1px solid var(--ghost)' : '1px solid transparent',
-      background: this.state.navScrolled ? 'color-mix(in srgb, var(--bg) 80%, transparent)' : 'transparent',
-      backdropFilter: this.state.navScrolled ? 'blur(14px)' : 'none',
-    };
-
-    const navLinksStyle = { display: isNarrow ? 'none' : 'flex', gap: '30px', alignItems: 'center' };
-
-    const navLinkBase = (id) => ({
-      fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.2em', textTransform: 'uppercase',
-      color: active === id ? 'var(--cream)' : 'var(--dim)',
-      padding: '4px 0',
-      transition: 'color .25s ease',
-      cursor: 'pointer',
-    });
-    const navLinkHover = { color: 'var(--cream)' };
-    const navLinkManifestoStyle = {
-      fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.2em', textTransform: 'uppercase',
-      color: 'var(--dim)', padding: '4px 0', transition: 'color .25s ease', cursor: 'pointer',
-    };
-    const backHomeStyle = {
-      fontFamily: "'Bitcount',monospace", fontSize: '11.5px', letterSpacing: '0.16em', textTransform: 'uppercase',
-      color: 'var(--dim)', cursor: 'pointer', transition: 'color .25s ease', whiteSpace: 'nowrap',
-    };
-    const backHomeHover = { color: 'var(--cream)' };
-    const glitchEnter = this.glitchEnter;
-    const glitchLeave = this.glitchLeave;
-
-    const themeToggleStyle = {
-      display: 'flex', alignItems: 'center', gap: '9px', cursor: 'pointer',
-      background: 'none', border: '1px solid var(--ghost)', borderRadius: '100px',
-      padding: isNarrow ? '13px 18px' : '9px 16px', minHeight: isNarrow ? '44px' : '38px', color: 'var(--dim)',
-      fontFamily: "'Bitcount',monospace", fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase',
-      transition: 'color .25s ease, border-color .25s ease, background .25s ease',
-    };
-    const themeToggleHover = { color: 'var(--bg)', borderColor: 'var(--cream)', background: 'var(--cream)', transform: 'scale(' + hoverScale + ')' };
-    const langToggleStyle = {
-      display: 'flex', alignItems: 'center', gap: '7px', cursor: 'pointer',
-      background: 'none', border: '1px solid var(--ghost)', borderRadius: '100px',
-      padding: isNarrow ? '13px 18px' : '9px 16px', minHeight: isNarrow ? '44px' : '38px', color: 'var(--dim)',
-      fontFamily: "'Bitcount',monospace", fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase',
-      transition: 'color .25s ease, border-color .25s ease, background .25s ease',
-    };
-    const languageLabel = this.state.language || 'IT';
-    const t = this.homeT[languageLabel] || this.homeT.IT;
-    const themeKnobStyle = isLight
-      ? { width: '9px', height: '9px', borderRadius: '50%', border: '1.5px solid var(--accent)', display: 'inline-block' }
-      : { width: '9px', height: '9px', borderRadius: '50%', background: 'var(--accent)', display: 'inline-block' };
-    const themeLabel = isLight ? t.themeLight : t.themeDark;
-
-    const burgerWrapStyle = { display: isNarrow ? 'flex' : 'none', flexDirection: 'column', gap: '5px', cursor: 'pointer', background: 'none', border: '1px solid var(--ghost)', borderRadius: '12px', padding: '13px 14px', transition: 'border-color .25s ease, background .25s ease' };
-    const burgerHover = { borderColor: 'var(--cream)', background: 'var(--bg-2)', transform: 'scale(' + hoverScale + ')' };
-    const burgerBase = { width: '24px', height: '2px', background: 'var(--cream)', transition: 'transform .3s ease, opacity .3s ease' };
-    const burgerLine1Style = Object.assign({}, burgerBase, this.state.menuOpen ? { transform: 'translateY(7px) rotate(45deg)' } : {});
-    const burgerLine2Style = Object.assign({}, burgerBase, this.state.menuOpen ? { opacity: 0 } : {});
-    const burgerLine3Style = Object.assign({}, burgerBase, this.state.menuOpen ? { transform: 'translateY(-7px) rotate(-45deg)' } : {});
-
-    const menuStyle = {
-      position: 'fixed', inset: 0, zIndex: 999,
-      background: 'var(--bg)', padding: '96px var(--pad-x) 40px',
-      display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
-      transform: this.state.menuOpen ? 'translateY(0)' : 'translateY(-100%)',
-      transition: 'transform .5s cubic-bezier(.7,0,.2,1)',
-      visibility: this.state.menuOpen ? 'visible' : 'hidden',
-    };
-
-    const heroOverlayStyle = {
-      position: 'absolute', inset: 0,
-      background: 'linear-gradient(180deg, color-mix(in srgb, var(--bg) 50%, transparent) 0%, transparent 22%, transparent 62%, color-mix(in srgb, var(--bg) 90%, transparent) 92%, var(--bg) 100%)',
-    };
-
-    const heroH1Style = isTiny
-      ? { fontFamily: "'Outfit',sans-serif", fontWeight: 500, fontSize: 'clamp(44px,13vw,80px)', lineHeight: 0.9, letterSpacing: '-0.04em', marginLeft: '0px', marginBottom: 0 }
-      : { fontFamily: "'Outfit',sans-serif", fontWeight: 500, fontSize: isNarrow ? 'clamp(64px,11vw,120px)' : 'clamp(80px,8vw,150px)', lineHeight: 0.9, letterSpacing: '-0.04em', marginLeft: '-4px', marginBottom: 0 };
-
-    const heroBottomStyle = {
-      display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between',
-      flexDirection: isNarrow ? 'column' : 'row',
-      gap: isNarrow ? '22px' : '40px', flexWrap: 'wrap', width: '100%',
-    };
-
-    const heroTagStyle = {
-      fontFamily: "'Outfit',sans-serif", fontWeight: 300, fontSize: isTiny ? '17px' : 'clamp(18px,1.7vw,27px)',
-      letterSpacing: '-0.01em', lineHeight: 1.5, maxWidth: '32ch', color: 'var(--cream)',
-    };
-
-    const heroMetaStyle = isTiny
-      ? { display: 'flex', flexDirection: 'column', gap: '6px', fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--dim)', marginTop: '18px', paddingTop: '14px', borderTop: '1px solid var(--ghost)' }
-      : { display: 'flex', flexDirection: 'column', gap: '6px', fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--dim)', maxWidth: '316px', textAlign: 'right' };
-
-    const manifestoHalftoneStyle = {
-      position: 'absolute', right: 0, top: 0, width: 'min(58vw,780px)', height: '100%',
-      objectFit: 'cover', opacity: 0.03, mixBlendMode: 'screen', pointerEvents: 'none',
-      filter: 'sepia(1) saturate(6) hue-rotate(-28deg) brightness(1.15)',
-      maskImage: 'linear-gradient(90deg, transparent, #000 60%)',
-      WebkitMaskImage: 'linear-gradient(90deg, transparent, #000 60%)',
-    };
-
-    const pageTitleStyle = {
-      fontFamily: "'Outfit',sans-serif", fontWeight: 500,
-      fontSize: isTiny ? 'clamp(34px,10vw,52px)' : 'clamp(44px,5.2vw,78px)',
-      lineHeight: 0.92, letterSpacing: '-0.04em', marginLeft: isTiny ? '0px' : '-3px',
-      marginBottom: 'clamp(24px,4vh,40px)',
-    };
-
-    const manifestoH2Style = {
-      fontFamily: "'Outfit',sans-serif", fontWeight: 400,
-      fontSize: 'clamp(30px,4.6vw,58px)',
-      lineHeight: 1.2, letterSpacing: '-0.02em', maxWidth: '17ch', position: 'relative',
-    };
-
-    const bioGridStyle = { display: 'flex', flexDirection: 'column', gap: isNarrow ? '20px' : '24px', alignItems: 'start' };
-
-    const musicGridStyle = { display: 'grid', gridTemplateColumns: isSmall ? '1fr' : 'repeat(2,1fr)', gap: 'clamp(14px,1.6vw,22px)', alignItems: 'stretch' };
-
-    const trackBase = {
-      position: 'relative', display: 'flex', gap: '22px', alignItems: 'center',
-      padding: 'clamp(20px,2vw,28px)', border: '1px solid var(--ghost)', borderRadius: '16px',
-      background: 'var(--bg-2)', transition: 'border-color .3s ease, transform .3s ease, box-shadow .3s ease',
-    };
-    const track1Style = Object.assign({}, trackBase, { flexDirection: 'column', alignItems: 'stretch', gap: '16px', justifyContent: 'space-between' });
-    const track2Style = trackBase;
-    const trackHover = { borderColor: 'var(--accent)', transform: 'translateY(-4px)', boxShadow: '0 16px 40px rgba(0,0,0,0.16)' };
-
-    const eventGridStyle = {
-      display: 'grid',
-      gridTemplateColumns: isSmall ? '1fr' : '130px 1fr auto',
-      gap: isSmall ? '10px' : '20px', alignItems: 'center',
-      padding: 'clamp(20px,2.4vh,28px) clamp(22px,2.6vw,30px)',
-      border: '1px solid var(--ghost)', borderRadius: '16px',
-      background: 'var(--bg-2)', transition: 'border-color .3s ease, transform .3s ease, background .3s ease',
-    };
-    const eventHover = { borderColor: 'var(--accent)', transform: 'translateX(6px)' };
-
-    const connectGridStyle = { display: 'grid', gridTemplateColumns: isNarrow ? '1fr' : '1.3fr 1fr', gap: 'clamp(32px,5vw,80px)', alignItems: 'start' };
-
-    const qrCardStyle = {
-      border: '1px solid var(--ghost)', borderRadius: '16px', background: 'var(--bg-2)',
-      padding: 'clamp(26px,3.2vw,36px)', display: 'flex', flexDirection: 'column', gap: '20px',
-      alignItems: 'center', textAlign: 'center',
-    };
-    const qrColStyle = {
-      display: 'flex', flexDirection: 'column', gap: 'clamp(18px,2.2vh,24px)',
-      position: isNarrow ? 'static' : 'sticky', top: '100px',
-      order: isNarrow ? -1 : 0,
-    };
-
-    const clinkHover = { color: 'var(--accent)' };
-
-    const cblockStyle = {
-      border: '1px solid var(--ghost)', borderRadius: '16px',
-      background: 'var(--bg-2)', padding: 'clamp(22px,2.6vw,30px)',
-      transition: 'border-color .3s ease, transform .3s ease, box-shadow .3s ease',
-    };
-    const cblockHover = { borderColor: 'var(--accent)', transform: 'translateY(-3px)', boxShadow: '0 16px 40px rgba(0,0,0,0.14)' };
-
-    const emailBtnStyle = {
-      display: 'inline-flex', alignItems: 'center', gap: '10px',
-      fontFamily: "'Outfit',sans-serif", fontWeight: 500, fontSize: 'clamp(16px,1.3vw,19px)',
-      letterSpacing: '-0.01em', color: 'var(--bg)', background: 'var(--cream)',
-      padding: '14px 22px', borderRadius: '100px',
-      width: isSmall ? '100%' : 'auto', justifyContent: 'center',
-      transition: 'background .3s ease, color .3s ease, transform .3s ease',
-    };
-    const emailBtnHover = { background: 'var(--accent)', color: '#FEFAEF', transform: 'translateY(-2px) scale(' + hoverScale + ')' };
-
-    const pitchBtnStyle = {
-      display: 'inline-flex', alignItems: 'center', gap: '8px', justifyContent: 'center',
-      fontFamily: "'Outfit',sans-serif", fontWeight: 500, fontSize: 'clamp(14px,1.1vw,16px)',
-      letterSpacing: '-0.01em', color: 'var(--bg)', background: 'var(--cream)',
-      padding: '12px 20px', borderRadius: '100px', width: '100%',
-      transition: 'background .3s ease, color .3s ease, transform .3s ease',
-    };
-
-    const footerBigStyle = {
-      fontFamily: "'Outfit',sans-serif", fontWeight: 500,
-      fontSize: isTiny ? 'clamp(40px,15vw,64px)' : 'clamp(64px,13vw,180px)',
-      lineHeight: 0.9, letterSpacing: '-0.04em', marginLeft: '-4px',
-    };
-
-    const toastStyle = {
-      position: 'fixed', bottom: '28px', left: '50%', zIndex: 6000,
-      background: 'var(--cream)', color: 'var(--bg)', padding: '13px 22px',
-      fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.16em', textTransform: 'uppercase',
-      transform: this.state.toastShow ? 'translate(-50%,0)' : 'translate(-50%,140%)',
-      transition: 'transform .45s cubic-bezier(.7,0,.2,1)',
-    };
-
-    const heroImgBase = {
-      position: 'absolute', inset: 0, width: '100%', height: '100%',
-      objectFit: 'cover', objectPosition: isNarrow ? 'center 50%' : 'center 58%',
-      transition: 'opacity .5s ease',
-    };
-    const heroDarkImgStyle = Object.assign({}, heroImgBase, { opacity: 1, transform: 'scale(1.06)' });
-    const heroLightImgStyle = heroDarkImgStyle;
-
-    const notifyInputStyle = { flex: isSmall ? '0 0 auto' : '1 1 220px', width: isSmall ? '100%' : 'auto', minWidth: 0, fontFamily: "'Satoshi',sans-serif", fontSize: '16px', color: 'var(--cream)', background: 'transparent', border: '1px solid var(--ghost)', borderRadius: '100px', padding: '13px 20px', transition: 'border-color .3s ease' };
-    const notifyRowStyle = { display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '20px', alignItems: isSmall ? 'stretch' : 'center', maxWidth: '520px', flexDirection: isSmall ? 'column' : 'row' };
-    const eventMetaStyle = { fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--dim)', textAlign: isSmall ? 'left' : 'right' };
-    const mixcloudSrc = 'https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=' + (isLight ? '1' : '0') + '&feed=%2Fzackuu%2Fzacku-and-teo-aurisina-session%2F';
-    const manLinkStyle = { display: 'inline-flex', alignItems: 'center', gap: '8px', fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--dim)', border: '1px solid var(--ghost)', borderRadius: '100px', padding: '12px 22px', transition: 'color .3s ease, border-color .3s ease, transform .3s ease' };
-    const manLinkHover = { color: 'var(--accent)', borderColor: 'var(--accent)', transform: 'translateY(-2px)' };
-
-    return {
-      isHome, isManifesto,
-      t: t,
-      eventMetaStyle, mixcloudSrc, notifyRowStyle, notifyInputStyle,
-      manLinkStyle, manLinkHover,
-      revealManTeaser: this.reveal('manTeaser', 0),
-      openManifesto: this.openManifesto, openManifestoFromMenu: this.openManifestoFromMenu, goHome: this.goHome,
-      navLinkManifestoStyle, backHomeStyle, backHomeHover,
-      revealManHead: this.reveal('manHead', 0),
-      rootStyle, pageBgStyle, setRootEl: this.setRootEl,
-      setHeroDarkImgEl: this.setHeroDarkImgEl, setHeroLightImgEl: this.setHeroLightImgEl,
-      heroDarkImgStyle, heroLightImgStyle,
-      navStyle, navLinksStyle,
-      navLinkSuonoStyle: navLinkBase('suono'),
-      navLinkAscoltoStyle: navLinkBase('ascolto'),
-      navLinkLiveStyle: navLinkBase('live'),
-      navLinkContattiStyle: navLinkBase('contatti'),
-      navLinkHover, glitchEnter, glitchLeave,
-      themeToggleStyle, themeToggleHover, themeKnobStyle, themeLabel,
-      langToggleStyle, languageLabel, cycleLanguage: this.cycleLanguage,
-      toggleMenu: this.toggleMenu, closeMenu: this.closeMenu,
-      burgerWrapStyle, burgerHover, burgerLine1Style, burgerLine2Style, burgerLine3Style,
-      menuStyle,
-      heroOverlayStyle, heroH1Style, heroTagStyle, heroMetaStyle, heroBottomStyle,
-      pageTitleStyle, navLinkManifestoStyle, backHomeStyle, backHomeHover,
-      manifestoHalftoneStyle, manifestoH2Style,
-      bioGridStyle, musicGridStyle, track1Style, track2Style, trackHover,
-      eventGridStyle, eventHover, connectGridStyle, qrCardStyle, qrColStyle, clinkHover,
-      cblockStyle, cblockHover, emailBtnStyle, emailBtnHover, pitchBtnStyle,
-      footerBigStyle, toastStyle,
-      pitchHtmlDataUrl: this.getPitchHtmlDataUrl(),
-      pitchPdfDataUrl: this.getPitchPdfDataUrl(),
-      copyEmail: this.copyEmail,
-      notifySubmit: this.notifySubmit,
-      revealHead0: this.reveal('head0', 0),
-      revealFoot: this.reveal('foot', 0.16),
-      revealBioHead: this.reveal('bioHead', 0),
-      revealBioLabels: this.reveal('bioLabels', 0),
-      revealBioLead: this.reveal('bioLead', 0.08),
-      revealTags: this.reveal('tags', 0.24),
-      tagsLineStyle: Object.assign({}, this.reveal('tags', 0.24), { fontFamily: "'Bitcount',monospace", fontSize: '12px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--dim)', lineHeight: 2, marginTop: '10px', paddingTop: '14px', borderTop: '1px solid var(--ghost)', maxWidth: '62ch', width: '100%' }),
-      revealMusicHead: this.reveal('musicHead', 0),
-      revealLiveHead: this.reveal('liveHead', 0),
-      revealEventsGroup: this.reveal('eventsGroup', 0.16),
-      revealContattiHead: this.reveal('contattiHead', 0),
-      cblock0Style: Object.assign({}, cblockStyle, this.reveal('cblock0', 0)),
-      cblock1Style: Object.assign({}, cblockStyle, this.reveal('cblock1', 0.08)),
-      cblock2Style: Object.assign({}, cblockStyle, this.reveal('cblock2', 0.16)),
-      cblock3Style: Object.assign({}, cblockStyle, this.reveal('cblock3', 0.24)),
-      footerBigRevealStyle: Object.assign({}, footerBigStyle, this.reveal('footerBig', 0)),
-      revealFooterRow: this.reveal('footerRow', 0.08),
-    };
-  }
-}
-
+})();
 </script>
 </body>
 </html>
