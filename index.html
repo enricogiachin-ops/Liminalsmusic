@@ -172,22 +172,26 @@ html[lang="en"] [data-lang="it"] { display:none !important; }
 }
 .hero-inner { position:relative; z-index:1; width:100%; max-width:var(--maxw); margin:0 auto; }
 .hero-bottom {
-  display:flex; align-items:flex-end; justify-content:space-between;
-  flex-direction:row; gap:40px; flex-wrap:wrap; width:100%;
+  display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end;
+  column-gap:40px; row-gap:clamp(12px,1.8vh,18px); width:100%;
 }
-.hero-text { display:flex; flex-direction:column; gap:clamp(12px,1.8vh,18px); min-width:0; }
+.hero-text { display:contents; }
 .hero h1 {
+  grid-column:1; grid-row:1;
   font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(80px,8vw,150px);
   line-height:0.9; letter-spacing:-0.04em; margin-left:-4px; margin-bottom:0;
 }
 .hero-tag {
+  grid-column:1; grid-row:2;
   font-family:'Outfit',sans-serif; font-weight:300; font-size:clamp(18px,1.7vw,27px);
   letter-spacing:-0.01em; line-height:1.5; max-width:32ch; color:var(--cream);
 }
 .hero-meta {
-  display:flex; flex-direction:column; gap:6px;
-  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);
-  max-width:316px; text-align:right;
+  grid-column:2; grid-row:1; align-self:end;
+  display:flex; flex-direction:column; gap:4px;
+  font-family:'Outfit',sans-serif; font-weight:300; font-size:clamp(18px,1.7vw,27px);
+  letter-spacing:-0.01em; line-height:1.5; color:var(--dim);
+  max-width:34ch; text-align:right;
 }
 
 /* --- breakpoint 900: burger + menu, layout hero in colonna --- */
@@ -196,7 +200,9 @@ html[lang="en"] [data-lang="it"] { display:none !important; }
   .burger { display:flex; }
   .lang-btn { padding:13px 18px; min-height:44px; }
   .hero-img { object-position:center 50%; }
-  .hero-bottom { flex-direction:column; gap:22px; }
+  .hero-bottom { display:flex; flex-direction:column; align-items:flex-start; gap:22px; }
+  .hero-text { display:flex; flex-direction:column; gap:clamp(12px,1.8vh,18px); min-width:0; }
+  .hero-meta { max-width:none; text-align:left; }
   .hero h1 { font-size:clamp(64px,11vw,120px); }
 }
 /* --- breakpoint 640: solo la piega orizzontale in hero --- */
@@ -207,7 +213,7 @@ html[lang="en"] [data-lang="it"] { display:none !important; }
 @media (max-width:480px) {
   .hero h1 { font-size:clamp(44px,13vw,80px); margin-left:0; }
   .hero-tag { font-size:17px; }
-  .hero-meta { max-width:none; text-align:left; margin-top:18px; padding-top:14px; border-top:1px solid var(--ghost); }
+  .hero-meta { max-width:none; text-align:left; font-size:17px; margin-top:18px; padding-top:14px; border-top:1px solid var(--ghost); }
 }
 </style>
 </head>
@@ -243,7 +249,7 @@ html[lang="en"] [data-lang="it"] { display:none !important; }
       <a href="manifesto.html" class="menu-link" data-glitch><span class="sq"></span><span data-glitch-text data-lang="it">Manifesto</span><span data-glitch-text data-lang="en">Manifesto</span></a>
     </nav>
     <div class="menu-foot">
-      <span>Trieste · IT - Est. 2026</span>
+      <span>Italy - Est. 2026</span>
       <div>
         <button type="button" class="lang-btn" data-lang-toggle aria-label="Lingua / Language"><span data-lang="it">IT</span><span data-lang="en">EN</span></button>
       </div>

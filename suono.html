@@ -175,8 +175,9 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
 .bio-text { display:flex; flex-direction:column; gap:22px; max-width:62ch; margin-top:-6px; }
 .bio-lead { font-family:'Outfit',sans-serif; font-weight:300; line-height:1.45; letter-spacing:-0.01em; font-size:25.67px; }
 .tags {
-  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--dim);
-  line-height:2; margin-top:10px; padding-top:14px; border-top:1px solid var(--ghost); max-width:62ch; width:100%;
+  font-family:'Outfit',sans-serif; font-weight:300; font-size:clamp(17px,1.5vw,20px);
+  letter-spacing:-0.01em; line-height:1.5; color:var(--dim);
+  margin-top:2px; max-width:62ch; width:100%;
 }
 
 /* --- footer --- */
@@ -243,7 +244,7 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
       <a href="manifesto.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navManifesto">Manifesto</span></a>
     </nav>
     <div class="menu-foot">
-      <span>Trieste · IT - Est. 2026</span>
+      <span>Italy - Est. 2026</span>
       <div>
         <button class="lang-toggle" data-lang-toggle aria-label="Lingua / Language"><span data-lang-label>IT</span></button>
       </div>
@@ -267,7 +268,7 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
         </div>
         <div class="bio-text">
           <p class="bio-lead" data-t="bioLead">La ricerca è parte del lavoro. Per questo dietro al set che portiamo ci sono ore di ascolto e scelte fatte una a una: due archivi che si contaminano a vicenda.</p>
-          <div class="tags reveal d24" data-t="tagsLine">Minimal · Deep tech · House · 3h+ a due · DJ set</div>
+          <div class="tags reveal d24" data-t="tagsLine">Minimal deep tech e house - set a due, tre ore o più</div>
         </div>
       </div>
     </div>
@@ -279,7 +280,7 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
       <div class="footer-row">
         <span>zacku × Teo</span>
         <span>Minimal deep tech &amp; house</span>
-        <span>Trieste · IT - Est. 2026</span>
+        <span>Italy - Est. 2026</span>
       </div>
     </div>
   </footer>
@@ -295,7 +296,7 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
       sideSound: 'Bio · profilo',
       quote1: 'Due selezioni, un solo set. Minimal deep tech e house costruiti attorno al ', quoteEm: 'contesto', quote2: '.',
       bioLead: 'La ricerca è parte del lavoro. Per questo dietro al set che portiamo ci sono ore di ascolto e scelte fatte una a una: due archivi che si contaminano a vicenda.',
-      tagsLine: 'Minimal · Deep tech · House · 3h+ a due · DJ set'
+      tagsLine: 'Minimal deep tech e house - set a due, tre ore o più'
     },
     EN: {
       backHome: '← Back home',
@@ -303,7 +304,7 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
       sideSound: 'Bio · profile',
       quote1: 'Two selections, one set. Minimal deep tech and house built around the ', quoteEm: 'room', quote2: '.',
       bioLead: "Digging is part of the work. That's why behind the set we bring there are hours of listening and choices made one by one: two record bags that keep bleeding into each other.",
-      tagsLine: 'Minimal · Deep tech · House · 3h+ B2B · DJ set'
+      tagsLine: 'Minimal deep tech and house - b2b set, three hours or more'
     }
   };
   var ORDER = ['IT', 'EN'];

@@ -262,8 +262,15 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
   .nav-links { display:none; }
   .burger { display:flex; }
   .lang-toggle { padding:13px 18px; min-height:44px; }
-  .connect-grid { grid-template-columns:1fr; }
-  .qr-col { position:static; order:-1; }
+  .connect-grid { display:flex; flex-direction:column; gap:clamp(18px,2.2vh,24px); }
+  .cblocks, .qr-col { display:contents; }
+  .qr-col { position:static; }
+  .cblocks > .cblock:nth-child(1) { order:1; }
+  .cblocks > .cblock:nth-child(2) { order:2; }
+  .cblocks > .cblock:nth-child(3) { order:3; }
+  .cblocks > .cblock:nth-child(4) { order:6; }
+  .qr-col > .qr-card:nth-child(1) { order:4; }
+  .qr-col > .qr-card:nth-child(2) { order:5; }
 }
 @media (max-width:620px) {
   .email-btn { width:100%; }
@@ -308,7 +315,7 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
       <a href="manifesto.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navManifesto">Manifesto</span></a>
     </nav>
     <div class="menu-foot">
-      <span>Trieste · IT - Est. 2026</span>
+      <span>Italy - Est. 2026</span>
       <div>
         <button class="lang-toggle" data-lang-toggle aria-label="Lingua / Language"><span data-lang-label>IT</span></button>
       </div>
@@ -329,8 +336,7 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
 
           <div class="cblock reveal d08">
             <div class="cblock-title" data-t="c1Title">Hai un posto per noi</div>
-            <p class="cblock-body" data-t="c1Body">Club, spazi, chi organizza.</p>
-            <div class="cblock-sub" data-t="c1Sub">Il pitch completo è qui accanto, scaricabile.</div>
+            <p class="cblock-body" data-t="c1Body">Club, discoteche, eventi privati. Contattaci ora</p>
           </div>
 
           <div class="cblock reveal">
@@ -385,7 +391,7 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
       <div class="footer-row">
         <span>zacku × Teo</span>
         <span>Minimal deep tech &amp; house</span>
-        <span>Trieste · IT - Est. 2026</span>
+        <span>Italy - Est. 2026</span>
       </div>
     </div>
   </footer>
@@ -401,7 +407,7 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
       backHome: '← Torna alla home',
       navSuono: 'Suono', navAscolto: 'Ascolto', navLive: 'Live', navContatti: 'Contatti', navManifesto: 'Manifesto',
       sideContact: 'Pitch · manifesto',
-      c1Title: 'Hai un posto per noi', c1Body: 'Club, spazi, chi organizza.', c1Sub: 'Il pitch completo è qui accanto, scaricabile.',
+      c1Title: 'Hai un posto per noi', c1Body: 'Club, discoteche, eventi privati. Contattaci ora',
       c2Title: 'Scrivici', c2Sub: 'Tocca per copiare.',
       c3Title: 'Ascoltaci',
       c4Title: 'Lavora con noi', c4Body: 'Artisti, grafici, chi costruisce serate.', c4Sub: 'Cerchiamo collaboratori creativi. Contattaci: hello@liminalsmusic.com',
@@ -417,7 +423,7 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
       backHome: '← Back home',
       navSuono: 'Sound', navAscolto: 'Listen', navLive: 'Live', navContatti: 'Contact', navManifesto: 'Manifesto',
       sideContact: 'Pitch · manifesto',
-      c1Title: 'Got a space for us', c1Body: 'Clubs, spaces, promoters.', c1Sub: 'The full pitch is right here, downloadable.',
+      c1Title: 'Got a space for us', c1Body: 'Clubs, venues, private events. Get in touch',
       c2Title: 'Write to us', c2Sub: 'Tap to copy.',
       c3Title: 'Listen to us',
       c4Title: 'Work with us', c4Body: 'Artists, designers, people who build nights.', c4Sub: "We're looking for creative collaborators. Contact us: hello@liminalsmusic.com",
