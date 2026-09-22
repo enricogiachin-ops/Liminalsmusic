@@ -170,27 +170,22 @@ html[lang="en"] [data-lang="it"] { display:none !important; }
   position:absolute; inset:0;
   background:linear-gradient(180deg, color-mix(in srgb, var(--bg) 50%, transparent) 0%, transparent 22%, transparent 62%, color-mix(in srgb, var(--bg) 90%, transparent) 92%, var(--bg) 100%);
 }
-.hero-inner { position:relative; z-index:1; width:100%; max-width:var(--maxw); margin:0 auto; }
-.hero-bottom {
-  display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end;
-  column-gap:40px; row-gap:clamp(12px,1.8vh,18px); width:100%;
-}
-.hero-text { display:contents; }
+.hero-inner { position:relative; z-index:1; width:100%; }
+.hero-bottom { display:flex; flex-direction:column; align-items:flex-start; width:100%; }
 .hero h1 {
-  grid-column:1; grid-row:1;
   font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(80px,8vw,150px);
-  line-height:0.9; letter-spacing:-0.04em; margin-left:-4px; margin-bottom:0;
+  line-height:0.9; letter-spacing:-0.04em; margin-left:-0.045em; margin-bottom:0;
 }
-.hero-tag {
-  grid-column:1; grid-row:2;
-  font-family:'Outfit',sans-serif; font-weight:300; font-size:clamp(18px,1.7vw,27px);
-  letter-spacing:-0.01em; line-height:1.5; max-width:32ch; color:var(--cream);
-}
+/* descrittore: separato dal logo, non payoff */
 .hero-meta {
-  grid-column:2; grid-row:1; align-self:end;
-  display:flex; flex-direction:column; gap:6px;
-  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim);
-  max-width:316px; text-align:right;
+  margin-top:clamp(30px,4.5vh,52px);
+  font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(14px,1.05vw,17px);
+  letter-spacing:0.01em; line-height:1.4; color:var(--dim);
+}
+.hero-meta span + span { margin-left:0.9em; }
+@media (max-width:640px) {
+  .hero-meta span { display:block; }
+  .hero-meta span + span { margin-left:0; }
 }
 
 /* --- breakpoint 900: burger + menu, layout hero in colonna --- */
@@ -199,9 +194,6 @@ html[lang="en"] [data-lang="it"] { display:none !important; }
   .burger { display:flex; }
   .lang-btn { padding:13px 18px; min-height:44px; }
   .hero-img { object-position:center 50%; }
-  .hero-bottom { display:flex; flex-direction:column; align-items:flex-start; gap:22px; }
-  .hero-text { display:flex; flex-direction:column; gap:clamp(12px,1.8vh,18px); min-width:0; }
-  .hero-meta { max-width:none; align-self:stretch; text-align:right; }
   .hero h1 { font-size:clamp(64px,11vw,120px); }
 }
 /* --- breakpoint 640: solo la piega orizzontale in hero --- */
@@ -210,9 +202,8 @@ html[lang="en"] [data-lang="it"] { display:none !important; }
 }
 /* --- breakpoint 480 --- */
 @media (max-width:480px) {
-  .hero h1 { font-size:clamp(44px,13vw,80px); margin-left:0; }
-  .hero-tag { font-size:17px; }
-  .hero-meta { max-width:none; align-self:stretch; text-align:right; margin-top:18px; padding-top:14px; border-top:1px solid var(--ghost); }
+  .hero h1 { font-size:clamp(44px,13vw,80px); }
+  .hero-meta { margin-top:24px; }
 }
 </style>
 </head>
@@ -264,15 +255,8 @@ html[lang="en"] [data-lang="it"] { display:none !important; }
     </div>
     <div class="hero-inner">
       <div class="hero-bottom">
-        <div class="hero-text">
-          <h1>Liminals</h1>
-          <p class="hero-tag"><span data-lang="it">Grooves senza fine</span><span data-lang="en">Limitless grooves</span></p>
-        </div>
-        <div class="hero-meta">
-          <span>Minimal deep tech &amp; house</span>
-          <span>B2B · zacku × Teo</span>
-          <span>Trieste · IT</span>
-        </div>
+        <h1>Liminals</h1>
+        <p class="hero-meta"><span>Minimal deep tech &amp; House</span> <span>zacku b2b Teo</span></p>
       </div>
     </div>
   </section>
