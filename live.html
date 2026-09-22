@@ -126,16 +126,21 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   transition:color .25s ease, border-color .25s ease, background .25s ease;
 }
 .lang-toggle:hover { color:var(--bg); border-color:var(--cream); background:var(--cream); transform:scale(1.05); }
-.burger {
-  display:none; flex-direction:column; gap:5px; cursor:pointer; background:none;
-  border:1px solid var(--ghost); border-radius:12px; padding:13px 14px;
-  transition:border-color .25s ease, background .25s ease;
+/* --- bottone menu: rettangolo con testo + quadratino (rif. No Art) --- */
+.menu-btn {
+  display:none; align-items:center; gap:12px; cursor:pointer;
+  border:1px solid var(--ghost); border-radius:0; background:transparent;
+  padding:0 16px; height:44px; color:var(--cream);
+  font-family:'Outfit',sans-serif; font-weight:500; font-size:13px; letter-spacing:0.14em; text-transform:uppercase;
+  transition:border-color .25s ease, background .25s ease, color .25s ease;
 }
-.burger:hover { border-color:var(--cream); background:var(--bg-2); transform:scale(1.05); }
-.burger span { width:24px; height:2px; background:var(--cream); transition:transform .3s ease, opacity .3s ease; }
-.burger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
-.burger.open span:nth-child(2) { opacity:0; }
-.burger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+.menu-btn:hover { border-color:var(--cream); }
+.menu-btn .roll { display:block; height:1.2em; line-height:1.2em; overflow:hidden; }
+.menu-btn .roll-in { display:flex; flex-direction:column; transition:transform .35s cubic-bezier(.7,0,.2,1); }
+.menu-btn .roll-in span { display:block; height:1.2em; }
+.menu-btn:hover .roll-in { transform:translateY(-1.2em); }
+.menu-btn .sq-btn { width:8px; height:8px; background:var(--accent); flex-shrink:0; display:block; }
+.menu-btn.open { background:var(--cream); color:var(--bg); border-color:var(--cream); }
 
 /* --- menu mobile --- */
 .menu {
@@ -156,6 +161,19 @@ button { background:none; border:none; font:inherit; color:inherit; -webkit-appe
   display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
 }
 .menu-foot > div { display:flex; gap:8px; align-items:center; }
+.menu-bottom { display:flex; flex-direction:column; gap:22px; }
+.menu-social {
+  display:flex; flex-wrap:wrap; column-gap:28px; row-gap:4px;
+  border-top:1px solid var(--ghost); padding-top:18px;
+}
+.menu-social .clink {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px);
+  letter-spacing:-0.015em; line-height:1.4; color:var(--cream);
+  min-height:44px; padding:2px 0; transition:color .25s ease;
+}
+.menu-social .clink:hover { color:var(--accent); }
+.menu-social .clink .ico { display:inline-flex; opacity:0.75; }
 
 /* --- sezione live --- */
 .sec { position:relative; z-index:1; padding:calc(96px + clamp(40px,7vh,80px)) var(--pad-x) clamp(64px,12vh,160px); }
@@ -236,7 +254,7 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
 /* --- breakpoint --- */
 @media (max-width:900px) {
   .nav-links { display:none; }
-  .burger { display:flex; }
+  .menu-btn { display:flex; }
   .lang-toggle { padding:13px 18px; min-height:44px; }
 }
 @media (max-width:620px) {
@@ -271,8 +289,9 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
       <a href="manifesto.html" class="nav-link" data-glitch data-t="navManifesto">Manifesto</a>
       <button class="lang-toggle" data-lang-toggle aria-label="Lingua / Language"><span data-lang-label>IT</span></button>
     </nav>
-    <button class="burger" id="burger" aria-label="Menu">
-      <span></span><span></span><span></span>
+    <button type="button" class="menu-btn" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+      <span class="roll" aria-hidden="true"><span class="roll-in"><span>Menu</span><span>Menu</span></span></span>
+      <span class="sq-btn" aria-hidden="true"></span>
     </button>
   </header>
 
@@ -285,11 +304,18 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
       <a href="contatti.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navContatti">Contatti</span></a>
       <a href="manifesto.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navManifesto">Manifesto</span></a>
     </nav>
+    <div class="menu-bottom">
+      <div class="menu-social">
+        <a href="https://www.mixcloud.com/zackuu/" target="_blank" rel="noopener" class="clink">Mixcloud <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+        <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener" class="clink">Spotify <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+        <a href="https://instagram.com/enricogiachin" target="_blank" rel="noopener" class="clink">Instagram <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+      </div>
     <div class="menu-foot">
       <span>Italy - Est. 2026</span>
       <div>
         <button class="lang-toggle" data-lang-toggle aria-label="Lingua / Language"><span data-lang-label>IT</span></button>
       </div>
+    </div>
     </div>
   </div>
 
@@ -406,7 +432,8 @@ html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
   /* menu mobile */
   var burger = document.getElementById('burger');
   var menu = document.getElementById('menu');
-  function setMenu(open) { menu.classList.toggle('open', open); burger.classList.toggle('open', open); }
+  function setMenu(open) { menu.classList.toggle('open', open); burger.classList.toggle('open', open); burger.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) { setMenu(false); burger.focus(); } });
   burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
   var closers = document.querySelectorAll('[data-menu-close]');
   for (var c = 0; c < closers.length; c++) closers[c].addEventListener('click', function () { setMenu(false); });
