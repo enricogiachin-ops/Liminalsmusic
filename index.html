@@ -124,16 +124,22 @@ html[lang="en"] [data-lang="it"] { display:none !important; }
 }
 .lang-btn:hover { color:var(--bg); border-color:var(--cream); background:var(--cream); transform:scale(1.05); }
 
-.burger {
-  display:none; flex-direction:column; gap:5px; cursor:pointer;
-  background:none; border:1px solid var(--ghost); border-radius:12px; padding:13px 14px;
-  transition:border-color .25s ease, background .25s ease;
+/* --- bottone menu: rettangolo con testo + quadratino (rif. No Art) --- */
+.menu-btn {
+  display:none; align-items:center; gap:12px; cursor:pointer;
+  border:1px solid var(--ghost); border-radius:0; background:transparent;
+  padding:0 16px; height:44px; color:var(--cream);
+  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase;
+  transition:border-color .25s ease, background .25s ease, color .25s ease;
 }
-.burger:hover { border-color:var(--cream); background:var(--bg-2); transform:scale(1.05); }
-.burger span { width:24px; height:2px; background:var(--cream); transition:transform .3s ease, opacity .3s ease; }
-.root.menu-open .burger span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
-.root.menu-open .burger span:nth-child(2) { opacity:0; }
-.root.menu-open .burger span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+.menu-btn:hover { border-color:var(--cream); }
+.menu-btn .roll { display:block; height:1.2em; line-height:1.2em; overflow:hidden; }
+.menu-btn .roll-in { display:flex; flex-direction:column; transition:transform .35s cubic-bezier(.7,0,.2,1); }
+.menu-btn .roll-in span { display:block; height:1.2em; }
+.menu-btn:hover .roll-in { transform:translateY(-1.2em); }
+.menu-btn .sq-btn { width:8px; height:8px; background:var(--accent); flex-shrink:0; display:block; transition:transform .35s cubic-bezier(.7,0,.2,1); }
+.root.menu-open .menu-btn { background:var(--cream); color:var(--bg); border-color:var(--cream); }
+.root.menu-open .menu-btn .sq-btn { transform:rotate(45deg); }
 
 /* --- menu mobile --- */
 .menu {
@@ -150,6 +156,19 @@ html[lang="en"] [data-lang="it"] { display:none !important; }
   display:flex; align-items:center; gap:16px;
 }
 .menu-link .sq { width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block; }
+.menu-bottom { display:flex; flex-direction:column; gap:22px; }
+.menu-social {
+  display:flex; flex-wrap:wrap; column-gap:28px; row-gap:4px;
+  border-top:1px solid var(--ghost); padding-top:18px;
+}
+.clink {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px);
+  letter-spacing:-0.015em; line-height:1.4; color:var(--cream);
+  min-height:44px; padding:2px 0; transition:color .25s ease;
+}
+.clink:hover { color:var(--accent); }
+.clink .ico { display:inline-flex; opacity:0.75; }
 .menu-foot {
   font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--dim);
   display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
@@ -188,10 +207,10 @@ html[lang="en"] [data-lang="it"] { display:none !important; }
   .hero-meta span + span { margin-left:0; }
 }
 
-/* --- breakpoint 900: burger + menu, layout hero in colonna --- */
+/* --- breakpoint 900: bottone menu + pannello, layout hero in colonna --- */
 @media (max-width:900px) {
   .nav-links { display:none; }
-  .burger { display:flex; }
+  .menu-btn { display:flex; }
   .lang-btn { padding:13px 18px; min-height:44px; }
   .hero-img { object-position:center 50%; }
   .hero h1 { font-size:clamp(64px,11vw,120px); }
@@ -223,14 +242,13 @@ html[lang="en"] [data-lang="it"] { display:none !important; }
       <a href="manifesto.html" class="nav-link" data-glitch><span data-glitch-text data-lang="it">Manifesto</span><span data-glitch-text data-lang="en">Manifesto</span></a>
       <button type="button" class="lang-btn" data-lang-toggle aria-label="Lingua / Language"><span data-lang="it">IT</span><span data-lang="en">EN</span></button>
     </nav>
-    <button type="button" class="burger" data-menu-toggle aria-label="Menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button type="button" class="menu-btn" data-menu-toggle aria-label="Menu" aria-expanded="false" aria-controls="site-menu">
+      <span class="roll" aria-hidden="true"><span class="roll-in"><span>Menu</span><span>Menu</span></span></span>
+      <span class="sq-btn" aria-hidden="true"></span>
     </button>
   </header>
 
-  <div class="menu">
+  <div class="menu" id="site-menu">
     <nav>
       <a href="suono.html" class="menu-link" data-glitch><span class="sq"></span><span data-glitch-text data-lang="it">Suono</span><span data-glitch-text data-lang="en">Sound</span></a>
       <a href="ascolto.html" class="menu-link" data-glitch><span class="sq"></span><span data-glitch-text data-lang="it">Ascolto</span><span data-glitch-text data-lang="en">Listen</span></a>
@@ -238,11 +256,18 @@ html[lang="en"] [data-lang="it"] { display:none !important; }
       <a href="contatti.html" class="menu-link" data-glitch><span class="sq"></span><span data-glitch-text data-lang="it">Contatti</span><span data-glitch-text data-lang="en">Contact</span></a>
       <a href="manifesto.html" class="menu-link" data-glitch><span class="sq"></span><span data-glitch-text data-lang="it">Manifesto</span><span data-glitch-text data-lang="en">Manifesto</span></a>
     </nav>
+    <div class="menu-bottom">
+      <div class="menu-social">
+        <a href="https://www.mixcloud.com/zackuu/" target="_blank" rel="noopener" class="clink">Mixcloud <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+        <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener" class="clink">Spotify <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+        <a href="https://instagram.com/enricogiachin" target="_blank" rel="noopener" class="clink">Instagram <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+      </div>
     <div class="menu-foot">
       <span>Italy - Est. 2026</span>
       <div>
         <button type="button" class="lang-btn" data-lang-toggle aria-label="Lingua / Language"><span data-lang="it">IT</span><span data-lang="en">EN</span></button>
       </div>
+    </div>
     </div>
   </div>
 
@@ -285,16 +310,20 @@ html[lang="en"] [data-lang="it"] { display:none !important; }
   });
 
   /* --- menu mobile --- */
-  var burger = document.querySelector('[data-menu-toggle]');
-  burger.addEventListener('click', function () {
+  var menuBtn = document.querySelector('[data-menu-toggle]');
+  function closeMenu() {
+    root.classList.remove('menu-open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }
+  menuBtn.addEventListener('click', function () {
     var open = root.classList.toggle('menu-open');
-    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
   document.querySelectorAll('.menu-link').forEach(function (a) {
-    a.addEventListener('click', function () {
-      root.classList.remove('menu-open');
-      burger.setAttribute('aria-expanded', 'false');
-    });
+    a.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && root.classList.contains('menu-open')) { closeMenu(); menuBtn.focus(); }
   });
 
   /* --- effetto glitch sui link in hover --- */
