@@ -3,187 +3,570 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Liminals — Contact</title>
-<meta name="description" content="Contatti Liminals. Scrivici a hello@liminalsmusic.com o usa il modulo.">
-<meta property="og:title" content="Liminals — Contact">
-<meta property="og:image" content="assets/img/og.jpg">
-<link rel="icon" href="assets/img/favicon.png">
+
+<title>Contatti - Liminals</title>
+<meta name="description" content="Contatti Liminals: hello@liminalsmusic.com. Pitch, manifesto, booking e collaborazioni.">
+<link rel="canonical" href="https://liminalsmusic.com/contatti.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://liminalsmusic.com/contatti.html">
+<meta property="og:site_name" content="Liminals">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Minimal deep tech &amp; House · zacku b2b Teo">
+<meta property="og:description" content="Contatti Liminals: hello@liminalsmusic.com. Pitch, manifesto, booking e collaborazioni.">
+<meta property="og:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Minimal deep tech &amp; House · zacku b2b Teo">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Minimal deep tech &amp; House · zacku b2b Teo">
+<meta name="twitter:description" content="Contatti Liminals: hello@liminalsmusic.com. Pitch, manifesto, booking e collaborazioni.">
+<meta name="twitter:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
+
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
+<meta name="theme-color" content="#151515">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicGroup","name":"Liminals","genre":["minimal deep tech","house"],"foundingLocation":{"@type":"Place","name":"Trieste, IT"},"member":[{"@type":"Person","name":"zacku"},{"@type":"Person","name":"Teo"}],"url":"https://liminalsmusic.com/","email":"hello@liminalsmusic.com","sameAs":["https://www.mixcloud.com/zackuu/","https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl","https://instagram.com/enricogiachin"]}</script>
+
+<script>document.documentElement.classList.add('js');</script>
+
 <style>
-@font-face { font-family:'Outfit'; font-weight:300; font-style:normal; font-display:swap; src:url('assets/fonts/Outfit-Light.otf') format('opentype'); }
-@font-face { font-family:'Outfit'; font-weight:400; font-style:normal; font-display:swap; src:url('assets/fonts/Outfit-Regular.otf') format('opentype'); }
-@font-face { font-family:'Outfit'; font-weight:500; font-style:normal; font-display:swap; src:url('assets/fonts/Outfit-Medium.otf') format('opentype'); }
-
-:root {
-  --bg: #151515;
-  --cream: #FEFAEF;
-  --accent: #FC4446;
-  --margin: clamp(1.5rem, 5.8vw, 5.1rem);
-}
-
-*, *::before, *::after { box-sizing: border-box; }
-
-html { background: var(--bg); }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: var(--bg);
-  color: var(--cream);
-  font-family: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 300;
-  font-size: 1.05rem;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-a { color: inherit; text-decoration: none; }
-a:hover, a:focus-visible { color: var(--accent); }
-
-/* Header */
-.top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
-  padding: clamp(2.5rem, 6vw, 5rem) var(--margin) 0;
-}
-.logo { font-weight: 500; font-size: 1.5rem; line-height: 1.2; }
-.nav { display: flex; flex-direction: column; font-size: 1.5rem; line-height: 1.2; }
-.nav a[aria-current="page"] { color: var(--accent); }
-
-/* Contenuto: form a sinistra, riferimenti a destra */
-.content {
-  display: grid;
-  grid-template-columns: minmax(0, 26rem) minmax(0, 1fr);
-  column-gap: clamp(3rem, 12vw, 12rem);
-  align-items: start;
-  padding: clamp(4rem, 12vh, 9rem) var(--margin) 6rem;
-  margin-left: clamp(0rem, 14vw, 13rem);
-}
-
-.label { font-weight: 400; font-size: 1.05rem; margin: 0; }
-
-/* Form */
-.scrivi { display: block; }
-.scrivi .campo { display: block; margin-bottom: 2rem; }
-.scrivi .campo > span { display: block; font-weight: 400; }
-
-.scrivi input[type="text"],
-.scrivi input[type="email"],
-.scrivi textarea {
-  display: block;
-  width: 100%;
-  margin: .35rem 0 0;
-  padding: .35rem 0;
-  background: transparent;
-  color: var(--cream);
-  border: 0;
-  border-bottom: 1px solid rgba(254, 250, 239, .45);
-  border-radius: 0;
-  font: inherit;
-  font-weight: 300;
-  outline: none;
-  resize: none;
-  transition: border-color .15s;
-}
-.scrivi textarea { min-height: 7.5rem; }
-.scrivi input:focus,
-.scrivi textarea:focus { border-bottom-color: var(--accent); }
-
-.scrivi input:-webkit-autofill {
-  -webkit-text-fill-color: var(--cream);
-  box-shadow: 0 0 0 100px var(--bg) inset;
-}
-
-.scrivi button {
-  padding: 0;
-  background: none;
-  border: 0;
-  color: var(--cream);
-  font: inherit;
-  font-weight: 400;
-  cursor: pointer;
-}
-.scrivi button:hover,
-.scrivi button:focus-visible { color: var(--accent); outline: none; }
-
-/* campo antispam, fuori schermo */
-.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-
-/* esito invio: il server reindirizza a #inviato o #errore */
-.esito { display: none; margin: 0 0 2rem; color: var(--accent); scroll-margin-top: 30rem; }
-.esito:target { display: block; }
-
-/* Riferimenti */
-.info p { margin: 0; }
-.info .blocco { margin-bottom: 2rem; }
-
-/* Mobile: tutto in colonna, riferimenti prima del form */
-@media (max-width: 760px) {
-  .top { justify-content: flex-start; gap: clamp(2.5rem, 14vw, 5rem); }
-  .logo, .nav { font-size: 1.35rem; }
-  .content { display: flex; flex-direction: column-reverse; align-items: stretch; margin-left: 0; padding-top: 4rem; }
-  .info { margin-bottom: 3rem; }
-}
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.otf') format('opentype'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-SemiBold.otf') format('opentype'); font-weight:600; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Bold.otf') format('opentype'); font-weight:700; font-display:swap; }
+@font-face { font-family:'Satoshi'; src:url('assets/fonts/Satoshi-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Satoshi'; src:url('assets/fonts/Satoshi-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Satoshi'; src:url('assets/fonts/Satoshi-Medium.ttf') format('truetype'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Satoshi'; src:url('assets/fonts/Satoshi-Bold.ttf') format('truetype'); font-weight:700; font-display:swap; }
+@font-face { font-family:'Satoshi'; src:url('assets/fonts/Satoshi-Italic.ttf') format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Bitcount'; src:url('assets/fonts/Bitcount-Regular.ttf') format('truetype'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Bitcount'; src:url('assets/fonts/Bitcount-Medium.ttf') format('truetype'); font-weight:500; font-display:swap; }
 
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; }
+  *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important;
+    transition-duration:.01ms !important; scroll-behavior:auto !important; }
+}
+
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html, body { scroll-behavior:smooth; background:#151515; overscroll-behavior:none; }
+body { -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+img { display:block; max-width:100%; }
+a { color:inherit; text-decoration:none; }
+a:hover { color:inherit; }
+::selection { background:#FC4446; color:#FEFAEF; }
+:focus-visible { outline:2px solid var(--cream); outline-offset:3px; border-radius:2px; }
+button { background:none; border:none; font:inherit; color:inherit; -webkit-appearance:none; appearance:none; }
+
+/* --- root --- */
+.root {
+  --bg:#151515;
+  --bg-2:color-mix(in srgb, #FEFAEF 6%, #151515);
+  --cream:#FEFAEF;
+  --dim:rgba(254,250,239,0.62);
+  --faint:rgba(254,250,239,0.48);
+  --ghost:rgba(254,250,239,0.12);
+  --accent:#FC4446;
+  --pad-x:clamp(20px, 6vw, 96px);
+  --maxw:1320px;
+  background:var(--bg); color:var(--cream);
+  font-family:'Satoshi', system-ui, sans-serif;
+  min-height:100vh; position:relative; overflow-x:clip;
+}
+.page-bg {
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:linear-gradient(rgba(17,17,17,0.26), rgba(17,17,17,0.26)), url(assets/img/bg-noise.jpg);
+  background-size:cover; background-position:center center; background-repeat:no-repeat;
+}
+
+/* --- texture "carta fotocopiata": grana leggera ovunque --- */
+.site-grain {
+  position:fixed; inset:0; z-index:500; pointer-events:none;
+  mix-blend-mode:overlay; opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px 180px;
+}
+
+/* --- header --- */
+.nav {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px var(--pad-x);
+  transition:background .4s ease, padding .4s ease, border-color .4s ease;
+  border-bottom:1px solid transparent; background:transparent; backdrop-filter:none;
+}
+.nav.scrolled {
+  padding:14px var(--pad-x);
+  border-bottom:1px solid var(--ghost);
+  background:color-mix(in srgb, var(--bg) 80%, transparent);
+  backdrop-filter:blur(14px);
+}
+.nav-left { display:flex; align-items:center; gap:14px; }
+.logo { font-family:'Outfit',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.03em; line-height:1; display:flex; align-items:center; gap:9px; }
+.back-home {
+  font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--dim); cursor:pointer; transition:color .25s ease; white-space:nowrap;
+}
+.back-home:hover { color:var(--cream); }
+.nav-links { display:flex; gap:30px; align-items:center; }
+.nav-link {
+  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--dim); padding:4px 0; transition:color .25s ease; cursor:pointer;
+}
+.nav-link.active { color:var(--cream); }
+.nav-link:hover { color:var(--cream); }
+.lang-toggle {
+  display:flex; align-items:center; gap:7px; cursor:pointer;
+  background:none; border:1px solid var(--ghost); border-radius:100px;
+  padding:9px 16px; min-height:38px; color:var(--dim);
+  font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+  transition:color .25s ease, border-color .25s ease, background .25s ease;
+}
+.lang-toggle:hover { color:var(--bg); border-color:var(--cream); background:var(--cream); transform:scale(1.05); }
+/* --- bottone menu: rettangolo con testo + quadratino (rif. No Art) --- */
+.menu-btn {
+  display:none; align-items:center; gap:12px; cursor:pointer;
+  border:1px solid var(--ghost); border-radius:0; background:transparent;
+  padding:0 16px; height:44px; color:var(--cream);
+  font-family:'Outfit',sans-serif; font-weight:500; font-size:13px; letter-spacing:0.14em; text-transform:uppercase;
+  transition:border-color .25s ease, background .25s ease, color .25s ease;
+}
+.menu-btn:hover { border-color:var(--cream); }
+.menu-btn .roll { display:block; height:1.2em; line-height:1.2em; overflow:hidden; }
+.menu-btn .roll-in { display:flex; flex-direction:column; transition:transform .35s cubic-bezier(.7,0,.2,1); }
+.menu-btn .roll-in span { display:block; height:1.2em; }
+.menu-btn:hover .roll-in { transform:translateY(-1.2em); }
+.menu-btn .sq-btn { width:8px; height:8px; background:var(--accent); flex-shrink:0; display:block; }
+.menu-btn.open { background:var(--cream); color:var(--bg); border-color:var(--cream); }
+
+/* --- menu mobile --- */
+.menu {
+  position:fixed; inset:0; z-index:999;
+  background:var(--bg); padding:96px var(--pad-x) 40px;
+  display:flex; flex-direction:column; justify-content:space-between;
+  transform:translateY(-100%); transition:transform .5s cubic-bezier(.7,0,.2,1); visibility:hidden;
+}
+.menu.open { transform:translateY(0); visibility:visible; }
+.menu nav { display:flex; flex-direction:column; gap:4px; }
+.menu-link {
+  font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05;
+  padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;
+}
+.menu-link .sq { width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block; }
+.menu-foot {
+  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--dim);
+  display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+}
+.menu-foot > div { display:flex; gap:8px; align-items:center; }
+.menu-bottom { display:flex; flex-direction:column; gap:22px; }
+.menu-social {
+  display:flex; flex-wrap:wrap; column-gap:28px; row-gap:4px;
+  border-top:1px solid var(--ghost); padding-top:18px;
+}
+.menu-social .clink {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px);
+  letter-spacing:-0.015em; line-height:1.4; color:var(--cream);
+  min-height:44px; padding:2px 0; transition:color .25s ease;
+}
+.menu-social .clink:hover { color:var(--accent); }
+.menu-social .clink .ico { display:inline-flex; opacity:0.75; }
+
+/* --- sezione contatti --- */
+.sec { position:relative; padding:calc(96px + clamp(40px,7vh,80px)) var(--pad-x) clamp(64px,12vh,160px); }
+.inner { max-width:var(--maxw); margin:0 auto; }
+.sec-head { display:flex; align-items:center; gap:16px; margin-bottom:clamp(48px,7vh,96px); }
+.sec-head .dot { width:10.94px; height:10.94px; background:var(--accent); flex-shrink:0; display:inline-block; transform:translateY(0.5px); }
+.sec-head .label { font-family:'Bitcount',monospace; font-size:13px; line-height:1; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); }
+.sec-head .side { margin-left:auto; font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--faint); }
+
+.connect-grid { display:grid; grid-template-columns:1.3fr 1fr; gap:clamp(32px,5vw,80px); align-items:start; }
+.cblocks { display:flex; flex-direction:column; gap:clamp(18px,2.2vh,24px); align-items:stretch; }
+
+.cblock {
+  border:1px solid var(--ghost); border-radius:16px;
+  background:var(--bg-2); padding:clamp(22px,2.6vw,30px);
+  transition:border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+}
+.cblock:hover { border-color:var(--accent); transform:translateY(-3px); box-shadow:0 16px 40px rgba(0,0,0,0.14); }
+.cblock-title { font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--cream); margin-bottom:14px; }
+.cblock-body { font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px); letter-spacing:-0.015em; line-height:1.4; color:var(--cream); }
+.cblock-sub { font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); letter-spacing:0; margin-top:8px; }
+.cblock-sub.mt12 { margin-top:12px; }
+
+.email-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(16px,1.3vw,19px);
+  letter-spacing:-0.01em; color:var(--bg); background:var(--cream);
+  padding:14px 22px; border-radius:100px;
+  width:auto; justify-content:center;
+  transition:background .3s ease, color .3s ease, transform .3s ease;
+}
+.email-btn:hover, .pitch-btn:hover { background:var(--accent); color:#FEFAEF; transform:translateY(-2px) scale(1.05); }
+.email-btn .ico, .pitch-btn .ico { display:inline-flex; opacity:0.85; }
+
+.clinks { display:flex; flex-direction:column; gap:6px; }
+.clink {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px);
+  letter-spacing:-0.015em; line-height:1.4; color:var(--cream);
+  min-height:44px; padding:2px 0; transition:color .25s ease;
+}
+.clink:hover, .pdf-link:hover { color:var(--accent); }
+.clink .ico { display:inline-flex; opacity:0.75; }
+
+.qr-col {
+  display:flex; flex-direction:column; gap:clamp(18px,2.2vh,24px);
+  position:sticky; top:100px; order:0;
+}
+.qr-card {
+  border:1px solid var(--ghost); border-radius:16px; background:var(--bg-2);
+  padding:clamp(26px,3.2vw,36px); display:flex; flex-direction:column; gap:20px;
+  align-items:center; text-align:center;
+}
+.qr-kicker { font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--dim); }
+.qr-kicker b { color:var(--cream); font-weight:500; }
+.qr-desc { font-family:'Satoshi',sans-serif; font-size:14px; line-height:1.5; color:var(--dim); max-width:28ch; }
+.qr-actions { display:flex; flex-direction:column; gap:10px; align-items:center; width:100%; margin-top:6px; }
+.pitch-btn {
+  display:inline-flex; align-items:center; gap:8px; justify-content:center;
+  font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(14px,1.1vw,16px);
+  letter-spacing:-0.01em; color:var(--bg); background:var(--cream);
+  padding:12px 20px; border-radius:100px; width:100%;
+  transition:background .3s ease, color .3s ease, transform .3s ease;
+}
+.pdf-link {
+  font-family:'Satoshi',sans-serif; font-size:13px; color:var(--dim); letter-spacing:0;
+  display:inline-flex; align-items:center; justify-content:center; gap:6px;
+  min-height:44px; padding:0 8px; transition:color .25s ease;
+}
+.pdf-link .ico { display:inline-flex; opacity:0.8; }
+
+/* --- footer --- */
+.footer { position:relative; z-index:1; padding:clamp(48px,7vh,88px) var(--pad-x) 36px; border-top:1px solid var(--ghost); }
+.footer .inner { display:flex; flex-direction:column; gap:clamp(28px,5vh,56px); }
+.footer-big { font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(64px,13vw,180px); line-height:0.9; letter-spacing:-0.04em; margin-left:-4px; }
+.footer-row {
+  display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px;
+  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--dim);
+}
+
+/* --- toast --- */
+.toast {
+  position:fixed; bottom:28px; left:50%; z-index:6000;
+  background:var(--cream); color:var(--bg); padding:13px 22px;
+  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.16em; text-transform:uppercase;
+  transform:translate(-50%,140%); transition:transform .45s cubic-bezier(.7,0,.2,1);
+}
+.toast.show { transform:translate(-50%,0); }
+
+/* --- reveal on scroll (attivo solo con JS) --- */
+.reveal {
+  transition-property:opacity, transform; transition-duration:0.9s;
+  transition-timing-function:cubic-bezier(.2,.6,.2,1);
+}
+html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
+.reveal.d08 { transition-delay:0.08s; }
+.reveal.d16 { transition-delay:0.16s; }
+.reveal.d24 { transition-delay:0.24s; }
+/* le card hanno anche transizione su border/box-shadow per l'hover */
+.cblock.reveal { transition-property:opacity, transform, border-color, box-shadow; transition-duration:0.9s, 0.9s, .3s, .3s; transition-timing-function:cubic-bezier(.2,.6,.2,1), cubic-bezier(.2,.6,.2,1), ease, ease; }
+
+/* --- breakpoint --- */
+@media (max-width:900px) {
+  .nav-links { display:none; }
+  .menu-btn { display:flex; }
+  .lang-toggle { padding:13px 18px; min-height:44px; }
+  .connect-grid { display:flex; flex-direction:column; gap:clamp(18px,2.2vh,24px); }
+  .cblocks, .qr-col { display:contents; }
+  .qr-col { position:static; }
+  .cblocks > .cblock:nth-child(1) { order:1; }
+  .cblocks > .cblock:nth-child(2) { order:2; }
+  .cblocks > .cblock:nth-child(3) { order:3; }
+  .cblocks > .cblock:nth-child(4) { order:6; }
+  .qr-col > .qr-card:nth-child(1) { order:4; }
+  .qr-col > .qr-card:nth-child(2) { order:5; }
+}
+@media (max-width:620px) {
+  .email-btn { width:100%; }
+}
+@media (max-width:480px) {
+  .footer-big { font-size:clamp(40px,15vw,64px); }
 }
 </style>
 </head>
 <body>
 
-<header class="top">
-  <a class="logo" href="index.html">Liminals</a>
-  <nav class="nav" aria-label="Principale">
-    <a href="about.html">/About</a>
-    <a href="music.html">/Music</a>
-    <a href="contatti.html" aria-current="page">/Contact</a>
-  </nav>
-</header>
+<div class="root">
 
-<main class="content">
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="site-grain" aria-hidden="true"></div>
 
-  <section class="scrivi-wrap" aria-labelledby="scrivi-titolo">
-    <p class="label" id="scrivi-titolo">/Scrivici</p>
-    <br>
+  <header class="nav" id="nav">
+    <div class="nav-left">
+      <a href="index.html" class="logo" data-glitch data-original="Liminals">Liminals</a>
+      <a href="index.html" class="back-home" data-t="backHome">← Torna alla home</a>
+    </div>
+    <nav class="nav-links">
+      <a href="suono.html" class="nav-link" data-glitch data-t="navSuono">Suono</a>
+      <a href="ascolto.html" class="nav-link" data-glitch data-t="navAscolto">Ascolto</a>
+      <a href="live.html" class="nav-link" data-glitch data-t="navLive">Live</a>
+      <a href="contatti.html" class="nav-link active" data-glitch data-t="navContatti">Contatti</a>
+      <a href="manifesto.html" class="nav-link" data-glitch data-t="navManifesto">Manifesto</a>
+      <button class="lang-toggle" data-lang-toggle aria-label="Lingua / Language"><span data-lang-label>IT</span></button>
+    </nav>
+    <button type="button" class="menu-btn" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+      <span class="roll" aria-hidden="true"><span class="roll-in"><span>Menu</span><span>Menu</span></span></span>
+      <span class="sq-btn" aria-hidden="true"></span>
+    </button>
+  </header>
 
-    <p class="esito" id="inviato" role="status">Messaggio inviato. Ti rispondiamo da hello@liminalsmusic.com.</p>
-    <p class="esito" id="errore" role="alert">Invio non riuscito. Scrivi direttamente a hello@liminalsmusic.com.</p>
-
-    <form class="scrivi" action="/api/contact" method="POST">
-      <label class="campo"><span>/Nome</span>
-        <input type="text" name="nome" autocomplete="name" required>
-      </label>
-      <label class="campo"><span>/Email</span>
-        <input type="email" name="email" autocomplete="email" required>
-      </label>
-      <label class="campo"><span>/Messaggio</span>
-        <textarea name="messaggio" rows="5" required></textarea>
-      </label>
-      <div class="hp" aria-hidden="true">
-        <input type="text" name="sito" tabindex="-1" autocomplete="off">
+  <div class="menu" id="menu">
+    <nav>
+      <a href="suono.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navSuono">Suono</span></a>
+      <a href="ascolto.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navAscolto">Ascolto</span></a>
+      <a href="live.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navLive">Live</span></a>
+      <a href="contatti.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navContatti">Contatti</span></a>
+      <a href="manifesto.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navManifesto">Manifesto</span></a>
+    </nav>
+    <div class="menu-bottom">
+      <div class="menu-social">
+        <a href="https://www.mixcloud.com/zackuu/" target="_blank" rel="noopener" class="clink">Mixcloud <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+        <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener" class="clink">Spotify <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+        <a href="https://instagram.com/enricogiachin" target="_blank" rel="noopener" class="clink">Instagram <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
       </div>
-      <button type="submit">/Invia</button>
-    </form>
+    <div class="menu-foot">
+      <span>Italy - Est. 2026</span>
+      <div>
+        <button class="lang-toggle" data-lang-toggle aria-label="Lingua / Language"><span data-lang-label>IT</span></button>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- CONTATTI -->
+  <section id="contatti" class="sec">
+    <div class="inner">
+      <div class="sec-head reveal">
+        <span class="dot"></span>
+        <span class="label" data-t="navContatti">Contatti</span>
+        <span class="side" data-t="sideContact">Pitch · manifesto</span>
+      </div>
+
+      <div class="connect-grid">
+        <div class="cblocks">
+
+          <div class="cblock reveal d08">
+            <div class="cblock-title" data-t="c1Title">Hai un posto per noi</div>
+            <p class="cblock-body" data-t="c1Body">Club, discoteche, eventi privati. Contattaci ora</p>
+          </div>
+
+          <div class="cblock reveal">
+            <div class="cblock-title" data-t="c2Title">Scrivici</div>
+            <a href="mailto:hello@liminalsmusic.com" class="email-btn" id="copy-email">hello@liminalsmusic.com <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="4.1" y="4.1" width="6.4" height="6.4" rx="1.6" stroke="currentColor" stroke-width="1.5"></rect><path d="M7.9 4.1V3a1.5 1.5 0 0 0-1.5-1.5H3A1.5 1.5 0 0 0 1.5 3v3.4A1.5 1.5 0 0 0 3 7.9h1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></span></a>
+            <div class="cblock-sub mt12" data-t="c2Sub">Tocca per copiare.</div>
+          </div>
+
+          <div class="cblock reveal d24">
+            <div class="cblock-title" data-t="c3Title">Ascoltaci</div>
+            <div class="clinks">
+              <a href="https://www.mixcloud.com/zackuu/" target="_blank" rel="noopener" class="clink">Mixcloud <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+              <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener" class="clink">Spotify <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+              <a href="https://instagram.com/enricogiachin" target="_blank" rel="noopener" class="clink">Instagram <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+            </div>
+          </div>
+
+          <div class="cblock reveal d16">
+            <div class="cblock-title" data-t="c4Title">Lavora con noi</div>
+            <p class="cblock-body" data-t="c4Body">Artisti, grafici, chi costruisce serate.</p>
+            <div class="cblock-sub" data-t="c4Sub">Cerchiamo collaboratori creativi. Contattaci: hello@liminalsmusic.com</div>
+          </div>
+
+        </div>
+
+        <div class="qr-col">
+          <div class="qr-card">
+            <div class="qr-kicker"><span data-t="pitchCardKicker">Il pitch ·</span> <b data-t="pitchCardTitle">completo</b></div>
+            <div class="qr-desc" data-t="pitchCardDesc">Scarica il nostro pitch e condividilo con chi pensi possa essere interessato.</div>
+            <div class="qr-actions">
+              <a href="pitch.html" class="pitch-btn"><span data-t="openPitch">Apri il pitch</span> <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1.8 6h8.4M7 2.8 10.2 6 7 9.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+              <a href="assets/pitch/Liminals-Pitch.pdf" download="Liminals - Pitch.pdf" class="pdf-link"><span data-t="downloadPdf">Scarica il PDF</span> <span class="ico"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1.6v6.2M3.4 5.4 6 8l2.6-2.6M2 10.4h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+            </div>
+          </div>
+
+          <div class="qr-card">
+            <div class="qr-kicker"><span data-t="manCardKicker">Riguardo al</span> <b data-t="manCardTitle">manifesto</b></div>
+            <div class="qr-desc" data-t="manCardDesc">La carta etica che regola come stiamo sul dancefloor e fuori da esso.</div>
+            <div class="qr-actions">
+              <a href="manifesto.html" class="pitch-btn"><span data-t="readManifesto">Leggi il manifesto</span> <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1.8 6h8.4M7 2.8 10.2 6 7 9.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="info" aria-label="Riferimenti">
-    <div class="blocco">
-      <p class="label">/E-mail</p>
-      <p><a href="mailto:hello@liminalsmusic.com">hello@liminalsmusic.com</a></p>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="inner">
+      <div class="footer-big reveal">Liminals</div>
+      <div class="footer-row">
+        <span>zacku × Teo</span>
+        <span>Minimal deep tech &amp; house</span>
+        <span>Italy - Est. 2026</span>
+      </div>
     </div>
-    <div class="blocco">
-      <p class="label">/Social</p>
-      <p>Instagram: <a href="https://instagram.com/enricogiachin" target="_blank" rel="noopener">@enricogiachin</a></p>
-    </div>
-    <div class="blocco">
-      <p class="label">/Spotify</p>
-      <p>zacku</p>
-    </div>
-  </section>
+  </footer>
 
-</main>
+  <div class="toast" id="toast" data-t="toast">Email copiata</div>
 
+</div>
+
+<script>
+(function () {
+  var T = {
+    IT: {
+      backHome: '← Torna alla home',
+      navSuono: 'Suono', navAscolto: 'Ascolto', navLive: 'Live', navContatti: 'Contatti', navManifesto: 'Manifesto',
+      sideContact: 'Pitch · manifesto',
+      c1Title: 'Hai un posto per noi', c1Body: 'Club, discoteche, eventi privati. Contattaci ora',
+      c2Title: 'Scrivici', c2Sub: 'Tocca per copiare.',
+      c3Title: 'Ascoltaci',
+      c4Title: 'Lavora con noi', c4Body: 'Artisti, grafici, chi costruisce serate.', c4Sub: 'Cerchiamo collaboratori creativi. Contattaci: hello@liminalsmusic.com',
+      pitchCardKicker: 'Il pitch ·', pitchCardTitle: 'completo',
+      pitchCardDesc: 'Scarica il nostro pitch e condividilo con chi pensi possa essere interessato.',
+      openPitch: 'Apri il pitch', downloadPdf: 'Scarica il PDF',
+      manCardKicker: 'Riguardo al', manCardTitle: 'manifesto',
+      manCardDesc: 'La carta etica che regola come stiamo sul dancefloor e fuori da esso.',
+      readManifesto: 'Leggi il manifesto',
+      toast: 'Email copiata'
+    },
+    EN: {
+      backHome: '← Back home',
+      navSuono: 'Sound', navAscolto: 'Listen', navLive: 'Live', navContatti: 'Contact', navManifesto: 'Manifesto',
+      sideContact: 'Pitch · manifesto',
+      c1Title: 'Got a space for us', c1Body: 'Clubs, venues, private events. Get in touch',
+      c2Title: 'Write to us', c2Sub: 'Tap to copy.',
+      c3Title: 'Listen to us',
+      c4Title: 'Work with us', c4Body: 'Artists, designers, people who build nights.', c4Sub: "We're looking for creative collaborators. Contact us: hello@liminalsmusic.com",
+      pitchCardKicker: 'The pitch ·', pitchCardTitle: 'in full',
+      pitchCardDesc: 'Download our pitch and share it with anyone you think might be interested.',
+      openPitch: 'Open the pitch', downloadPdf: 'Download the PDF',
+      manCardKicker: 'About the', manCardTitle: 'manifesto',
+      manCardDesc: 'The ethical charter for how we behave on the dancefloor and beyond it.',
+      readManifesto: 'Read the manifesto',
+      toast: 'Email copied'
+    }
+  };
+  var ORDER = ['IT', 'EN'];
+  var lang = 'IT';
+
+  function applyLang(l) {
+    lang = ORDER.indexOf(l) !== -1 ? l : 'IT';
+    var d = T[lang];
+    var els = document.querySelectorAll('[data-t]');
+    for (var i = 0; i < els.length; i++) {
+      var k = els[i].getAttribute('data-t');
+      if (d[k] !== undefined) els[i].textContent = d[k];
+    }
+    var labels = document.querySelectorAll('[data-lang-label]');
+    for (var j = 0; j < labels.length; j++) labels[j].textContent = lang;
+    document.documentElement.lang = lang.toLowerCase();
+  }
+  try {
+    var saved = localStorage.getItem('liminals-lang');
+    if (saved && ORDER.indexOf(saved) !== -1 && saved !== 'IT') applyLang(saved);
+  } catch (e) {}
+
+  var toggles = document.querySelectorAll('[data-lang-toggle]');
+  for (var t = 0; t < toggles.length; t++) {
+    toggles[t].addEventListener('click', function () {
+      var next = ORDER[(ORDER.indexOf(lang) + 1) % ORDER.length];
+      applyLang(next);
+      try { localStorage.setItem('liminals-lang', next); } catch (e) {}
+    });
+  }
+
+  /* header compatto oltre 40px di scroll */
+  var nav = document.getElementById('nav');
+  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* menu mobile */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('menu');
+  function setMenu(open) { menu.classList.toggle('open', open); burger.classList.toggle('open', open); burger.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) { setMenu(false); burger.focus(); } });
+  burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+  var closers = document.querySelectorAll('[data-menu-close]');
+  for (var c = 0; c < closers.length; c++) closers[c].addEventListener('click', function () { setMenu(false); });
+
+  /* effetto glitch sui link */
+  var chars = '!<>-_\\/[]{}—=+*^?#01010$%&@';
+  function glitchEnter(e) {
+    var el = e.currentTarget;
+    var target = el.querySelector('[data-glitch-text]') || el;
+    var original = target._glitchTimer ? target._glitchOriginal : (el.getAttribute('data-original') || target.textContent);
+    target._glitchOriginal = original;
+    if (target._glitchTimer) clearInterval(target._glitchTimer);
+    var iter = 0, total = original.length;
+    target._glitchTimer = setInterval(function () {
+      var revealed = Math.floor(iter / 2), out = '';
+      for (var i = 0; i < total; i++) {
+        if (i < revealed) out += original[i];
+        else if (original[i] === ' ') out += ' ';
+        else out += chars[Math.floor(Math.random() * chars.length)];
+      }
+      target.textContent = out;
+      iter++;
+      if (revealed >= total) { clearInterval(target._glitchTimer); target._glitchTimer = null; target.textContent = original; }
+    }, 60);
+  }
+  function glitchLeave(e) {
+    var el = e.currentTarget;
+    var target = el.querySelector('[data-glitch-text]') || el;
+    if (target._glitchTimer) { clearInterval(target._glitchTimer); target._glitchTimer = null; }
+    if (target._glitchOriginal) target.textContent = target._glitchOriginal;
+  }
+  var gl = document.querySelectorAll('[data-glitch]');
+  for (var g = 0; g < gl.length; g++) {
+    gl[g].addEventListener('mouseenter', glitchEnter);
+    gl[g].addEventListener('mouseleave', glitchLeave);
+  }
+
+  /* copia email + toast (ripiego: mailto) */
+  var copyBtn = document.getElementById('copy-email');
+  var toast = document.getElementById('toast');
+  var toastTimer = null;
+  copyBtn.addEventListener('click', function (e) {
+    var email = 'hello@liminalsmusic.com';
+    if (navigator.clipboard) {
+      e.preventDefault();
+      navigator.clipboard.writeText(email).then(function () {
+        toast.classList.add('show');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 1800);
+      }).catch(function () { window.location.href = 'mailto:' + email; });
+    }
+  });
+
+  /* reveal on scroll */
+  var rev = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    for (var r = 0; r < rev.length; r++) io.observe(rev[r]);
+  } else {
+    for (var r2 = 0; r2 < rev.length; r2++) rev[r2].classList.add('on');
+  }
+})();
+</script>
 </body>
 </html>
