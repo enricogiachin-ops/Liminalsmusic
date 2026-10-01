@@ -26,4 +26,5 @@ module.exports = async (req, res) => {
   });
 
   return res.redirect(303, r.ok ? '/contatti.html#inviato' : '/contatti.html#errore');
-};
+  if (!r.ok) console.error('Resend error', r.status, await r.text());
+  return res.redirect(303, r.ok ? '/contatti.html#inviato' : '/contatti.html#errore');
