@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<title>Contact - Liminals</title>
-<meta name="description" content="Contatti Liminals, duo DJ di Trieste: hello@liminalsmusic.com o il modulo. Booking, venue e collaborazioni.">
-<link rel="canonical" href="https://liminalsmusic.com/contatti.html">
+<title>Music - Liminals</title>
+<meta name="description" content="Ascolta Liminals: zacku and Teo - Aurisina session, zacku - JëgerLab 2026, Teo - Liminals set. Minimal deep tech e house da Trieste.">
+<link rel="canonical" href="https://liminalsmusic.com/music.html">
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://liminalsmusic.com/contatti.html">
+<meta property="og:url" content="https://liminalsmusic.com/music.html">
 <meta property="og:site_name" content="Liminals">
 <meta property="og:locale" content="it_IT">
-<meta property="og:title" content="Contact - Liminals">
-<meta property="og:description" content="Contatti Liminals: hello@liminalsmusic.com. Booking, venue e collaborazioni.">
+<meta property="og:title" content="Music - Liminals">
+<meta property="og:description" content="Ascolta Liminals: zacku and Teo - Aurisina session, zacku - JëgerLab 2026, Teo - Liminals set. Minimal deep tech e house da Trieste.">
 <meta property="og:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -37,10 +37,10 @@
   --accent: #FC4446;
   --margin: clamp(20px, 4vw, 60px);
   --nav-size: clamp(21px, 1.75vw, 26px);
-  --testo: clamp(16px, 1.36vw, 19px);
-  /* grigi: crema in trasparenza, cosi prendono la luce del fondo invece di staccarsi */
-  --linea: rgba(254, 250, 239, .38);
-  --segnaposto: rgba(254, 250, 239, .36);
+  /* fondo del riquadro: crema al 6% sul nero, coprente */
+  --riquadro: color-mix(in srgb, #FEFAEF 6%, #151515);
+  /* cambio set: dissolvenza + salita (dalla prova) */
+  --out: 350ms; --in-delay: 200ms; --in-fade: 500ms; --in-slide: 650ms; --rise: 20px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -106,132 +106,132 @@ a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outlin
 .testata ul { list-style: none; margin: 0; padding: 0; }
 .testata li a { display: inline-block; }
 
-/* contenuto: allineamenti su una griglia sola, cosi le righe combaciano */
+/* contenuto: elenco set a sinistra, un solo riquadro a destra */
 .contenuto {
   display: grid;
-  grid-template-columns: 22.9% 24.2% 3% 27% 1fr;
-  margin-top: clamp(48px, 7vw, 92px);
+  grid-template-columns: 22.8% 33.9% auto;
+  align-items: center;
+  /* il blocco elenco + riquadro sta al centro dello spazio sotto la testata */
+  min-height: calc(100svh - 2 * var(--margin) - 3.45 * var(--nav-size));
+  padding: clamp(32px, 4vw, 56px) 0;
+}
+
+.sets {
+  grid-column: 2;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   font-weight: 300;
-  font-size: var(--testo);
+  font-size: clamp(16px, 1.36vw, 19px);
   line-height: 1.37;
 }
-
-.esito {
-  display: none;
-  grid-column: 2 / -1;
-  margin: 0 0 1.5em;
-  color: var(--accent);
-  scroll-margin-top: 40vh;
+.sets button {
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--cream);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: color 250ms ease;
 }
-.esito:target { display: block; }
+.sets button:hover,
+.sets button[aria-pressed="true"] { color: var(--accent); }
 
-form { display: contents; }
-.colonna-a { grid-column: 2; }
-.colonna-b { grid-column: 4; }
+/* riquadro: come nel pdf di Teo */
+.media {
+  grid-column: 3;
+  position: relative;
+  display: grid;
+  width: clamp(300px, 24vw, 360px);
+  --g: 0;
+}
+.panel {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(var(--rise));
+  transition: opacity var(--out) ease, visibility 0s linear var(--out), transform 0s linear var(--out);
+}
+.panel.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    opacity var(--in-fade) ease var(--in-delay),
+    visibility 0s linear 0s,
+    transform var(--in-slide) cubic-bezier(.2,.7,.2,1) var(--in-delay);
+}
+.no-anim .panel, .no-anim .panel.is-active { transition: none; }
 
-.titolo { margin: 0 0 1.37em; font-weight: 400; }
-
-.campo { display: block; margin-bottom: 1.6em; }
-.campo span { display: block; font-weight: 400; }
-.campo-messaggio { margin-bottom: 0; }
-
-input, textarea {
+.riquadro {
+  display: block;
+  padding: 7.5% 9%;
+  background: var(--riquadro);
+  border: 1px solid var(--accent);
+}
+.cover {
   display: block;
   width: 100%;
-  margin: .2em 0 0;
-  padding: 0 0 .25em;
-  background: transparent;
-  color: var(--cream);
-  caret-color: var(--accent);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+/* ascolto: player Mixcloud compatto, come nella pagina online */
+.player {
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin-top: 9%;
   border: 0;
-  border-bottom: 1px solid var(--linea);
-  border-radius: 0;
-  font: inherit;
-  font-weight: 300;
-  outline: none;
-  -webkit-appearance: none;
-  appearance: none;
-  transition: border-color .2s;
-}
-textarea {
-  margin-top: .3em;
-  padding: .35em .5em;
-  border: 1px solid var(--linea);
-  min-height: 12em;
-  max-height: 60vh;
-  resize: none;                 /* niente maniglia: il riquadro cresce da solo scrivendo */
-  field-sizing: content;
-  overflow-y: auto;
-}
-::placeholder { color: var(--segnaposto); opacity: 1; }
-input:focus { border-bottom-color: var(--accent); }
-textarea:focus { border-color: var(--accent); }
-
-/* compilazione automatica del browser: niente riquadro giallo o bianco */
-input:-webkit-autofill,
-input:-webkit-autofill:focus {
-  -webkit-text-fill-color: var(--cream);
-  caret-color: var(--accent);
-  transition: background-color 600000s 0s;
-}
-
-button {
-  margin-top: .6em;
-  padding: .3em .75em .25em;
   background: transparent;
-  color: var(--cream);
-  border: 1px solid var(--linea);
-  border-radius: 0;
-  font: inherit;
-  font-size: .82em;
-  font-weight: 300;
-  letter-spacing: .04em;
-  cursor: pointer;
-  transition: color .2s, border-color .2s;
 }
-button:hover, button:focus-visible { color: var(--accent); border-color: var(--accent); }
 
-/* campo antispam fuori schermo: i bot lo compilano, le persone no */
-.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-
-/* riferimenti */
-.riferimenti {
-  grid-column: 2 / -1;
-  display: grid;
-  grid-template-columns: 61.2% 1fr;
-  margin-top: clamp(48px, 5vw, 72px);
+/* effetto al cambio set: warp orizzontale + grana che si muove */
+.media.fx { filter: url(#warp); }
+.media::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  pointer-events: none;
+  opacity: var(--g);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 .98  0 0 0 0 .94  0 0 2.4 0 -.75'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
 }
-.riferimenti p { margin: 0; }
-.blocco + .blocco { margin-top: 1.37em; }
-.voce { font-weight: 400; }
-.riferimenti a {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: .18em;
+.media.fx::after { animation: grana .45s infinite; }
+@keyframes grana {
+  0%   { background-position: 0 0; }
+  20%  { background-position: -70px 40px; }
+  40%  { background-position: 50px -80px; }
+  60%  { background-position: -30px -30px; }
+  80%  { background-position: 90px 60px; }
+  100% { background-position: 0 0; }
 }
 
 @media (max-width: 899px) {
   .contenuto {
     display: block;
-    margin-top: 56px;
-    font-size: 16px;
+    width: min(100%, 320px);
+    margin: 72px auto 0;
   }
-  .colonna-b { margin-top: 0; }
-  .riferimenti {
-    display: block;
-    margin-top: 64px;
-  }
-  .colonna + .colonna { margin-top: 1.37em; }
+  .sets { font-size: 16px; }
+  .contenuto { min-height: 0; padding: 0; }
+  .media { width: 100%; margin-top: 48px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .fondo { animation: none; inset: 0; }
-  a, button, input, textarea { transition: none; }
+  a, .sets button { transition: none; }
   .nx { filter: none; }
+  .panel, .panel.is-active { transform: none; }
+  .panel { transition: opacity 150ms ease, visibility 0s linear 150ms; }
+  .panel.is-active { transition: opacity 150ms ease, visibility 0s linear 0s; }
+  .media.fx { filter: none; }
+  .media::after { display: none; }
 }
 </style>
 </head>
-<body>
+<body class="no-anim">
 
 <!-- EFFETTI INTERAZIONE: filtro SVG per il glitch analogico (identico su tutte le pagine) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -244,6 +244,14 @@ button:hover, button:focus-visible { color: var(--accent); border-color: var(--a
     <feComposite in="w" in2="ga" operator="in"/>
   </filter>
 </svg>
+<!-- filtro del cambio set (solo in questa pagina) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="warp" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+    <feTurbulence id="turb" type="turbulence" baseFrequency="0.002 0.05" numOctaves="1" seed="3" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="1 0 0 0 0  0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 1" result="m"/>
+    <feDisplacementMap id="disp" in="SourceGraphic" in2="m" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
 
 <div class="fondo" aria-hidden="true"></div>
 
@@ -253,65 +261,94 @@ button:hover, button:focus-visible { color: var(--accent); border-color: var(--a
     <nav aria-label="Navigazione principale">
       <ul>
         <li><a href="about.html">/About</a></li>
-        <li><a href="music.html">/Music</a></li>
-        <li><a href="contatti.html" aria-current="page">/Contact</a></li>
+        <li><a href="music.html" aria-current="page">/Music</a></li>
+        <li><a href="contatti.html">/Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="contenuto">
-    <!-- esito: api/contact.js rimanda a contatti.html#inviato o #errore -->
-    <p class="esito" id="inviato" role="status">Messaggio inviato. Ti rispondiamo da hello@liminalsmusic.com.</p>
-    <p class="esito" id="errore" role="alert">Invio non riuscito. Scrivi direttamente a hello@liminalsmusic.com.</p>
+    <ul class="sets" aria-label="Set">
+      <li><button type="button" aria-pressed="true" aria-controls="set-0">/zacku and Teo - Aurisina session</button></li>
+      <li><button type="button" aria-pressed="false" aria-controls="set-1">/zacku - JëgerLab 2026</button></li>
+      <li><button type="button" aria-pressed="false" aria-controls="set-2">/Teo - Liminals set</button></li>
+    </ul>
 
-    <form action="/api/contact" method="POST">
-      <div class="colonna-a">
-        <p class="titolo">Scrivici</p>
-        <label class="campo"><span>/Nome</span>
-          <input type="text" name="nome" autocomplete="name" placeholder="Nome Cognome" required>
-        </label>
-        <label class="campo"><span>/Email</span>
-          <input type="email" name="email" autocomplete="email" placeholder="mittente@dominio.com" required>
-        </label>
-      </div>
-
-      <div class="colonna-b">
-        <label class="campo campo-messaggio"><span>/Messaggio</span>
-          <textarea name="messaggio" rows="8" placeholder="Testo..." required></textarea>
-        </label>
-        <div class="hp" aria-hidden="true">
-          <input type="text" name="sito" tabindex="-1" autocomplete="off">
-        </div>
-        <button type="submit">INVIA</button>
-      </div>
-    </form>
-
-    <section class="riferimenti" aria-label="Riferimenti">
-      <div class="colonna">
-        <div class="blocco">
-          <p class="voce">/E-mail</p>
-          <p><a href="mailto:hello@liminalsmusic.com">hello@liminalsmusic.com</a></p>
-        </div>
-        <div class="blocco">
-          <p class="voce">/Social</p>
-          <p>(ig) <a href="https://www.instagram.com/enricogiachin/" target="_blank" rel="noopener">@enricogiachin</a></p>
-          <p>(ig) <a href="https://www.instagram.com/matteoosaviino/" target="_blank" rel="noopener">@matteoosaviino</a></p>
+    <div class="media" id="media" aria-live="polite">
+      <div class="panel is-active" id="set-0">
+        <div class="riquadro">
+          <a href="https://www.mixcloud.com/zackuu/zacku-and-teo-aurisina-session/" target="_blank" rel="noopener" aria-label="Apri zacku and Teo - Aurisina session su Mixcloud"><img class="cover" src="assets/img/track-aurisina.jpg" alt="" width="600" height="600"></a>
+          <iframe class="player" title="zacku and Teo - Aurisina session (player)" data-src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;mini=1&amp;light=0&amp;feed=%2Fzackuu%2Fzacku-and-teo-aurisina-session%2F" scrolling="no" allow="encrypted-media *; autoplay *; fullscreen *"></iframe>
         </div>
       </div>
-      <div class="colonna">
-        <div class="blocco">
-          <p class="voce">/Spotify</p>
-          <p><a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener">zacku</a></p>
-        </div>
-        <div class="blocco">
-          <p class="voce">/Mixcloud</p>
-          <p><a href="https://www.mixcloud.com/zackuu/" target="_blank" rel="noopener">zackuu</a></p>
-          <p><a href="https://www.mixcloud.com/TeoOod/" target="_blank" rel="noopener">TeoOod</a></p>
+      <div class="panel" id="set-1" aria-hidden="true">
+        <div class="riquadro">
+          <a href="https://www.mixcloud.com/zackuu/zacku-j%C3%ABgerlab-2026/" target="_blank" rel="noopener" aria-label="Apri zacku - JëgerLab 2026 su Mixcloud"><img class="cover" src="assets/img/track-jegerlab.jpg" alt="" width="600" height="600"></a>
+          <iframe class="player" title="zacku - JëgerLab 2026 (player)" data-src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;mini=1&amp;light=0&amp;feed=%2Fzackuu%2Fzacku-j%25C3%25ABgerlab-2026%2F" scrolling="no" allow="encrypted-media *; autoplay *; fullscreen *"></iframe>
         </div>
       </div>
-    </section>
+      <div class="panel" id="set-2" aria-hidden="true">
+        <div class="riquadro">
+          <a href="https://www.mixcloud.com/TeoOod/liminals_teo-set/" target="_blank" rel="noopener" aria-label="Apri Teo - Liminals set su Mixcloud"><img class="cover" src="assets/img/track-teo.jpg" alt="" width="600" height="600"></a>
+          <iframe class="player" title="Teo - Liminals set (player)" data-src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;mini=1&amp;light=0&amp;feed=%2FTeoOod%2Fliminals_teo-set%2F" scrolling="no" allow="encrypted-media *; autoplay *; fullscreen *"></iframe>
+        </div>
+      </div>
+    </div>
   </main>
 </div>
+
+<!-- cambio set: un solo riquadro, cambia con dissolvenza, warp e grana (dalla prova); un solo player in ascolto -->
+<script>
+(function(){
+  var FX = { warp:9, grain:0.16, duration:950, peak:0.3 };
+  var btns = document.querySelectorAll('.sets button');
+  var panels = document.querySelectorAll('.panel');
+  var media = document.getElementById('media');
+  var turb = document.getElementById('turb'), disp = document.getElementById('disp');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var current = 0, token = 0;
+
+  function runFx(){
+    if(reduce.matches) return;
+    var my = ++token, start = performance.now(), frame = 0;
+    media.classList.add('fx');
+    function tick(now){
+      if(my !== token) return;
+      var t = (now - start) / FX.duration;
+      if(t >= 1){ media.classList.remove('fx'); media.style.setProperty('--g', 0); disp.setAttribute('scale', 0); return; }
+      var env = t < FX.peak ? t / FX.peak : Math.pow((1 - t) / (1 - FX.peak), 1.8);
+      disp.setAttribute('scale', (FX.warp * env).toFixed(2));
+      media.style.setProperty('--g', (FX.grain * env).toFixed(3));
+      if(frame++ % 3 === 0) turb.setAttribute('seed', Math.floor(Math.random() * 200));
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* un solo player attivo: quello del set visibile si carica, quello che esce si ferma */
+  function player(k){ return panels[k].querySelector('.player'); }
+  function load(k){ var f = player(k); if(f && f.getAttribute('src') !== f.dataset.src) f.setAttribute('src', f.dataset.src); }
+  function stop(k){ var f = player(k); if(f && f.getAttribute('src')) f.removeAttribute('src'); }
+  load(0);
+
+  function select(i){
+    if(i === current) return;
+    var prev = current;
+    setTimeout(function(){ if(current !== prev) stop(prev); }, 400);
+    load(i);
+    current = i;
+    btns.forEach(function(b, k){ b.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
+    panels.forEach(function(p, k){
+      var on = k === i;
+      p.classList.toggle('is-active', on);
+      if(on) p.removeAttribute('aria-hidden'); else p.setAttribute('aria-hidden', 'true');
+    });
+    runFx();
+  }
+  btns.forEach(function(b, i){ b.addEventListener('click', function(){ select(i); }); });
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.remove('no-anim'); }); });
+})();
+</script>
 <!-- EFFETTI INTERAZIONE: identico su tutte le pagine.
      Passaggio del cursore = glitch analogico. Click/tap = numeri e simboli che si ricompongono. -->
 <script>

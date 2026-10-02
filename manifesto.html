@@ -2,535 +2,361 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <title>Manifesto - Liminals</title>
-<meta name="description" content="Il manifesto etico di Liminals: musica, rispetto, trasmissione. Trieste, 2026.">
+<meta name="description" content="Il manifesto di Liminals: etica condivisa, esperienza condivisa, mobilità sostenibile, uguaglianza tra artisti.">
 <link rel="canonical" href="https://liminalsmusic.com/manifesto.html">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://liminalsmusic.com/manifesto.html">
 <meta property="og:site_name" content="Liminals">
 <meta property="og:locale" content="it_IT">
-<meta property="og:title" content="Minimal deep tech &amp; House · zacku b2b Teo">
-<meta property="og:description" content="Il manifesto etico di Liminals: musica, rispetto, trasmissione. Trieste, 2026.">
+<meta property="og:title" content="Manifesto - Liminals">
+<meta property="og:description" content="Il manifesto di Liminals: etica condivisa, esperienza condivisa, mobilità sostenibile, uguaglianza tra artisti.">
 <meta property="og:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Minimal deep tech &amp; House · zacku b2b Teo">
-
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Minimal deep tech &amp; House · zacku b2b Teo">
-<meta name="twitter:description" content="Il manifesto etico di Liminals: musica, rispetto, trasmissione. Trieste, 2026.">
 <meta name="twitter:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
 
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/favicon.png">
 <meta name="theme-color" content="#151515">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicGroup","name":"Liminals","genre":["minimal deep tech","house"],"foundingLocation":{"@type":"Place","name":"Trieste, IT"},"member":[{"@type":"Person","name":"zacku"},{"@type":"Person","name":"Teo"}],"url":"https://liminalsmusic.com/","email":"hello@liminalsmusic.com","sameAs":["https://www.mixcloud.com/zackuu/","https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl","https://instagram.com/enricogiachin"]}</script>
-
-<script>document.documentElement.classList.add('js');</script>
+<link rel="preload" href="assets/fonts/Outfit-Light.otf" as="font" type="font/otf" crossorigin>
 
 <style>
 @font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
 @font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
 @font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.otf') format('opentype'); font-weight:500; font-display:swap; }
-@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-SemiBold.otf') format('opentype'); font-weight:600; font-display:swap; }
-@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Bold.otf') format('opentype'); font-weight:700; font-display:swap; }
-@font-face { font-family:'Satoshi'; src:url('assets/fonts/Satoshi-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
-@font-face { font-family:'Satoshi'; src:url('assets/fonts/Satoshi-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
-@font-face { font-family:'Satoshi'; src:url('assets/fonts/Satoshi-Medium.ttf') format('truetype'); font-weight:500; font-display:swap; }
-@font-face { font-family:'Satoshi'; src:url('assets/fonts/Satoshi-Bold.ttf') format('truetype'); font-weight:700; font-display:swap; }
-@font-face { font-family:'Satoshi'; src:url('assets/fonts/Satoshi-Italic.ttf') format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
-@font-face { font-family:'Bitcount'; src:url('assets/fonts/Bitcount-Regular.ttf') format('truetype'); font-weight:400; font-display:swap; }
-@font-face { font-family:'Bitcount'; src:url('assets/fonts/Bitcount-Medium.ttf') format('truetype'); font-weight:500; font-display:swap; }
+
+:root {
+  --bg: #151515;
+  --cream: #FEFAEF;
+  --accent: #FC4446;
+  --margin: clamp(20px, 4vw, 60px);
+  --nav-size: clamp(21px, 1.75vw, 26px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Outfit', Arial, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* fondo: luce sgranata, si muove appena (fisso mentre il testo scorre) */
+.fondo {
+  position: fixed;
+  inset: -4%;
+  z-index: 0;
+  background: var(--bg) url('assets/img/bg-noise.jpg') 60% center / cover no-repeat;
+  animation: deriva 48s ease-in-out infinite alternate;
+}
+.fondo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 21, 21, .45);
+}
+@keyframes deriva {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-2%, 1.5%, 0) scale(1.05); }
+}
+
+a { color: var(--cream); text-decoration: none; transition: color .2s; }
+a:hover, a:focus-visible, a[aria-current="page"] { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+
+/* EFFETTI INTERAZIONE: warp analogico al passaggio (classe aggiunta dallo script) */
+.nx { filter: url(#warp-nav); }
+
+.pagina {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding:
+    calc(var(--margin) + env(safe-area-inset-top, 0px))
+    calc(var(--margin) + env(safe-area-inset-right, 0px))
+    calc(var(--margin) + env(safe-area-inset-bottom, 0px))
+    calc(var(--margin) + env(safe-area-inset-left, 0px));
+}
+
+/* testata: marchio a sinistra (torna alla home), nav a destra */
+.testata {
+  position: absolute;
+  top: calc(var(--margin) + env(safe-area-inset-top, 0px));
+  left: calc(var(--margin) + env(safe-area-inset-left, 0px));
+  right: calc(var(--margin) + env(safe-area-inset-right, 0px));
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: var(--nav-size);
+  line-height: 1.15;
+}
+.marchio { font-weight: 500; display: inline-block; }
+.testata ul { list-style: none; margin: 0; padding: 0; }
+.testata li a { display: inline-block; }
+
+/* contenuto: spaziature riprese dal manifesto online (versione settembre 2026) */
+.man {
+  padding-top: calc(96px + clamp(48px, 8vh, 96px));
+  padding-bottom: clamp(64px, 10vh, 120px);
+  display: flex;
+  justify-content: center;
+}
+.man-inner { width: 100%; max-width: 820px; }
+
+.man-title {
+  margin: 0 0 clamp(24px, 4vh, 40px) -3px;
+  font-weight: 500;
+  font-size: clamp(56px, 9.7vw, 112px);
+  line-height: .92;
+  letter-spacing: -0.02em;
+}
+
+.man-inner p { margin: 0; }
+.man-intro,
+.man-p {
+  max-width: 62ch;
+  font-weight: 300;
+  font-size: clamp(16px, 1.25vw, 17px);
+  line-height: 1.65;
+}
+.man-inner .man-intro { margin-bottom: 20px; }
+.man-inner .man-intro.ultimo { margin-bottom: clamp(48px, 7vh, 72px); }
+
+.man-sections { display: flex; flex-direction: column; gap: clamp(40px, 5vh, 56px); }
+.man-sec h2 {
+  margin: 0 0 16px;
+  font-weight: 500;
+  font-size: clamp(16px, 1.25vw, 17px);
+  line-height: 1.3;
+}
+.man-sec h2 span { color: var(--accent); }
+.man-inner .man-p { margin-bottom: 14px; }
+.man-inner .man-p:last-child { margin-bottom: 0; }
+
+.man-no {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 8px 24px;
+  justify-content: space-between;
+  max-width: 62ch;
+  margin: 8px 0 0;
+  padding: 16px 0;
+  list-style: none;
+  font-weight: 500;
+  font-size: clamp(16px, 1.25vw, 17px);
+  line-height: 1.3;
+}
+.man-no span { color: var(--accent); }
+
+.man-inner .firma {
+  margin-top: clamp(56px, 8vh, 88px);
+  font-size: var(--nav-size);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+@media (max-width: 899px) {
+  .man-no { grid-template-columns: 1fr; gap: 4px; }
+}
+@media (max-width: 480px) {
+  .man-title { font-size: 16vw; margin-left: 0; }
+  .man-intro, .man-p, .man-sec h2, .man-no { font-size: 15.5px; }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important;
-    transition-duration:.01ms !important; scroll-behavior:auto !important; }
-}
-
-*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-html, body { scroll-behavior:smooth; background:#151515; overscroll-behavior:none; }
-body { -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
-img { display:block; max-width:100%; }
-a { color:inherit; text-decoration:none; }
-a:hover { color:inherit; }
-::selection { background:#FC4446; color:#FEFAEF; }
-:focus-visible { outline:2px solid var(--cream); outline-offset:3px; border-radius:2px; }
-button { background:none; border:none; font:inherit; color:inherit; -webkit-appearance:none; appearance:none; }
-
-/* --- root --- */
-.root {
-  --bg:#151515;
-  --bg-2:color-mix(in srgb, #FEFAEF 6%, #151515);
-  --cream:#FEFAEF;
-  --dim:rgba(254,250,239,0.62);
-  --faint:rgba(254,250,239,0.48);
-  --ghost:rgba(254,250,239,0.12);
-  --accent:#FC4446;
-  --pad-x:clamp(20px, 6vw, 96px);
-  --maxw:1320px;
-  background:var(--bg); color:var(--cream);
-  font-family:'Satoshi', system-ui, sans-serif;
-  min-height:100vh; position:relative; overflow-x:clip;
-}
-.page-bg {
-  position:fixed; inset:0; z-index:0; pointer-events:none;
-  background-image:linear-gradient(rgba(17,17,17,0.26), rgba(17,17,17,0.26)), url(assets/img/bg-noise.jpg);
-  background-size:cover; background-position:center center; background-repeat:no-repeat;
-}
-
-/* --- texture "carta fotocopiata": grana leggera ovunque --- */
-.site-grain {
-  position:fixed; inset:0; z-index:500; pointer-events:none;
-  mix-blend-mode:overlay; opacity:.045;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:180px 180px;
-}
-
-/* --- header --- */
-.nav {
-  position:fixed; top:0; left:0; right:0; z-index:1000;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:20px var(--pad-x);
-  transition:background .4s ease, padding .4s ease, border-color .4s ease;
-  border-bottom:1px solid transparent; background:transparent; backdrop-filter:none;
-}
-.nav.scrolled {
-  padding:14px var(--pad-x);
-  border-bottom:1px solid var(--ghost);
-  background:color-mix(in srgb, var(--bg) 80%, transparent);
-  backdrop-filter:blur(14px);
-}
-.nav-left { display:flex; align-items:center; gap:14px; }
-.logo { font-family:'Outfit',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.03em; line-height:1; display:flex; align-items:center; gap:9px; }
-.back-home {
-  font-family:'Bitcount',monospace; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase;
-  color:var(--dim); cursor:pointer; transition:color .25s ease; white-space:nowrap;
-}
-.back-home:hover { color:var(--cream); }
-.nav-links { display:flex; gap:30px; align-items:center; }
-.nav-link {
-  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase;
-  color:var(--dim); padding:4px 0; transition:color .25s ease; cursor:pointer;
-}
-.nav-link.active { color:var(--cream); }
-.nav-link:hover { color:var(--cream); }
-.lang-toggle {
-  display:flex; align-items:center; gap:7px; cursor:pointer;
-  background:none; border:1px solid var(--ghost); border-radius:100px;
-  padding:9px 16px; min-height:38px; color:var(--dim);
-  font-family:'Bitcount',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
-  transition:color .25s ease, border-color .25s ease, background .25s ease;
-}
-.lang-toggle:hover { color:var(--bg); border-color:var(--cream); background:var(--cream); transform:scale(1.05); }
-/* --- bottone menu: rettangolo con testo + quadratino (rif. No Art) --- */
-.menu-btn {
-  display:none; align-items:center; gap:12px; cursor:pointer;
-  border:1px solid var(--ghost); border-radius:0; background:transparent;
-  padding:0 16px; height:44px; color:var(--cream);
-  font-family:'Outfit',sans-serif; font-weight:500; font-size:13px; letter-spacing:0.14em; text-transform:uppercase;
-  transition:border-color .25s ease, background .25s ease, color .25s ease;
-}
-.menu-btn:hover { border-color:var(--cream); }
-.menu-btn .roll { display:block; height:1.2em; line-height:1.2em; overflow:hidden; }
-.menu-btn .roll-in { display:flex; flex-direction:column; transition:transform .35s cubic-bezier(.7,0,.2,1); }
-.menu-btn .roll-in span { display:block; height:1.2em; }
-.menu-btn:hover .roll-in { transform:translateY(-1.2em); }
-.menu-btn .sq-btn { width:8px; height:8px; background:var(--accent); flex-shrink:0; display:block; }
-.menu-btn.open { background:var(--cream); color:var(--bg); border-color:var(--cream); }
-
-/* --- menu mobile --- */
-.menu {
-  position:fixed; inset:0; z-index:999;
-  background:var(--bg); padding:96px var(--pad-x) 40px;
-  display:flex; flex-direction:column; justify-content:space-between;
-  transform:translateY(-100%); transition:transform .5s cubic-bezier(.7,0,.2,1); visibility:hidden;
-}
-.menu.open { transform:translateY(0); visibility:visible; }
-.menu nav { display:flex; flex-direction:column; gap:4px; }
-.menu-link {
-  font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(26px,8vw,46px); letter-spacing:-0.03em; line-height:1.05;
-  padding:10px 0; color:var(--cream); display:flex; align-items:center; gap:16px;
-}
-.menu-link .sq { width:16px; height:16px; background:var(--accent); flex-shrink:0; display:inline-block; }
-.menu-foot {
-  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--dim);
-  display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
-}
-.menu-foot > div { display:flex; gap:8px; align-items:center; }
-.menu-bottom { display:flex; flex-direction:column; gap:22px; }
-.menu-social {
-  display:flex; flex-wrap:wrap; column-gap:28px; row-gap:4px;
-  border-top:1px solid var(--ghost); padding-top:18px;
-}
-.menu-social .clink {
-  display:inline-flex; align-items:center; gap:8px;
-  font-family:'Outfit',sans-serif; font-weight:400; font-size:clamp(18px,2vw,26px);
-  letter-spacing:-0.015em; line-height:1.4; color:var(--cream);
-  min-height:44px; padding:2px 0; transition:color .25s ease;
-}
-.menu-social .clink:hover { color:var(--accent); }
-.menu-social .clink .ico { display:inline-flex; opacity:0.75; }
-
-/* --- pagina manifesto --- */
-.man {
-  position:relative; z-index:1; min-height:auto;
-  padding:calc(96px + clamp(48px,8vh,96px)) var(--pad-x) clamp(64px,10vh,120px);
-  display:flex; justify-content:center;
-}
-.man-inner { width:100%; max-width:820px; }
-.man-head {
-  display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:16px;
-  font-family:'Bitcount',monospace; font-weight:400; font-size:12px; letter-spacing:0.18em; text-transform:uppercase;
-  color:var(--dim); margin-bottom:clamp(48px,7vh,80px);
-}
-.man-title {
-  font-family:'Outfit',sans-serif; font-weight:500;
-  font-size:clamp(44px,5.2vw,78px); line-height:0.92; letter-spacing:-0.04em;
-  margin-left:-3px; margin-bottom:clamp(24px,4vh,40px);
-}
-.man-intro {
-  font-family:'Outfit',sans-serif; font-weight:300; font-size:clamp(16px,1.6vw,18px); line-height:1.65;
-  max-width:62ch; color:var(--cream); margin-bottom:20px;
-}
-.man-intro.last { margin-bottom:clamp(48px,7vh,72px); }
-.man-sections { display:flex; flex-direction:column; gap:clamp(40px,5vh,56px); }
-.man-sec-head { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
-.man-sec-head .dot { width:10px; height:10px; background:var(--accent); flex-shrink:0; display:inline-block; }
-.man-sec-head h2 {
-  font-family:'Outfit',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.14em; text-transform:uppercase;
-  color:var(--cream); margin:0;
-}
-.man-p { font-family:'Satoshi',sans-serif; font-size:15.5px; line-height:1.65; max-width:62ch; color:var(--dim); margin-bottom:14px; }
-.man-p.last { margin-bottom:0; }
-.man-no {
-  display:grid; grid-template-columns:repeat(2,1fr); gap:8px 24px;
-  font-family:'Outfit',sans-serif; font-weight:600; font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
-  color:var(--cream); margin:8px 0 0; padding:16px 0; border-top:1px solid var(--ghost); border-bottom:1px solid var(--ghost);
-}
-.man-colophon {
-  margin-top:clamp(56px,8vh,88px); padding-top:20px; border-top:1px solid var(--ghost);
-  display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:12px;
-  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--dim);
-}
-.man-colophon > div { text-align:right; display:flex; flex-direction:column; gap:2px; }
-.man-back { margin-top:clamp(40px,6vh,64px); display:flex; justify-content:center; }
-.pitch-btn {
-  display:inline-flex; align-items:center; gap:8px; justify-content:center;
-  font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(14px,1.1vw,16px);
-  letter-spacing:-0.01em; color:var(--bg); background:var(--cream);
-  padding:12px 20px; border-radius:100px; width:100%;
-  transition:background .3s ease, color .3s ease, transform .3s ease;
-}
-.pitch-btn:hover { background:var(--accent); color:#FEFAEF; transform:translateY(-2px) scale(1.05); }
-
-/* --- footer --- */
-.footer { position:relative; z-index:1; padding:clamp(48px,7vh,88px) var(--pad-x) 36px; border-top:1px solid var(--ghost); }
-.footer .inner { max-width:var(--maxw); margin:0 auto; display:flex; flex-direction:column; gap:clamp(28px,5vh,56px); }
-.footer-big { font-family:'Outfit',sans-serif; font-weight:500; font-size:clamp(64px,13vw,180px); line-height:0.9; letter-spacing:-0.04em; margin-left:-4px; }
-.footer-row {
-  display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px;
-  font-family:'Bitcount',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--dim);
-}
-
-/* --- reveal on scroll (attivo solo con JS) --- */
-.reveal {
-  transition-property:opacity, transform; transition-duration:0.9s;
-  transition-timing-function:cubic-bezier(.2,.6,.2,1);
-}
-html.js .reveal:not(.on) { opacity:0; transform:translateY(28px); }
-
-/* --- breakpoint --- */
-@media (max-width:900px) {
-  .nav-links { display:none; }
-  .menu-btn { display:flex; }
-  .lang-toggle { padding:13px 18px; min-height:44px; }
-}
-@media (max-width:480px) {
-  .man-title { font-size:clamp(34px,10vw,52px); margin-left:0; }
-  .footer-big { font-size:clamp(40px,15vw,64px); }
+  .fondo { animation: none; inset: 0; }
+  a { transition: none; }
+  .nx { filter: none; }
 }
 </style>
 </head>
 <body>
 
-<div class="root">
+<!-- EFFETTI INTERAZIONE: filtro SVG per il glitch analogico (identico su tutte le pagine) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="warp-nav" x="-15%" y="-20%" width="130%" height="140%" color-interpolation-filters="sRGB">
+    <feTurbulence id="turbN" type="turbulence" baseFrequency="0.004 0.12" numOctaves="1" seed="5" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="1 0 0 0 0  0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 1" result="m"/>
+    <feDisplacementMap id="dispN" in="SourceGraphic" in2="m" scale="0" xChannelSelector="R" yChannelSelector="G" result="w"/>
+    <feTurbulence id="grainN" type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="8" result="g"/>
+    <feColorMatrix id="erodeN" in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0 1" result="ga"/>
+    <feComposite in="w" in2="ga" operator="in"/>
+  </filter>
+</svg>
 
-  <div class="page-bg" aria-hidden="true"></div>
-  <div class="site-grain" aria-hidden="true"></div>
+<div class="fondo" aria-hidden="true"></div>
 
-  <header class="nav" id="nav">
-    <div class="nav-left">
-      <a href="index.html" class="logo" data-glitch data-original="Liminals">Liminals</a>
-      <a href="index.html" class="back-home" data-t="backHome">← Torna alla home</a>
-    </div>
-    <nav class="nav-links">
-      <a href="suono.html" class="nav-link" data-glitch data-t="navSuono">Suono</a>
-      <a href="ascolto.html" class="nav-link" data-glitch data-t="navAscolto">Ascolto</a>
-      <a href="live.html" class="nav-link" data-glitch data-t="navLive">Live</a>
-      <a href="contatti.html" class="nav-link" data-glitch data-t="navContatti">Contatti</a>
-      <a href="manifesto.html" class="nav-link" data-glitch data-t="navManifesto">Manifesto</a>
-      <button class="lang-toggle" data-lang-toggle aria-label="Lingua / Language"><span data-lang-label>IT</span></button>
-    </nav>
-    <button type="button" class="menu-btn" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu">
-      <span class="roll" aria-hidden="true"><span class="roll-in"><span>Menu</span><span>Menu</span></span></span>
-      <span class="sq-btn" aria-hidden="true"></span>
-    </button>
+<div class="pagina">
+  <header class="testata">
+    <a class="marchio" href="index.html">Liminals</a>
+    <a href="about.html">/Indietro</a>
   </header>
 
-  <div class="menu" id="menu">
-    <nav>
-      <a href="suono.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navSuono">Suono</span></a>
-      <a href="ascolto.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navAscolto">Ascolto</span></a>
-      <a href="live.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navLive">Live</span></a>
-      <a href="contatti.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navContatti">Contatti</span></a>
-      <a href="manifesto.html" class="menu-link" data-glitch data-menu-close><span class="sq"></span><span data-glitch-text data-t="navManifesto">Manifesto</span></a>
-    </nav>
-    <div class="menu-bottom">
-      <div class="menu-social">
-        <a href="https://www.mixcloud.com/zackuu/" target="_blank" rel="noopener" class="clink">Mixcloud <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
-        <a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener" class="clink">Spotify <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
-        <a href="https://instagram.com/enricogiachin" target="_blank" rel="noopener" class="clink">Instagram <span class="ico"><svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3.1 8.9 8.9 3.1M4.3 3.1h4.6v4.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
-      </div>
-    <div class="menu-foot">
-      <span>Italy - Est. 2026</span>
-      <div>
-        <button class="lang-toggle" data-lang-toggle aria-label="Lingua / Language"><span data-lang-label>IT</span></button>
-      </div>
-    </div>
-    </div>
-  </div>
-
-  <section class="man">
+  <main class="man">
     <div class="man-inner">
+      <h1 class="man-title">Manifesto</h1>
 
-      <div class="man-head reveal">
-        <span data-t="head1">Liminals · Manifesto etico</span>
-        <span>Trieste, IT · 2026</span>
-      </div>
-
-      <h1 class="man-title">Liminals</h1>
-
-      <p class="man-intro" data-t="intro1">Certi suoni chiedono di essere condivisi. Il dancefloor è il luogo che ce lo permette: chi ci segue trova qualcosa di familiare, condiviso, in cui suono e individui diventano tutt'uno in un nuovo luogo da abitare assieme.</p>
-      <p class="man-intro last" data-t="intro2">Questa è la nostra promessa, verso chi ascolta, verso la musica e verso gli artisti / chi suona.</p>
+      <p class="man-intro">Certi suoni chiedono di essere condivisi. Il dancefloor è il luogo che ce lo permette: chi ci segue trova qualcosa di familiare, condiviso, in cui suono e individui diventano tutt'uno in un nuovo luogo da abitare assieme.</p>
+      <p class="man-intro ultimo">Questa è la nostra promessa, verso chi ascolta, verso la musica e verso gli artisti.</p>
 
       <div class="man-sections">
+        <section class="man-sec">
+          <h2><span>/</span>Etica condivisa</h2>
+          <p class="man-p">Il rispetto del prossimo non è negoziabile. Comportamenti molesti, offensivi o che mettano a disagio chiunque non hanno posto qui, né sul dancefloor, né fuori da esso.</p>
+          <p class="man-p">Ognuno può esprimere sé stesso liberamente, muoversi come vuole, essere come è, senza essere giudicato né messo a disagio. Questo vale sempre e per tutti.</p>
+          <p class="man-p">Questo movimento si oppone attivamente a ogni forma di violenza, fisica, verbale, psicologica e culturale.</p>
+          <ul class="man-no">
+            <li><span>/</span>No al sessismo</li>
+            <li><span>/</span>No all'omofobia</li>
+            <li><span>/</span>No al razzismo</li>
+            <li><span>/</span>No alla transfobia</li>
+            <li><span>/</span>No alle violenze</li>
+            <li><span>/</span>No alle discriminazioni</li>
+          </ul>
+        </section>
 
-        <div>
-          <div class="man-sec-head">
-            <span class="dot"></span>
-            <h2 data-t="s1Title">Etica condivisa</h2>
-          </div>
-          <p class="man-p" data-t="s1P1">Il rispetto del prossimo non è negoziabile. Comportamenti molesti, offensivi o che mettano a disagio chiunque non hanno posto qui, né sul dancefloor, né fuori da esso.</p>
-          <p class="man-p" data-t="s1P2">Ognuno può esprimere sé stesso liberamente, muoversi come vuole, essere come è, senza essere giudicato né messo a disagio. Questo vale sempre e per tutti.</p>
-          <p class="man-p" data-t="s1P3">Questo movimento si oppone attivamente a ogni forma di violenza, fisica, verbale, psicologica e culturale.</p>
-          <div class="man-no">
-            <span data-t="n1">No al sessismo</span>
-            <span data-t="n2">No alla transfobia</span>
-            <span data-t="n3">No all'omofobia</span>
-            <span data-t="n4">No alle violenze</span>
-            <span data-t="n5">No al razzismo</span>
-            <span data-t="n6">No a qualsiasi discriminazione</span>
-          </div>
-        </div>
+        <section class="man-sec">
+          <h2><span>/</span>Esperienza condivisa</h2>
+          <p class="man-p">L'ingresso ha lo stesso prezzo per tutti. Non vogliamo squilibri di trattamento, non vogliamo che il pubblico diventi merce, né che la musica lo sia.</p>
+        </section>
 
-        <div>
-          <div class="man-sec-head">
-            <span class="dot"></span>
-            <h2 data-t="s2Title">Esperienza condivisa</h2>
-          </div>
-          <p class="man-p" data-t="s2P1">L'ingresso ha lo stesso prezzo per tutti. Non vogliamo squilibri di trattamento, non vogliamo che il pubblico diventi merce, né che la musica lo sia.</p>
-        </div>
+        <section class="man-sec">
+          <h2><span>/</span>Mobilità sostenibile</h2>
+          <p class="man-p">Apprezziamo chi arriva con mezzi pubblici, a piedi o in bicicletta. Non si tratta solo di ambientalismo: questo vuole essere lo spirito dei luoghi che abitiamo.</p>
+          <p class="man-p">L'uso di alcol per chi si mette al volante è fortemente sconsigliato.</p>
+        </section>
 
-        <div>
-          <div class="man-sec-head">
-            <span class="dot"></span>
-            <h2 data-t="s3Title">Mobilità sostenibile</h2>
-          </div>
-          <p class="man-p" data-t="s3P1">Apprezziamo chi arriva con mezzi pubblici, a piedi o in bicicletta. Non si tratta solo di ambientalismo: questo vuole essere lo spirito dei luoghi che abitiamo.</p>
-          <p class="man-p last" data-t="s3P2">L'uso di alcol per chi si mette al volante è fortemente sconsigliato.</p>
-        </div>
-
-        <div>
-          <div class="man-sec-head">
-            <span class="dot"></span>
-            <h2 data-t="s4Title">Uguaglianza tra artisti</h2>
-          </div>
-          <p class="man-p" data-t="s4P1">Chi apre il set ha lo stesso valore di chi lo chiude. Chi è ai primi dischi ha lo stesso diritto al rispetto di chi suona da anni, senza alcuna gerarchia.</p>
-          <p class="man-p" data-t="s4P2">Ci si supporta. Ci si ascolta. Ci si condivide.</p>
-          <p class="man-p last" data-t="s4P3">La competizione non produce niente di buono, ma la condivisione sì: un disco trovato per caso, un suono che non si sapeva nominare, una rete che sostiene chi inizia.</p>
-        </div>
-
+        <section class="man-sec">
+          <h2><span>/</span>Uguaglianza tra artisti</h2>
+          <p class="man-p">Chi apre il set ha lo stesso valore di chi lo chiude. Chi è ai primi dischi ha lo stesso diritto al rispetto di chi suona da anni, senza alcuna gerarchia.</p>
+          <p class="man-p">Ci si supporta. Ci si ascolta. Ci si condivide.</p>
+          <p class="man-p">La competizione non produce niente di buono, ma la condivisione sì: un disco trovato per caso, un suono che non si sapeva nominare, una rete che sostiene chi inizia.</p>
+        </section>
       </div>
 
-      <div class="man-colophon">
-        <span>Liminals - Trieste, 2026</span>
-        <div>
-          <span>mail: hello@liminalsmusic.com</span>
-          <span>web: liminalsmusic.com</span>
-        </div>
-      </div>
-
-      <div class="man-back">
-        <a href="index.html" class="pitch-btn" data-t="backHome">← Torna alla home</a>
-      </div>
-
+      <p class="firma">Liminals</p>
     </div>
-  </section>
-
-  <footer class="footer">
-    <div class="inner">
-      <div class="footer-big reveal">Liminals</div>
-      <div class="footer-row">
-        <span>zacku × Teo</span>
-        <span>Minimal deep tech &amp; house</span>
-        <span>Italy - Est. 2026</span>
-      </div>
-    </div>
-  </footer>
-
+  </main>
 </div>
-
+<!-- EFFETTI INTERAZIONE: identico su tutte le pagine.
+     Passaggio del cursore = glitch analogico. Click/tap = numeri e simboli che si ricompongono. -->
 <script>
-(function () {
-  var T = {
-    IT: {
-      backHome: '← Torna alla home',
-      navSuono: 'Suono', navAscolto: 'Ascolto', navLive: 'Live', navContatti: 'Contatti', navManifesto: 'Manifesto',
-      head1: 'Liminals · Manifesto etico',
-      intro1: "Certi suoni chiedono di essere condivisi. Il dancefloor è il luogo che ce lo permette: chi ci segue trova qualcosa di familiare, condiviso, in cui suono e individui diventano tutt'uno in un nuovo luogo da abitare assieme.",
-      intro2: "Questa è la nostra promessa, verso chi ascolta, verso la musica e verso gli artisti / chi suona.",
-      s1Title: 'Etica condivisa',
-      s1P1: "Il rispetto del prossimo non è negoziabile. Comportamenti molesti, offensivi o che mettano a disagio chiunque non hanno posto qui, né sul dancefloor, né fuori da esso.",
-      s1P2: "Ognuno può esprimere sé stesso liberamente, muoversi come vuole, essere come è, senza essere giudicato né messo a disagio. Questo vale sempre e per tutti.",
-      s1P3: "Questo movimento si oppone attivamente a ogni forma di violenza, fisica, verbale, psicologica e culturale.",
-      s2Title: 'Esperienza condivisa',
-      s2P1: "L'ingresso ha lo stesso prezzo per tutti. Non vogliamo squilibri di trattamento, non vogliamo che il pubblico diventi merce, né che la musica lo sia.",
-      s3Title: 'Mobilità sostenibile',
-      s3P1: "Apprezziamo chi arriva con mezzi pubblici, a piedi o in bicicletta. Non si tratta solo di ambientalismo: questo vuole essere lo spirito dei luoghi che abitiamo.",
-      s3P2: "L'uso di alcol per chi si mette al volante è fortemente sconsigliato.",
-      s4Title: 'Uguaglianza tra artisti',
-      s4P1: "Chi apre il set ha lo stesso valore di chi lo chiude. Chi è ai primi dischi ha lo stesso diritto al rispetto di chi suona da anni, senza alcuna gerarchia.",
-      s4P2: "Ci si supporta. Ci si ascolta. Ci si condivide.",
-      s4P3: "La competizione non produce niente di buono, ma la condivisione sì: un disco trovato per caso, un suono che non si sapeva nominare, una rete che sostiene chi inizia.",
-      n1: 'No al sessismo', n2: 'No alla transfobia', n3: "No all'omofobia",
-      n4: 'No alle violenze', n5: 'No al razzismo', n6: 'No a qualsiasi discriminazione'
-    },
-    EN: {
-      backHome: '← Back home',
-      navSuono: 'Sound', navAscolto: 'Listen', navLive: 'Live', navContatti: 'Contact', navManifesto: 'Manifesto',
-      head1: 'Liminals · Ethical Manifesto',
-      intro1: "Certain sounds ask to be shared. The dancefloor is the place that lets that happen: those who follow us find something familiar, shared, where sound and people become one in a new place to inhabit together.",
-      intro2: "This is our promise, to those who listen, to the music, and to the artists who play.",
-      s1Title: 'Shared ethics',
-      s1P1: "Respect for others is not negotiable. Harassing or offensive behaviour, or anything that makes someone uncomfortable, has no place here - not on the dancefloor, not outside it.",
-      s1P2: "Everyone can express themselves freely, move as they wish, be who they are, without being judged or made to feel uncomfortable. This applies to everyone, always.",
-      s1P3: "This movement actively opposes every form of violence - physical, verbal, psychological and cultural.",
-      s2Title: 'Shared experience',
-      s2P1: "Entry costs the same for everyone. We don't want unequal treatment, and we don't want the audience - or the music - to become a commodity.",
-      s3Title: 'Sustainable mobility',
-      s3P1: "We appreciate those who arrive by public transport, on foot or by bike. It's not only about environmentalism - this is meant to be the spirit of the places we inhabit.",
-      s3P2: "Drinking alcohol before driving is strongly discouraged.",
-      s4Title: 'Equality among artists',
-      s4P1: "Whoever opens the set is worth as much as whoever closes it. Whoever is on their first records has the same right to respect as whoever has played for years, with no hierarchy at all.",
-      s4P2: "We support each other. We listen to each other. We share with each other.",
-      s4P3: "Competition produces nothing good, but sharing does: a record found by chance, a sound you didn't know how to name, a network that supports those just starting out.",
-      n1: 'No to sexism', n2: 'No to transphobia', n3: 'No to homophobia',
-      n4: 'No to violence', n5: 'No to racism', n6: 'No to any discrimination'
-    }
-  };
-  var ORDER = ['IT', 'EN'];
-  var lang = 'IT';
+(function(){
+  var SEL = 'a[href], button';           /* tutto ciò che è interagibile */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  function applyLang(l) {
-    lang = ORDER.indexOf(l) !== -1 ? l : 'IT';
-    var d = T[lang];
-    var els = document.querySelectorAll('[data-t]');
-    for (var i = 0; i < els.length; i++) {
-      var k = els[i].getAttribute('data-t');
-      if (d[k] !== undefined) els[i].textContent = d[k];
-    }
-    var labels = document.querySelectorAll('[data-lang-label]');
-    for (var j = 0; j < labels.length; j++) labels[j].textContent = lang;
-    document.documentElement.lang = lang.toLowerCase();
-  }
-  try {
-    var saved = localStorage.getItem('liminals-lang');
-    if (saved && ORDER.indexOf(saved) !== -1 && saved !== 'IT') applyLang(saved);
-  } catch (e) {}
+  /* hover: warp orizzontale + grana che erode la lettera */
+  var HOVER = { warp:5, erode:0.4, duration:600, peak:0.2 };
+  var dispN = document.getElementById('dispN'), turbN = document.getElementById('turbN');
+  var grainN = document.getElementById('grainN'), erodeN = document.getElementById('erodeN');
+  var hToken = 0, hActive = null;
 
-  var toggles = document.querySelectorAll('[data-lang-toggle]');
-  for (var t = 0; t < toggles.length; t++) {
-    toggles[t].addEventListener('click', function () {
-      var next = ORDER[(ORDER.indexOf(lang) + 1) % ORDER.length];
-      applyLang(next);
-      try { localStorage.setItem('liminals-lang', next); } catch (e) {}
-    });
-  }
-
-  /* header compatto oltre 40px di scroll */
-  var nav = document.getElementById('nav');
-  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 40); }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  /* menu mobile */
-  var burger = document.getElementById('burger');
-  var menu = document.getElementById('menu');
-  function setMenu(open) { menu.classList.toggle('open', open); burger.classList.toggle('open', open); burger.setAttribute('aria-expanded', open ? 'true' : 'false'); }
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) { setMenu(false); burger.focus(); } });
-  burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
-  var closers = document.querySelectorAll('[data-menu-close]');
-  for (var c = 0; c < closers.length; c++) closers[c].addEventListener('click', function () { setMenu(false); });
-
-  /* effetto glitch sui link */
-  var chars = '!<>-_\\/[]{}—=+*^?#01010$%&@';
-  function glitchEnter(e) {
-    var el = e.currentTarget;
-    var target = el.querySelector('[data-glitch-text]') || el;
-    var original = target._glitchTimer ? target._glitchOriginal : (el.getAttribute('data-original') || target.textContent);
-    target._glitchOriginal = original;
-    if (target._glitchTimer) clearInterval(target._glitchTimer);
-    var iter = 0, total = original.length;
-    target._glitchTimer = setInterval(function () {
-      var revealed = Math.floor(iter / 2), out = '';
-      for (var i = 0; i < total; i++) {
-        if (i < revealed) out += original[i];
-        else if (original[i] === ' ') out += ' ';
-        else out += chars[Math.floor(Math.random() * chars.length)];
+  function hoverFx(el){
+    if(reduce.matches) return;
+    if(hActive && hActive !== el) hActive.classList.remove('nx');
+    hActive = el;
+    var my = ++hToken, start = performance.now(), frame = 0;
+    el.classList.add('nx');
+    function tick(now){
+      if(my !== hToken) return;
+      var t = (now - start) / HOVER.duration;
+      if(t >= 1){ el.classList.remove('nx'); dispN.setAttribute('scale', 0); return; }
+      var env = t < HOVER.peak ? t / HOVER.peak : Math.pow((1 - t) / (1 - HOVER.peak), 1.8);
+      var e = HOVER.erode * env;
+      dispN.setAttribute('scale', (HOVER.warp * env).toFixed(2));
+      erodeN.setAttribute('values', '0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 ' + (4 * e).toFixed(3) + ' 0 ' + (1 - 2.4 * e).toFixed(3));
+      if(frame++ % 3 === 0){
+        turbN.setAttribute('seed', Math.floor(Math.random() * 200));
+        grainN.setAttribute('seed', Math.floor(Math.random() * 200));
       }
-      target.textContent = out;
-      iter++;
-      if (revealed >= total) { clearInterval(target._glitchTimer); target._glitchTimer = null; target.textContent = original; }
-    }, 60);
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
   }
-  function glitchLeave(e) {
-    var el = e.currentTarget;
-    var target = el.querySelector('[data-glitch-text]') || el;
-    if (target._glitchTimer) { clearInterval(target._glitchTimer); target._glitchTimer = null; }
-    if (target._glitchOriginal) target.textContent = target._glitchOriginal;
-  }
-  var gl = document.querySelectorAll('[data-glitch]');
-  for (var g = 0; g < gl.length; g++) {
-    gl[g].addEventListener('mouseenter', glitchEnter);
-    gl[g].addEventListener('mouseleave', glitchLeave);
+  document.querySelectorAll(SEL).forEach(function(el){
+    el.addEventListener('pointerenter', function(e){ if(e.pointerType !== 'touch') hoverFx(el); });
+    el.addEventListener('focus', function(){ if(el.matches(':focus-visible')) hoverFx(el); });
+  });
+
+  /* click: le lettere diventano numeri e simboli, poi si ricompongono */
+  var CLICK = { coverage:0.6, duration:650, tick:55 };
+  var GLYPHS = '0123456789#%&@$*+=/\\|<>?!§¤';
+  var NAV_DELAY = 500;                   /* ms prima di cambiare pagina, per far vedere l'effetto */
+
+  function glitchText(el){
+    if(reduce.matches || el.children.length) return;   /* solo elementi di puro testo */
+    if(el._gl) el._gl.cancel();
+    var orig = el.textContent.trim();
+    el.textContent = orig;
+    var tn = el.firstChild;
+    if(!tn || tn.nodeType !== 3) return;
+    var range = document.createRange(), widths = [], i;
+    for(i = 0; i < orig.length; i++){ range.setStart(tn, i); range.setEnd(tn, i + 1); widths.push(range.getBoundingClientRect().width); }
+    el.setAttribute('aria-label', orig);
+    var frag = document.createDocumentFragment(), chars = [], word = null;
+    for(i = 0; i < orig.length; i++){
+      var c = orig.charAt(i);
+      if(c === ' '){ word = null; frag.appendChild(document.createTextNode(' ')); continue; }
+      if(!word){ word = document.createElement('span'); word.style.whiteSpace = 'nowrap'; word.setAttribute('aria-hidden', 'true'); frag.appendChild(word); }
+      var sp = document.createElement('span');
+      sp.style.cssText = 'display:inline-flex;justify-content:center;width:' + widths[i] + 'px';
+      sp.textContent = c;
+      word.appendChild(sp);
+      chars.push({ el:sp, ch:c, at: Math.random() < CLICK.coverage ? (0.25 + Math.random() * 0.75) * CLICK.duration : 0 });
+    }
+    el.textContent = '';
+    el.appendChild(frag);
+    var start = performance.now(), last = 0, raf = 0, done = false;
+    function finish(){
+      if(done) return;
+      done = true; cancelAnimationFrame(raf);
+      el.textContent = orig; el.removeAttribute('aria-label'); el._gl = null;
+    }
+    el._gl = { cancel: finish };
+    function tick(now){
+      if(done) return;
+      var t = now - start;
+      if(t >= CLICK.duration){ finish(); return; }
+      if(now - last >= CLICK.tick){
+        last = now;
+        chars.forEach(function(o){
+          o.el.textContent = (t >= o.at || Math.random() > 0.8) ? o.ch : GLYPHS.charAt(Math.floor(Math.random() * GLYPHS.length));
+        });
+      }
+      raf = requestAnimationFrame(tick);
+    }
+    raf = requestAnimationFrame(tick);
   }
 
-  /* reveal on scroll */
-  var rev = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
-    for (var r = 0; r < rev.length; r++) io.observe(rev[r]);
-  } else {
-    for (var r2 = 0; r2 < rev.length; r2++) rev[r2].classList.add('on');
-  }
+  document.addEventListener('click', function(e){
+    var t = e.target.closest(SEL);
+    if(!t) return;
+    glitchText(t);
+    var a = t.closest('a');
+    if(a && a.getAttribute('href') && !a.target && e.button === 0 && !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) && !reduce.matches){
+      e.preventDefault();
+      var href = a.href;
+      setTimeout(function(){ location.href = href; }, NAV_DELAY);
+    }
+  });
+
+  /* tornando indietro col browser, nessun testo resta a metà effetto */
+  window.addEventListener('pageshow', function(){
+    document.querySelectorAll(SEL).forEach(function(el){ if(el._gl) el._gl.cancel(); el.classList.remove('nx'); });
+  });
 })();
 </script>
 </body>

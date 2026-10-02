@@ -4,35 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<title>Liminals - minimal deep tech &amp; house · Trieste</title>
-<meta name="description" content="Duo DJ di Trieste. zacku e Teo, minimal deep tech e house: set a due mani di tre ore o più, costruiti insieme.">
-<link rel="canonical" href="https://liminalsmusic.com/">
+<title>About - Liminals</title>
+<meta name="description" content="Liminals ricrea zone intermedie e di passaggio: suono elettronico intrecciato con suoni frammentati, sfocati e profondi. Duo DJ di Trieste, zacku e Teo.">
+<link rel="canonical" href="https://liminalsmusic.com/about.html">
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://liminalsmusic.com/">
+<meta property="og:url" content="https://liminalsmusic.com/about.html">
 <meta property="og:site_name" content="Liminals">
 <meta property="og:locale" content="it_IT">
-<meta property="og:title" content="Minimal deep tech &amp; House · zacku b2b Teo">
-<meta property="og:description" content="Duo DJ di Trieste. zacku e Teo, minimal deep tech e house: set a due mani di tre ore o più, costruiti insieme.">
+<meta property="og:title" content="About - Liminals">
+<meta property="og:description" content="Liminals ricrea zone intermedie e di passaggio: suono elettronico intrecciato con suoni frammentati, sfocati e profondi.">
 <meta property="og:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Minimal deep tech &amp; House · zacku b2b Teo">
-
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Minimal deep tech &amp; House · zacku b2b Teo">
-<meta name="twitter:description" content="Duo DJ di Trieste. zacku e Teo, minimal deep tech e house: set a due mani di tre ore o più, costruiti insieme.">
 <meta name="twitter:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
 
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/favicon.png">
 <meta name="theme-color" content="#151515">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicGroup","name":"Liminals","genre":["minimal deep tech","house"],"foundingLocation":{"@type":"Place","name":"Trieste, IT"},"member":[{"@type":"Person","name":"zacku"},{"@type":"Person","name":"Teo"}],"url":"https://liminalsmusic.com/","email":"hello@liminalsmusic.com","sameAs":["https://www.mixcloud.com/zackuu/","https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl"]}</script>
-
-<link rel="preload" href="assets/fonts/Outfit-Regular.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="assets/fonts/Outfit-Light.otf" as="font" type="font/otf" crossorigin>
 
 <style>
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
 @font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
 @font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.otf') format('opentype'); font-weight:500; font-display:swap; }
 
@@ -41,22 +36,23 @@
   --cream: #FEFAEF;
   --accent: #FC4446;
   --margin: clamp(20px, 4vw, 60px);
+  --nav-size: clamp(21px, 1.75vw, 26px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html, body { height: 100%; margin: 0; }
+html, body { margin: 0; }
 
 body {
+  min-height: 100vh;
   background: var(--bg);
   color: var(--cream);
   font-family: 'Outfit', Arial, sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;
 }
 
-/* fondo: luce sgranata, si muove appena */
+/* fondo: luce sgranata, si muove appena (fisso mentre il testo scorre) */
 .fondo {
   position: fixed;
   inset: -4%;
@@ -64,7 +60,6 @@ body {
   background: var(--bg) url('assets/img/bg-noise.jpg') 60% center / cover no-repeat;
   animation: deriva 48s ease-in-out infinite alternate;
 }
-/* abbassa la luce: deve restare un respiro, non un faro */
 .fondo::after {
   content: "";
   position: absolute;
@@ -76,55 +71,94 @@ body {
   to   { transform: translate3d(-2%, 1.5%, 0) scale(1.05); }
 }
 
-.pagina {
-  position: relative;
-  z-index: 1;
-  height: 100vh;
-  height: 100svh;
-  padding:
-    calc(var(--margin) + env(safe-area-inset-top, 0px))
-    calc(var(--margin) + env(safe-area-inset-right, 0px))
-    calc(var(--margin) + env(safe-area-inset-bottom, 0px))
-    calc(var(--margin) + env(safe-area-inset-left, 0px));
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* nav */
-nav { align-self: flex-end; }
-nav ul { list-style: none; margin: 0; padding: 0; }
-nav a {
-  display: inline-block;
-  color: var(--cream);
-  text-decoration: none;
-  font-size: clamp(21px, 1.75vw, 26px);
-  line-height: 1.15;
-  transition: color .2s;
-}
-nav a:hover,
-nav a:focus-visible,
-nav a[aria-current="page"] { color: var(--accent); }
-
+a { color: var(--cream); text-decoration: none; transition: color .2s; }
+a:hover, a:focus-visible, a[aria-current="page"] { color: var(--accent); }
 a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
 
 /* EFFETTI INTERAZIONE: warp analogico al passaggio (classe aggiunta dallo script) */
 .nx { filter: url(#warp-nav); }
 
-/* marchio */
-h1 {
-  margin: 0;
-  font-weight: 500;
-  font-size: clamp(64px, 10vw, 160px);
-  line-height: .8;
-  letter-spacing: -0.02em;
-  margin-bottom: clamp(4px, 1.5vw, 24px);
-  margin-left: -0.05em; /* allinea l'asta della L al margine */
+.pagina {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding:
+    calc(var(--margin) + env(safe-area-inset-top, 0px))
+    calc(var(--margin) + env(safe-area-inset-right, 0px))
+    calc(var(--margin) + env(safe-area-inset-bottom, 0px))
+    calc(var(--margin) + env(safe-area-inset-left, 0px));
+}
+
+/* testata: marchio a sinistra (torna alla home), nav a destra */
+.testata {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: var(--nav-size);
+  line-height: 1.15;
+}
+.marchio { font-weight: 500; display: inline-block; }
+.testata ul { list-style: none; margin: 0; padding: 0; }
+.testata li a { display: inline-block; }
+
+/* contenuto */
+.contenuto {
+  display: grid;
+  grid-template-columns: 47% 1fr;
+  column-gap: 19.5%;
+  align-items: center;
+  margin-top: clamp(48px, 8vw, 110px);
+}
+.testo {
+  font-weight: 300;
+  font-size: clamp(16px, 1.36vw, 19px);
+  line-height: 1.37;
+  max-width: 38em;
+}
+.testo p { margin: 0 0 1.37em; }
+.testo p:last-child { margin-bottom: 0; }
+
+/* Outfit non ha ī e ĭ: si compongono dalla i senza punto, la breve è disegnata */
+.lat { position: relative; display: inline-block; }
+.breve::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: .2em;
+  width: .3em;
+  height: .14em;
+  border: 1px solid currentColor;
+  border-top: 0;
+  border-radius: 0 0 .2em .2em;
+  transform: translateX(-50%);
+}
+
+.altro {
+  font-size: var(--nav-size);
+  line-height: 1.15;
+}
+.altro p { margin: 0; }
+.altro ul { list-style: none; margin: 0; padding: 0; }
+.altro a { display: inline-block; }
+
+@media (max-width: 899px) {
+  .contenuto {
+    grid-template-columns: 1fr;
+    margin-top: 72px;
+  }
+  .testo { font-size: 16px; }
+  .altro {
+    justify-self: end;
+    width: 39%;
+    min-width: max-content;
+    margin-top: 56px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .fondo { animation: none; inset: 0; }
-  nav a { transition: none; }
+  a { transition: none; }
   .nx { filter: none; }
 }
 </style>
@@ -145,18 +179,36 @@ h1 {
 
 <div class="fondo" aria-hidden="true"></div>
 
-<main class="pagina">
-  <nav aria-label="Navigazione principale">
-    <ul>
-      <li><a href="about.html">/About</a></li>
-      <li><a href="music.html">/Music</a></li>
-      <li><a href="contatti.html">/Contact</a></li>
-    </ul>
-  </nav>
+<div class="pagina">
+  <header class="testata">
+    <a class="marchio" href="index.html">Liminals</a>
+    <nav aria-label="Navigazione principale">
+      <ul>
+        <li><a href="about.html" aria-current="page">/About</a></li>
+        <li><a href="music.html">/Music</a></li>
+        <li><a href="contatti.html">/Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <h1>Liminals</h1>
-</main>
+  <main class="contenuto">
+    <article class="testo">
+      <p>/liminale/</p>
+      <p>agg. [dal lat. l<span class="lat">ı&#x304;</span>men -m<span class="lat breve">ı</span>nis «soglia»]. In psicologia e nelle scienze della percezione indica ciò che si colloca al confine della consapevolezza, in una zona intermedia tra ciò che viene percepito chiaramente e ciò che resta appena oltre l'attenzione cosciente. Il termine descrive quindi fenomeni, stati o esperienze che si trovano in una fase di passaggio, di transizione, al margine della percezione.</p>
+      <p>Liminals ricrea quelle zone intermedie e di passaggio, inconfondibili, per cercare una familiarità nell'ascoltatore: costruire nella sua percezione qualcosa di ricorrente e vicino.</p>
+      <p>Il suono di Liminals ha una base elettronica, intrecciata con suoni frammentati, sfocati e profondi, capaci di risuonare nelle persone e di creare sensazioni singolari.</p>
+      <p>L'ambiente che nasce dalle scelte artistiche e musicali di Liminals è lo stesso che si ritrova in contesti di spessore, di rilievo e di esclusività, ma aperto a tutti coloro che rispettano l'ascolto e gli altri ascoltatori.</p>
+    </article>
 
+    <aside class="altro" aria-label="Leggi anche">
+      <p>Leggi anche</p>
+      <ul>
+        <li><a href="pitch.html">/Pitch</a></li>
+        <li><a href="manifesto.html">/Manifesto</a></li>
+      </ul>
+    </aside>
+  </main>
+</div>
 <!-- EFFETTI INTERAZIONE: identico su tutte le pagine.
      Passaggio del cursore = glitch analogico. Click/tap = numeri e simboli che si ricompongono. -->
 <script>
