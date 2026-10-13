@@ -113,7 +113,9 @@ a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outlin
   align-items: center;
   /* il blocco elenco + riquadro sta al centro dello spazio sotto la testata */
   min-height: calc(100svh - 2 * var(--margin) - 3.45 * var(--nav-size));
-  padding: clamp(32px, 4vw, 56px) 0;
+  /* respiro verticale legato all'altezza dello schermo, cosi su desktop non serve scorrere */
+  --pad: clamp(16px, 4svh, 56px);
+  padding: var(--pad) 0;
 }
 
 .sets {
@@ -143,7 +145,9 @@ a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outlin
   grid-column: 3;
   position: relative;
   display: grid;
-  width: clamp(300px, 24vw, 360px);
+  /* largo come prima, ma mai piu alto dello spazio libero sotto la testata
+     (altezza riquadro = circa 1.05 x larghezza + 62px di player) */
+  width: clamp(240px, min(24vw, calc((100svh - 2 * var(--margin) - 3.45 * var(--nav-size) - 2 * var(--pad) - 66px) / 1.05)), 360px);
   --g: 0;
 }
 .panel {

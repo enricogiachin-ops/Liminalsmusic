@@ -30,6 +30,8 @@
 @font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
 @font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
 @font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.otf') format('opentype'); font-weight:500; font-display:swap; }
+/* Outfit non ha la freccia diagonale: la prende da Satoshi Light, solo per quel carattere */
+@font-face { font-family:'Freccia'; src:url('assets/fonts/Satoshi-Light.otf') format('opentype'); font-weight:300; font-display:swap; unicode-range: U+2197; }
 
 :root {
   --bg: #151515;
@@ -203,11 +205,15 @@ button:hover, button:focus-visible { color: var(--accent); border-color: var(--a
 }
 .riferimenti p { margin: 0; }
 .blocco + .blocco { margin-top: 1.37em; }
-.voce { font-weight: 400; }
-.riferimenti a {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: .18em;
+/* voci leggere come i testi di About, link senza sottolineatura */
+.voce { font-weight: 300; }
+.riferimenti a { text-decoration: none; }
+/* freccia diagonale sui link esterni: segnala che si apre un'altra pagina */
+.riferimenti a[target="_blank"]::after {
+  content: "\2197";
+  font-family: 'Freccia', 'Outfit', Arial, sans-serif;
+  font-weight: 300;
+  margin-left: .3em;
 }
 
 @media (max-width: 899px) {
@@ -294,8 +300,8 @@ button:hover, button:focus-visible { color: var(--accent); border-color: var(--a
         </div>
         <div class="blocco">
           <p class="voce">/Social</p>
-          <p>(ig) <a href="https://www.instagram.com/enricogiachin/" target="_blank" rel="noopener">@enricogiachin</a></p>
-          <p>(ig) <a href="https://www.instagram.com/matteoosaviino/" target="_blank" rel="noopener">@matteoosaviino</a></p>
+          <p><a href="https://www.instagram.com/enricogiachin/" target="_blank" rel="noopener">@enricogiachin</a></p>
+          <p><a href="https://www.instagram.com/matteoosaviino/" target="_blank" rel="noopener">@matteoosaviino</a></p>
         </div>
       </div>
       <div class="colonna">
