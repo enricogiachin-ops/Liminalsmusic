@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Music - Liminals</title>
+<meta name="description" content="Ascolta Liminals: zacku and Teo - Aurisina session, zacku - JëgerLab 2026, Teo - Liminals set. Minimal deep tech e house da Trieste.">
+<link rel="canonical" href="https://liminalsmusic.com/music.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://liminalsmusic.com/music.html">
+<meta property="og:site_name" content="Liminals">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Music - Liminals">
+<meta property="og:description" content="Ascolta Liminals: zacku and Teo - Aurisina session, zacku - JëgerLab 2026, Teo - Liminals set. Minimal deep tech e house da Trieste.">
+<meta property="og:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
+
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
+<meta name="theme-color" content="#151515">
+
+<link rel="preload" href="assets/fonts/Outfit-Light.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+
+:root {
+  --bg: #151515;
+  --cream: #FEFAEF;
+  --accent: #FC4446;
+  --margin: clamp(20px, 4vw, 60px);
+  --nav-size: clamp(21px, 1.75vw, 26px);
+  /* fondo del riquadro: crema al 6% sul nero, coprente */
+  --riquadro: color-mix(in srgb, #FEFAEF 6%, #151515);
+  /* cambio set: dissolvenza + salita (dalla prova) */
+  --out: 350ms; --in-delay: 200ms; --in-fade: 500ms; --in-slide: 650ms; --rise: 20px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Outfit', Arial, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* fondo: luce sgranata, si muove appena (fisso mentre il testo scorre) */
+.fondo {
+  position: fixed;
+  inset: -4%;
+  z-index: 0;
+  background: var(--bg) url('assets/img/bg-noise.jpg') 60% center / cover no-repeat;
+  background-image: image-set(url('assets/img/bg-noise.webp') type('image/webp'), url('assets/img/bg-noise.jpg') type('image/jpeg'));
+  animation: deriva 48s ease-in-out infinite alternate;
+}
+.fondo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 21, 21, .45);
+}
+@keyframes deriva {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-2%, 1.5%, 0) scale(1.05); }
+}
+
+a { color: var(--cream); text-decoration: none; transition: color .2s; }
+a:hover, a:focus-visible, a[aria-current="page"] { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+
+/* EFFETTI INTERAZIONE: warp analogico al passaggio (classe aggiunta dallo script) */
+.nx { filter: url(#warp-nav); }
+
+.pagina {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding:
+    calc(var(--margin) + env(safe-area-inset-top, 0px))
+    calc(var(--margin) + env(safe-area-inset-right, 0px))
+    calc(var(--margin) + env(safe-area-inset-bottom, 0px))
+    calc(var(--margin) + env(safe-area-inset-left, 0px));
+}
+
+/* testata: marchio a sinistra (torna alla home), nav a destra */
+.testata {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: var(--nav-size);
+  line-height: 1.15;
+}
+.marchio { font-weight: 500; display: inline-block; }
+.testata ul { list-style: none; margin: 0; padding: 0; }
+.testata li a { display: inline-block; }
+
+/* contenuto: elenco set a sinistra, un solo riquadro a destra */
+.contenuto {
+  display: grid;
+  grid-template-columns: 22.8% 33.9% auto;
+  align-items: center;
+  /* il blocco elenco + riquadro sta al centro dello spazio sotto la testata */
+  min-height: calc(100svh - 2 * var(--margin) - 3.45 * var(--nav-size));
+  /* respiro verticale legato all'altezza dello schermo, cosi su desktop non serve scorrere */
+  --pad: clamp(16px, 4svh, 56px);
+  padding: var(--pad) 0;
+}
+
+.sets {
+  grid-column: 2;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+  font-size: clamp(16px, 1.36vw, 19px);
+  line-height: 1.37;
+}
+.sets button {
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--cream);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: color 250ms ease;
+}
+.sets button:hover,
+.sets button[aria-pressed="true"] { color: var(--accent); }
+
+/* riquadro: come nel pdf di Teo */
+.media {
+  grid-column: 3;
+  position: relative;
+  display: grid;
+  /* largo come prima, ma mai piu alto dello spazio libero sotto la testata
+     (altezza riquadro = circa 1.05 x larghezza + 62px di player) */
+  width: clamp(240px, min(24vw, calc((100svh - 2 * var(--margin) - 3.45 * var(--nav-size) - 2 * var(--pad) - 66px) / 1.05)), 360px);
+  --g: 0;
+}
+.panel {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(var(--rise));
+  transition: opacity var(--out) ease, visibility 0s linear var(--out), transform 0s linear var(--out);
+}
+.panel.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    opacity var(--in-fade) ease var(--in-delay),
+    visibility 0s linear 0s,
+    transform var(--in-slide) cubic-bezier(.2,.7,.2,1) var(--in-delay);
+}
+.no-anim .panel, .no-anim .panel.is-active { transition: none; }
+
+.riquadro {
+  display: block;
+  padding: 7.5% 9%;
+  background: var(--riquadro);
+  border: 1px solid var(--accent);
+}
+.cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+/* ascolto: player Mixcloud compatto, come nella pagina online */
+.player {
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin-top: 9%;
+  border: 0;
+  background: transparent;
+}
+
+/* effetto al cambio set: warp orizzontale + grana che si muove */
+.media.fx { filter: url(#warp); }
+.media::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  pointer-events: none;
+  opacity: var(--g);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 .98  0 0 0 0 .94  0 0 2.4 0 -.75'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+}
+.media.fx::after { animation: grana .45s infinite; }
+@keyframes grana {
+  0%   { background-position: 0 0; }
+  20%  { background-position: -70px 40px; }
+  40%  { background-position: 50px -80px; }
+  60%  { background-position: -30px -30px; }
+  80%  { background-position: 90px 60px; }
+  100% { background-position: 0 0; }
+}
+
+@media (max-width: 899px) {
+  .contenuto {
+    display: block;
+    width: min(100%, 320px);
+    margin: 72px auto 0;
+  }
+  .sets { font-size: 16px; }
+  .contenuto { min-height: 0; padding: 0; }
+  .media { width: 100%; margin-top: 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fondo { animation: none; inset: 0; }
+  a, .sets button { transition: none; }
+  .nx { filter: none; }
+  .panel, .panel.is-active { transform: none; }
+  .panel { transition: opacity 150ms ease, visibility 0s linear 150ms; }
+  .panel.is-active { transition: opacity 150ms ease, visibility 0s linear 0s; }
+  .media.fx { filter: none; }
+  .media::after { display: none; }
+}
+.sr-only { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+</style>
+</head>
+<body class="no-anim">
+
+<!-- EFFETTI INTERAZIONE: filtro SVG per il glitch analogico (identico su tutte le pagine) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="warp-nav" x="-15%" y="-20%" width="130%" height="140%" color-interpolation-filters="sRGB">
+    <feTurbulence id="turbN" type="turbulence" baseFrequency="0.004 0.12" numOctaves="1" seed="5" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="1 0 0 0 0  0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 1" result="m"/>
+    <feDisplacementMap id="dispN" in="SourceGraphic" in2="m" scale="0" xChannelSelector="R" yChannelSelector="G" result="w"/>
+    <feTurbulence id="grainN" type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="8" result="g"/>
+    <feColorMatrix id="erodeN" in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0 1" result="ga"/>
+    <feComposite in="w" in2="ga" operator="in"/>
+  </filter>
+</svg>
+<!-- filtro del cambio set (solo in questa pagina) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="warp" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+    <feTurbulence id="turb" type="turbulence" baseFrequency="0.002 0.05" numOctaves="1" seed="3" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="1 0 0 0 0  0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 1" result="m"/>
+    <feDisplacementMap id="disp" in="SourceGraphic" in2="m" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="fondo" aria-hidden="true"></div>
+
+<div class="pagina">
+  <header class="testata">
+    <a class="marchio" href="index.html">Liminals</a>
+    <nav aria-label="Navigazione principale">
+      <ul>
+        <li><a href="about.html">/About</a></li>
+        <li><a href="music.html" aria-current="page">/Music</a></li>
+        <li><a href="contatti.html">/Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contenuto">
+    <h1 class="sr-only">Music</h1>
+    <ul class="sets" aria-label="Set">
+      <li><button type="button" aria-pressed="true" aria-controls="set-0">/zacku and Teo - Aurisina session</button></li>
+      <li><button type="button" aria-pressed="false" aria-controls="set-1">/zacku - JëgerLab 2026</button></li>
+      <li><button type="button" aria-pressed="false" aria-controls="set-2">/Teo - Liminals set</button></li>
+    </ul>
+
+    <div class="media" id="media" aria-live="polite">
+      <div class="panel is-active" id="set-0">
+        <div class="riquadro">
+          <a href="https://www.mixcloud.com/zackuu/zacku-and-teo-aurisina-session/" target="_blank" rel="noopener" aria-label="Apri zacku and Teo - Aurisina session su Mixcloud"><img class="cover" loading="lazy" src="assets/img/track-aurisina.jpg" alt="" width="600" height="600"></a>
+          <iframe class="player" title="zacku and Teo - Aurisina session (player)" data-src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;mini=1&amp;light=0&amp;feed=%2Fzackuu%2Fzacku-and-teo-aurisina-session%2F" scrolling="no" allow="encrypted-media *; autoplay *; fullscreen *"></iframe>
+        </div>
+      </div>
+      <div class="panel" id="set-1" aria-hidden="true">
+        <div class="riquadro">
+          <a href="https://www.mixcloud.com/zackuu/zacku-j%C3%ABgerlab-2026/" target="_blank" rel="noopener" aria-label="Apri zacku - JëgerLab 2026 su Mixcloud"><img class="cover" loading="lazy" src="assets/img/track-jegerlab.jpg" alt="" width="600" height="600"></a>
+          <iframe class="player" title="zacku - JëgerLab 2026 (player)" data-src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;mini=1&amp;light=0&amp;feed=%2Fzackuu%2Fzacku-j%25C3%25ABgerlab-2026%2F" scrolling="no" allow="encrypted-media *; autoplay *; fullscreen *"></iframe>
+        </div>
+      </div>
+      <div class="panel" id="set-2" aria-hidden="true">
+        <div class="riquadro">
+          <a href="https://www.mixcloud.com/TeoOod/liminals_teo-set/" target="_blank" rel="noopener" aria-label="Apri Teo - Liminals set su Mixcloud"><img class="cover" loading="lazy" src="assets/img/track-teo.jpg" alt="" width="600" height="600"></a>
+          <iframe class="player" title="Teo - Liminals set (player)" data-src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;mini=1&amp;light=0&amp;feed=%2FTeoOod%2Fliminals_teo-set%2F" scrolling="no" allow="encrypted-media *; autoplay *; fullscreen *"></iframe>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- cambio set: un solo riquadro, cambia con dissolvenza, warp e grana (dalla prova); un solo player in ascolto -->
+<script>
+(function(){
+  var FX = { warp:9, grain:0.16, duration:950, peak:0.3 };
+  var btns = document.querySelectorAll('.sets button');
+  var panels = document.querySelectorAll('.panel');
+  var media = document.getElementById('media');
+  var turb = document.getElementById('turb'), disp = document.getElementById('disp');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var current = 0, token = 0;
+
+  function runFx(){
+    if(reduce.matches) return;
+    var my = ++token, start = performance.now(), frame = 0;
+    media.classList.add('fx');
+    function tick(now){
+      if(my !== token) return;
+      var t = (now - start) / FX.duration;
+      if(t >= 1){ media.classList.remove('fx'); media.style.setProperty('--g', 0); disp.setAttribute('scale', 0); return; }
+      var env = t < FX.peak ? t / FX.peak : Math.pow((1 - t) / (1 - FX.peak), 1.8);
+      disp.setAttribute('scale', (FX.warp * env).toFixed(2));
+      media.style.setProperty('--g', (FX.grain * env).toFixed(3));
+      if(frame++ % 3 === 0) turb.setAttribute('seed', Math.floor(Math.random() * 200));
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* un solo player attivo: quello del set visibile si carica, quello che esce si ferma */
+  function player(k){ return panels[k].querySelector('.player'); }
+  function load(k){ var f = player(k); if(f && f.getAttribute('src') !== f.dataset.src) f.setAttribute('src', f.dataset.src); }
+  function stop(k){ var f = player(k); if(f && f.getAttribute('src')) f.removeAttribute('src'); }
+  load(0);
+
+  function select(i){
+    if(i === current) return;
+    var prev = current;
+    setTimeout(function(){ if(current !== prev) stop(prev); }, 400);
+    load(i);
+    current = i;
+    btns.forEach(function(b, k){ b.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
+    panels.forEach(function(p, k){
+      var on = k === i;
+      p.classList.toggle('is-active', on);
+      if(on) p.removeAttribute('aria-hidden'); else p.setAttribute('aria-hidden', 'true');
+    });
+    runFx();
+  }
+  btns.forEach(function(b, i){ b.addEventListener('click', function(){ select(i); }); });
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.remove('no-anim'); }); });
+})();
+</script>
+<!-- EFFETTI INTERAZIONE: identico su tutte le pagine.
+     Passaggio del cursore = glitch analogico. Click/tap = numeri e simboli che si ricompongono. -->
+<script>
+(function(){
+  var SEL = 'a[href], button';           /* tutto ciò che è interagibile */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* hover: warp orizzontale + grana che erode la lettera */
+  var HOVER = { warp:5, erode:0.4, duration:600, peak:0.2 };
+  var dispN = document.getElementById('dispN'), turbN = document.getElementById('turbN');
+  var grainN = document.getElementById('grainN'), erodeN = document.getElementById('erodeN');
+  var hToken = 0, hActive = null;
+
+  function hoverFx(el){
+    if(reduce.matches) return;
+    if(hActive && hActive !== el) hActive.classList.remove('nx');
+    hActive = el;
+    var my = ++hToken, start = performance.now(), frame = 0;
+    el.classList.add('nx');
+    function tick(now){
+      if(my !== hToken) return;
+      var t = (now - start) / HOVER.duration;
+      if(t >= 1){ el.classList.remove('nx'); dispN.setAttribute('scale', 0); return; }
+      var env = t < HOVER.peak ? t / HOVER.peak : Math.pow((1 - t) / (1 - HOVER.peak), 1.8);
+      var e = HOVER.erode * env;
+      dispN.setAttribute('scale', (HOVER.warp * env).toFixed(2));
+      erodeN.setAttribute('values', '0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 ' + (4 * e).toFixed(3) + ' 0 ' + (1 - 2.4 * e).toFixed(3));
+      if(frame++ % 3 === 0){
+        turbN.setAttribute('seed', Math.floor(Math.random() * 200));
+        grainN.setAttribute('seed', Math.floor(Math.random() * 200));
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  document.querySelectorAll(SEL).forEach(function(el){
+    el.addEventListener('pointerenter', function(e){ if(e.pointerType !== 'touch') hoverFx(el); });
+    el.addEventListener('focus', function(){ if(el.matches(':focus-visible')) hoverFx(el); });
+  });
+
+  /* click: le lettere diventano numeri e simboli, poi si ricompongono */
+  var CLICK = { coverage:0.6, duration:650, tick:55 };
+  var GLYPHS = '0123456789#%&@$*+=/\\|<>?!§¤';
+  var NAV_DELAY = 500;                   /* ms prima di cambiare pagina, per far vedere l'effetto */
+
+  function glitchText(el){
+    if(reduce.matches || el.children.length) return;   /* solo elementi di puro testo */
+    if(el._gl) el._gl.cancel();
+    var orig = el.textContent.trim();
+    el.textContent = orig;
+    var tn = el.firstChild;
+    if(!tn || tn.nodeType !== 3) return;
+    var range = document.createRange(), widths = [], i;
+    for(i = 0; i < orig.length; i++){ range.setStart(tn, i); range.setEnd(tn, i + 1); widths.push(range.getBoundingClientRect().width); }
+    el.setAttribute('aria-label', orig);
+    var frag = document.createDocumentFragment(), chars = [], word = null;
+    for(i = 0; i < orig.length; i++){
+      var c = orig.charAt(i);
+      if(c === ' '){ word = null; frag.appendChild(document.createTextNode(' ')); continue; }
+      if(!word){ word = document.createElement('span'); word.style.whiteSpace = 'nowrap'; word.setAttribute('aria-hidden', 'true'); frag.appendChild(word); }
+      var sp = document.createElement('span');
+      sp.style.cssText = 'display:inline-flex;justify-content:center;width:' + widths[i] + 'px';
+      sp.textContent = c;
+      word.appendChild(sp);
+      chars.push({ el:sp, ch:c, at: Math.random() < CLICK.coverage ? (0.25 + Math.random() * 0.75) * CLICK.duration : 0 });
+    }
+    el.textContent = '';
+    el.appendChild(frag);
+    var start = performance.now(), last = 0, raf = 0, done = false;
+    function finish(){
+      if(done) return;
+      done = true; cancelAnimationFrame(raf);
+      el.textContent = orig; el.removeAttribute('aria-label'); el._gl = null;
+    }
+    el._gl = { cancel: finish };
+    function tick(now){
+      if(done) return;
+      var t = now - start;
+      if(t >= CLICK.duration){ finish(); return; }
+      if(now - last >= CLICK.tick){
+        last = now;
+        chars.forEach(function(o){
+          o.el.textContent = (t >= o.at || Math.random() > 0.8) ? o.ch : GLYPHS.charAt(Math.floor(Math.random() * GLYPHS.length));
+        });
+      }
+      raf = requestAnimationFrame(tick);
+    }
+    raf = requestAnimationFrame(tick);
+  }
+
+  document.addEventListener('click', function(e){
+    var t = e.target.closest(SEL);
+    if(!t) return;
+    glitchText(t);
+    var a = t.closest('a');
+    if(a && a.getAttribute('href') && !a.target && e.button === 0 && !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) && !reduce.matches){
+      e.preventDefault();
+      var href = a.href;
+      setTimeout(function(){ location.href = href; }, NAV_DELAY);
+    }
+  });
+
+  /* tornando indietro col browser, nessun testo resta a metà effetto */
+  window.addEventListener('pageshow', function(){
+    document.querySelectorAll(SEL).forEach(function(el){ if(el._gl) el._gl.cancel(); el.classList.remove('nx'); });
+  });
+})();
+</script>
+</body>
+</html>

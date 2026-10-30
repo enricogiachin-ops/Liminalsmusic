@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>About - Liminals</title>
+<meta name="description" content="Liminals ricrea zone intermedie e di passaggio: suono elettronico intrecciato con suoni frammentati, sfocati e profondi. Duo DJ di Trieste, zacku e Teo.">
+<link rel="canonical" href="https://liminalsmusic.com/about.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://liminalsmusic.com/about.html">
+<meta property="og:site_name" content="Liminals">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="About - Liminals">
+<meta property="og:description" content="Liminals ricrea zone intermedie e di passaggio: suono elettronico intrecciato con suoni frammentati, sfocati e profondi.">
+<meta property="og:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
+
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
+<meta name="theme-color" content="#151515">
+
+<link rel="preload" href="assets/fonts/Outfit-Light.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+
+:root {
+  --bg: #151515;
+  --cream: #FEFAEF;
+  --accent: #FC4446;
+  --margin: clamp(20px, 4vw, 60px);
+  --nav-size: clamp(21px, 1.75vw, 26px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Outfit', Arial, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* fondo: luce sgranata, si muove appena (fisso mentre il testo scorre) */
+.fondo {
+  position: fixed;
+  inset: -4%;
+  z-index: 0;
+  background: var(--bg) url('assets/img/bg-noise.jpg') 60% center / cover no-repeat;
+  background-image: image-set(url('assets/img/bg-noise.webp') type('image/webp'), url('assets/img/bg-noise.jpg') type('image/jpeg'));
+  animation: deriva 48s ease-in-out infinite alternate;
+}
+.fondo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 21, 21, .45);
+}
+@keyframes deriva {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-2%, 1.5%, 0) scale(1.05); }
+}
+
+a { color: var(--cream); text-decoration: none; transition: color .2s; }
+a:hover, a:focus-visible, a[aria-current="page"] { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+
+/* EFFETTI INTERAZIONE: warp analogico al passaggio (classe aggiunta dallo script) */
+.nx { filter: url(#warp-nav); }
+
+.pagina {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding:
+    calc(var(--margin) + env(safe-area-inset-top, 0px))
+    calc(var(--margin) + env(safe-area-inset-right, 0px))
+    calc(var(--margin) + env(safe-area-inset-bottom, 0px))
+    calc(var(--margin) + env(safe-area-inset-left, 0px));
+}
+
+/* testata: marchio a sinistra (torna alla home), nav a destra */
+.testata {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: var(--nav-size);
+  line-height: 1.15;
+}
+.marchio { font-weight: 500; display: inline-block; }
+.testata ul { list-style: none; margin: 0; padding: 0; }
+.testata li a { display: inline-block; }
+
+/* contenuto */
+.contenuto {
+  display: grid;
+  grid-template-columns: 47% 1fr;
+  column-gap: 19.5%;
+  align-items: center;
+  margin-top: clamp(48px, 8vw, 110px);
+}
+.testo {
+  font-weight: 300;
+  font-size: clamp(16px, 1.36vw, 19px);
+  line-height: 1.37;
+  max-width: 38em;
+}
+.testo p { margin: 0 0 1.37em; }
+.testo p:last-child { margin-bottom: 0; }
+
+/* Outfit non ha ī e ĭ: si compongono dalla i senza punto, la breve è disegnata */
+.lat { position: relative; display: inline-block; }
+.breve::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: .2em;
+  width: .3em;
+  height: .14em;
+  border: 1px solid currentColor;
+  border-top: 0;
+  border-radius: 0 0 .2em .2em;
+  transform: translateX(-50%);
+}
+
+.altro {
+  font-size: var(--nav-size);
+  line-height: 1.15;
+}
+.altro p { margin: 0; }
+.altro ul { list-style: none; margin: 0; padding: 0; }
+.altro a { display: inline-block; }
+
+@media (max-width: 899px) {
+  .contenuto {
+    grid-template-columns: 1fr;
+    margin-top: 72px;
+  }
+  .testo { font-size: 16px; }
+  .altro {
+    justify-self: end;
+    width: 39%;
+    min-width: max-content;
+    margin-top: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fondo { animation: none; inset: 0; }
+  a { transition: none; }
+  .nx { filter: none; }
+}
+.sr-only { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+</style>
+</head>
+<body>
+
+<!-- EFFETTI INTERAZIONE: filtro SVG per il glitch analogico (identico su tutte le pagine) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="warp-nav" x="-15%" y="-20%" width="130%" height="140%" color-interpolation-filters="sRGB">
+    <feTurbulence id="turbN" type="turbulence" baseFrequency="0.004 0.12" numOctaves="1" seed="5" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="1 0 0 0 0  0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 1" result="m"/>
+    <feDisplacementMap id="dispN" in="SourceGraphic" in2="m" scale="0" xChannelSelector="R" yChannelSelector="G" result="w"/>
+    <feTurbulence id="grainN" type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="8" result="g"/>
+    <feColorMatrix id="erodeN" in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0 1" result="ga"/>
+    <feComposite in="w" in2="ga" operator="in"/>
+  </filter>
+</svg>
+
+<div class="fondo" aria-hidden="true"></div>
+
+<div class="pagina">
+  <header class="testata">
+    <a class="marchio" href="index.html">Liminals</a>
+    <nav aria-label="Navigazione principale">
+      <ul>
+        <li><a href="about.html" aria-current="page">/About</a></li>
+        <li><a href="music.html">/Music</a></li>
+        <li><a href="contatti.html">/Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contenuto">
+    <h1 class="sr-only">About</h1>
+    <article class="testo">
+      <p>/liminale/</p>
+      <p>agg. [dal lat. l<span class="lat">ı&#x304;</span>men -m<span class="lat breve">ı</span>nis «soglia»]. In psicologia e nelle scienze della percezione indica ciò che si colloca al confine della consapevolezza, in una zona intermedia tra ciò che viene percepito chiaramente e ciò che resta appena oltre l'attenzione cosciente. Il termine descrive quindi fenomeni, stati o esperienze che si trovano in una fase di passaggio, di transizione, al margine della percezione.</p>
+      <p>Liminals ricrea quelle zone intermedie e di passaggio, inconfondibili, per cercare una familiarità nell'ascoltatore: costruire nella sua percezione qualcosa di ricorrente e vicino.</p>
+      <p>Il suono di Liminals ha una base elettronica, intrecciata con suoni frammentati, sfocati e profondi, capaci di risuonare nelle persone e di creare sensazioni singolari.</p>
+      <p>L'ambiente che nasce dalle scelte artistiche e musicali di Liminals è lo stesso che si ritrova in contesti di spessore, di rilievo e di esclusività, ma aperto a tutti coloro che rispettano l'ascolto e gli altri ascoltatori.</p>
+    </article>
+
+    <aside class="altro" aria-label="Leggi anche">
+      <p>Leggi anche</p>
+      <ul>
+        <li><a href="pitch.html">/Pitch</a></li>
+        <li><a href="manifesto.html">/Manifesto</a></li>
+      </ul>
+    </aside>
+  </main>
+</div>
+<!-- EFFETTI INTERAZIONE: identico su tutte le pagine.
+     Passaggio del cursore = glitch analogico. Click/tap = numeri e simboli che si ricompongono. -->
+<script>
+(function(){
+  var SEL = 'a[href], button';           /* tutto ciò che è interagibile */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* hover: warp orizzontale + grana che erode la lettera */
+  var HOVER = { warp:5, erode:0.4, duration:600, peak:0.2 };
+  var dispN = document.getElementById('dispN'), turbN = document.getElementById('turbN');
+  var grainN = document.getElementById('grainN'), erodeN = document.getElementById('erodeN');
+  var hToken = 0, hActive = null;
+
+  function hoverFx(el){
+    if(reduce.matches) return;
+    if(hActive && hActive !== el) hActive.classList.remove('nx');
+    hActive = el;
+    var my = ++hToken, start = performance.now(), frame = 0;
+    el.classList.add('nx');
+    function tick(now){
+      if(my !== hToken) return;
+      var t = (now - start) / HOVER.duration;
+      if(t >= 1){ el.classList.remove('nx'); dispN.setAttribute('scale', 0); return; }
+      var env = t < HOVER.peak ? t / HOVER.peak : Math.pow((1 - t) / (1 - HOVER.peak), 1.8);
+      var e = HOVER.erode * env;
+      dispN.setAttribute('scale', (HOVER.warp * env).toFixed(2));
+      erodeN.setAttribute('values', '0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 ' + (4 * e).toFixed(3) + ' 0 ' + (1 - 2.4 * e).toFixed(3));
+      if(frame++ % 3 === 0){
+        turbN.setAttribute('seed', Math.floor(Math.random() * 200));
+        grainN.setAttribute('seed', Math.floor(Math.random() * 200));
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  document.querySelectorAll(SEL).forEach(function(el){
+    el.addEventListener('pointerenter', function(e){ if(e.pointerType !== 'touch') hoverFx(el); });
+    el.addEventListener('focus', function(){ if(el.matches(':focus-visible')) hoverFx(el); });
+  });
+
+  /* click: le lettere diventano numeri e simboli, poi si ricompongono */
+  var CLICK = { coverage:0.6, duration:650, tick:55 };
+  var GLYPHS = '0123456789#%&@$*+=/\\|<>?!§¤';
+  var NAV_DELAY = 500;                   /* ms prima di cambiare pagina, per far vedere l'effetto */
+
+  function glitchText(el){
+    if(reduce.matches || el.children.length) return;   /* solo elementi di puro testo */
+    if(el._gl) el._gl.cancel();
+    var orig = el.textContent.trim();
+    el.textContent = orig;
+    var tn = el.firstChild;
+    if(!tn || tn.nodeType !== 3) return;
+    var range = document.createRange(), widths = [], i;
+    for(i = 0; i < orig.length; i++){ range.setStart(tn, i); range.setEnd(tn, i + 1); widths.push(range.getBoundingClientRect().width); }
+    el.setAttribute('aria-label', orig);
+    var frag = document.createDocumentFragment(), chars = [], word = null;
+    for(i = 0; i < orig.length; i++){
+      var c = orig.charAt(i);
+      if(c === ' '){ word = null; frag.appendChild(document.createTextNode(' ')); continue; }
+      if(!word){ word = document.createElement('span'); word.style.whiteSpace = 'nowrap'; word.setAttribute('aria-hidden', 'true'); frag.appendChild(word); }
+      var sp = document.createElement('span');
+      sp.style.cssText = 'display:inline-flex;justify-content:center;width:' + widths[i] + 'px';
+      sp.textContent = c;
+      word.appendChild(sp);
+      chars.push({ el:sp, ch:c, at: Math.random() < CLICK.coverage ? (0.25 + Math.random() * 0.75) * CLICK.duration : 0 });
+    }
+    el.textContent = '';
+    el.appendChild(frag);
+    var start = performance.now(), last = 0, raf = 0, done = false;
+    function finish(){
+      if(done) return;
+      done = true; cancelAnimationFrame(raf);
+      el.textContent = orig; el.removeAttribute('aria-label'); el._gl = null;
+    }
+    el._gl = { cancel: finish };
+    function tick(now){
+      if(done) return;
+      var t = now - start;
+      if(t >= CLICK.duration){ finish(); return; }
+      if(now - last >= CLICK.tick){
+        last = now;
+        chars.forEach(function(o){
+          o.el.textContent = (t >= o.at || Math.random() > 0.8) ? o.ch : GLYPHS.charAt(Math.floor(Math.random() * GLYPHS.length));
+        });
+      }
+      raf = requestAnimationFrame(tick);
+    }
+    raf = requestAnimationFrame(tick);
+  }
+
+  document.addEventListener('click', function(e){
+    var t = e.target.closest(SEL);
+    if(!t) return;
+    glitchText(t);
+    var a = t.closest('a');
+    if(a && a.getAttribute('href') && !a.target && e.button === 0 && !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) && !reduce.matches){
+      e.preventDefault();
+      var href = a.href;
+      setTimeout(function(){ location.href = href; }, NAV_DELAY);
+    }
+  });
+
+  /* tornando indietro col browser, nessun testo resta a metà effetto */
+  window.addEventListener('pageshow', function(){
+    document.querySelectorAll(SEL).forEach(function(el){ if(el._gl) el._gl.cancel(); el.classList.remove('nx'); });
+  });
+})();
+</script>
+</body>
+</html>

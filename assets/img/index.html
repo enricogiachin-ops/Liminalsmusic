@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Liminals - minimal deep tech &amp; house · Trieste</title>
+<meta name="description" content="Duo DJ di Trieste. zacku e Teo, minimal deep tech e house: set a due mani di tre ore o più, costruiti insieme.">
+<link rel="canonical" href="https://liminalsmusic.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://liminalsmusic.com/">
+<meta property="og:site_name" content="Liminals">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Minimal deep tech &amp; House · zacku b2b Teo">
+<meta property="og:description" content="Duo DJ di Trieste. zacku e Teo, minimal deep tech e house: set a due mani di tre ore o più, costruiti insieme.">
+<meta property="og:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Minimal deep tech &amp; House · zacku b2b Teo">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Minimal deep tech &amp; House · zacku b2b Teo">
+<meta name="twitter:description" content="Duo DJ di Trieste. zacku e Teo, minimal deep tech e house: set a due mani di tre ore o più, costruiti insieme.">
+<meta name="twitter:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
+
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
+<meta name="theme-color" content="#151515">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicGroup","name":"Liminals","genre":["minimal deep tech","house"],"foundingLocation":{"@type":"Place","name":"Trieste, IT"},"member":[{"@type":"Person","name":"zacku"},{"@type":"Person","name":"Teo"}],"url":"https://liminalsmusic.com/","email":"hello@liminalsmusic.com","sameAs":["https://www.mixcloud.com/zackuu/","https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl"]}</script>
+
+<link rel="preload" href="assets/fonts/Outfit-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+
+:root {
+  --bg: #151515;
+  --cream: #FEFAEF;
+  --accent: #FC4446;
+  --margin: clamp(20px, 4vw, 60px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Outfit', Arial, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* fondo: luce sgranata, si muove appena */
+.fondo {
+  position: fixed;
+  inset: -4%;
+  z-index: 0;
+  background: var(--bg) url('assets/img/bg-noise.jpg') 60% center / cover no-repeat;
+  background-image: image-set(url('assets/img/bg-noise.webp') type('image/webp'), url('assets/img/bg-noise.jpg') type('image/jpeg'));
+  animation: deriva 48s ease-in-out infinite alternate;
+}
+/* abbassa la luce: deve restare un respiro, non un faro */
+.fondo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 21, 21, .45);
+}
+@keyframes deriva {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-2%, 1.5%, 0) scale(1.05); }
+}
+
+.pagina {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  height: 100svh;
+  padding:
+    calc(var(--margin) + env(safe-area-inset-top, 0px))
+    calc(var(--margin) + env(safe-area-inset-right, 0px))
+    calc(var(--margin) + env(safe-area-inset-bottom, 0px))
+    calc(var(--margin) + env(safe-area-inset-left, 0px));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* nav */
+nav { align-self: flex-end; }
+nav ul { list-style: none; margin: 0; padding: 0; }
+nav a {
+  display: inline-block;
+  color: var(--cream);
+  text-decoration: none;
+  font-size: clamp(21px, 1.75vw, 26px);
+  line-height: 1.15;
+  transition: color .2s;
+}
+nav a:hover,
+nav a:focus-visible,
+nav a[aria-current="page"] { color: var(--accent); }
+
+a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+
+/* EFFETTI INTERAZIONE: warp analogico al passaggio (classe aggiunta dallo script) */
+.nx { filter: url(#warp-nav); }
+
+/* marchio */
+h1 {
+  margin: 0;
+  font-weight: 500;
+  font-size: clamp(64px, 10vw, 160px);
+  line-height: .8;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(4px, 1.5vw, 24px);
+  margin-left: -0.05em; /* allinea l'asta della L al margine */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fondo { animation: none; inset: 0; }
+  nav a { transition: none; }
+  .nx { filter: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- EFFETTI INTERAZIONE: filtro SVG per il glitch analogico (identico su tutte le pagine) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="warp-nav" x="-15%" y="-20%" width="130%" height="140%" color-interpolation-filters="sRGB">
+    <feTurbulence id="turbN" type="turbulence" baseFrequency="0.004 0.12" numOctaves="1" seed="5" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="1 0 0 0 0  0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 1" result="m"/>
+    <feDisplacementMap id="dispN" in="SourceGraphic" in2="m" scale="0" xChannelSelector="R" yChannelSelector="G" result="w"/>
+    <feTurbulence id="grainN" type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="8" result="g"/>
+    <feColorMatrix id="erodeN" in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0 1" result="ga"/>
+    <feComposite in="w" in2="ga" operator="in"/>
+  </filter>
+</svg>
+
+<div class="fondo" aria-hidden="true"></div>
+
+<main class="pagina">
+  <nav aria-label="Navigazione principale">
+    <ul>
+      <li><a href="about.html">/About</a></li>
+      <li><a href="music.html">/Music</a></li>
+      <li><a href="contatti.html">/Contact</a></li>
+    </ul>
+  </nav>
+
+  <h1>Liminals</h1>
+</main>
+
+<!-- EFFETTI INTERAZIONE: identico su tutte le pagine.
+     Passaggio del cursore = glitch analogico. Click/tap = numeri e simboli che si ricompongono. -->
+<script>
+(function(){
+  var SEL = 'a[href], button';           /* tutto ciò che è interagibile */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* hover: warp orizzontale + grana che erode la lettera */
+  var HOVER = { warp:5, erode:0.4, duration:600, peak:0.2 };
+  var dispN = document.getElementById('dispN'), turbN = document.getElementById('turbN');
+  var grainN = document.getElementById('grainN'), erodeN = document.getElementById('erodeN');
+  var hToken = 0, hActive = null;
+
+  function hoverFx(el){
+    if(reduce.matches) return;
+    if(hActive && hActive !== el) hActive.classList.remove('nx');
+    hActive = el;
+    var my = ++hToken, start = performance.now(), frame = 0;
+    el.classList.add('nx');
+    function tick(now){
+      if(my !== hToken) return;
+      var t = (now - start) / HOVER.duration;
+      if(t >= 1){ el.classList.remove('nx'); dispN.setAttribute('scale', 0); return; }
+      var env = t < HOVER.peak ? t / HOVER.peak : Math.pow((1 - t) / (1 - HOVER.peak), 1.8);
+      var e = HOVER.erode * env;
+      dispN.setAttribute('scale', (HOVER.warp * env).toFixed(2));
+      erodeN.setAttribute('values', '0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 ' + (4 * e).toFixed(3) + ' 0 ' + (1 - 2.4 * e).toFixed(3));
+      if(frame++ % 3 === 0){
+        turbN.setAttribute('seed', Math.floor(Math.random() * 200));
+        grainN.setAttribute('seed', Math.floor(Math.random() * 200));
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  document.querySelectorAll(SEL).forEach(function(el){
+    el.addEventListener('pointerenter', function(e){ if(e.pointerType !== 'touch') hoverFx(el); });
+    el.addEventListener('focus', function(){ if(el.matches(':focus-visible')) hoverFx(el); });
+  });
+
+  /* click: le lettere diventano numeri e simboli, poi si ricompongono */
+  var CLICK = { coverage:0.6, duration:650, tick:55 };
+  var GLYPHS = '0123456789#%&@$*+=/\\|<>?!§¤';
+  var NAV_DELAY = 500;                   /* ms prima di cambiare pagina, per far vedere l'effetto */
+
+  function glitchText(el){
+    if(reduce.matches || el.children.length) return;   /* solo elementi di puro testo */
+    if(el._gl) el._gl.cancel();
+    var orig = el.textContent.trim();
+    el.textContent = orig;
+    var tn = el.firstChild;
+    if(!tn || tn.nodeType !== 3) return;
+    var range = document.createRange(), widths = [], i;
+    for(i = 0; i < orig.length; i++){ range.setStart(tn, i); range.setEnd(tn, i + 1); widths.push(range.getBoundingClientRect().width); }
+    el.setAttribute('aria-label', orig);
+    var frag = document.createDocumentFragment(), chars = [], word = null;
+    for(i = 0; i < orig.length; i++){
+      var c = orig.charAt(i);
+      if(c === ' '){ word = null; frag.appendChild(document.createTextNode(' ')); continue; }
+      if(!word){ word = document.createElement('span'); word.style.whiteSpace = 'nowrap'; word.setAttribute('aria-hidden', 'true'); frag.appendChild(word); }
+      var sp = document.createElement('span');
+      sp.style.cssText = 'display:inline-flex;justify-content:center;width:' + widths[i] + 'px';
+      sp.textContent = c;
+      word.appendChild(sp);
+      chars.push({ el:sp, ch:c, at: Math.random() < CLICK.coverage ? (0.25 + Math.random() * 0.75) * CLICK.duration : 0 });
+    }
+    el.textContent = '';
+    el.appendChild(frag);
+    var start = performance.now(), last = 0, raf = 0, done = false;
+    function finish(){
+      if(done) return;
+      done = true; cancelAnimationFrame(raf);
+      el.textContent = orig; el.removeAttribute('aria-label'); el._gl = null;
+    }
+    el._gl = { cancel: finish };
+    function tick(now){
+      if(done) return;
+      var t = now - start;
+      if(t >= CLICK.duration){ finish(); return; }
+      if(now - last >= CLICK.tick){
+        last = now;
+        chars.forEach(function(o){
+          o.el.textContent = (t >= o.at || Math.random() > 0.8) ? o.ch : GLYPHS.charAt(Math.floor(Math.random() * GLYPHS.length));
+        });
+      }
+      raf = requestAnimationFrame(tick);
+    }
+    raf = requestAnimationFrame(tick);
+  }
+
+  document.addEventListener('click', function(e){
+    var t = e.target.closest(SEL);
+    if(!t) return;
+    glitchText(t);
+    var a = t.closest('a');
+    if(a && a.getAttribute('href') && !a.target && e.button === 0 && !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) && !reduce.matches){
+      e.preventDefault();
+      var href = a.href;
+      setTimeout(function(){ location.href = href; }, NAV_DELAY);
+    }
+  });
+
+  /* tornando indietro col browser, nessun testo resta a metà effetto */
+  window.addEventListener('pageshow', function(){
+    document.querySelectorAll(SEL).forEach(function(el){ if(el._gl) el._gl.cancel(); el.classList.remove('nx'); });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Contact - Liminals</title>
+<meta name="description" content="Contatti Liminals, duo DJ di Trieste: hello@liminalsmusic.com o il modulo. Booking, venue e collaborazioni.">
+<link rel="canonical" href="https://liminalsmusic.com/contatti.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://liminalsmusic.com/contatti.html">
+<meta property="og:site_name" content="Liminals">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Contact - Liminals">
+<meta property="og:description" content="Contatti Liminals: hello@liminalsmusic.com. Booking, venue e collaborazioni.">
+<meta property="og:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://liminalsmusic.com/assets/img/og-v2.jpg">
+
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
+<meta name="theme-color" content="#151515">
+
+<link rel="preload" href="assets/fonts/Outfit-Light.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+/* Outfit non ha la freccia diagonale: la prende da Satoshi Light, solo per quel carattere */
+@font-face { font-family:'Freccia'; src:url('assets/fonts/Satoshi-Freccia.woff2') format('woff2'); font-weight:300; font-display:swap; unicode-range: U+2197; }
+
+:root {
+  --bg: #151515;
+  --cream: #FEFAEF;
+  --accent: #FC4446;
+  --margin: clamp(20px, 4vw, 60px);
+  --nav-size: clamp(21px, 1.75vw, 26px);
+  --testo: clamp(16px, 1.36vw, 19px);
+  /* grigi: crema in trasparenza, cosi prendono la luce del fondo invece di staccarsi */
+  --linea: rgba(254, 250, 239, .38);
+  --segnaposto: rgba(254, 250, 239, .36);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Outfit', Arial, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* fondo: luce sgranata, si muove appena (fisso mentre il testo scorre) */
+.fondo {
+  position: fixed;
+  inset: -4%;
+  z-index: 0;
+  background: var(--bg) url('assets/img/bg-noise.jpg') 60% center / cover no-repeat;
+  background-image: image-set(url('assets/img/bg-noise.webp') type('image/webp'), url('assets/img/bg-noise.jpg') type('image/jpeg'));
+  animation: deriva 48s ease-in-out infinite alternate;
+}
+.fondo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 21, 21, .45);
+}
+@keyframes deriva {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-2%, 1.5%, 0) scale(1.05); }
+}
+
+a { color: var(--cream); text-decoration: none; transition: color .2s; }
+a:hover, a:focus-visible, a[aria-current="page"] { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+
+/* EFFETTI INTERAZIONE: warp analogico al passaggio (classe aggiunta dallo script) */
+.nx { filter: url(#warp-nav); }
+
+.pagina {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding:
+    calc(var(--margin) + env(safe-area-inset-top, 0px))
+    calc(var(--margin) + env(safe-area-inset-right, 0px))
+    calc(var(--margin) + env(safe-area-inset-bottom, 0px))
+    calc(var(--margin) + env(safe-area-inset-left, 0px));
+}
+
+/* testata: marchio a sinistra (torna alla home), nav a destra */
+.testata {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: var(--nav-size);
+  line-height: 1.15;
+}
+.marchio { font-weight: 500; display: inline-block; }
+.testata ul { list-style: none; margin: 0; padding: 0; }
+.testata li a { display: inline-block; }
+
+/* contenuto: allineamenti su una griglia sola, cosi le righe combaciano */
+.contenuto {
+  display: grid;
+  grid-template-columns: 22.9% 24.2% 3% 27% 1fr;
+  margin-top: clamp(48px, 7vw, 92px);
+  font-weight: 300;
+  font-size: var(--testo);
+  line-height: 1.37;
+}
+
+.esito {
+  display: none;
+  grid-column: 2 / -1;
+  margin: 0 0 1.5em;
+  color: var(--accent);
+  scroll-margin-top: 40vh;
+}
+.esito:target { display: block; }
+
+form { display: contents; }
+.colonna-a { grid-column: 2; }
+.colonna-b { grid-column: 4; }
+
+.titolo { margin: 0 0 1.37em; font-weight: 400; }
+
+.campo { display: block; margin-bottom: 1.6em; }
+.campo span { display: block; font-weight: 400; }
+.campo-messaggio { margin-bottom: 0; }
+
+input, textarea {
+  display: block;
+  width: 100%;
+  margin: .2em 0 0;
+  padding: 0 0 .25em;
+  background: transparent;
+  color: var(--cream);
+  caret-color: var(--accent);
+  border: 0;
+  border-bottom: 1px solid var(--linea);
+  border-radius: 0;
+  font: inherit;
+  font-weight: 300;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color .2s;
+}
+textarea {
+  margin-top: .3em;
+  padding: .35em .5em;
+  border: 1px solid var(--linea);
+  min-height: 12em;
+  max-height: 60vh;
+  resize: none;                 /* niente maniglia: il riquadro cresce da solo scrivendo */
+  field-sizing: content;
+  overflow-y: auto;
+}
+::placeholder { color: var(--segnaposto); opacity: 1; }
+input:focus { border-bottom-color: var(--accent); }
+textarea:focus { border-color: var(--accent); }
+
+/* compilazione automatica del browser: niente riquadro giallo o bianco */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--cream);
+  caret-color: var(--accent);
+  transition: background-color 600000s 0s;
+}
+
+button {
+  margin-top: .6em;
+  padding: .3em .75em .25em;
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid var(--linea);
+  border-radius: 0;
+  font: inherit;
+  font-size: .82em;
+  font-weight: 300;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: color .2s, border-color .2s;
+}
+button:hover, button:focus-visible { color: var(--accent); border-color: var(--accent); }
+
+/* campo antispam fuori schermo: i bot lo compilano, le persone no */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* riferimenti */
+.riferimenti {
+  grid-column: 2 / -1;
+  display: grid;
+  grid-template-columns: 61.2% 1fr;
+  margin-top: clamp(48px, 5vw, 72px);
+}
+.riferimenti p { margin: 0; }
+.blocco + .blocco { margin-top: 1.37em; }
+/* voci leggere come i testi di About, link senza sottolineatura */
+.voce { font-weight: 300; }
+.riferimenti a { text-decoration: none; }
+/* freccia diagonale sui link esterni: segnala che si apre un'altra pagina */
+.riferimenti a[target="_blank"]::after {
+  content: "\2197";
+  font-family: 'Freccia', 'Outfit', Arial, sans-serif;
+  font-weight: 300;
+  margin-left: .3em;
+}
+
+@media (max-width: 899px) {
+  .contenuto {
+    display: block;
+    margin-top: 56px;
+    font-size: 16px;
+  }
+  .colonna-b { margin-top: 0; }
+  .riferimenti {
+    display: block;
+    margin-top: 64px;
+  }
+  .colonna + .colonna { margin-top: 1.37em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fondo { animation: none; inset: 0; }
+  a, button, input, textarea { transition: none; }
+  .nx { filter: none; }
+}
+.sr-only { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+</style>
+</head>
+<body>
+
+<!-- EFFETTI INTERAZIONE: filtro SVG per il glitch analogico (identico su tutte le pagine) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="warp-nav" x="-15%" y="-20%" width="130%" height="140%" color-interpolation-filters="sRGB">
+    <feTurbulence id="turbN" type="turbulence" baseFrequency="0.004 0.12" numOctaves="1" seed="5" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="1 0 0 0 0  0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 1" result="m"/>
+    <feDisplacementMap id="dispN" in="SourceGraphic" in2="m" scale="0" xChannelSelector="R" yChannelSelector="G" result="w"/>
+    <feTurbulence id="grainN" type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="8" result="g"/>
+    <feColorMatrix id="erodeN" in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0 1" result="ga"/>
+    <feComposite in="w" in2="ga" operator="in"/>
+  </filter>
+</svg>
+
+<div class="fondo" aria-hidden="true"></div>
+
+<div class="pagina">
+  <header class="testata">
+    <a class="marchio" href="index.html">Liminals</a>
+    <nav aria-label="Navigazione principale">
+      <ul>
+        <li><a href="about.html">/About</a></li>
+        <li><a href="music.html">/Music</a></li>
+        <li><a href="contatti.html" aria-current="page">/Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contenuto">
+    <h1 class="sr-only">Contact</h1>
+    <!-- esito: api/contact.js rimanda a contatti.html#inviato o #errore -->
+    <p class="esito" id="inviato" role="status">Messaggio inviato. Ti rispondiamo da hello@liminalsmusic.com.</p>
+    <p class="esito" id="errore" role="alert">Invio non riuscito. Scrivi direttamente a hello@liminalsmusic.com.</p>
+
+    <form action="/api/contact" method="POST">
+      <div class="colonna-a">
+        <p class="titolo">Scrivici</p>
+        <label class="campo"><span>/Nome</span>
+          <input type="text" name="nome" autocomplete="name" placeholder="Nome Cognome" required>
+        </label>
+        <label class="campo"><span>/Email</span>
+          <input type="email" name="email" autocomplete="email" placeholder="mittente@dominio.com" required>
+        </label>
+      </div>
+
+      <div class="colonna-b">
+        <label class="campo campo-messaggio"><span>/Messaggio</span>
+          <textarea name="messaggio" rows="8" placeholder="Testo..." required></textarea>
+        </label>
+        <div class="hp" aria-hidden="true">
+          <input type="text" name="sito" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit">INVIA</button>
+      </div>
+    </form>
+
+    <section class="riferimenti" aria-label="Riferimenti">
+      <div class="colonna">
+        <div class="blocco">
+          <p class="voce">/E-mail</p>
+          <p><a href="mailto:hello@liminalsmusic.com">hello@liminalsmusic.com</a></p>
+        </div>
+        <div class="blocco">
+          <p class="voce">/Social</p>
+          <p><a href="https://www.instagram.com/enricogiachin/" target="_blank" rel="noopener">@enricogiachin</a></p>
+          <p><a href="https://www.instagram.com/matteoosaviino/" target="_blank" rel="noopener">@matteoosaviino</a></p>
+        </div>
+      </div>
+      <div class="colonna">
+        <div class="blocco">
+          <p class="voce">/Spotify</p>
+          <p><a href="https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl" target="_blank" rel="noopener">zacku</a></p>
+        </div>
+        <div class="blocco">
+          <p class="voce">/Mixcloud</p>
+          <p><a href="https://www.mixcloud.com/zackuu/" target="_blank" rel="noopener">zackuu</a></p>
+          <p><a href="https://www.mixcloud.com/TeoOod/" target="_blank" rel="noopener">TeoOod</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<!-- EFFETTI INTERAZIONE: identico su tutte le pagine.
+     Passaggio del cursore = glitch analogico. Click/tap = numeri e simboli che si ricompongono. -->
+<script>
+(function(){
+  var SEL = 'a[href], button';           /* tutto ciò che è interagibile */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* hover: warp orizzontale + grana che erode la lettera */
+  var HOVER = { warp:5, erode:0.4, duration:600, peak:0.2 };
+  var dispN = document.getElementById('dispN'), turbN = document.getElementById('turbN');
+  var grainN = document.getElementById('grainN'), erodeN = document.getElementById('erodeN');
+  var hToken = 0, hActive = null;
+
+  function hoverFx(el){
+    if(reduce.matches) return;
+    if(hActive && hActive !== el) hActive.classList.remove('nx');
+    hActive = el;
+    var my = ++hToken, start = performance.now(), frame = 0;
+    el.classList.add('nx');
+    function tick(now){
+      if(my !== hToken) return;
+      var t = (now - start) / HOVER.duration;
+      if(t >= 1){ el.classList.remove('nx'); dispN.setAttribute('scale', 0); return; }
+      var env = t < HOVER.peak ? t / HOVER.peak : Math.pow((1 - t) / (1 - HOVER.peak), 1.8);
+      var e = HOVER.erode * env;
+      dispN.setAttribute('scale', (HOVER.warp * env).toFixed(2));
+      erodeN.setAttribute('values', '0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 ' + (4 * e).toFixed(3) + ' 0 ' + (1 - 2.4 * e).toFixed(3));
+      if(frame++ % 3 === 0){
+        turbN.setAttribute('seed', Math.floor(Math.random() * 200));
+        grainN.setAttribute('seed', Math.floor(Math.random() * 200));
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  document.querySelectorAll(SEL).forEach(function(el){
+    el.addEventListener('pointerenter', function(e){ if(e.pointerType !== 'touch') hoverFx(el); });
+    el.addEventListener('focus', function(){ if(el.matches(':focus-visible')) hoverFx(el); });
+  });
+
+  /* click: le lettere diventano numeri e simboli, poi si ricompongono */
+  var CLICK = { coverage:0.6, duration:650, tick:55 };
+  var GLYPHS = '0123456789#%&@$*+=/\\|<>?!§¤';
+  var NAV_DELAY = 500;                   /* ms prima di cambiare pagina, per far vedere l'effetto */
+
+  function glitchText(el){
+    if(reduce.matches || el.children.length) return;   /* solo elementi di puro testo */
+    if(el._gl) el._gl.cancel();
+    var orig = el.textContent.trim();
+    el.textContent = orig;
+    var tn = el.firstChild;
+    if(!tn || tn.nodeType !== 3) return;
+    var range = document.createRange(), widths = [], i;
+    for(i = 0; i < orig.length; i++){ range.setStart(tn, i); range.setEnd(tn, i + 1); widths.push(range.getBoundingClientRect().width); }
+    el.setAttribute('aria-label', orig);
+    var frag = document.createDocumentFragment(), chars = [], word = null;
+    for(i = 0; i < orig.length; i++){
+      var c = orig.charAt(i);
+      if(c === ' '){ word = null; frag.appendChild(document.createTextNode(' ')); continue; }
+      if(!word){ word = document.createElement('span'); word.style.whiteSpace = 'nowrap'; word.setAttribute('aria-hidden', 'true'); frag.appendChild(word); }
+      var sp = document.createElement('span');
+      sp.style.cssText = 'display:inline-flex;justify-content:center;width:' + widths[i] + 'px';
+      sp.textContent = c;
+      word.appendChild(sp);
+      chars.push({ el:sp, ch:c, at: Math.random() < CLICK.coverage ? (0.25 + Math.random() * 0.75) * CLICK.duration : 0 });
+    }
+    el.textContent = '';
+    el.appendChild(frag);
+    var start = performance.now(), last = 0, raf = 0, done = false;
+    function finish(){
+      if(done) return;
+      done = true; cancelAnimationFrame(raf);
+      el.textContent = orig; el.removeAttribute('aria-label'); el._gl = null;
+    }
+    el._gl = { cancel: finish };
+    function tick(now){
+      if(done) return;
+      var t = now - start;
+      if(t >= CLICK.duration){ finish(); return; }
+      if(now - last >= CLICK.tick){
+        last = now;
+        chars.forEach(function(o){
+          o.el.textContent = (t >= o.at || Math.random() > 0.8) ? o.ch : GLYPHS.charAt(Math.floor(Math.random() * GLYPHS.length));
+        });
+      }
+      raf = requestAnimationFrame(tick);
+    }
+    raf = requestAnimationFrame(tick);
+  }
+
+  document.addEventListener('click', function(e){
+    var t = e.target.closest(SEL);
+    if(!t) return;
+    glitchText(t);
+    var a = t.closest('a');
+    if(a && a.getAttribute('href') && !a.target && e.button === 0 && !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) && !reduce.matches){
+      e.preventDefault();
+      var href = a.href;
+      setTimeout(function(){ location.href = href; }, NAV_DELAY);
+    }
+  });
+
+  /* tornando indietro col browser, nessun testo resta a metà effetto */
+  window.addEventListener('pageshow', function(){
+    document.querySelectorAll(SEL).forEach(function(el){ if(el._gl) el._gl.cancel(); el.classList.remove('nx'); });
+  });
+})();
+</script>
+</body>
+</html>
