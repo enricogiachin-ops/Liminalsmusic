@@ -1,3 +1,6 @@
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const MAX = { nome: 100, email: 254, messaggio: 5000 };
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).end();
 
@@ -17,14 +20,19 @@ module.exports = async (req, res) => {
     data = Object.fromEntries(new URLSearchParams(raw));
   }
 
-  const { nome, email, messaggio, sito } = data;
-  console.log('contact:', req.headers['content-type'], Object.keys(data));
-
   // honeypot: i bot compilano il campo nascosto, gli umani no
-  if (sito) return res.redirect(303, '/contatti.html#inviato');
+  if (data.sito) return res.redirect(303, '/contatti.html#inviato');
 
-  if (!nome || !email || !messaggio || !email.includes('@')) {
-    console.error('Campi mancanti o email non valida');
+  // solo stringhe, senza spazi ai bordi; a capo rimossi da nome ed email (finiscono nell'oggetto e in reply_to)
+  const clean = v => (typeof v === 'string' ? v.trim() : '');
+  const nome = clean(data.nome).replace(/[\r\n]+/g, ' ');
+  const email = clean(data.email).replace(/[\r\n]+/g, '');
+  const messaggio = clean(data.messaggio);
+
+  if (!nome || !email || !messaggio ||
+      !EMAIL_RE.test(email) ||
+      nome.length > MAX.nome || email.length > MAX.email || messaggio.length > MAX.messaggio) {
+    console.error('Campi mancanti, non validi o troppo lunghi');
     return res.redirect(303, '/contatti.html#errore');
   }
 

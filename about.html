@@ -24,12 +24,12 @@
 <link rel="apple-touch-icon" href="assets/img/favicon.png">
 <meta name="theme-color" content="#151515">
 
-<link rel="preload" href="assets/fonts/Outfit-Light.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="assets/fonts/Outfit-Light.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
-@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
-@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
-@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.otf') format('opentype'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
 
 :root {
   --bg: #151515;
@@ -58,6 +58,7 @@ body {
   inset: -4%;
   z-index: 0;
   background: var(--bg) url('assets/img/bg-noise.jpg') 60% center / cover no-repeat;
+  background-image: image-set(url('assets/img/bg-noise.webp') type('image/webp'), url('assets/img/bg-noise.jpg') type('image/jpeg'));
   animation: deriva 48s ease-in-out infinite alternate;
 }
 .fondo::after {
@@ -161,6 +162,7 @@ a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outlin
   a { transition: none; }
   .nx { filter: none; }
 }
+.sr-only { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
 </style>
 </head>
 <body>
@@ -192,6 +194,7 @@ a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outlin
   </header>
 
   <main class="contenuto">
+    <h1 class="sr-only">About</h1>
     <article class="testo">
       <p>/liminale/</p>
       <p>agg. [dal lat. l<span class="lat">ı&#x304;</span>men -m<span class="lat breve">ı</span>nis «soglia»]. In psicologia e nelle scienze della percezione indica ciò che si colloca al confine della consapevolezza, in una zona intermedia tra ciò che viene percepito chiaramente e ciò che resta appena oltre l'attenzione cosciente. Il termine descrive quindi fenomeni, stati o esperienze che si trovano in una fase di passaggio, di transizione, al margine della percezione.</p>
@@ -250,9 +253,9 @@ a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outlin
   });
 
   /* click: le lettere diventano numeri e simboli, poi si ricompongono */
-  var CLICK = { coverage:0.6, duration:650, tick:55 };
+  var CLICK = { coverage:0.6, duration:300, tick:55 };
   var GLYPHS = '0123456789#%&@$*+=/\\|<>?!§¤';
-  var NAV_DELAY = 500;                   /* ms prima di cambiare pagina, per far vedere l'effetto */
+  var NAV_DELAY = 250;                   /* ms prima di cambiare pagina, per far vedere l'effetto */
 
   function glitchText(el){
     if(reduce.matches || el.children.length) return;   /* solo elementi di puro testo */

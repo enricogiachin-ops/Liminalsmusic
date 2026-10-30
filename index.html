@@ -30,11 +30,11 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicGroup","name":"Liminals","genre":["minimal deep tech","house"],"foundingLocation":{"@type":"Place","name":"Trieste, IT"},"member":[{"@type":"Person","name":"zacku"},{"@type":"Person","name":"Teo"}],"url":"https://liminalsmusic.com/","email":"hello@liminalsmusic.com","sameAs":["https://www.mixcloud.com/zackuu/","https://open.spotify.com/intl-it/artist/6TdE64G9VuYtWX0ZlWU6Kl"]}</script>
 
-<link rel="preload" href="assets/fonts/Outfit-Regular.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="assets/fonts/Outfit-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
-@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
-@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.otf') format('opentype'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
 
 :root {
   --bg: #151515;
@@ -62,6 +62,7 @@ body {
   inset: -4%;
   z-index: 0;
   background: var(--bg) url('assets/img/bg-noise.jpg') 60% center / cover no-repeat;
+  background-image: image-set(url('assets/img/bg-noise.webp') type('image/webp'), url('assets/img/bg-noise.jpg') type('image/jpeg'));
   animation: deriva 48s ease-in-out infinite alternate;
 }
 /* abbassa la luce: deve restare un respiro, non un faro */
@@ -198,9 +199,9 @@ h1 {
   });
 
   /* click: le lettere diventano numeri e simboli, poi si ricompongono */
-  var CLICK = { coverage:0.6, duration:650, tick:55 };
+  var CLICK = { coverage:0.6, duration:300, tick:55 };
   var GLYPHS = '0123456789#%&@$*+=/\\|<>?!§¤';
-  var NAV_DELAY = 500;                   /* ms prima di cambiare pagina, per far vedere l'effetto */
+  var NAV_DELAY = 250;                   /* ms prima di cambiare pagina, per far vedere l'effetto */
 
   function glitchText(el){
     if(reduce.matches || el.children.length) return;   /* solo elementi di puro testo */

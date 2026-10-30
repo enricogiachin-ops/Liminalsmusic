@@ -24,14 +24,14 @@
 <link rel="apple-touch-icon" href="assets/img/favicon.png">
 <meta name="theme-color" content="#151515">
 
-<link rel="preload" href="assets/fonts/Outfit-Light.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="assets/fonts/Outfit-Light.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
-@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
-@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
-@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.otf') format('opentype'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
 /* Outfit non ha la freccia diagonale: la prende da Satoshi Light, solo per quel carattere */
-@font-face { font-family:'Freccia'; src:url('assets/fonts/Satoshi-Light.otf') format('opentype'); font-weight:300; font-display:swap; unicode-range: U+2197; }
+@font-face { font-family:'Freccia'; src:url('assets/fonts/Satoshi-Freccia.woff2') format('woff2'); font-weight:300; font-display:swap; unicode-range: U+2197; }
 
 :root {
   --bg: #151515;
@@ -64,6 +64,7 @@ body {
   inset: -4%;
   z-index: 0;
   background: var(--bg) url('assets/img/bg-noise.jpg') 60% center / cover no-repeat;
+  background-image: image-set(url('assets/img/bg-noise.webp') type('image/webp'), url('assets/img/bg-noise.jpg') type('image/jpeg'));
   animation: deriva 48s ease-in-out infinite alternate;
 }
 .fondo::after {
@@ -235,6 +236,7 @@ button:hover, button:focus-visible { color: var(--accent); border-color: var(--a
   a, button, input, textarea { transition: none; }
   .nx { filter: none; }
 }
+.sr-only { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
 </style>
 </head>
 <body>
@@ -266,6 +268,7 @@ button:hover, button:focus-visible { color: var(--accent); border-color: var(--a
   </header>
 
   <main class="contenuto">
+    <h1 class="sr-only">Contact</h1>
     <!-- esito: api/contact.js rimanda a contatti.html#inviato o #errore -->
     <p class="esito" id="inviato" role="status">Messaggio inviato. Ti rispondiamo da hello@liminalsmusic.com.</p>
     <p class="esito" id="errore" role="alert">Invio non riuscito. Scrivi direttamente a hello@liminalsmusic.com.</p>
@@ -359,9 +362,9 @@ button:hover, button:focus-visible { color: var(--accent); border-color: var(--a
   });
 
   /* click: le lettere diventano numeri e simboli, poi si ricompongono */
-  var CLICK = { coverage:0.6, duration:650, tick:55 };
+  var CLICK = { coverage:0.6, duration:300, tick:55 };
   var GLYPHS = '0123456789#%&@$*+=/\\|<>?!§¤';
-  var NAV_DELAY = 500;                   /* ms prima di cambiare pagina, per far vedere l'effetto */
+  var NAV_DELAY = 250;                   /* ms prima di cambiare pagina, per far vedere l'effetto */
 
   function glitchText(el){
     if(reduce.matches || el.children.length) return;   /* solo elementi di puro testo */

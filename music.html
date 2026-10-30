@@ -24,12 +24,12 @@
 <link rel="apple-touch-icon" href="assets/img/favicon.png">
 <meta name="theme-color" content="#151515">
 
-<link rel="preload" href="assets/fonts/Outfit-Light.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="assets/fonts/Outfit-Light.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
-@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
-@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
-@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.otf') format('opentype'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('assets/fonts/Outfit-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
 
 :root {
   --bg: #151515;
@@ -62,6 +62,7 @@ body {
   inset: -4%;
   z-index: 0;
   background: var(--bg) url('assets/img/bg-noise.jpg') 60% center / cover no-repeat;
+  background-image: image-set(url('assets/img/bg-noise.webp') type('image/webp'), url('assets/img/bg-noise.jpg') type('image/jpeg'));
   animation: deriva 48s ease-in-out infinite alternate;
 }
 .fondo::after {
@@ -233,6 +234,7 @@ a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outlin
   .media.fx { filter: none; }
   .media::after { display: none; }
 }
+.sr-only { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
 </style>
 </head>
 <body class="no-anim">
@@ -272,6 +274,7 @@ a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outlin
   </header>
 
   <main class="contenuto">
+    <h1 class="sr-only">Music</h1>
     <ul class="sets" aria-label="Set">
       <li><button type="button" aria-pressed="true" aria-controls="set-0">/zacku and Teo - Aurisina session</button></li>
       <li><button type="button" aria-pressed="false" aria-controls="set-1">/zacku - JëgerLab 2026</button></li>
@@ -281,19 +284,19 @@ a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outlin
     <div class="media" id="media" aria-live="polite">
       <div class="panel is-active" id="set-0">
         <div class="riquadro">
-          <a href="https://www.mixcloud.com/zackuu/zacku-and-teo-aurisina-session/" target="_blank" rel="noopener" aria-label="Apri zacku and Teo - Aurisina session su Mixcloud"><img class="cover" src="assets/img/track-aurisina.jpg" alt="" width="600" height="600"></a>
+          <a href="https://www.mixcloud.com/zackuu/zacku-and-teo-aurisina-session/" target="_blank" rel="noopener" aria-label="Apri zacku and Teo - Aurisina session su Mixcloud"><img class="cover" loading="lazy" src="assets/img/track-aurisina.jpg" alt="" width="600" height="600"></a>
           <iframe class="player" title="zacku and Teo - Aurisina session (player)" data-src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;mini=1&amp;light=0&amp;feed=%2Fzackuu%2Fzacku-and-teo-aurisina-session%2F" scrolling="no" allow="encrypted-media *; autoplay *; fullscreen *"></iframe>
         </div>
       </div>
       <div class="panel" id="set-1" aria-hidden="true">
         <div class="riquadro">
-          <a href="https://www.mixcloud.com/zackuu/zacku-j%C3%ABgerlab-2026/" target="_blank" rel="noopener" aria-label="Apri zacku - JëgerLab 2026 su Mixcloud"><img class="cover" src="assets/img/track-jegerlab.jpg" alt="" width="600" height="600"></a>
+          <a href="https://www.mixcloud.com/zackuu/zacku-j%C3%ABgerlab-2026/" target="_blank" rel="noopener" aria-label="Apri zacku - JëgerLab 2026 su Mixcloud"><img class="cover" loading="lazy" src="assets/img/track-jegerlab.jpg" alt="" width="600" height="600"></a>
           <iframe class="player" title="zacku - JëgerLab 2026 (player)" data-src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;mini=1&amp;light=0&amp;feed=%2Fzackuu%2Fzacku-j%25C3%25ABgerlab-2026%2F" scrolling="no" allow="encrypted-media *; autoplay *; fullscreen *"></iframe>
         </div>
       </div>
       <div class="panel" id="set-2" aria-hidden="true">
         <div class="riquadro">
-          <a href="https://www.mixcloud.com/TeoOod/liminals_teo-set/" target="_blank" rel="noopener" aria-label="Apri Teo - Liminals set su Mixcloud"><img class="cover" src="assets/img/track-teo.jpg" alt="" width="600" height="600"></a>
+          <a href="https://www.mixcloud.com/TeoOod/liminals_teo-set/" target="_blank" rel="noopener" aria-label="Apri Teo - Liminals set su Mixcloud"><img class="cover" loading="lazy" src="assets/img/track-teo.jpg" alt="" width="600" height="600"></a>
           <iframe class="player" title="Teo - Liminals set (player)" data-src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&amp;mini=1&amp;light=0&amp;feed=%2FTeoOod%2Fliminals_teo-set%2F" scrolling="no" allow="encrypted-media *; autoplay *; fullscreen *"></iframe>
         </div>
       </div>
@@ -394,9 +397,9 @@ a:focus-visible, button:focus-visible { outline: 1px solid var(--accent); outlin
   });
 
   /* click: le lettere diventano numeri e simboli, poi si ricompongono */
-  var CLICK = { coverage:0.6, duration:650, tick:55 };
+  var CLICK = { coverage:0.6, duration:300, tick:55 };
   var GLYPHS = '0123456789#%&@$*+=/\\|<>?!§¤';
-  var NAV_DELAY = 500;                   /* ms prima di cambiare pagina, per far vedere l'effetto */
+  var NAV_DELAY = 250;                   /* ms prima di cambiare pagina, per far vedere l'effetto */
 
   function glitchText(el){
     if(reduce.matches || el.children.length) return;   /* solo elementi di puro testo */
